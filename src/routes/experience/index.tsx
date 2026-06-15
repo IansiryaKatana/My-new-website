@@ -1,13 +1,13 @@
-﻿import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 
-import { JsonLd } from '../components/seo/JsonLd'
-import { PageShell } from '../components/layout/PageShell'
-import { useExperience } from '../contexts/CmsContext'
-import { getMarketingSection, useMarketingPage } from '../lib/cms/useMarketingPage'
-import { fontCopy, textCopySm, textCopySmResponsive } from '../lib/typography'
-import { breadcrumbJsonLd, createPageMeta } from '../lib/seo'
+import { JsonLd } from '../../components/seo/JsonLd'
+import { PageShell } from '../../components/layout/PageShell'
+import { useExperience } from '../../contexts/CmsContext'
+import { getMarketingSection, useMarketingPage } from '../../lib/cms/useMarketingPage'
+import { fontCopy, textCopySmResponsive } from '../../lib/typography'
+import { breadcrumbJsonLd, createPageMeta } from '../../lib/seo'
 
-export const Route = createFileRoute('/experience')({
+export const Route = createFileRoute('/experience/')({
   head: () =>
     createPageMeta({
       title: 'Experience',

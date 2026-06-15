@@ -2,12 +2,15 @@
 
 import { useSiteConfig } from '../../contexts/CmsContext'
 import { getSupabase } from '../../integrations/supabase/client'
+import { isValidPhoneE164 } from '../../lib/phone/formatPhone'
 import { fontCopy, textCopySm } from '../../lib/typography'
 import { Button } from '../ui/button'
+import { PhoneInput } from '../ui/phone-input'
 
 type FormState = {
   name: string
   email: string
+  phone: string
   company: string
   message: string
 }
@@ -17,6 +20,7 @@ type FormErrors = Partial<Record<keyof FormState, string>>
 const initialState: FormState = {
   name: '',
   email: '',
+  phone: '',
   company: '',
   message: '',
 }
@@ -27,6 +31,10 @@ function validate(values: FormState): FormErrors {
   if (!values.name.trim()) errors.name = 'Name is required.'
   if (!values.email.trim()) errors.email = 'Email is required.'
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errors.email = 'Enter a valid email address.'
+
+  if (values.phone.trim() && !isValidPhoneE164(values.phone)) {
+    errors.phone = 'Enter a valid phone number.'
+  }
 
   if (!values.message.trim()) errors.message = 'Tell me about the project.'
   else if (values.message.trim().length < 20) errors.message = 'Message should be at least 20 characters.'
@@ -55,6 +63,8 @@ export function ContactForm() {
 
     if (Object.keys(nextErrors).length > 0) return
 
+    const phone = values.phone.trim() || null
+
     const sb = getSupabase()
     if (!sb) {
       const subject = encodeURIComponent(`Project inquiry from ${values.name.trim()}`)
@@ -62,6 +72,7 @@ export function ContactForm() {
         [
           `Name: ${values.name.trim()}`,
           `Email: ${values.email.trim()}`,
+          phone ? `Phone: ${phone}` : null,
           values.company.trim() ? `Company: ${values.company.trim()}` : null,
           '',
           values.message.trim(),
@@ -78,6 +89,7 @@ export function ContactForm() {
     const { error } = await sb.from('form_submissions').insert({
       name: values.name.trim(),
       email: values.email.trim(),
+      phone,
       company: values.company.trim() || null,
       message: values.message.trim(),
       status: 'new',
@@ -113,6 +125,19 @@ export function ContactForm() {
       </div>
 
       <label className="grid gap-2">
+        <span className="font-display text-xs font-black uppercase tracking-[0.14em] text-[#11140F]/70">Phone</span>
+        <PhoneInput
+          name="phone"
+          value={values.phone}
+          onChange={(phone) => handleChange('phone', phone)}
+          placeholder="52 144 0383"
+          aria-invalid={Boolean(errors.phone)}
+          aria-describedby={errors.phone ? 'phone-error' : undefined}
+        />
+        {errors.phone ? <span id="phone-error" className="text-xs text-[#8B2E2E]">{errors.phone}</span> : null}
+      </label>
+
+      <label className="grid gap-2">
         <span className="font-display text-xs font-black uppercase tracking-[0.14em] text-[#11140F]/70">Company</span>
         <input className={fieldClass} name="company" value={values.company} onChange={(event) => handleChange('company', event.target.value)} autoComplete="organization" />
       </label>
@@ -141,4 +166,3 @@ export function ContactForm() {
     </form>
   )
 }
-

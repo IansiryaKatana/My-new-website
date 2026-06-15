@@ -14,7 +14,7 @@ export function AdminTablePagination({
   onNext: () => void
 }) {
   return (
-    <div className="mt-4 flex flex-wrap items-center justify-between gap-3 font-sans text-sm text-[var(--admin-cream)]/70">
+    <div className="mt-4 flex flex-wrap items-center justify-between gap-3 font-sans text-sm text-[var(--admin-fg-muted)]">
       <span>
         Page {page + 1} of {pageCount} · {total} rows
       </span>

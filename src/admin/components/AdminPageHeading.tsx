@@ -16,7 +16,7 @@ export function AdminPageHeading({
           {title}
         </h1>
         {description ? (
-          <p className="mt-2 max-w-2xl font-sans text-sm text-[var(--admin-cream)]/75">
+          <p className="mt-2 max-w-2xl font-sans text-sm text-[var(--admin-fg-muted)]">
             {description}
           </p>
         ) : null}

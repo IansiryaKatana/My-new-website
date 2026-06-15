@@ -13,6 +13,7 @@ import {
   adminTd,
   adminTh,
 } from './adminClassNames'
+import { AdminConfirmDialog } from './components/AdminConfirmDialog'
 import { AdminModal } from './components/AdminModal'
 import { AdminPageHeading } from './components/AdminPageHeading'
 import { AdminTablePagination } from './components/AdminTablePagination'
@@ -170,9 +171,14 @@ export function AdminExperience() {
         ) : null}
       </AdminModal>
 
-      <AdminModal open={Boolean(deleteId)} onOpenChange={() => setDeleteId(null)} title="Delete entry?" footer={<><button type="button" className={adminBtn} onClick={() => setDeleteId(null)}>Cancel</button><button type="button" className={adminBtnDanger} onClick={() => void confirmDelete()}>Delete</button></>}>
-        <p className="font-sans text-sm">This cannot be undone.</p>
-      </AdminModal>
+      <AdminConfirmDialog
+        open={Boolean(deleteId)}
+        onOpenChange={(open) => !open && setDeleteId(null)}
+        title="Delete entry?"
+        description="This cannot be undone."
+        confirmLabel="Delete"
+        onConfirm={confirmDelete}
+      />
     </div>
   )
 }

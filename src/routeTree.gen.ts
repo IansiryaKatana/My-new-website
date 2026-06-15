@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as FaviconDoticoRouteImport } from './routes/favicon[.]ico'
-import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CertificationsRouteImport } from './routes/certifications'
 import { Route as AboutRouteImport } from './routes/about'
@@ -19,6 +18,7 @@ import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects/index'
 import { Route as PortfolioIndexRouteImport } from './routes/portfolio/index'
+import { Route as ExperienceIndexRouteImport } from './routes/experience/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects/$slug'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio/$slug'
@@ -44,11 +44,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const FaviconDoticoRoute = FaviconDoticoRouteImport.update({
   id: '/favicon.ico',
   path: '/favicon.ico',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExperienceRoute = ExperienceRouteImport.update({
-  id: '/experience',
-  path: '/experience',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -86,6 +81,11 @@ const PortfolioIndexRoute = PortfolioIndexRouteImport.update({
   path: '/portfolio/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExperienceIndexRoute = ExperienceIndexRouteImport.update({
+  id: '/experience/',
+  path: '/experience/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -102,9 +102,9 @@ const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceSlugRoute = ExperienceSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ExperienceRoute,
+  id: '/experience/$slug',
+  path: '/experience/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
   id: '/users',
@@ -173,7 +173,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
-  '/experience': typeof ExperienceRouteWithChildren
   '/favicon.ico': typeof FaviconDoticoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
@@ -190,6 +189,7 @@ export interface FileRoutesByFullPath {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
+  '/experience/': typeof ExperienceIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/demos/$slug/$': typeof DemosSlugSplatRoute
@@ -200,7 +200,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
-  '/experience': typeof ExperienceRouteWithChildren
   '/favicon.ico': typeof FaviconDoticoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
@@ -217,6 +216,7 @@ export interface FileRoutesByTo {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin': typeof AdminIndexRoute
+  '/experience': typeof ExperienceIndexRoute
   '/portfolio': typeof PortfolioIndexRoute
   '/projects': typeof ProjectsIndexRoute
   '/demos/$slug/$': typeof DemosSlugSplatRoute
@@ -229,7 +229,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
-  '/experience': typeof ExperienceRouteWithChildren
   '/favicon.ico': typeof FaviconDoticoRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
@@ -246,6 +245,7 @@ export interface FileRoutesById {
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
+  '/experience/': typeof ExperienceIndexRoute
   '/portfolio/': typeof PortfolioIndexRoute
   '/projects/': typeof ProjectsIndexRoute
   '/demos/$slug/$': typeof DemosSlugSplatRoute
@@ -259,7 +259,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/certifications'
     | '/contact'
-    | '/experience'
     | '/favicon.ico'
     | '/sitemap.xml'
     | '/admin/experience'
@@ -276,6 +275,7 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/projects/$slug'
     | '/admin/'
+    | '/experience/'
     | '/portfolio/'
     | '/projects/'
     | '/demos/$slug/$'
@@ -286,7 +286,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/certifications'
     | '/contact'
-    | '/experience'
     | '/favicon.ico'
     | '/sitemap.xml'
     | '/admin/experience'
@@ -303,6 +302,7 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/projects/$slug'
     | '/admin'
+    | '/experience'
     | '/portfolio'
     | '/projects'
     | '/demos/$slug/$'
@@ -314,7 +314,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/certifications'
     | '/contact'
-    | '/experience'
     | '/favicon.ico'
     | '/sitemap.xml'
     | '/admin/experience'
@@ -331,6 +330,7 @@ export interface FileRouteTypes {
     | '/portfolio/$slug'
     | '/projects/$slug'
     | '/admin/'
+    | '/experience/'
     | '/portfolio/'
     | '/projects/'
     | '/demos/$slug/$'
@@ -343,11 +343,12 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CertificationsRoute: typeof CertificationsRoute
   ContactRoute: typeof ContactRoute
-  ExperienceRoute: typeof ExperienceRouteWithChildren
   FaviconDoticoRoute: typeof FaviconDoticoRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ExperienceSlugRoute: typeof ExperienceSlugRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
+  ExperienceIndexRoute: typeof ExperienceIndexRoute
   PortfolioIndexRoute: typeof PortfolioIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
   DemosSlugSplatRoute: typeof DemosSlugSplatRoute
@@ -368,13 +369,6 @@ declare module '@tanstack/react-router' {
       path: '/favicon.ico'
       fullPath: '/favicon.ico'
       preLoaderRoute: typeof FaviconDoticoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/experience': {
-      id: '/experience'
-      path: '/experience'
-      fullPath: '/experience'
-      preLoaderRoute: typeof ExperienceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -426,6 +420,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/experience/': {
+      id: '/experience/'
+      path: '/experience'
+      fullPath: '/experience/'
+      preLoaderRoute: typeof ExperienceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/': {
       id: '/admin/'
       path: '/'
@@ -449,10 +450,10 @@ declare module '@tanstack/react-router' {
     }
     '/experience/$slug': {
       id: '/experience/$slug'
-      path: '/$slug'
+      path: '/experience/$slug'
       fullPath: '/experience/$slug'
       preLoaderRoute: typeof ExperienceSlugRouteImport
-      parentRoute: typeof ExperienceRoute
+      parentRoute: typeof rootRouteImport
     }
     '/admin/users': {
       id: '/admin/users'
@@ -573,29 +574,18 @@ const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
   AdminRouteRouteChildren,
 )
 
-interface ExperienceRouteChildren {
-  ExperienceSlugRoute: typeof ExperienceSlugRoute
-}
-
-const ExperienceRouteChildren: ExperienceRouteChildren = {
-  ExperienceSlugRoute: ExperienceSlugRoute,
-}
-
-const ExperienceRouteWithChildren = ExperienceRoute._addFileChildren(
-  ExperienceRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   CertificationsRoute: CertificationsRoute,
   ContactRoute: ContactRoute,
-  ExperienceRoute: ExperienceRouteWithChildren,
   FaviconDoticoRoute: FaviconDoticoRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ExperienceSlugRoute: ExperienceSlugRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
+  ExperienceIndexRoute: ExperienceIndexRoute,
   PortfolioIndexRoute: PortfolioIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
   DemosSlugSplatRoute: DemosSlugSplatRoute,

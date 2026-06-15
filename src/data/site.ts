@@ -5,6 +5,7 @@
   tagline:
     'Building and leading business-critical web platforms, CRM systems, dashboards, booking workflows, and multi-brand digital products.',
   email: 'Hello@iankatana.com',
+  phone: '+971521440383',
   location: 'Dubai, United Arab Emirates',
   url: 'https://iankatana.com',
   social: {

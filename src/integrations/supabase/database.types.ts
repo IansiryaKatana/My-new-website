@@ -146,6 +146,7 @@ export type TablesMap = {
     name: string
     email: string
     company: string | null
+    phone: string | null
     message: string
     status: string
     created_at: string

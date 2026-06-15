@@ -13,6 +13,7 @@ import {
   adminTd,
   adminTh,
 } from './adminClassNames'
+import { AdminConfirmDialog } from './components/AdminConfirmDialog'
 import { AdminModal } from './components/AdminModal'
 import { AdminPageHeading } from './components/AdminPageHeading'
 
@@ -43,6 +44,7 @@ export function AdminMarketing() {
   const [draft, setDraft] = useState<Row | null>(null)
   const [saveErr, setSaveErr] = useState<string | null>(null)
   const [sectionsJson, setSectionsJson] = useState('{}')
+  const [deleteId, setDeleteId] = useState<string | null>(null)
 
   async function refresh() {
     const sb = getSupabase()
@@ -83,6 +85,16 @@ export function AdminMarketing() {
     await refetch()
   }
 
+  async function confirmDelete() {
+    if (!deleteId) return
+    const sb = getSupabase()
+    if (!sb) return
+    await sb.from('marketing_pages').delete().eq('id', deleteId)
+    setDeleteId(null)
+    await refresh()
+    await refetch()
+  }
+
   return (
     <div>
       <AdminPageHeading
@@ -108,13 +120,9 @@ export function AdminMarketing() {
                     setSectionsJson(JSON.stringify(row.sections ?? {}, null, 2))
                     setModalOpen(true)
                   }}>Edit</button>
-                  <button type="button" className={`${adminBtnDanger} ml-2`} onClick={async () => {
-                    const sb = getSupabase()
-                    if (!sb) return
-                    await sb.from('marketing_pages').delete().eq('id', row.id)
-                    await refresh()
-                    await refetch()
-                  }}>Delete</button>
+                  <button type="button" className={`${adminBtnDanger} ml-2`} onClick={() => setDeleteId(row.id)}>
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
@@ -136,6 +144,15 @@ export function AdminMarketing() {
           </>
         ) : null}
       </AdminModal>
+
+      <AdminConfirmDialog
+        open={Boolean(deleteId)}
+        onOpenChange={(open) => !open && setDeleteId(null)}
+        title="Delete marketing page?"
+        description="This page and its content will be permanently removed. This cannot be undone."
+        confirmLabel="Delete"
+        onConfirm={confirmDelete}
+      />
     </div>
   )
 }

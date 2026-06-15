@@ -2,7 +2,7 @@
 
 import { siteConfig } from './site'
 
-
+export const heroRoleTitle = 'Lead Full-Stack Developer'
 
 export const heroContent = {
 
@@ -52,7 +52,7 @@ export const heroContent = {
 
   tags: ['Full Stack', '2026'],
 
-  badge: '05',
+  badge: '',
 
   subject: {
 

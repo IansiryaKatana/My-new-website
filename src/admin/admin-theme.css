@@ -3,13 +3,94 @@
   --admin-surface: #34392e;
   --admin-cream: #d8d7c3;
   --admin-dark: #10140d;
+  --admin-content: #ebeae0;
   --admin-radius-lg: 0px;
+  --admin-fg: var(--admin-cream);
+  --admin-fg-muted: color-mix(in srgb, var(--admin-cream) 70%, transparent);
+  --admin-fg-subtle: color-mix(in srgb, var(--admin-cream) 45%, transparent);
+  --admin-border: color-mix(in srgb, var(--admin-cream) 20%, transparent);
+  --admin-border-subtle: color-mix(in srgb, var(--admin-cream) 10%, transparent);
+  --admin-input-bg: var(--admin-surface);
+  --admin-btn-fg: var(--admin-cream);
+  --admin-btn-hover-bg: var(--admin-cream);
+  --admin-btn-hover-fg: var(--admin-dark);
   min-height: 100vh;
   background: var(--admin-dark);
-  color: var(--admin-cream);
+  color: var(--admin-fg);
   font-family: 'Big Shoulders Display', system-ui, sans-serif;
 }
 
 .admin-root * {
   box-sizing: border-box;
+}
+
+.admin-content,
+.admin-sheet {
+  --admin-fg: #1a1f16;
+  --admin-fg-muted: #5a5f52;
+  --admin-fg-subtle: #8a8f84;
+  --admin-border: #cfd0c4;
+  --admin-border-subtle: #e0e1d6;
+  --admin-input-bg: #ffffff;
+  --admin-btn-fg: #10140d;
+  --admin-btn-hover-bg: #765f47;
+  --admin-btn-hover-fg: #d8d7c3;
+  color: #1a1f16;
+}
+
+.admin-content {
+  background-color: #ebeae0;
+}
+
+/* Portal renders outside .admin-root — must be fully self-contained + opaque */
+.admin-sheet {
+  --admin-primary: #765f47;
+  --admin-cream: #d8d7c3;
+  --admin-dark: #10140d;
+  --admin-content: #ebeae0;
+  --admin-radius-lg: 0px;
+  background-color: #ebeae0;
+}
+
+.admin-sheet-header,
+.admin-sheet-body,
+.admin-sheet-footer,
+.admin-sheet-progress {
+  background-color: #ebeae0;
+}
+
+.admin-sheet-scroll {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background-color: #ebeae0;
+}
+
+.admin-sheet-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.admin-sheet-progress {
+  height: 3px;
+  background-color: #d8d9ce;
+}
+
+.admin-sheet-progress-bar {
+  height: 100%;
+  background-color: #765f47;
+  transition: width 80ms linear;
+}
+
+.admin-sheet-overlay {
+  background-color: rgb(16 20 13 / 0.5);
+}
+
+.admin-select option {
+  background-color: #ffffff;
+  color: #1a1f16;
+}
+
+.admin-sheet .admin-select option {
+  background-color: #ffffff;
+  color: #1a1f16;
 }

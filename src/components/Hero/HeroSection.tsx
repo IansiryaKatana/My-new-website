@@ -2,9 +2,9 @@
 import { ArrowRight } from 'lucide-react'
 
 import { useHeroContent } from '../../contexts/CmsContext'
+import { heroRoleTitle } from '../../data/hero-content'
 import { Button } from '../ui/button'
 import { HeroBackground } from './HeroBackground'
-import { HeroBadge } from './HeroBadge'
 import { HeroCopyBlock } from './HeroCopyBlock'
 import { HeroNavigation } from './HeroNavigation'
 import { HeroSubject } from './HeroSubject'
@@ -25,9 +25,8 @@ export function HeroSection() {
 
       <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_50%_20%,rgba(218,216,197,0.16),transparent_25%),linear-gradient(90deg,rgba(16,20,13,0.2),transparent_45%,rgba(16,20,13,0.25))]" />
 
-      <HeroTypography name={heroContent.name} role={heroContent.role} />
+      <HeroTypography name={heroContent.name} role={heroRoleTitle} />
       <HeroSubject src={heroContent.subject.src} alt={heroContent.subject.alt} />
-      {heroContent.badge ? <HeroBadge text={heroContent.badge} /> : null}
 
       <div className="hero-copy-shell absolute inset-x-0 bottom-24 z-[7] grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-end gap-3 px-4 sm:bottom-28 sm:gap-5 sm:px-8 lg:bottom-[112px] lg:grid-cols-[30%_40%_30%] lg:gap-0">
         <div className="hero-copy-cluster max-w-[18rem] lg:self-end">

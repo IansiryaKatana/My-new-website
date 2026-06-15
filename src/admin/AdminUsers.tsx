@@ -13,6 +13,7 @@ import {
   adminTh,
 } from './adminClassNames'
 import { AdminModal } from './components/AdminModal'
+import { AdminSelectField } from './components/AdminSelect'
 import { AdminPageHeading } from './components/AdminPageHeading'
 
 type Row = Tables<'admin_users'>
@@ -155,21 +156,16 @@ export function AdminUsers() {
             onChange={(e) => setDraft({ ...draft, email: e.target.value })}
           />
         </label>
-        <label className="grid gap-2">
-          <span className={adminLabel}>Role</span>
-          <select
-            className={adminInput}
-            value={draft.role ?? 'editor'}
-            onChange={(e) =>
-              setDraft({ ...draft, role: e.target.value as Row['role'] })
-            }
-          >
-            <option value="owner">Owner</option>
-            <option value="admin">Admin</option>
-            <option value="editor">Editor</option>
-            <option value="viewer">Viewer</option>
-          </select>
-        </label>
+        <AdminSelectField
+          label="Role"
+          value={draft.role ?? 'editor'}
+          onChange={(e) => setDraft({ ...draft, role: e.target.value as Row['role'] })}
+        >
+          <option value="owner">Owner</option>
+          <option value="admin">Admin</option>
+          <option value="editor">Editor</option>
+          <option value="viewer">Viewer</option>
+        </AdminSelectField>
         <label className="flex items-center gap-2 font-sans text-sm">
           <input
             type="checkbox"

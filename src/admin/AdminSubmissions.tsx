@@ -1,6 +1,7 @@
 ﻿import { useEffect, useState } from 'react'
 
 import { getSupabase } from '../integrations/supabase/client'
+import { formatPhoneDisplay } from '../lib/phone/formatPhone'
 import type { Tables } from '../integrations/supabase/database.types'
 import {
   adminBtn,
@@ -9,6 +10,7 @@ import {
   adminTd,
   adminTh,
 } from './adminClassNames'
+import { AdminConfirmDialog } from './components/AdminConfirmDialog'
 import { AdminModal } from './components/AdminModal'
 import { AdminPageHeading } from './components/AdminPageHeading'
 import { AdminTablePagination } from './components/AdminTablePagination'
@@ -19,6 +21,7 @@ type Row = Tables<'form_submissions'>
 export function AdminSubmissions() {
   const [rows, setRows] = useState<Row[]>([])
   const [viewRow, setViewRow] = useState<Row | null>(null)
+  const [deleteId, setDeleteId] = useState<string | null>(null)
   const pagination = useAdminTablePagination(rows)
 
   async function refresh() {
@@ -35,10 +38,19 @@ export function AdminSubmissions() {
     void refresh()
   }, [])
 
+  async function confirmDelete() {
+    if (!deleteId) return
+    const sb = getSupabase()
+    if (!sb) return
+    await sb.from('form_submissions').delete().eq('id', deleteId)
+    setDeleteId(null)
+    await refresh()
+  }
+
   function exportCsv() {
-    const header = ['name', 'email', 'company', 'message', 'created_at']
+    const header = ['name', 'email', 'phone', 'company', 'message', 'created_at']
     const lines = rows.map((r) =>
-      [r.name, r.email, r.company ?? '', r.message, r.created_at]
+      [r.name, r.email, r.phone ?? '', r.company ?? '', r.message, r.created_at]
         .map((v) => `"${String(v).replace(/"/g, '""')}"`)
         .join(','),
     )
@@ -68,6 +80,7 @@ export function AdminSubmissions() {
             <tr>
               <th className={adminTh}>Name</th>
               <th className={adminTh}>Email</th>
+              <th className={adminTh}>Phone</th>
               <th className={adminTh}>Date</th>
               <th className={adminTh}>Actions</th>
             </tr>
@@ -77,18 +90,14 @@ export function AdminSubmissions() {
               <tr key={row.id}>
                 <td className={adminTd}>{row.name}</td>
                 <td className={adminTd}>{row.email}</td>
+                <td className={adminTd}>{row.phone ? formatPhoneDisplay(row.phone) : '—'}</td>
                 <td className={adminTd}>{new Date(row.created_at).toLocaleString()}</td>
                 <td className={adminTd}>
                   <button type="button" className={adminBtn} onClick={() => setViewRow(row)}>View</button>
                   <button
                     type="button"
                     className={`${adminBtnDanger} ml-2`}
-                    onClick={async () => {
-                      const sb = getSupabase()
-                      if (!sb) return
-                      await sb.from('form_submissions').delete().eq('id', row.id)
-                      await refresh()
-                    }}
+                    onClick={() => setDeleteId(row.id)}
                   >
                     Delete
                   </button>
@@ -114,11 +123,21 @@ export function AdminSubmissions() {
           <div className="grid gap-3 font-sans text-sm">
             <p><strong>Name:</strong> {viewRow.name}</p>
             <p><strong>Email:</strong> {viewRow.email}</p>
+            {viewRow.phone ? <p><strong>Phone:</strong> {formatPhoneDisplay(viewRow.phone)}</p> : null}
             {viewRow.company ? <p><strong>Company:</strong> {viewRow.company}</p> : null}
             <p className="whitespace-pre-wrap"><strong>Message:</strong><br />{viewRow.message}</p>
           </div>
         ) : null}
       </AdminModal>
+
+      <AdminConfirmDialog
+        open={Boolean(deleteId)}
+        onOpenChange={(open) => !open && setDeleteId(null)}
+        title="Delete submission?"
+        description="This inquiry will be permanently removed. This cannot be undone."
+        confirmLabel="Delete"
+        onConfirm={confirmDelete}
+      />
     </div>
   )
 }

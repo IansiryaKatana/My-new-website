@@ -13,10 +13,12 @@ import {
   adminTd,
   adminTh,
 } from './adminClassNames'
+import { AdminConfirmDialog } from './components/AdminConfirmDialog'
 import { AdminModal } from './components/AdminModal'
 import { AdminPageHeading } from './components/AdminPageHeading'
 import { AdminTablePagination } from './components/AdminTablePagination'
 import { ImageUploadField } from './components/ImageUploadField'
+import { MultiImageUploadField } from './components/MultiImageUploadField'
 import { useAdminTablePagination } from './useAdminTablePagination'
 
 type Row = Tables<'projects'>
@@ -274,48 +276,45 @@ export function AdminProjects() {
                   onChange={(e) => setDraft({ ...draft, outcomes: e.target.value.split('\n').map((s) => s.trim()).filter(Boolean) })}
                 />
               </label>
+              <label className="grid gap-2">
+                <span className={adminLabel}>Demo URL</span>
+                <input
+                  className={adminInput}
+                  value={draft.href ?? ''}
+                  onChange={(e) => setDraft({ ...draft, href: e.target.value.trim() || null })}
+                  placeholder="/demos/aurora/ or https://live-demo.example.com"
+                />
+                <span className="font-sans text-xs text-[var(--admin-fg-muted)]">
+                  Link to a hosted demo preview or live project. Use paths like{' '}
+                  <code className="text-[var(--admin-fg)]">/demos/your-slug/</code> for local demos,
+                  or a full https URL for external sites.
+                </span>
+              </label>
               {saveErr ? <p className="text-sm text-[#e88]">{saveErr}</p> : null}
             </>
           ) : (
             <>
               <ImageUploadField
-                label="Cover image (Behance-style hero)"
+                label="Cover image"
                 folder="projects/covers"
                 value={draft.cover_image_url ?? ''}
                 onChange={(url) => setDraft({ ...draft, cover_image_url: url || null })}
+                hint="Large hero image on the case study page. Upload a file — no need to paste a URL."
               />
               <ImageUploadField
-                label="Featured image (home preview)"
+                label="Featured image"
                 folder="projects/featured"
                 value={draft.featured_image_url ?? ''}
                 onChange={(url) => setDraft({ ...draft, featured_image_url: url || null })}
+                hint="Preview image used on the home page and project cards."
               />
-              <label className="grid gap-2">
-                <span className={adminLabel}>Thumbnails (one URL per line)</span>
-                <textarea
-                  className={`${adminInput} min-h-24`}
-                  value={(draft.thumbnail_urls as string[]).join('\n')}
-                  onChange={(e) =>
-                    setDraft({
-                      ...draft,
-                      thumbnail_urls: e.target.value.split('\n').map((s) => s.trim()).filter(Boolean),
-                    })
-                  }
-                  placeholder="Gallery images shown on the case study page"
-                />
-              </label>
-              <label className="grid gap-2">
-                <span className={adminLabel}>Reference link</span>
-                <input
-                  className={adminInput}
-                  value={draft.href ?? ''}
-                  onChange={(e) => setDraft({ ...draft, href: e.target.value.trim() || null })}
-                  placeholder="/demos/aurora/ or https://example.com"
-                />
-                <span className="text-xs opacity-60">
-                  Hosted demos: /demos/{'{slug}'}/ (e.g. /demos/aurora/). External URLs open in a new tab.
-                </span>
-              </label>
+              <MultiImageUploadField
+                label="Gallery thumbnails"
+                folder="projects/thumbnails"
+                values={draft.thumbnail_urls as string[]}
+                onChange={(urls) => setDraft({ ...draft, thumbnail_urls: urls })}
+                hint="Additional images shown in the case study gallery. Upload multiple files at once."
+              />
               <label className="grid gap-2">
                 <span className={adminLabel}>Sort order</span>
                 <input
@@ -339,23 +338,14 @@ export function AdminProjects() {
         ) : null}
       </AdminModal>
 
-      <AdminModal
+      <AdminConfirmDialog
         open={Boolean(deleteId)}
-        onOpenChange={() => setDeleteId(null)}
+        onOpenChange={(open) => !open && setDeleteId(null)}
         title="Delete project?"
-        footer={
-          <>
-            <button type="button" className={adminBtn} onClick={() => setDeleteId(null)}>
-              Cancel
-            </button>
-            <button type="button" className={adminBtnDanger} onClick={() => void confirmDelete()}>
-              Delete
-            </button>
-          </>
-        }
-      >
-        <p className="font-sans text-sm">This cannot be undone.</p>
-      </AdminModal>
+        description="This cannot be undone."
+        confirmLabel="Delete"
+        onConfirm={confirmDelete}
+      />
     </div>
   )
 }

@@ -69,7 +69,7 @@ insert into public.hero_content (
     {"label": "Contact", "href": "/contact"}
   ]'::jsonb,
   'Portrait of Ian Sirya wearing round sunglasses',
-  '05',
+  null,
   true
 ) on conflict (id) do update set
   name = excluded.name,

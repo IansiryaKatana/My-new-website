@@ -58,24 +58,24 @@ export function AdminDashboard() {
             <p className="font-display text-xs uppercase tracking-[0.18em] text-[var(--admin-cream)]/60">
               {card.label}
             </p>
-            <p className="mt-2 font-display text-5xl font-black">{card.value}</p>
+            <p className="mt-2 font-display text-5xl font-black text-[var(--admin-cream)]">{card.value}</p>
           </Link>
         ))}
       </div>
 
       <section className="mt-10">
-        <h2 className="font-display text-xl font-black uppercase">Recent inbox</h2>
+        <h2 className="font-display text-xl font-black uppercase text-[var(--admin-fg)]">Recent inbox</h2>
         {recent.length === 0 ? (
-          <p className="mt-3 font-sans text-sm text-[var(--admin-cream)]/65">No submissions yet.</p>
+          <p className="mt-3 font-sans text-sm text-[var(--admin-fg-muted)]">No submissions yet.</p>
         ) : (
           <ul className="mt-4 grid gap-2">
             {recent.map((row) => (
               <li
                 key={row.id}
-                className="flex flex-col gap-1 border border-[var(--admin-cream)]/15 px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
+                className="flex flex-col gap-1 border border-[var(--admin-border-subtle)] px-4 py-3 sm:flex-row sm:items-center sm:justify-between"
               >
-                <span className="font-display uppercase">{row.name}</span>
-                <span className="font-sans text-sm text-[var(--admin-cream)]/70">{row.email}</span>
+                <span className="font-display uppercase text-[var(--admin-fg)]">{row.name}</span>
+                <span className="font-sans text-sm text-[var(--admin-fg-muted)]">{row.email}</span>
               </li>
             ))}
           </ul>
