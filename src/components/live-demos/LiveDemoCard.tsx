@@ -46,7 +46,7 @@ export function LiveDemoCard({ project, className }: LiveDemoCardProps) {
           {project.title}
         </h3>
         {project.summary ? (
-          <p className={cn('mt-2 line-clamp-2 text-white/85', textCopySm)}>
+          <p className={cn('live-demo-card-summary mt-2 line-clamp-2 text-white/85', textCopySm)}>
             {project.summary}
           </p>
         ) : null}

@@ -8,26 +8,37 @@ import { useInquiry } from '../../contexts/InquiryContext'
 import { InquiryLinkTrigger } from '../inquiry/InquiryTrigger'
 import { Button } from '../ui/button'
 
+const heroStartProjectLinkClass =
+  'group justify-self-start inline-flex h-9 w-9 shrink-0 items-center justify-center font-display text-xl leading-none transition-colors duration-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D8D7C3] sm:h-auto sm:w-auto sm:text-sm sm:font-black sm:uppercase sm:underline sm:decoration-[#D8D7C3]/80 sm:underline-offset-4'
+
 export function HeroNavigation() {
   const heroContent = useHeroContent()
   const siteConfig = useSiteConfig()
   const { openInquiry } = useInquiry()
 
   return (
-    <header className="hero-nav absolute left-0 right-0 top-0 z-20 flex items-start justify-between px-6 pt-6 text-[#D8D7C3] sm:px-8 sm:pt-7">
+    <header className="hero-nav absolute left-0 right-0 top-0 z-20 grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-6 py-5 text-[#D8D7C3] sm:px-8 sm:py-6">
       {isInquiryHref(heroContent.startProject.href) ? (
-        <InquiryLinkTrigger inquiry={{ source: 'hero-nav' }}>
+        <InquiryLinkTrigger
+          inquiry={{ source: 'hero-nav' }}
+          className="justify-self-start"
+          compactOnMobile
+        >
           {heroContent.startProject.label}
         </InquiryLinkTrigger>
       ) : (
         <Link
           to={heroContent.startProject.href}
-          className="group font-display text-sm font-black uppercase underline decoration-[#D8D7C3]/80 underline-offset-4 transition-colors duration-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D8D7C3]"
+          className={heroStartProjectLinkClass}
         >
-          {heroContent.startProject.label}
+          <span className="sr-only sm:hidden">{heroContent.startProject.label}</span>
+          <span className="sm:hidden" aria-hidden="true">
+            ↗
+          </span>
+          <span className="hidden sm:inline">{heroContent.startProject.label}</span>
           <span
             aria-hidden="true"
-            className="inline-block pl-1 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            className="hidden pl-1 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 sm:inline-block"
           >
             ↗
           </span>
@@ -36,7 +47,7 @@ export function HeroNavigation() {
 
       <Link
         to="/"
-        className="absolute left-1/2 top-6 -translate-x-1/2 font-display text-xl font-black uppercase leading-none tracking-[-0.02em] transition-colors hover:text-white sm:top-7"
+        className="justify-self-center font-display text-xl font-black uppercase leading-none tracking-[-0.02em] transition-colors hover:text-white"
       >
         {heroContent.name}
       </Link>
@@ -45,7 +56,7 @@ export function HeroNavigation() {
         <Dialog.Trigger asChild>
           <button
             type="button"
-            className="group grid h-9 w-9 grid-cols-2 place-items-center gap-1 transition-transform duration-300 hover:rotate-[5deg] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D8D7C3]"
+            className="justify-self-end group grid h-9 w-9 shrink-0 grid-cols-2 place-items-center gap-1 transition-transform duration-300 hover:rotate-[5deg] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D8D7C3]"
             aria-label="Open site navigation"
           >
             {Array.from({ length: 4 }).map((_, index) => (

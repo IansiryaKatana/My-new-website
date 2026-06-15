@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useSkillGroups } from '../../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../../lib/cms/useMarketingPage'
+import { cn } from '../../lib/utils'
 import { SectionHeading } from '../layout/SectionHeading'
 
 type StackSection = {
@@ -14,6 +15,7 @@ export function SkillsSection() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(skillGroups.length > 2)
+  const [activeIndex, setActiveIndex] = useState(0)
   const homePage = useMarketingPage('home')
   const section = getMarketingSection<StackSection>(homePage, 'stack', {
     eyebrow: 'Stack & craft',
@@ -22,15 +24,35 @@ export function SkillsSection() {
       'Pragmatic full stack choices — typed frontends, dependable APIs, and observability from day one.',
   })
 
-  useEffect(() => {
+  const updateScrollState = useCallback(() => {
     const node = carouselRef.current
     if (!node) return
 
-    const updateScrollState = () => {
-      const maxScrollLeft = node.scrollWidth - node.clientWidth
-      setCanScrollPrev(node.scrollLeft > 0)
-      setCanScrollNext(node.scrollLeft < maxScrollLeft - 1)
-    }
+    const maxScrollLeft = node.scrollWidth - node.clientWidth
+    setCanScrollPrev(node.scrollLeft > 0)
+    setCanScrollNext(node.scrollLeft < maxScrollLeft - 1)
+
+    const cards = Array.from(node.children) as HTMLElement[]
+    if (cards.length === 0) return
+
+    const scrollLeft = node.scrollLeft
+    let closestIndex = 0
+    let closestDistance = Number.POSITIVE_INFINITY
+
+    cards.forEach((card, index) => {
+      const distance = Math.abs(card.offsetLeft - scrollLeft)
+      if (distance < closestDistance) {
+        closestDistance = distance
+        closestIndex = index
+      }
+    })
+
+    setActiveIndex(closestIndex)
+  }, [])
+
+  useEffect(() => {
+    const node = carouselRef.current
+    if (!node) return
 
     updateScrollState()
     node.addEventListener('scroll', updateScrollState, { passive: true })
@@ -40,13 +62,22 @@ export function SkillsSection() {
       node.removeEventListener('scroll', updateScrollState)
       window.removeEventListener('resize', updateScrollState)
     }
-  }, [skillGroups.length])
+  }, [skillGroups.length, updateScrollState])
 
   const scrollByPage = (direction: 'prev' | 'next') => {
     const node = carouselRef.current
     if (!node) return
     const offset = direction === 'next' ? node.clientWidth : -node.clientWidth
     node.scrollBy({ left: offset, behavior: 'smooth' })
+  }
+
+  const scrollToIndex = (index: number) => {
+    const node = carouselRef.current
+    if (!node) return
+
+    const card = node.children.item(index) as HTMLElement | null
+    card?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' })
+    setActiveIndex(index)
   }
 
   return (
@@ -63,7 +94,7 @@ export function SkillsSection() {
         />
 
         <div className="mt-12">
-          <div className="mb-4 flex justify-end gap-3">
+          <div className="mb-4 hidden justify-end gap-3 sm:flex">
             <button
               type="button"
               onClick={() => scrollByPage('prev')}
@@ -110,6 +141,26 @@ export function SkillsSection() {
               </article>
             ))}
           </div>
+
+          {skillGroups.length > 1 ? (
+            <div className="mt-4 flex justify-center gap-2 sm:hidden">
+              {skillGroups.map((group, index) => (
+                <button
+                  key={group.title}
+                  type="button"
+                  onClick={() => scrollToIndex(index)}
+                  className={cn(
+                    'h-1 rounded-full transition-all duration-300',
+                    index === activeIndex
+                      ? 'w-6 bg-[#D8D7C3]'
+                      : 'w-1.5 bg-[#D8D7C3]/35',
+                  )}
+                  aria-label={`Show ${group.title} skills`}
+                  aria-current={index === activeIndex ? 'true' : undefined}
+                />
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </section>

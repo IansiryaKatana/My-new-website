@@ -13,6 +13,9 @@ import { HeroSubject } from './HeroSubject'
 import { HeroTicker } from './HeroTicker'
 import { HeroTypography } from './HeroTypography'
 
+const heroCtaClass =
+  'hero-cta group mt-0 w-full bg-[#D8D7C3] text-[#11140F] hover:bg-[#D8D7C3] hover:text-[#11140F] sm:mt-6 sm:w-[10.5rem] sm:bg-transparent sm:text-[#D8D7C3] sm:hover:bg-[#D8D7C3] sm:hover:text-[#11140F]'
+
 export function HeroSection() {
   const heroContent = useHeroContent()
 
@@ -30,16 +33,18 @@ export function HeroSection() {
       <HeroTypography name={heroContent.name} role={heroRoleTitle} />
       <HeroSubject src={heroContent.subject.src} alt={heroContent.subject.alt} />
 
-      <div className="hero-copy-shell absolute inset-x-0 bottom-24 z-[7] grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-end gap-3 px-4 sm:bottom-28 sm:gap-5 sm:px-8 lg:bottom-[112px] lg:grid-cols-[30%_40%_30%] lg:gap-0">
-        <div className="hero-copy-cluster max-w-[18rem] lg:self-end">
-          <HeroCopyBlock
-            lines={heroContent.leftIntro}
-            secondary={[heroContent.expertise]}
-          />
+      <div className="hero-copy-shell absolute inset-x-0 bottom-24 z-[7] grid grid-cols-1 items-end gap-3 px-4 sm:bottom-28 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:gap-5 sm:px-8 lg:bottom-[112px] lg:grid-cols-[30%_40%_30%] lg:gap-0">
+        <div className="hero-copy-cluster w-full max-w-none sm:max-w-[18rem] lg:self-end">
+          <div className="hidden sm:block">
+            <HeroCopyBlock
+              lines={heroContent.leftIntro}
+              secondary={[heroContent.expertise]}
+            />
+          </div>
           {isInquiryHref(heroContent.cta.href) ? (
             <InquiryTrigger
               variant="light"
-              className="hero-cta group mt-6 w-[10.5rem]"
+              className={heroCtaClass}
               inquiry={{ source: 'hero', title: heroContent.cta.label }}
             >
               {heroContent.cta.label}
@@ -49,11 +54,7 @@ export function HeroSection() {
               />
             </InquiryTrigger>
           ) : (
-            <Button
-              asChild
-              variant="light"
-              className="hero-cta group mt-6 w-[10.5rem]"
-            >
+            <Button asChild variant="light" className={heroCtaClass}>
               <Link to={heroContent.cta.href}>
                 {heroContent.cta.label}
                 <ArrowRight
@@ -67,7 +68,7 @@ export function HeroSection() {
 
         <div className="hidden lg:block" aria-hidden="true" />
 
-        <div className="hero-copy-cluster justify-self-start lg:justify-self-end">
+        <div className="hero-copy-cluster hidden justify-self-start sm:block lg:justify-self-end">
           <HeroCopyBlock
             lines={heroContent.rightIntro}
             secondary={heroContent.rightSecondary}
