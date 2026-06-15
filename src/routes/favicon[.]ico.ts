@@ -8,12 +8,12 @@ export const Route = createFileRoute('/favicon.ico')({
   server: {
     handlers: {
       GET: async () => {
-        const svgPath = join(process.cwd(), 'static-public', 'favicon.svg')
-        const body = readFileSync(svgPath)
+        const iconPath = join(process.cwd(), 'static-public', 'favicon.png')
+        const body = readFileSync(iconPath)
 
         return new Response(body, {
           headers: {
-            'Content-Type': 'image/svg+xml',
+            'Content-Type': 'image/png',
             'Cache-Control': 'public, max-age=86400',
           },
         })

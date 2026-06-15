@@ -1,3 +1,4 @@
+import { publicAsset } from '../../../../../demo-assets'
 import { useCms } from '@/contexts/CmsContext'
 import { Button } from '@/components/ui/button'
 
@@ -8,7 +9,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[100svh] md:min-h-screen">
       <img
-        src={siteSettings.heroImage}
+        src={publicAsset(siteSettings.heroImage)}
         alt="Luxury modern estate on a hillside at golden hour"
         className="absolute inset-0 h-full w-full object-cover object-center"
         fetchPriority="high"

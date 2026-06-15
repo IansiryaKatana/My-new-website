@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { Bell, Search, Stethoscope } from 'lucide-react'
+import { publicAsset } from '../../../demo-assets'
 import { careFlowRoutes } from '../lib/navigation'
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -148,7 +149,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
             <div className="flex items-center gap-2 rounded-2xl bg-white/78 p-1.5 pr-3 transition-all duration-200 hover:bg-white hover:shadow-[0_10px_28px_rgb(31_47_37/0.1)]">
               <img
-                src="/hero.png"
+                src={publicAsset('hero.png')}
                 alt="Geoffrey Kingi profile"
                 className="size-9 rounded-full object-cover"
               />

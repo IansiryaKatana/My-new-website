@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useMemo, useState } from 'react'
 import { z } from 'zod'
+import { publicAsset } from '../../../demo-assets'
 import { useCms } from '../contexts/CmsContext'
 import { getSupabase } from '../integrations/supabase/client'
 import { setting } from '../lib/cms/types'
@@ -67,7 +68,7 @@ function App() {
   return (
     <main className="site">
       <section className="hero section">
-        <img src="/hero-reference.webp" alt="" className="absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-multiply" />
+        <img src={publicAsset('hero-reference.webp')} alt="" className="absolute inset-0 h-full w-full object-cover opacity-60 mix-blend-multiply" />
         <div className="section-inner relative z-10">
           <header className="header">
             <span>{setting(snapshot.siteSettings, 'brand_name', 'Thale Capital')}</span>
@@ -117,7 +118,7 @@ function App() {
         <div className="section-inner">
           {featuredInvestment && (
             <article className="investment-card">
-              <img src={featuredInvestment.image_url || '/hero-reference.webp'} alt={featuredInvestment.title} />
+              <img src={featuredInvestment.image_url || publicAsset('hero-reference.webp')} alt={featuredInvestment.title} />
               <div>
                 <h3>{featuredInvestment.title}</h3>
                 <p>{featuredInvestment.description}</p>

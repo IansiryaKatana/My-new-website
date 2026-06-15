@@ -76,8 +76,8 @@ export function HeroSection() {
               <span
                 className={
                   index === 0
-                    ? 'rounded-full bg-[#D8D7C3] px-4 py-2 font-display text-xs font-black uppercase text-[#11140F]'
-                    : 'rounded-full border border-[#D8D7C3]/45 bg-[#10140D] px-4 py-2 font-display text-xs font-black uppercase text-[#D8D7C3]'
+                    ? 'bg-[#D8D7C3] px-4 py-2 font-display text-xs font-black uppercase text-[#11140F]'
+                    : 'border border-[#D8D7C3]/45 bg-[#10140D] px-4 py-2 font-display text-xs font-black uppercase text-[#D8D7C3]'
                 }
                 key={tag}
               >

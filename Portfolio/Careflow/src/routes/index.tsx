@@ -21,6 +21,7 @@ import {
 } from '../lib/careflow-actions'
 import type { UserProfileInput } from '../lib/careflow-types'
 import { formatDate, formatTime } from '../lib/format'
+import { publicAsset } from '../../../demo-assets'
 import { cn } from '../lib/utils'
 import { Badge } from '../components/ui/badge'
 import { Button } from '../components/ui/button'
@@ -60,7 +61,7 @@ function HomeRoute() {
         <Card
           className="care-video-enter relative min-h-[560px] overflow-hidden rounded-[2rem] bg-care-ink bg-cover bg-center lg:min-h-[630px]"
           style={{
-            backgroundImage: 'url("/hero.png")',
+            backgroundImage: `url("${publicAsset('hero.png')}")`,
           }}
         >
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,rgba(5,17,15,0.38)_0%,rgba(5,17,15,0.16)_48%,rgba(5,17,15,0.24)_100%),linear-gradient(180deg,rgba(0,0,0,0.12)_0%,rgba(0,0,0,0.04)_52%,rgba(0,0,0,0.24)_100%)]" />

@@ -27,28 +27,26 @@ export function LiveDemosSection() {
       className="bg-[#10140D] px-6 py-20 text-[#D8D7C3] sm:px-10 lg:px-16"
       aria-labelledby="live-demos-heading"
     >
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <h2
-            id="live-demos-heading"
-            className="font-display text-4xl font-black uppercase leading-[0.9] text-white sm:text-5xl lg:text-6xl"
-          >
-            Live demos
-          </h2>
-          <Link
-            to="/live-demos"
-            className="font-display text-sm font-black uppercase tracking-[0.12em] text-[#D8D7C3]/75 transition-colors hover:text-white"
-          >
-            View all
-            <span aria-hidden="true" className="ml-2">
-              ↗
-            </span>
-          </Link>
-        </div>
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <h2
+          id="live-demos-heading"
+          className="font-display text-4xl font-black uppercase leading-[0.9] text-white sm:text-5xl lg:text-6xl"
+        >
+          Live demos
+        </h2>
+        <Link
+          to="/live-demos"
+          className="font-display text-sm font-black uppercase tracking-[0.12em] text-[#D8D7C3]/75 transition-colors hover:text-white"
+        >
+          View all
+          <span aria-hidden="true" className="ml-2">
+            ↗
+          </span>
+        </Link>
+      </div>
 
-        <div className="mt-10">
-          <LiveDemosCarousel projects={liveDemos} />
-        </div>
+      <div className="mt-10">
+        <LiveDemosCarousel projects={liveDemos} variant="featured" />
       </div>
     </section>
   )

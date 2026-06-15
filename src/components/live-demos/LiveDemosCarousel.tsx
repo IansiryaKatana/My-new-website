@@ -2,15 +2,29 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import type { Project } from '../../data/projects'
 import { cn } from '../../lib/utils'
+import { CarouselDotNav } from '../ui/CarouselDotNav'
 
 import { LiveDemoCard } from './LiveDemoCard'
-
 type LiveDemosCarouselProps = {
   projects: Project[]
   className?: string
+  /** Homepage section: full-width track with three cards visible on large screens. */
+  variant?: 'default' | 'featured'
 }
 
-export function LiveDemosCarousel({ projects, className }: LiveDemosCarouselProps) {
+function getCardClassName(variant: LiveDemosCarouselProps['variant']) {
+  if (variant === 'featured') {
+    return 'w-[min(82vw,520px)] sm:w-[min(48vw,520px)] lg:w-[calc((100%-2rem)/3)]'
+  }
+
+  return 'w-[min(82vw,520px)] sm:w-[min(48vw,520px)]'
+}
+
+export function LiveDemosCarousel({
+  projects,
+  className,
+  variant = 'default',
+}: LiveDemosCarouselProps) {
   const carouselRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -71,28 +85,20 @@ export function LiveDemosCarousel({ projects, className }: LiveDemosCarouselProp
           <LiveDemoCard
             key={project.slug}
             project={project}
-            className="w-[min(82vw,520px)] sm:w-[min(48vw,520px)]"
+            className={getCardClassName(variant)}
           />
         ))}
       </div>
 
-      {projects.length > 1 ? (
-        <div className="flex justify-center gap-2">
-          {projects.map((project, index) => (
-            <button
-              key={project.slug}
-              type="button"
-              onClick={() => scrollToIndex(index)}
-              className={cn(
-                'h-2 w-2 rounded-full transition-colors',
-                index === activeIndex ? 'bg-white' : 'bg-white/30 hover:bg-white/50',
-              )}
-              aria-label={`Show ${project.title} demo`}
-              aria-current={index === activeIndex ? 'true' : undefined}
-            />
-          ))}
-        </div>
-      ) : null}
+      <CarouselDotNav
+        items={projects.map((project) => ({
+          id: project.slug,
+          label: `Show ${project.title} demo`,
+        }))}
+        activeIndex={activeIndex}
+        onSelect={scrollToIndex}
+        tone="light"
+      />
     </div>
   )
 }

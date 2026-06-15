@@ -1,3 +1,5 @@
+import { publicAsset } from '../../../../../demo-assets'
+
 export type Pillar = {
   id: string
   title: string
@@ -90,7 +92,7 @@ export const fallbackSnapshot: CmsSnapshot = {
       year: '2021',
       description:
         'A platform acquisition supporting disciplined expansion across transport and logistics corridors.',
-      image_url: '/hero-reference.webp',
+      image_url: publicAsset('hero-reference.webp'),
       is_featured: true,
     },
   ],

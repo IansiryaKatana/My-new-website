@@ -1,3 +1,5 @@
+import { publicAsset } from '../../../demo-assets'
+
 export type Program = {
   id: string;
   yearLabel: string;
@@ -12,7 +14,7 @@ const unsplash = (id: string, width = 1200) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=85`;
 
 export const images = {
-  hero: "/hero.png",
+  hero: publicAsset('hero.png'),
   consultation: unsplash("photo-1576091160550-2173dba999ef", 1200),
   therapy: unsplash("photo-1584515933487-779824d29309", 1200),
   diagnosis: unsplash("photo-1579684385127-1ef15d508118", 1000),

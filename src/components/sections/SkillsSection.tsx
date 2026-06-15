@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useSkillGroups } from '../../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../../lib/cms/useMarketingPage'
-import { cn } from '../../lib/utils'
+import { CarouselDotNav } from '../ui/CarouselDotNav'
 import { SectionHeading } from '../layout/SectionHeading'
 
 type StackSection = {
@@ -142,25 +142,16 @@ export function SkillsSection() {
             ))}
           </div>
 
-          {skillGroups.length > 1 ? (
-            <div className="mt-4 flex justify-center gap-2 sm:hidden">
-              {skillGroups.map((group, index) => (
-                <button
-                  key={group.title}
-                  type="button"
-                  onClick={() => scrollToIndex(index)}
-                  className={cn(
-                    'h-1 rounded-full transition-all duration-300',
-                    index === activeIndex
-                      ? 'w-6 bg-[#D8D7C3]'
-                      : 'w-1.5 bg-[#D8D7C3]/35',
-                  )}
-                  aria-label={`Show ${group.title} skills`}
-                  aria-current={index === activeIndex ? 'true' : undefined}
-                />
-              ))}
-            </div>
-          ) : null}
+          <CarouselDotNav
+            className="mt-4 sm:hidden"
+            items={skillGroups.map((group) => ({
+              id: group.title,
+              label: `Show ${group.title} skills`,
+            }))}
+            activeIndex={activeIndex}
+            onSelect={scrollToIndex}
+            tone="cream"
+          />
         </div>
       </div>
     </section>

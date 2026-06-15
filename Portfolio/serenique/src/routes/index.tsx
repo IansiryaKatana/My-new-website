@@ -29,11 +29,13 @@ export const Route = createFileRoute('/')({
   component: HomePage,
 })
 
+import { publicAsset } from '../../../demo-assets'
+
 const image = (id: string, width = 1600) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${width}&q=80`
 
-const heroImage = '/images/grainy-hero.png'
-const cinematicImage = '/images/other-grainy.png'
+const heroImage = publicAsset('images/grainy-hero.png')
+const cinematicImage = publicAsset('images/other-grainy.png')
 
 const services = [
   {
