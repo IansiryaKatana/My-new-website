@@ -36,10 +36,7 @@ export function AboutCredentials() {
   const hasContent = education.length > 0 || certifications.length > 0
 
   return (
-    <section
-      className="mx-auto mt-16 max-w-6xl border border-[#11140F]/15 bg-[#D8D7C3] px-5 py-8 text-[#11140F] sm:px-6 sm:py-10"
-      aria-labelledby="about-certifications-teaser-heading"
-    >
+    <div className="mx-auto max-w-6xl">
       <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#11140F]/60">
         {certificationsTeaser.eyebrow}
       </p>
@@ -60,10 +57,10 @@ export function AboutCredentials() {
           {education.map((item, index) => (
             <li
               key={`${item.degree}-${item.institution}`}
-              className="border border-[#11140F]/15 bg-[#D8D7C3] p-5 sm:p-6"
+              className="border border-[#003B36] bg-[#003B36] p-5 text-[#D8D7C3] sm:p-6"
             >
               {index === 0 ? (
-                <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#11140F]/60">
+                <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#D8D7C3]/70">
                   {educationSection.title}
                 </p>
               ) : null}
@@ -74,14 +71,14 @@ export function AboutCredentials() {
                   <p className="font-display text-lg font-black uppercase leading-tight sm:text-xl">
                     {item.degree}
                   </p>
-                  <p className={`mt-2 ${textCopySmResponsive} text-[#11140F]/75`}>
+                  <p className={`mt-2 ${textCopySmResponsive} text-[#D8D7C3]/85`}>
                     {item.institution}
                   </p>
                   {item.summary ? (
-                    <p className={`mt-3 ${textCopySm} text-[#11140F]/70`}>{item.summary}</p>
+                    <p className={`mt-3 ${textCopySm} text-[#D8D7C3]/75`}>{item.summary}</p>
                   ) : null}
                 </div>
-                <p className="shrink-0 font-display text-xs font-black uppercase tracking-[0.18em] text-[#11140F]/60">
+                <p className="shrink-0 font-display text-xs font-black uppercase tracking-[0.18em] text-[#D8D7C3]/70">
                   {item.issuedLabel}
                 </p>
               </div>
@@ -90,7 +87,7 @@ export function AboutCredentials() {
           {certifications.map((item) => (
             <li
               key={`${item.title}-${item.issuer}`}
-              className="border border-[#11140F]/15 bg-[#D8D7C3] p-5 sm:p-6"
+              className="border border-[#11140F]/15 p-5 sm:p-6"
             >
               <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                 <div className="min-w-0 flex-1">
@@ -123,10 +120,10 @@ export function AboutCredentials() {
 
       <Link
         to="/certifications"
-        className={`${buttonVariants({ variant: 'dark' })} mt-8`}
+        className={`${buttonVariants({ variant: 'accent' })} mt-8`}
       >
         View all certifications
       </Link>
-    </section>
+    </div>
   )
 }

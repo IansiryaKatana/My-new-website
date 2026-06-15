@@ -13,8 +13,7 @@ import { HeroSubject } from './HeroSubject'
 import { HeroTicker } from './HeroTicker'
 import { HeroTypography } from './HeroTypography'
 
-const heroCtaClass =
-  'hero-cta group mt-0 w-full bg-[#D8D7C3] text-[#11140F] hover:bg-[#D8D7C3] hover:text-[#11140F] sm:mt-6 sm:w-[10.5rem] sm:bg-transparent sm:text-[#D8D7C3] sm:hover:bg-[#D8D7C3] sm:hover:text-[#11140F]'
+const heroCtaClass = 'hero-cta group mt-0 w-full sm:mt-6 sm:w-[10.5rem]'
 
 export function HeroSection() {
   const heroContent = useHeroContent()
@@ -41,7 +40,7 @@ export function HeroSection() {
           </div>
           {isInquiryHref(heroContent.cta.href) ? (
             <InquiryTrigger
-              variant="light"
+              variant="accent"
               className={heroCtaClass}
               inquiry={{ source: 'hero', title: heroContent.cta.label }}
             >
@@ -52,7 +51,7 @@ export function HeroSection() {
               />
             </InquiryTrigger>
           ) : (
-            <Button asChild variant="light" className={heroCtaClass}>
+            <Button asChild variant="accent" className={heroCtaClass}>
               <Link to={heroContent.cta.href}>
                 {heroContent.cta.label}
                 <ArrowRight

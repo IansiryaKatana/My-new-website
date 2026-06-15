@@ -19,10 +19,10 @@ export function SiteFooter() {
             {siteConfig.tagline}
           </p>
           <a
-            href={`mailto:${siteConfig.email}`}
-            className="mt-6 inline-block font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
+            href={`mailto:${siteConfig.email}?subject=Project%20Inquiry`}
+            className="mt-6 inline-block font-display text-3xl font-black uppercase tracking-[-0.03em] transition-colors hover:text-white"
           >
-            {siteConfig.email}
+            Send Ian an Email
           </a>
         </div>
 
@@ -76,7 +76,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className={cn('mx-auto mt-12 flex max-w-6xl flex-col gap-3 border-t border-[#D8D7C3]/10 pt-6 text-sm text-[#D8D7C3]/60 sm:flex-row sm:items-center sm:justify-between', fontCopy)}>
+      <div className={cn('mx-auto mt-12 flex max-w-6xl flex-col gap-3 border-t border-[#D8D7C3]/10 pt-6 text-sm text-white sm:flex-row sm:items-center sm:justify-between', fontCopy)}>
         <p>
           © {year} {siteConfig.name}. All rights reserved.
         </p>

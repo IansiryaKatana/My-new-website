@@ -43,6 +43,7 @@ export function ExperiencePreview() {
           title={section.title}
           description={section.description}
           action={{ label: section.actionLabel, to: section.actionTo }}
+          actionVariant="accent"
         />
 
         <div className="mt-12 grid gap-6">
@@ -79,7 +80,7 @@ export function ExperiencePreview() {
                   <Link
                     to="/experience/$slug"
                     params={{ slug: item.slug }}
-                    className="mt-4 inline-flex font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
+                    className="mt-4 inline-flex font-display text-sm font-black uppercase transition-colors hover:text-white"
                   >
                     View full role details
                   </Link>
@@ -88,13 +89,6 @@ export function ExperiencePreview() {
             </article>
           ))}
         </div>
-
-        <Link
-          to={section.actionTo}
-          className="mt-8 inline-flex font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
-        >
-          Read the full experience page
-        </Link>
       </div>
     </section>
   )

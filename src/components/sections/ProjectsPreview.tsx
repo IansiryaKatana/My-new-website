@@ -37,6 +37,7 @@ export function ProjectsPreview() {
           title={section.title}
           description={section.description}
           action={{ label: section.actionLabel, to: section.actionTo }}
+          actionVariant="accent"
           invert
         />
 

@@ -5,7 +5,7 @@ import { AboutCredentials } from '../components/about/AboutCredentials'
 import { PageShell } from '../components/layout/PageShell'
 import { InquiryOrLink } from '../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../components/ui/button'
-import { useHeroContent, useSiteConfig } from '../contexts/CmsContext'
+import { useSiteConfig } from '../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../lib/cms/useMarketingPage'
 import { textCopyLg, textCopySm } from '../lib/typography'
 import { breadcrumbJsonLd, createPageMeta, personJsonLd } from '../lib/seo'
@@ -20,6 +20,9 @@ export const Route = createFileRoute('/about')({
     }),
   component: AboutPage,
 })
+
+const ABOUT_BIO_BACKGROUND_IMAGE =
+  'https://ezipzzupoalntcxngfua.supabase.co/storage/v1/object/public/cms-media/library/1781534942516-ian_portfolio.webp'
 
 type AboutSections = {
   paragraphs: string[]
@@ -45,7 +48,6 @@ const defaultAboutSections: AboutSections = {
 
 function AboutPage() {
   const siteConfig = useSiteConfig()
-  const hero = useHeroContent()
   const page = useMarketingPage('about')
   const sections: AboutSections = {
     paragraphs: getMarketingSection(page, 'paragraphs', defaultAboutSections.paragraphs),
@@ -81,52 +83,79 @@ function AboutPage() {
         ]}
       />
 
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="aspect-[4/5] overflow-hidden border border-[#D8D7C3]/15 bg-[#34392E]">
-          <img
-            src={hero.subject.src}
-            alt={hero.subject.alt || `Portrait of ${siteConfig.name}`}
-            className="h-full w-full object-cover object-top"
-          />
-        </div>
+      <section
+        aria-labelledby="about-bio-heading"
+        className="relative -mx-6 flex min-h-0 items-center border-t border-[#D8D7C3]/15 bg-[#10140D] px-6 py-16 sm:-mx-10 sm:px-10 lg:-mx-16 lg:min-h-screen lg:px-16"
+      >
+        <div
+          className="pointer-events-none absolute inset-0 hidden bg-cover bg-center bg-no-repeat lg:block"
+          style={{ backgroundImage: `url('${ABOUT_BIO_BACKGROUND_IMAGE}')` }}
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-[#10140D]/20 via-[#10140D]/55 to-[#10140D]/90 lg:block"
+          aria-hidden
+        />
 
-        <div className="grid gap-8 text-[#D8D7C3]/85">
-          {sections.paragraphs.map((paragraph) => (
-            <p key={paragraph} className={textCopyLg}>
-              {paragraph}
-            </p>
-          ))}
+        <div className="relative mx-auto w-full max-w-6xl">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="hidden lg:block" aria-hidden />
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {sections.cards.map((item) => (
-              <div
-                key={item}
-                className={`border border-[#D8D7C3]/15 p-5 ${textCopySm}`}
-              >
-                {item}
+            <div className="grid gap-8 text-[#D8D7C3]/85">
+              <h2 id="about-bio-heading" className="sr-only">
+                Background
+              </h2>
+              {sections.paragraphs.map((paragraph) => (
+                <p key={paragraph} className={textCopyLg}>
+                  {paragraph}
+                </p>
+              ))}
+
+              <div>
+                <h3
+                  id="about-capabilities-heading"
+                  className="sr-only"
+                >
+                  Capabilities
+                </h3>
+                <ul className="grid gap-3 sm:grid-cols-2">
+                  {sections.cards.map((item) => (
+                    <li key={item} className={`flex gap-3 ${textCopySm}`}>
+                      <span aria-hidden="true" className="text-[#D8D7C3]/40">
+                        —
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
-          </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Link
-              to={sections.primaryCta.to}
-              className={buttonVariants({ variant: 'light' })}
-            >
-              {sections.primaryCta.label}
-            </Link>
-            <InquiryOrLink
-              to={sections.secondaryCta.to}
-              className={buttonVariants({ variant: 'lightMuted' })}
-              inquiry={{ source: 'about' }}
-            >
-              {sections.secondaryCta.label}
-            </InquiryOrLink>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link
+                  to={sections.primaryCta.to}
+                  className={buttonVariants({ variant: 'accent' })}
+                >
+                  {sections.primaryCta.label}
+                </Link>
+                <InquiryOrLink
+                  to={sections.secondaryCta.to}
+                  className={buttonVariants({ variant: 'forest' })}
+                  inquiry={{ source: 'about' }}
+                >
+                  {sections.secondaryCta.label}
+                </InquiryOrLink>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <AboutCredentials />
+      <section
+        aria-labelledby="about-certifications-teaser-heading"
+        className="-mx-6 border-t border-[#11140F]/15 bg-[#D8D7C3] px-6 py-16 text-[#11140F] sm:-mx-10 sm:px-10 lg:-mx-16 lg:px-16"
+      >
+        <AboutCredentials />
+      </section>
     </PageShell>
   )
 }

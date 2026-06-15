@@ -75,7 +75,7 @@ function HomePage() {
               <InquiryOrLink
                 to={contactCta.ctaTo}
                 className={cn(
-                  buttonVariants({ variant: 'dark' }),
+                  buttonVariants({ variant: 'accent' }),
                   'group w-fit text-base',
                 )}
                 inquiry={{ source: 'home' }}
@@ -90,9 +90,18 @@ function HomePage() {
               </InquiryOrLink>
               <a
                 href={`mailto:${siteConfig.email}?subject=Project%20Inquiry`}
-                className="font-display text-sm font-black uppercase underline underline-offset-4"
+                className={cn(
+                  buttonVariants({ variant: 'forest' }),
+                  'group w-fit text-base',
+                )}
               >
-                {siteConfig.email}
+                Send Ian an Email
+                <span
+                  aria-hidden="true"
+                  className="ml-4 transition-transform duration-300 group-hover:translate-x-2"
+                >
+                  ↗
+                </span>
               </a>
             </div>
           </div>

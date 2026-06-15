@@ -36,6 +36,18 @@ const buttonVariants = cva(
           'hover:border-[#11140F] hover:bg-[#11140F]/10 hover:text-[#11140F]',
           'focus-visible:outline-[#11140F]',
         ].join(' '),
+        accent: [
+          'border border-[#E98A15] bg-[#E98A15] text-[#D8D7C3]',
+          'hover:border-[#D47A12] hover:bg-[#D47A12] hover:text-[#F5F0E8]',
+          'focus-visible:outline-[#E98A15]',
+          'hover:[&_svg]:text-[#F5F0E8]',
+        ].join(' '),
+        forest: [
+          'border border-[#003B36] bg-[#003B36] text-[#D8D7C3]',
+          'hover:border-[#002a26] hover:bg-[#002a26] hover:text-[#F5F0E8]',
+          'focus-visible:outline-[#003B36]',
+          'hover:[&_svg]:text-[#F5F0E8]',
+        ].join(' '),
         ghost:
           'border border-transparent bg-transparent text-inherit hover:bg-white/10 hover:text-white',
         outline:

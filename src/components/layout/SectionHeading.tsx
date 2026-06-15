@@ -11,6 +11,7 @@ type SectionHeadingProps = {
     label: string
     to: string
   }
+  actionVariant?: 'light' | 'dark' | 'accent' | 'forest'
   invert?: boolean
 }
 
@@ -19,10 +20,13 @@ export function SectionHeading({
   title,
   description,
   action,
+  actionVariant,
   invert = false,
 }: SectionHeadingProps) {
   const muted = invert ? 'text-[#11140F]/70' : 'text-[#D8D7C3]/70'
   const text = invert ? 'text-[#11140F]' : 'text-[#D8D7C3]'
+  const resolvedActionVariant =
+    actionVariant ?? (invert ? 'dark' : 'light')
 
   return (
     <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
@@ -47,7 +51,7 @@ export function SectionHeading({
         <Link
           to={action.to}
           className={cn(
-            buttonVariants({ variant: invert ? 'dark' : 'light', size: 'default' }),
+            buttonVariants({ variant: resolvedActionVariant, size: 'default' }),
             'group w-fit',
           )}
         >

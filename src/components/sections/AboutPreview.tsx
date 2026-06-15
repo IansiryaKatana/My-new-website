@@ -1,9 +1,14 @@
 ﻿import { Link } from '@tanstack/react-router'
 
-import { useHeroContent, useSiteConfig } from '../../contexts/CmsContext'
+import { useSiteConfig } from '../../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../../lib/cms/useMarketingPage'
 import { textCopySm } from '../../lib/typography'
+import { cn } from '../../lib/utils'
 import { SectionHeading } from '../layout/SectionHeading'
+import { buttonVariants } from '../ui/button'
+
+const ABOUT_BACKGROUND_IMAGE =
+  'https://ezipzzupoalntcxngfua.supabase.co/storage/v1/object/public/cms-media/library/1781532678619-ian__6_.webp'
 
 type AboutPreviewSection = {
   eyebrow: string
@@ -11,13 +16,11 @@ type AboutPreviewSection = {
   descriptionTemplate: string
   actionLabel: string
   actionTo: string
-  linkLabel: string
   stats: Array<{ value: string; label: string }>
 }
 
 export function AboutPreview() {
   const siteConfig = useSiteConfig()
-  const hero = useHeroContent()
   const homePage = useMarketingPage('home')
   const section = getMarketingSection<AboutPreviewSection>(homePage, 'aboutPreview', {
     eyebrow: 'About',
@@ -26,7 +29,6 @@ export function AboutPreview() {
       "I'm {{name}}, a {{role}} based in {{location}}. I partner with teams who want memorable interfaces backed by dependable systems.",
     actionLabel: 'About me',
     actionTo: '/about',
-    linkLabel: 'Learn more about my approach',
     stats: [
       { value: '7+', label: 'Years building production web platforms' },
       { value: '15+', label: 'Multi-brand websites and digital systems managed' },
@@ -41,27 +43,24 @@ export function AboutPreview() {
   return (
     <section
       id="about"
-      className="bg-[#10140D] px-6 py-20 text-[#D8D7C3] sm:px-10 lg:px-16"
+      className="relative flex min-h-0 items-center bg-cover bg-center bg-no-repeat px-6 py-20 text-[#D8D7C3] sm:px-10 lg:min-h-screen lg:px-16"
+      style={{ backgroundImage: `url('${ABOUT_BACKGROUND_IMAGE}')` }}
       aria-labelledby="about-heading"
     >
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
-        <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
-          <div className="aspect-[4/5] overflow-hidden border border-[#D8D7C3]/15 bg-[#34392E]">
-            <img
-              src={hero.subject.src}
-              alt={`Portrait of ${siteConfig.name}, ${siteConfig.role}`}
-              className="h-full w-full object-cover object-top"
-              loading="lazy"
-            />
-          </div>
-        </div>
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#10140D]/25 via-[#10140D]/60 to-[#10140D]/88"
+        aria-hidden
+      />
 
-        <div>
+      <div className="relative mx-auto w-full max-w-6xl">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+          <div className="hidden lg:block" aria-hidden />
+
+          <div>
           <SectionHeading
             eyebrow={section.eyebrow}
             title={section.title}
             description={description}
-            action={{ label: section.actionLabel, to: section.actionTo }}
           />
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -75,10 +74,20 @@ export function AboutPreview() {
 
           <Link
             to={section.actionTo}
-            className="mt-8 inline-flex font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
+            className={cn(
+              buttonVariants({ variant: 'accent', size: 'default' }),
+              'group mt-8 w-fit',
+            )}
           >
-            {section.linkLabel}
+            {section.actionLabel}
+            <span
+              aria-hidden="true"
+              className="ml-4 transition-[color,transform] duration-300 group-hover:translate-x-2"
+            >
+              ↗
+            </span>
           </Link>
+          </div>
         </div>
       </div>
     </section>
