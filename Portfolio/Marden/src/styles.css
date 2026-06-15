@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+
+@theme {
+  --color-verden-deep: #003f35;
+  --color-verden-forest: #062e29;
+  --color-verden-pale: #ddf69a;
+  --color-verden-off: #f4f5f1;
+  --color-verden-soft: #d8ddd7;
+  --color-verden-ink: #10251f;
+  --color-verden-muted: #5a6b66;
+  --color-verden-footer: #020403;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --animate-accordion-down: accordion-down 0.3s ease-out;
+  --animate-accordion-up: accordion-up 0.3s ease-out;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+* { box-sizing: border-box; }
+
+html, body, #app { min-height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-verden-ink);
+  background: var(--color-verden-off);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-verden-pale) 60%, white);
+}
+
+.section-pad {
+  padding-inline: clamp(1.5rem, 4vw, 3rem);
+  padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.max-editorial {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.image-cinematic {
+  filter: saturate(0.85) contrast(0.95);
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.15) 45%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}

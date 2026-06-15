@@ -1,0 +1,755 @@
+UI/UX Reference Definition: Serenique Wellness Landing Page
+0. Overall Layout Identity
+
+This is a luxury mental wellness / spa / therapy landing page with a cinematic editorial style.
+
+The design feels like:
+
+Quiet luxury + wellness retreat + high-end magazine layout + soft cinematic therapy brand.
+
+It avoids typical “wellness website” brightness. Instead, it uses muted tones, grain, soft photography, thin grid lines, refined serif typography, and calm spacing.
+
+The page is built around:
+
+Large emotional hero photography
+Editorial serif headings
+Thin bordered section dividers
+Beige / ivory background
+Muted olive-black overlays
+Minimal navigation
+Sparse, premium copy
+Accordion-style service rows
+Cinematic full-width image sections
+Testimonial as an editorial pull quote
+FAQ with elegant separators
+Dark footer with luxury brand feel
+1. Project Manager View
+Page Purpose
+
+The page is designed to position Serenique as a premium mental wellness and relaxation brand offering therapy, meditation, retreats, and holistic wellness services.
+
+The goal is not aggressive conversion. It is emotional persuasion.
+
+The page should make the user feel:
+
+Calm
+Safe
+Elevated
+Sophisticated
+Personally cared for
+Curious enough to explore or book
+User Journey
+Section Flow
+Order	Section	Purpose
+1	Hero	Establish emotional brand mood and primary message
+2	Intro / About	Explain the philosophy behind Serenique
+3	Services Preview	Show curated wellness offerings
+4	Cinematic Lifestyle Section	Deepen emotional connection
+5	Testimonial	Build trust through calm social proof
+6	FAQ	Remove hesitation
+7	Footer CTA	Final conversion and contact details
+Content Priority
+
+The most important copy is the hero headline:
+
+Elevating Your Mind to a State of Calm Luxury.
+
+This defines the brand’s entire positioning.
+
+Secondary message:
+
+At Serenique, we see mental wellness as the finest form of self-care.
+
+The copy should stay minimal, poetic, and premium. Avoid long marketing paragraphs.
+
+Functional Expectations
+
+The page requires:
+
+Smooth scrolling
+Sticky or fixed top navigation
+Service accordion behavior
+FAQ accordion behavior
+Testimonial carousel or slide controls
+CTA button in hero
+Footer contact links
+Social icons
+Optional booking/contact form behind CTA
+Responsive Requirements
+Desktop
+Full-width cinematic layout
+Grid-based editorial composition
+Thin dividing lines across sections
+Image and text asymmetry
+Tablet
+Preserve editorial spacing
+Reduce image grid complexity
+Keep large headings but reduce width
+Mobile
+Stack sections vertically
+Hero should remain full-height or near full-height
+Service image grids should become horizontal scroll or stacked cards
+Accordion rows should remain clean and tappable
+Footer should stack into contact blocks
+2. UI/UX Engineer View
+Canvas / Page Structure
+
+The screenshot is a tall single-page landing page in a narrow preview ratio:
+
+Screenshot size: 466 × 2048
+Approximate page ratio: mobile-narrow / compressed desktop preview
+Design itself appears based on a desktop editorial grid, scaled down
+Global Layout System
+
+Use a strict grid system:
+
+Page width: 100%
+Max content width: 1440px
+Horizontal padding desktop: 40px–48px
+Horizontal padding tablet: 28px–32px
+Horizontal padding mobile: 16px–20px
+Grid: 12 columns
+Section borders: 1px solid rgba(30, 32, 24, 0.12)
+Background Colors
+
+Main page background:
+
+--background: #efefe4;
+--background-soft: #f4f3e8;
+--dark: #222419;
+--dark-muted: #2b2d21;
+--text-primary: #1f2119;
+--text-muted: #6f7165;
+--line: rgba(31, 33, 25, 0.12);
+
+Hero and cinematic sections use photography with dark olive overlays.
+
+Typography System
+
+The visual style depends heavily on serif typography.
+
+Recommended Fonts
+
+Use:
+
+Heading: "Cormorant Garamond", "Editorial New", "Canela", serif;
+Body: "Inter", "Neue Haas Grotesk", sans-serif;
+Logo: refined serif or serif + small symbol mark
+Type Scale
+Hero H1 Desktop: 76px–96px
+Hero H1 Mobile: 46px–56px
+Section Heading: 46px–64px
+Body Large: 24px–34px
+Body Regular: 14px–16px
+Small Labels: 9px–11px uppercase
+Navigation: 11px–13px
+Hero Section
+Layout
+
+Hero height:
+
+min-height: 100vh;
+
+Hero contains:
+
+Full-bleed background image
+Dark translucent overlay
+Top navigation
+Left-aligned large headline at bottom-left
+Small descriptive text and button near bottom-right
+Tiny side labels at mid-left and mid-right
+Hero Composition
+[Top nav]
+Logo left | Nav center | Phone/contact right | CTA top-right
+
+[Middle]
+Small left-side label
+Small right-side text
+
+[Bottom]
+Large headline left
+Small paragraph + pill CTA right
+
+Hero headline width:
+
+max-width: 720px;
+
+Button style:
+
+border-radius: 999px;
+background: #f2f0e3;
+color: #1f2119;
+padding: 12px 20px;
+font-size: 12px;
+About Section
+
+This section uses a split editorial grid.
+
+Structure
+Left small label
+Center/right large paragraph
+
+Below:
+Image 1 left
+Image 2 center
+Small copy right
+Stats below right
+
+The main paragraph is the dominant element.
+
+Example layout:
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1.2fr;
+  gap: 32px;
+}
+Services Section
+
+The services section is built as a series of accordion rows.
+
+Main Heading
+The Art of Inner Refinement.
+
+Left-aligned, serif, large.
+
+Rows
+
+Each row has:
+
+Tiny category/index on far left
+Large service title center-left
+Small tags on right
+Expand/collapse icon far right
+
+Rows visible:
+
+Guided Meditation
+Private Mind Therapy
+Mindful Retreats
+Holistic Wellness Program
+
+The active/open row is Private Mind Therapy, displaying a three-image grid beneath it.
+
+Accordion Row Structure
+[small label] [service title] [tags] [+ / - icon]
+
+Active row image grid:
+
+.service-gallery {
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr 0.75fr;
+  gap: 4px;
+}
+
+Images are cropped with:
+
+object-fit: cover;
+aspect-ratio: 16 / 9;
+Cinematic Feature Section
+
+Full-width image section with overlay.
+
+Structure
+Large dark image background
+Bottom-left heading
+Small copy underneath
+Floating circular markers on image
+Small tooltip/card near subject
+
+The section headline:
+
+Crafted to Elevate both Body and Mind.
+
+The words Body and Mind are italicized.
+
+Height:
+
+min-height: 85vh;
+
+Overlay:
+
+background: linear-gradient(
+  to top,
+  rgba(20,22,15,0.75),
+  rgba(20,22,15,0.15)
+);
+Testimonial Section
+
+Editorial layout with quote icon and large quote.
+
+Structure
+Left:
+small label
+small thumbnail image
+
+Center:
+large quote
+
+Right:
+small image thumbnail
+testimonial controls
+
+Quote text:
+
+Step into Serenique felt like entering another world. Every detail is crafted with such care & calm — I’ve never experienced such profound calm and relaxation.
+
+Author:
+
+— Brenda C.
+
+The quote should feel like a magazine pull quote, not a review card.
+
+FAQ Section
+
+Two-column layout.
+
+Left Column
+Small label
+Large heading:
+Eternal Questions
+& Answer
+Small support copy near bottom
+Right Column
+
+Accordion list.
+
+Questions visible:
+
+What makes Serenique different from others?
+How long is a typical session?
+Do I need prior experience with meditation?
+Can I book private experiences?
+Where is Serenique located?
+
+One row is open with a short answer.
+
+FAQ row style:
+
+border-bottom: 1px solid var(--line);
+padding: 22px 0;
+
+Use plus/minus icons on the right.
+
+Footer
+
+Dark olive-black footer.
+
+Layout
+Left:
+CTA heading + social icons
+
+Middle:
+Location
+Open day
+
+Right:
+Call us
+Open time
+
+Bottom:
+small legal text
+logo
+footer nav
+
+Footer heading:
+
+Begin Your Journey
+Into Inner Serenity.
+
+Dark background:
+
+background: #23251a;
+color: #eceade;
+
+Footer height should feel generous, approximately 70vh desktop or 500px minimum.
+
+3. Motion Graphics Developer View
+Motion Style
+
+The motion language should be:
+
+Slow
+Soft
+Cinematic
+Minimal
+Luxury editorial
+
+Avoid bouncy animations, aggressive easing, spinning icons, or fast reveals.
+
+Global Animation Rules
+
+Use:
+
+duration: 0.8 - 1.4s
+ease: [0.22, 1, 0.36, 1]
+stagger: 0.08 - 0.16s
+Hero Animations
+
+On page load:
+
+Background image slowly fades in and scales from 1.04 to 1.0
+Navigation fades down slightly
+Hero headline reveals line by line
+Italic word reveals last
+Hero CTA fades in after text
+
+Suggested timeline:
+
+0.0s Background fade + scale
+0.2s Navigation fade in
+0.5s Hero headline line 1
+0.65s Hero headline line 2
+0.8s Italic word reveal
+1.0s Paragraph + CTA
+Scroll Animations
+About Section
+Large paragraph fades up
+Images reveal with soft clip-path wipe
+Stats count from 0 to final values
+
+Image reveal:
+
+clip-path: inset(12% 0 0 0);
+opacity: 0;
+transform: translateY(24px);
+
+Final:
+
+clip-path: inset(0 0 0 0);
+opacity: 1;
+transform: translateY(0);
+Service Accordion Motion
+
+When a row opens:
+
+Row height expands smoothly
+Gallery fades in
+Images stagger from left to right
+Plus icon rotates 45 degrees or switches to minus
+
+Timing:
+
+Accordion height: 0.55s
+Image fade/stagger: 0.4s
+Icon rotation: 0.25s
+Cinematic Section Motion
+
+Use subtle parallax:
+
+Background image moves upward by 8–12%
+Text moves upward by 4–6%
+Floating markers fade in when section reaches 45% viewport
+Tooltip appears after marker
+
+Do not overdo the parallax. It should feel like breathing.
+
+Testimonial Motion
+Quote fades up word-group by word-group
+Thumbnail images reveal after quote begins
+Carousel controls have subtle hover opacity
+Changing testimonial should crossfade, not slide aggressively
+FAQ Motion
+Plus icon rotates
+Answer fades in while height expands
+Row divider remains fixed
+
+Use natural accordion transitions.
+
+4. Graphic Designer View
+Art Direction
+
+This reference is cinematic wellness minimalism.
+
+The page is not bright, commercial, or clinical. It is emotional, muted, and atmospheric.
+
+Key visual references:
+
+Luxury spa retreat
+Mental wellness editorial
+Boutique therapy space
+Fine art photography
+Calm fashion campaign
+High-end architecture magazine
+Color Palette
+Primary Palette
+Role	Color
+Ivory background	#efefe4
+Warm paper	#f5f3e8
+Dark olive	#23251a
+Soft black	#151711
+Muted sage	#8c9280
+Grey-beige text	#77786d
+Border line	rgba(31,33,25,0.12)
+Photography Style
+
+Images should have:
+
+Low contrast
+Soft grain
+Natural light
+Olive/green tint
+Shadows with detail
+No harsh saturation
+Human subject in calm poses
+Architecture/interior spa details
+Water, curtains, soft textiles, glass, plants
+Image Treatment
+
+Apply:
+
+filter: contrast(0.9) saturate(0.75) brightness(0.92);
+
+Optional overlay:
+
+background: rgba(40, 45, 30, 0.22);
+mix-blend-mode: multiply;
+
+Add grain texture globally:
+
+.noise {
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+Typography Direction
+
+The serif font must feel elegant and slightly literary.
+
+Important styling:
+
+Italic emphasis on emotional words
+Large line-height
+Thin serif contrast
+Minimal uppercase sans-serif labels
+
+Example:
+
+Elevating Your Mind to
+a State of Calm Luxury.
+
+The word Calm Luxury should be italic or more calligraphic.
+
+Borders and Lines
+
+Thin dividers are essential.
+
+Use them between:
+
+Header/nav zones
+Section blocks
+Service rows
+FAQ rows
+Footer bottom navigation
+
+Lines should be barely visible, never harsh.
+
+Icon Style
+
+Icons are:
+
+Very small
+Thin stroke
+Circular outlines
+Minimal
+Almost decorative
+
+Use icons only where needed:
+
+Plus/minus
+Social icons
+Arrow indicators
+Floating image markers
+5. Full-Stack Developer View
+Suggested Frontend Stack
+
+Ideal implementation:
+
+Next.js / React
+Tailwind CSS
+Framer Motion
+GSAP optional for scroll animation
+Lenis for smooth scroll
+Sanity / Strapi / WordPress CMS optional
+Component Structure
+/components
+  Header.tsx
+  HeroSection.tsx
+  AboutSection.tsx
+  ServicesAccordion.tsx
+  CinematicFeature.tsx
+  TestimonialSection.tsx
+  FAQSection.tsx
+  Footer.tsx
+  SectionLabel.tsx
+  ImageReveal.tsx
+  StatCounter.tsx
+  AccordionRow.tsx
+Data Structure
+Services
+const services = [
+  {
+    id: "guided-meditation",
+    eyebrow: "01 / mental clarity",
+    title: "Guided Meditation",
+    tags: ["Focus", "Serenity", "Stillness", "Tranquility"],
+    images: []
+  },
+  {
+    id: "private-mind-therapy",
+    eyebrow: "02 / safe space",
+    title: "Private Mind Therapy",
+    tags: ["Emotional", "Support", "Purity", "Restoration"],
+    images: [
+      "/images/private-therapy-1.jpg",
+      "/images/private-therapy-2.jpg",
+      "/images/private-therapy-3.jpg"
+    ]
+  },
+  {
+    id: "mindful-retreats",
+    eyebrow: "03 / tranquil escape",
+    title: "Mindful Retreats",
+    tags: ["Luxury", "Healing", "Insight", "Awareness"],
+    images: []
+  },
+  {
+    id: "holistic-wellness-program",
+    eyebrow: "04 / total alignment",
+    title: "Holistic Wellness Program",
+    tags: ["Movement", "Wholeness", "Balance", "Calm"],
+    images: []
+  }
+];
+FAQ
+const faqs = [
+  {
+    question: "What makes Serenique different from others?",
+    answer: "Serenique blends refined spaces, expert practitioners, and deeply personal care into a calm wellness experience."
+  },
+  {
+    question: "How long is a typical session?",
+    answer: "Sessions usually last 60–90 minutes, depending on the treatment and personal wellness goals."
+  },
+  {
+    question: "Do I need prior experience with meditation?",
+    answer: "No prior experience is needed. Every session is guided according to your comfort level."
+  },
+  {
+    question: "Can I book private experiences?",
+    answer: "Yes, private wellness experiences can be arranged for individuals, couples, and small groups."
+  },
+  {
+    question: "Where is Serenique located?",
+    answer: "Serenique is located in a calm, private wellness space designed for restoration and relaxation."
+  }
+];
+Testimonials
+const testimonials = [
+  {
+    quote: "Step into Serenique felt like entering another world. Every detail is crafted with such care & calm — I’ve never experienced such profound calm and relaxation.",
+    author: "Brenda C.",
+    image: "/images/testimonial-thumb.jpg"
+  }
+];
+CMS Fields
+
+If this is CMS-powered, create these fields:
+
+Global
+Logo
+Navigation links
+Phone number
+Booking CTA text
+Social links
+Hero
+Hero background image
+Main heading
+Italic heading text
+Short description
+CTA label
+CTA URL
+About
+Section label
+Main paragraph
+Supporting paragraph
+Image 1
+Image 2
+Stat 1 value and label
+Stat 2 value and label
+Services
+Service title
+Service category label
+Service tags
+Service images
+Default open state
+FAQ
+Question
+Answer
+Open by default boolean
+Footer
+CTA heading
+Location
+Phone
+Opening days
+Opening time
+Legal text
+6. Responsive Rebuild Rules
+Desktop
+Preserve wide editorial spacing
+Keep hero text large
+Use asymmetric layouts
+Keep image grids horizontal
+Tablet
+Reduce typography by 15–20%
+Keep two-column structures where possible
+Service gallery can remain 3-column
+Mobile
+Hero text stacks at bottom
+Header nav collapses into menu
+About grid stacks
+Service rows become single-column
+Active service images stack or scroll horizontally
+FAQ becomes one-column
+Footer stacks vertically
+
+Mobile hero example:
+
+.hero-title {
+  font-size: clamp(44px, 12vw, 64px);
+  line-height: 0.95;
+}
+7. Exact Section-by-Section Rebuild Prompt
+
+Use this prompt for Cursor, Lovable, Bolt, Framer AI, or a designer/developer:
+
+Create a luxury mental wellness landing page for a brand called Serenique. The design should feel like quiet luxury, cinematic wellness, editorial magazine layout, and high-end therapy retreat. Use an ivory paper background, muted olive-black overlays, thin divider lines, refined serif typography, and soft grainy photography.
+
+Build the page as a single long-scroll landing page with these sections:
+
+1. Full-screen hero with a dark cinematic background image of a calm woman near a window. Add a thin top navigation with logo left, nav links centered, phone/contact text on the right, and a small CTA. Place a large serif headline at bottom-left: “Elevating Your Mind to a State of Calm Luxury.” Make “Calm Luxury” italic. Add a short paragraph and pill button on the lower-right.
+
+2. About section on an ivory background. Use a split editorial grid. Add a small uppercase label on the left and a large serif paragraph: “At Serenique, we see mental wellness as the finest form of self-care. Every element of our approach from the design of our spaces to the expertise of our practitioners.” Below it, place two muted architectural/wellness images and a small text block with two stats: 94% Felt more Safe and 97% Felt more Balanced.
+
+3. Services section titled “The Art of Inner Refinement.” Create accordion-style rows with thin borders. Include Guided Meditation, Private Mind Therapy, Mindful Retreats, and Holistic Wellness Program. The Private Mind Therapy row should be open and show a three-column image gallery with calm spa/wellness imagery. Add tiny category labels on the left, service titles in serif, tags on the right, and plus/minus icons.
+
+4. Full-width cinematic feature image section with a seated woman in a softly lit curtain/window environment. Add dark olive overlay. Place headline bottom-left: “Crafted to Elevate both Body and Mind.” Make “Body” and “Mind” italic. Add small descriptive copy under it. Add small floating circular markers and a small tooltip card reading “Mental Clarity.”
+
+5. Editorial testimonial section on ivory background. Use a large serif quote in the center with small thumbnails on the left and right. Quote: “Step into Serenique felt like entering another world. Every detail is crafted with such care & calm — I’ve never experienced such profound calm and relaxation.” Add author “— Brenda C.” Add minimal previous/next controls.
+
+6. FAQ section with two-column layout. Left side has heading “Eternal Questions & Answer.” Right side has accordion questions with thin borders and plus icons. Open the question “How long is a typical session?” with a short answer.
+
+7. Dark olive-black footer with large CTA heading “Begin Your Journey Into Inner Serenity.” Add social icons, location, phone number, open day, open time, bottom logo, legal text, and footer navigation.
+
+Use serif headings similar to Cormorant Garamond or Canela, and a clean sans-serif like Inter for labels and body text. Use colors: ivory #efefe4, paper #f5f3e8, dark olive #23251a, soft black #151711, muted sage #8c9280, and subtle borders rgba(31,33,25,0.12). Add soft grain overlay, muted image filters, slow fade-up animations, image reveal wipes, smooth accordion transitions, subtle parallax on cinematic image sections, and calm luxury motion timing.
+8. Key Details That Must Not Be Missed
+
+To reproduce this reference accurately, the team must preserve these details:
+
+The site is not white. It is warm ivory/paper-toned.
+The typography is the brand. Large serif headings carry the luxury feel.
+Thin divider lines are everywhere. They create the editorial structure.
+Photography must be muted and cinematic. Bright stock wellness images will ruin the look.
+Spacing must feel calm. Do not overcrowd sections.
+Motion must be slow and soft. No tech-startup animation style.
+Accordions are central to the layout. Both service rows and FAQ rows use this pattern.
+The footer must feel like a final luxury panel, not a generic website footer.

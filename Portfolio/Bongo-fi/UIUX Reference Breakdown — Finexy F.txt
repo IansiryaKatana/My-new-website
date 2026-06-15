@@ -1,0 +1,811 @@
+UI/UX Reference Breakdown — Bongo-Fi Finance Dashboard
+
+This layout is a premium fintech dashboard with a soft neumorphic / glassmorphism-inspired interface. It uses a light grey canvas, rounded cards, minimal iconography, black typography, lime green accents, and modular dashboard widgets.
+
+The design should be reproduced as a desktop-first financial analytics/admin dashboard, with a responsive mobile version that stacks cards vertically.
+
+1. Project Manager Specification
+Product Type
+
+Fintech / finance tracking dashboard for monitoring:
+
+Account balance
+Wallets
+Cards
+Income
+Spending
+Monthly limits
+Recent transaction activity
+Financial performance analytics
+Main Page Purpose
+
+The screen is an Overview dashboard. It gives the user an instant snapshot of financial health, available balance, income, spending, cards, and recent activity.
+
+Core User Goals
+
+The user should be able to:
+
+View their total account balance.
+Transfer or request funds quickly.
+See wallet balances by currency.
+Track monthly spending limits.
+View linked cards.
+Monitor income, spending, revenue, and earnings.
+Analyse profit/loss through a chart.
+Review recent transactions.
+Search and filter transaction history.
+Navigate between dashboard sections.
+2. Layout Structure
+Overall Frame
+Property	Specification
+Canvas ratio	4:3 desktop dashboard mockup
+Main background	Very light grey #E9EAEC
+Dashboard shell	Large rounded white/near-white container
+Outer container radius	24px–32px
+Internal card radius	16px–22px
+Layout style	Soft card-based dashboard
+Visual density	Medium-high, but still spacious
+Primary accent	Lime green
+Secondary accent	Deep forest green / black
+
+The full UI sits inside a large rounded rectangle with generous padding from the browser edge. The dashboard shell has a soft shadow, giving it a floating card feel.
+
+3. Main Dashboard Regions
+
+The layout is divided into four major zones:
+
+┌──────────────────────────────────────────────────────────────┐
+│ Top Navigation                                                │
+├──────┬───────────────────────────────────────────────────────┤
+│ Side │ Main Content                                           │
+│ Nav  │                                                       │
+│      │ Greeting + Financial Widgets                          │
+│      │                                                       │
+│      │ Balance / Cards / Chart / Table                       │
+└──────┴───────────────────────────────────────────────────────┘
+Region Breakdown
+Region	Position	Purpose
+Top navigation	Top horizontal	Product logo, page tabs, search, notifications, profile
+Sidebar	Left vertical	Icon navigation
+Main content	Centre/right	All financial cards and transaction table
+Profile controls	Top-right	User identity and account menu
+4. Header / Top Navigation
+Structure
+
+At the top of the dashboard:
+
+Logo    Overview Activity Manage Program Account Reports       Search Icons Profile
+Left Logo Area
+Visual
+Circular green logo mark.
+Text label: Bongo-Fi
+Logo sits inside a subtle white pill/card.
+Logo icon is white on green.
+Styling
+Element	Style
+Logo background	Green radial/solid circle
+Logo size	28px–34px
+Brand text	Small, black, medium weight
+Container	White pill, rounded 999px
+Navigation Tabs
+
+Tabs appear as horizontal text buttons.
+
+Items
+Overview
+Activity
+Manage
+Program
+Account
+Reports
+Active State
+
+The active tab is Overview.
+
+State	Style
+Active	Black pill background, white text
+Inactive	Transparent, dark grey text
+Hover	Light grey pill background
+Radius	Fully rounded pill
+Font size	12px–13px
+Position
+
+The navigation is centred-left, after the logo. It should feel lightweight and not overpower the dashboard.
+
+Top-right Controls
+
+Contains:
+
+Search icon
+Notification icon with orange/red indicator
+Dark/light mode icon or circular status icon
+Profile avatar
+User name
+Email
+Dropdown chevron
+Profile Block
+[avatar]  Oripio Studio
+          oripiostudio@gmail...
+          v
+Property	Specification
+Container	White rounded pill
+Avatar size	32px
+User name	12px–13px, medium
+Email	10px–11px, muted grey
+Dropdown icon	Small chevron
+5. Sidebar Navigation
+
+The sidebar is a narrow vertical strip on the left.
+
+Visual Structure
+
+The sidebar has:
+
+Top quick icons
+Main navigation icons
+Bottom support/logout icons
+[settings/sun]
+[moon]
+
+[active grid icon]
+[calendar]
+[mail]
+[document]
+[users]
+[layers]
+[settings]
+
+[help]
+[logout]
+Styling
+Element	Specification
+Sidebar width	48px–64px
+Icon size	16px–18px
+Active icon background	Black circular button
+Active icon color	White
+Inactive icon color	Dark grey
+Sidebar background	Same as main shell / transparent
+Bottom icons	Anchored near bottom
+
+The active icon is a black circle with a white dashboard/grid icon.
+
+6. Main Content Header
+Greeting Section
+Good morning, Oripio
+Stay on top of your tasks, monitor progress, and track status.
+Typography
+Text	Style
+Main greeting	28px–32px, black, medium/semibold
+Subtitle	12px–14px, grey
+Alignment	Left
+Spacing	6px between title and subtitle
+
+This greeting starts just right of the sidebar, below the top navigation.
+
+7. Dashboard Grid System
+
+The main dashboard uses a three-column grid in the top analytics area.
+
+Column 1: Balance / Wallet / Spending Limit / Cards
+Column 2: KPI cards
+Column 3: Total Income Chart
+
+Approximate layout:
+
+┌─────────────────────┬─────────────────────┬────────────────────────┐
+│ Total Balance       │ KPI Cards            │ Total Income Chart      │
+│ Wallets             │ 2x2 Metric Cards      │ Profit/Loss Bar Chart   │
+├─────────────────────┴─────────────────────┼────────────────────────┤
+│ Monthly Spending Limit                     │                        │
+├─────────────────────┐                      │                        │
+│ My Cards            │ Recent Activities Table                       │
+└─────────────────────┴───────────────────────────────────────────────┘
+Suggested CSS Grid
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr 1.1fr;
+  gap: 18px;
+}
+
+.lower-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 2fr;
+  gap: 18px;
+}
+8. Card System
+
+All dashboard cards share consistent styling.
+
+Base Card Style
+.card {
+  background: #f8f8f7;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+Card Design Rules
+Property	Value
+Background	#F7F7F5 or #FFFFFF
+Border	Very subtle rgba(0,0,0,0.04)
+Shadow	Soft, low opacity
+Radius	18px–22px
+Padding	16px–20px
+Typography	Small labels, large numeric values
+Icons	Minimal outline icons inside small circles
+9. Total Balance Card
+Content
+Total Balance                         [USD dropdown]
+$689,372.00
+↑ 5% than last month
+
+[Transfer] [Request]
+
+Wallets | Total 6 wallets
+
+USD     $22,678.00    Active
+EUR     €18,345.00    Active
+GBP     £15,000.00    Inactive
+Layout
+
+The card has four sections:
+
+Card header
+Balance amount
+CTA buttons
+Wallet mini-cards
+Visual Details
+Balance Amount
+Large black numeric text.
+Should feel like the dominant data point.
+The formatting in the reference is slightly stylized: $689,37 2.0 0, but the intended readable value is $689,372.00.
+Currency Dropdown
+
+Top-right pill with:
+
+Flag icon
+USD text
+Chevron
+Growth Indicator
+
+Small green text:
+
+↑ 5% than last month
+CTA Buttons
+Button	Style
+Transfer	Lime green filled pill
+Request	Light grey/white pill
+Icon	Small transfer arrows
+Radius	999px
+Height	36px–40px
+
+The Transfer button is the main CTA and should use a bright lime green.
+
+Wallet Cards
+
+There are three mini wallet cards in a row.
+
+Each wallet card includes:
+
+Flag icon
+Currency label
+Three-dot menu
+Balance
+Small text: “Limit x/x month”
+Status label
+Status Styling
+Status	Color
+Active	Lime/green
+Inactive	Red/pink
+Mini Card Style
+Property	Value
+Width	Equal thirds
+Radius	14px
+Background	Slightly off-white
+Padding	10px–12px
+Shadow	Very soft
+10. KPI Cards Section
+
+This section contains four metric cards in a 2x2 grid.
+
+┌───────────────────┬───────────────────┐
+│ Total Earnings    │ Total Spending    │
+│ $950              │ $700              │
+│ ↑7% This month    │ ↓5% This month    │
+├───────────────────┼───────────────────┤
+│ Total Income      │ Total Revenue     │
+│ $1,050            │ $850              │
+│ ↑8% This month    │ ↑4% This month    │
+└───────────────────┴───────────────────┘
+Active KPI Card
+
+The Total Earnings card is visually highlighted.
+
+Styling
+Property	Value
+Background	Dark green gradient
+Text	White
+Accent	Lime green percentage
+Icon	Small white/green outline
+Radius	18px
+Height	Approx. 110px
+
+Suggested gradient:
+
+background:
+  radial-gradient(circle at 80% 20%, rgba(126, 255, 45, 0.35), transparent 35%),
+  linear-gradient(135deg, #85e733 0%, #003a29 65%, #002719 100%);
+Inactive KPI Cards
+Property	Value
+Background	#F8F8F7
+Text	Black
+Label	12px
+Value	26px–32px
+Percentage	Green for positive, red for negative
+11. Total Income Chart Card
+Content
+Total Income
+View your income in a certain period of time
+
+Profit and Loss      Profit  Loss
+
+[Bar chart Jan–Aug]
+Visual Layout
+
+The chart card sits on the top-right and is wider than the KPI grid.
+
+Header
+Title: Total Income
+Subtitle: Small grey text
+Legend: right aligned
+Chart
+
+The chart is a stacked bar chart:
+
+Lime green = Profit
+Black = Loss
+Months: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug
+Y-axis: 0k to 50k
+Chart Style
+Element	Style
+Bar radius	4px–8px
+Profit color	Bright lime green
+Loss color	Near black
+Grid lines	Very light grey dashed
+Axis labels	Small grey
+Legend dots	Small square/circle
+
+The bars should have a modern rounded top/bottom look.
+
+12. Monthly Spending Limit Card
+Content
+Monthly Spending Limit
+
+[Progress bar]
+
+$1,400.00 spent out of                       $5,500.00
+Progress Bar
+Property	Specification
+Track	Light grey textured/dotted line
+Fill	Dark green
+Height	7px–9px
+Radius	999px
+Fill percentage	About 35%–40%
+
+This card is placed below the Total Balance card and aligned with the left column.
+
+13. My Cards Section
+Content
+My Cards                          + Add new
+
+[Card 1] [Card 2]
+
+Two credit/debit cards are displayed side by side.
+
+Card Styling
+Card 1
+Dark black/charcoal background.
+Subtle green lighting.
+Mastercard-style red/yellow circles.
+Contactless icon.
+Active pill.
+Card number masked.
+Expiry date.
+CVV.
+Card 2
+Deep green gradient background.
+Star/sparkle detail.
+Active pill.
+Masked card number.
+Card Dimensions
+Property	Value
+Aspect ratio	Around 1.65:1
+Radius	14px–18px
+Padding	12px
+Text	White
+Width	48% each
+Card Microcopy
+Card Number
+**** **** 6782
+
+Exp
+00/29
+
+CVV
+811
+14. Recent Activities Table
+
+This is the largest content block at the bottom-right.
+
+Header
+Recent Activities            [Search input] [Filter button]
+Search Input
+White rounded field.
+Search icon on left.
+Placeholder: Search.
+Height: 40px–44px.
+Filter Button
+Small rounded button.
+Text: Filter.
+Filter icon.
+Table Columns
+[checkbox] Order ID | Activity | Price | Status | Date | menu
+Rows
+Order ID	Activity	Price	Status	Date
+INV_000076	Mobile App Purchase	$25,500	Completed	17 Apr, 2026 03:45 PM
+INV_000075	Hotel Booking	$32,750	Pending	15 Apr, 2026 11:30 AM
+INV_000074	Flight Ticket Booking	$40,200	Completed	15 Apr, 2026 12:00 PM
+INV_000073	Grocery Purchase	$50,200	In Progress	14 Apr, 2026 09:15 PM
+INV_000073	Software License	$15,900	Completed	10 Apr, 2026 06:00 AM
+Table Styling
+Element	Style
+Table container	Rounded card
+Header row	Very light grey background
+Row height	44px–52px
+Font size	12px
+Checkbox	Small rounded square
+Active checkbox	Black fill with white tick
+Row separators	Subtle light grey
+Menu	Three horizontal dots
+Status Indicators
+
+Status uses small colored dots before text.
+
+Status	Dot Color
+Completed	Green
+Pending	Red
+In Progress	Yellow
+15. Typography System
+
+The layout appears to use a clean modern sans-serif similar to:
+
+Inter
+Geist
+SF Pro Display
+DM Sans
+Recommended Typography
+font-family: "Inter", "SF Pro Display", system-ui, sans-serif;
+Type Scale
+Element	Size	Weight
+Greeting title	28px–32px	500–600
+Card title	13px–15px	500
+Large balance	26px–34px	500–600
+KPI number	26px–30px	500–600
+Table text	12px–13px	400–500
+Subtext	10px–12px	400
+Navigation	12px–13px	500
+
+Important: avoid heavy bolding. The UI uses medium-weight modern typography, not aggressive bold text.
+
+16. Color Palette
+Primary Palette
+Use	Color
+Page background	#E9EAEC
+Dashboard shell	#F5F5F3
+Card background	#FFFFFF / #F8F8F6
+Text primary	#111111
+Text secondary	#6F6F6F
+Text muted	#A0A0A0
+Lime accent	#B6FF2E
+Green accent	#74D52D
+Deep green	#003B28
+Black accent	#101010
+Border	#E8E8E5
+Error red	#FF4D5E
+Warning yellow	#FFD84D
+Visual Mood
+
+The palette should feel:
+
+Clean
+Premium
+Financial
+Calm
+Modern
+Slightly futuristic
+Soft, not corporate-heavy
+17. Graphic Designer Notes
+Visual Direction
+
+This dashboard has a premium SaaS finance aesthetic. The design relies on:
+
+Smooth rounded corners
+Light surfaces
+Dark green contrast
+Lime green performance accents
+Clean iconography
+Minimal visual noise
+Soft shadows
+Spacious card rhythm
+Key Design Characteristics
+Rounded everything
+Pills, cards, buttons, chart bars, table rows.
+Soft shadows
+No harsh outlines.
+Cards should feel elevated but not floating too much.
+Lime green as action color
+Used sparingly for positive growth, chart profit, and Transfer button.
+Black used for authority
+Active navigation, active sidebar icon, chart loss bars, checkbox.
+Micro icons
+Icons should remain small and subtle.
+Dashboard should breathe
+Avoid overcrowding even though there is a lot of information.
+18. Motion Graphics Developer Specification
+Motion Style
+
+The motion should feel:
+
+Smooth
+Soft
+Premium
+Fast but not aggressive
+Data-focused
+
+Avoid flashy effects. Use subtle dashboard interactions.
+
+Page Load Sequence
+
+Recommended animation order:
+
+1. Dashboard Shell
+Fade in + slight scale from 0.98 to 1
+Duration: 500ms
+Ease: cubic-bezier(0.22, 1, 0.36, 1)
+2. Header Navigation
+Slide down 8px + fade in
+Delay: 100ms
+Duration: 400ms
+3. Sidebar Icons
+Staggered fade/slide from left
+Delay between icons: 40ms
+Duration: 300ms each
+4. Main Cards
+
+Cards should animate in with a stagger:
+
+Fade in
+TranslateY: 16px → 0px
+Scale: 0.98 → 1
+Delay between cards: 70ms
+Duration: 450ms
+5. Chart Bars
+
+Each bar should grow vertically from bottom.
+
+ScaleY: 0 → 1
+Transform origin: bottom
+Stagger: 60ms
+Duration: 600ms
+Hover Interactions
+Cards
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.07);
+}
+Buttons
+Transfer button:
+- Slight scale to 1.02
+- Lime background becomes brighter
+
+Request button:
+- Background becomes slightly darker grey
+Sidebar Icons
+Inactive icon hover:
+- Light grey circular background appears
+- Icon darkens
+Table Rows
+Hover:
+- Background changes to #F4F4F2
+- Three-dot menu becomes darker
+Micro Animations
+Element	Motion
+Notification bell	Small pulse on unread dot
+Profile dropdown	Fade + scale from top-right
+Search input	Width expands slightly on focus
+Wallet cards	Lift on hover
+Spending bar	Fill animates from 0 to current value
+Cards	Subtle light gradient shift on hover
+19. UI/UX Engineer Specification
+Component Hierarchy
+DashboardLayout
+├── Topbar
+│   ├── BrandLogo
+│   ├── MainNavTabs
+│   ├── HeaderActions
+│   └── ProfileMenu
+├── Sidebar
+│   ├── ThemeControls
+│   ├── NavIcons
+│   └── UtilityIcons
+└── DashboardOverview
+    ├── GreetingHeader
+    ├── OverviewGrid
+    │   ├── BalanceCard
+    │   ├── MetricCardGrid
+    │   └── IncomeChartCard
+    ├── LowerGrid
+    │   ├── LeftColumn
+    │   │   ├── SpendingLimitCard
+    │   │   └── MyCardsWidget
+    │   └── RecentActivitiesTable
+Responsive Behaviour
+Desktop
+Full layout with sidebar and 3-column dashboard grid.
+Recent activities table spans wider area.
+Tablet
+Top section becomes 2 columns:
+Balance + KPI cards
+Chart full width below
+Mobile
+Topbar simplified
+Sidebar becomes bottom navigation
+Cards stack vertically
+Table becomes transaction cards
+Chart becomes horizontally scrollable or simplified
+Mobile Table Alternative
+
+Instead of a table, each activity becomes a card:
+
+Mobile App Purchase
+INV_000076
+$25,500
+Completed
+17 Apr, 2026 03:45 PM
+20. Full-Stack Developer Specification
+Suggested Tech Stack
+
+Best suited for:
+
+React / Next.js
+Tailwind CSS
+Recharts or ApexCharts
+Framer Motion
+Lucide React icons
+Supabase / PostgreSQL / Firebase / Laravel backend
+Suggested Data Models
+User
+type User = {
+  id: string;
+  name: string;
+  email: string;
+  avatarUrl: string;
+};
+Wallet
+type Wallet = {
+  id: string;
+  currency: "USD" | "EUR" | "GBP";
+  flag: string;
+  balance: number;
+  monthlyLimit: number;
+  status: "active" | "inactive";
+};
+Metric
+type Metric = {
+  id: string;
+  label: string;
+  value: number;
+  changePercentage: number;
+  period: string;
+  type: "earning" | "spending" | "income" | "revenue";
+};
+Transaction
+type Transaction = {
+  id: string;
+  orderId: string;
+  activity: string;
+  price: number;
+  status: "completed" | "pending" | "in_progress";
+  date: string;
+  icon: string;
+};
+Chart Data
+type IncomeChartItem = {
+  month: string;
+  profit: number;
+  loss: number;
+};
+21. Implementation Notes
+Frontend
+
+Use reusable components:
+
+<Card />
+<Button />
+<MetricCard />
+<WalletCard />
+<CreditCard />
+<TransactionTable />
+<ChartCard />
+<SidebarIcon />
+Backend Requirements
+
+The backend should support:
+
+User profile fetch
+Wallet balances
+Transaction list
+Transaction search
+Transaction filtering
+Monthly spending limit
+Card list
+Income/profit/loss analytics
+Date-range filtered dashboard data
+API Endpoints
+GET /api/dashboard/overview
+GET /api/wallets
+GET /api/cards
+GET /api/transactions
+GET /api/analytics/income
+GET /api/user/profile
+Search and Filter Logic
+
+Transaction search should filter by:
+
+Order ID
+Activity name
+Status
+Date
+Price range
+22. Exact Build Prompt for Developer
+
+Use this prompt to brief a developer or AI builder:
+
+Build a premium fintech dashboard UI inspired by a soft neumorphic finance admin interface. The screen should sit inside a large rounded white/off-white dashboard shell on a light grey background.
+
+Create a desktop dashboard with a top navigation bar, left icon sidebar, greeting section, balance card, 2x2 KPI metric cards, total income bar chart, monthly spending limit progress card, my cards widget, and recent activities table.
+
+Use a clean Inter-style font, off-white cards, soft shadows, rounded corners, black primary text, muted grey subtext, lime green accent buttons, dark green gradients, and black active states.
+
+The top navigation should include the Bongo-Fi logo, tabs for Overview, Activity, Manage, Program, Account, Reports, search/notification icons, and a user profile pill.
+
+The sidebar should be icon-only with a black active dashboard icon and subtle grey inactive icons.
+
+The balance card should show total balance, currency dropdown, growth indicator, Transfer and Request pill buttons, and three wallet mini-cards for USD, EUR, and GBP.
+
+The KPI area should have four cards: Total Earnings, Total Spending, Total Income, and Total Revenue. The Total Earnings card should be highlighted with a dark green/lime gradient.
+
+The chart card should show Total Income with a profit/loss stacked bar chart from January to August using lime green for profit and black for loss.
+
+The lower section should include a Monthly Spending Limit progress bar, two dark credit card previews, and a Recent Activities table with search, filter, checkboxes, order ID, activity, price, status, date, and row action menu.
+
+Add subtle animations: dashboard fade-in, cards stagger upward, chart bars grow from bottom, table rows hover softly, buttons scale slightly on hover, and the spending bar animates from zero.
+
+The result should feel like a polished 2026 SaaS fintech dashboard: minimal, premium, rounded, soft, data-rich, and visually calm.
+23. Critical Reproduction Notes
+
+To reproduce this reference accurately, do not make it overly colorful. The entire quality of the design comes from restraint.
+
+The key details to preserve are:
+
+Light grey outer canvas
+Large rounded dashboard shell
+Soft white cards
+Black active navigation pills
+Lime green financial accents
+Dark green gradient KPI card
+Icon-only left sidebar
+Rounded chart bars
+Minimal transaction table
+Premium spacing and subtle shadows

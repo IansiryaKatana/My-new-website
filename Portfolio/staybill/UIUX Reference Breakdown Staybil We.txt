@@ -1,0 +1,991 @@
+UI/UX Reference Breakdown: Staybil Wellness Landing Page
+Overall Design Direction
+
+This is a premium wellness-tech landing page for a personal health, recovery, and body wellness service/app. The design combines:
+
+Soft medical wellness
+Lifestyle photography
+Minimal Swiss-style typography
+Rounded modern SaaS cards
+Calm neutral backgrounds
+Subtle luxury spa feeling
+Mobile-first editorial storytelling
+
+The page feels like a mix between a wellness retreat website, a health-tech app landing page, and a premium personal care brand.
+
+The key mood is:
+
+Calm, personal, intelligent, human, guided, and emotionally reassuring.
+
+1. Project Manager Specification
+Page Objective
+
+The landing page must introduce Staybil as a personal wellness/body relief platform that helps users understand their body, track wellness, and receive guided treatment/support.
+
+The page should move the user through this journey:
+
+Emotional first impression
+Hero image of relaxation/wellness.
+Clear headline about personal wellness and body strength.
+Education
+Explain that beginning a wellness journey requires understanding what to expect.
+Product/service explanation
+Present service cards showing body needs, wellness roadmap, and progress tracking.
+Personalized package
+Introduce wellness categories such as nourishment, movement, embodiment, alignment.
+Social proof
+Show testimonial and measurable wellness stats.
+Objection handling
+FAQ section.
+Conversion
+Final emotional CTA over landscape background.
+Trust/footer
+Contact details, service links, large brand wordmark.
+Required Page Sections
+Order	Section	Purpose
+1	Hero	Emotional brand introduction
+2	Intro / About	Explain wellness journey
+3	Services Pain Relief Cards	Show key product/service benefits
+4	Wellness Package Accordion	Show personalized treatment areas
+5	Proof / Testimonial	Build credibility
+6	FAQ	Answer objections
+7	CTA	Push user to join
+8	Footer	Contact, links, brand identity
+Build Priority
+Must-Have
+Full-screen hero with background image
+Floating navigation
+Rounded content cards
+Accordion wellness package section
+Testimonial/stat card section
+FAQ accordion
+Large footer logo typography
+Mobile responsive version
+Nice-to-Have
+Smooth scroll transitions
+Parallax hero image
+Animated accordion opening
+Subtle card entrance animations
+Noise/grain overlay
+Floating wellness mini-card in hero
+2. UI/UX Engineer Specification
+Global Layout System
+Canvas
+Desktop design should use a wide centered container.
+Mobile design should stack sections vertically.
+Page background: warm off-white / soft cream.
+Section spacing should be generous but not exaggerated.
+
+Recommended base:
+
+--page-bg: #f3f0ea;
+--black: #050505;
+--soft-black: #151515;
+--muted-text: #6f6c66;
+--card-bg: #f7f5ef;
+--border-soft: rgba(0,0,0,0.12);
+--radius-lg: 28px;
+--radius-xl: 36px;
+--section-padding: clamp(72px, 8vw, 120px);
+Typography System
+
+The typography is extremely important. It uses a thin, modern, slightly compressed sans-serif.
+
+Suggested Fonts
+
+Use one of these:
+
+Neue Haas Grotesk
+Suisse Intl
+Inter Tight
+Helvetica Neue
+PP Neue Montreal
+Satoshi
+
+If recreating in web:
+
+font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+Typography Hierarchy
+Element	Style
+Hero headline	56–76px desktop, 38–46px mobile, thin weight
+Section headline	42–58px desktop, 30–38px mobile
+Card title	20–26px
+Body text	13–16px
+Labels / tags	10–12px uppercase
+Footer logo	160–260px desktop, 72–100px mobile
+Typography Feel
+Thin font weight: 300–400
+Tight line height: 0.9–1.05
+Slight negative tracking: -0.04em
+Mostly lowercase/normal case, not aggressive uppercase
+Minimal bold usage
+3. Exact Layout Structure
+Section 1: Hero
+Visual Description
+
+A large full-width hero section using a soft lifestyle photo of a woman relaxing in a spa/wellness setting. The image fills the entire top screen with a subtle overlay.
+
+Structure
+Hero Section
+├── Background image
+├── Transparent top navigation
+│   ├── Logo left
+│   ├── Center nav links
+│   └── CTA button right
+├── Small eyebrow text
+├── Large headline left
+├── Social proof avatars bottom-left
+├── Floating discovery card right
+└── Small scroll/view indicator bottom-right
+Hero Image Treatment
+Full bleed image
+Warm lighting
+Low contrast
+Slight blur/softness
+Overlay gradient from left to right:
+darker on left for text readability
+lighter/transparent near face
+.hero::after {
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.42) 0%,
+    rgba(0,0,0,0.14) 45%,
+    rgba(0,0,0,0.02) 100%
+  );
+}
+Navigation
+Floating inside hero near top
+White/light text
+Small nav items
+Rounded white CTA pill on right
+Logo mark small and minimal
+
+Desktop nav:
+
+[Logo]        Home   Services   About Staybil   Treatments   App       [Join waitlist]
+Hero Headline
+
+Text position:
+
+Left aligned
+Around 12–16% from top
+Around 5–7% from left
+Max width: 520px
+
+Text style:
+
+font-size: clamp(42px, 6vw, 76px);
+line-height: 0.92;
+font-weight: 300;
+letter-spacing: -0.055em;
+color: #fff;
+
+Text:
+
+Personal wellness
+for a stronger
+your body
+
+Better corrected wording for final production:
+
+Personal wellness
+for a stronger
+body
+
+Or if keeping exact concept feel:
+
+Personal wellness
+for a stronger
+you
+Bottom Left Social Proof
+
+Contains:
+
+3 overlapping circular avatars
+Small caption text
+“5,000 happy members signed up...” style line
+
+Layout:
+
+[avatar][avatar][avatar]
+5,000 happy members signed up...
+
+Style:
+
+Avatars: 28–36px circles
+Border: 2px white
+Text: 11–13px white with 70% opacity
+Floating Discovery Card
+
+Position:
+
+Right side
+Mid-lower hero
+White/off-white card
+Rounded corners
+Contains small image and CTA arrow button
+
+Structure:
+
+Discover what your
+personal needs
+
+[portrait/lifestyle image]
+
+Our 6 session plan
+built around you
+
+[black circular arrow button]
+
+Card style:
+
+width: 220px;
+border-radius: 22px;
+padding: 14px;
+background: rgba(255,255,255,0.88);
+backdrop-filter: blur(12px);
+Section 2: Intro / About
+Visual Description
+
+Minimal, editorial text section on cream background. Small label on the left, large paragraph on the right.
+
+Structure
+ABOUT        If you're beginning or considering a
+             wellness journey with Staybil it's
+             helpful to understand what to
+             expect, how it works
+
+Under the paragraph there are small icon/stat items.
+
+Layout
+
+Desktop:
+
+Two-column grid
+Left column: 20%
+Right column: 60–70%
+Empty negative space preserved
+.intro {
+  display: grid;
+  grid-template-columns: 0.8fr 2fr;
+  gap: 80px;
+}
+Typography
+
+Main text:
+
+font-size: clamp(30px, 4vw, 54px);
+line-height: 1;
+font-weight: 300;
+letter-spacing: -0.05em;
+color: #111;
+
+Small label:
+
+font-size: 11px;
+font-weight: 500;
+text-transform: uppercase;
+border-bottom: 1px solid rgba(0,0,0,0.15);
+Section 3: Black Service Card Section
+Visual Description
+
+A large black rounded container with white typography. Inside it are three product/service cards.
+
+This section contrasts sharply with the soft cream page and gives a premium app/product feature feeling.
+
+Structure
+Black Rounded Section
+├── Header row
+│   ├── Large headline left
+│   ├── Small pill label center/top
+│   └── Logo mark right
+└── Three feature cards
+    ├── Card 1: Discover what your body needs
+    ├── Card 2: Your personal wellness road map
+    └── Card 3: Progress that evolves with you
+Container Style
+background: #030303;
+border-radius: 28px;
+padding: clamp(24px, 4vw, 56px);
+color: white;
+Header
+
+Headline:
+
+We've created service
+to relieve all sorts of
+pain in the body.
+
+Better production wording:
+
+We've created services
+to relieve all sorts of
+pain in the body.
+
+Style:
+
+font-size: clamp(32px, 5vw, 64px);
+line-height: 0.95;
+font-weight: 300;
+letter-spacing: -0.05em;
+Feature Cards
+
+Each card:
+
+Dark charcoal background
+Rounded corners
+White title
+Large image area
+Small supporting text at bottom
+Some cards contain UI mockups layered above images
+
+Grid:
+
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+
+Mobile:
+
+grid-template-columns: 1fr;
+
+Card style:
+
+background: #181818;
+border-radius: 20px;
+padding: 22px;
+min-height: 340px;
+overflow: hidden;
+Card Design Rules
+Images should be cropped organically.
+Use rounded image masks.
+Include mini app interface overlays.
+Cards should feel like a mix of wellness photo and product UI.
+Section 4: Wellness Package Accordion
+Visual Description
+
+An elegant accordion list section. Left has a label and headline. The list uses numbered rows with plus/minus icons on the right. One accordion item is open and reveals text, image, and a progress card.
+
+Structure
+WELLNESS PACKAGE
+
+Thoughtful weight wellness
+package feels all sorts
+for personal
+
+[001] Conscious Nourishment       +
+[002] Mindful Movement            -
+      Description text
+      [Rounded lifestyle image] [black tracking widget]
+[003] Self-Love Embodiment        +
+[004] Restorative Alignment       +
+Layout
+Cream background
+Section header top-left
+Logo mark top-right
+Accordion full width
+Rows separated by thin borders
+.accordion-row {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  padding: 28px 0;
+}
+Open Accordion Content
+
+Open item should display:
+
+Small description text
+Large rounded image centered
+Floating black analytics card on right
+
+Content grid:
+
+display: grid;
+grid-template-columns: 1fr 1.4fr 0.8fr;
+gap: 32px;
+align-items: center;
+
+Mobile:
+
+Stack vertically
+Image full width
+Analytics card below or overlaid
+Accordion Interaction
+Closed rows show title and plus icon
+Open row shows minus icon
+Smooth height transition
+Content fades/slides in
+
+Motion:
+
+Open duration: 500–700ms
+Ease: cubic-bezier(0.22, 1, 0.36, 1)
+Text fade delay: 80ms
+Image slide-up delay: 120ms
+Card slide-left delay: 180ms
+Section 5: Proof / Testimonial Section
+Visual Description
+
+A rounded card with a scenic nature/water background. On top are a testimonial card and nutrition tracking card.
+
+This section mixes natural wellness scenery with app/data proof.
+
+Structure
+Scenic Background Card
+├── Small label: PROVEN TREATMENTS
+├── Center headline:
+│   proven treatments tailored
+│   to your needs
+├── Bottom card row
+│   ├── Testimonial card
+│   │   ├── Portrait image
+│   │   ├── Quote
+│   │   ├── Name and role
+│   │   └── Carousel dots
+│   └── Nutrition tracking card
+│       ├── Small title
+│       ├── Metric pill 1
+│       └── Metric pill 2
+Container
+position: relative;
+border-radius: 30px;
+overflow: hidden;
+min-height: 560px;
+background-image: url(...);
+background-size: cover;
+background-position: center;
+
+Overlay:
+
+background: linear-gradient(
+  180deg,
+  rgba(0,0,0,0.18),
+  rgba(0,0,0,0.45)
+);
+Headline
+
+Centered near top:
+
+font-size: clamp(34px, 5vw, 66px);
+line-height: 0.95;
+font-weight: 300;
+letter-spacing: -0.05em;
+color: white;
+text-align: center;
+Testimonial Card
+
+Style:
+
+background: rgba(10,10,10,0.82);
+color: white;
+border-radius: 24px;
+padding: 24px;
+backdrop-filter: blur(8px);
+
+Layout:
+
+Image left
+Text right
+Dots bottom-right
+Nutrition Tracking Card
+
+Style:
+
+background: #f4f1e9;
+color: #111;
+border-radius: 24px;
+padding: 22px;
+
+Metric cards:
+
+Black pill background
+Circular progress ring
+Large number
+Small label
+Section 6: FAQ Section
+Visual Description
+
+A split layout. Left side has heading and decorative image. Right side has accordion FAQ list.
+
+Structure
+FAQ
+
+Here are a few
+things you might be
+wondering.
+
+[small rounded image]
+
+Right:
+Who can benefit from Staybil?                      +
+Is Staybil meant to replace therapy, medication... +
+How does Staybil keep my information private?      +
+Do I need to integrate my calendar and wearable... +
+Who developed Staybil?                             +
+Layout
+
+Desktop:
+
+display: grid;
+grid-template-columns: 0.9fr 1.2fr;
+gap: 96px;
+
+Mobile:
+
+Heading first
+Image second
+FAQ list full width
+FAQ Rows
+border-top: 1px solid rgba(0,0,0,0.13);
+padding: 24px 0;
+display: flex;
+justify-content: space-between;
+
+Text:
+
+18–22px desktop
+15–17px mobile
+Thin font
+Plus icon right
+Section 7: Final CTA
+Visual Description
+
+Full-width scenic coastal/mountain background. Large centered headline and black CTA button.
+
+Structure
+CTA Section
+├── Background landscape image
+├── Center headline
+└── CTA button
+
+Text:
+
+Affordable and truly enjoyable for
+everyone experience the
+difference today!
+
+Better production wording:
+
+Affordable and truly enjoyable for
+everyone. Experience the
+difference today.
+Style
+min-height: 620px;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background-size: cover;
+background-position: center;
+
+Headline:
+
+font-size: clamp(34px, 5vw, 68px);
+line-height: 0.95;
+font-weight: 300;
+letter-spacing: -0.05em;
+color: #111;
+
+CTA button:
+
+background: #050505;
+color: white;
+border-radius: 999px;
+padding: 12px 22px;
+font-size: 13px;
+Section 8: Footer
+Visual Description
+
+Large black rounded footer panel with contact details, navigation links, social links, and massive oversized “Staybil” wordmark.
+
+Structure
+Footer Black Card
+├── Top row
+│   ├── Contact info
+│   ├── Services links
+│   ├── Company links
+│   └── Address
+├── Small legal text
+├── Social icons
+└── Huge Staybil wordmark
+Footer Container
+background: #030303;
+color: #f6f4ee;
+border-radius: 28px 28px 0 0;
+padding: 48px 48px 24px;
+Footer Wordmark
+
+This is a major design feature.
+
+font-size: clamp(78px, 21vw, 300px);
+line-height: 0.75;
+font-weight: 300;
+letter-spacing: -0.08em;
+
+The wordmark should almost touch the footer edges.
+
+4. Motion Graphics Developer Specification
+Global Motion Direction
+
+The motion should feel:
+
+Slow
+Soft
+Calm
+Premium
+Spa-like
+Not flashy
+Smooth with long easing curves
+
+Avoid:
+
+Bouncy animations
+Fast transitions
+Overly techy effects
+Harsh scaling
+Spinning icons
+Suggested Motion System
+Page Load
+Hero image slowly scales from 1.04 to 1.
+Navigation fades down.
+Hero headline fades up line by line.
+Discovery card fades in after headline.
+Avatars fade in last.
+
+Timing:
+
+Hero image: 1200ms
+Nav: 600ms
+Headline lines: 700ms each, stagger 120ms
+Floating card: 700ms, delay 500ms
+Social proof: 500ms, delay 700ms
+Scroll Animations
+Intro Section
+Label fades in from left.
+Paragraph reveals line by line.
+Icons fade up individually.
+Black Cards Section
+Section container fades up.
+Headline slides up.
+Three cards rise with staggered delay.
+Card images slightly scale on hover.
+Accordion Section
+Rows fade in from bottom.
+On accordion open:
+Content height expands.
+Image fades/slides up.
+Tracking card slides in from right.
+Plus icon rotates into minus.
+Testimonial Section
+Background image has subtle parallax.
+Testimonial card slides up.
+Nutrition card slides up slightly after.
+Circular progress indicators animate from 0 to final value.
+FAQ Section
+FAQ rows appear one by one.
+Plus icon rotates 45 degrees when open.
+CTA Section
+Background image slow parallax.
+Headline fades up.
+Button appears after text.
+Footer
+Footer card slides up slightly.
+Huge “Staybil” wordmark rises from bottom with clipping mask.
+Animation Tech Recommendation
+
+For high-quality build:
+
+GSAP + ScrollTrigger for advanced scroll motion
+Framer Motion for React component entrances
+CSS transitions for accordions and hover states
+
+Recommended easing:
+
+ease: "power3.out"
+
+Or CSS:
+
+cubic-bezier(0.22, 1, 0.36, 1)
+5. Graphic Designer Specification
+Brand Mood
+
+The visual identity should feel like:
+
+Modern wellness
+Premium health support
+Calm personal transformation
+Soft body-care technology
+Human-first medical lifestyle
+Color Palette
+Use	Color
+Background cream	#F2EFE8
+Deep black	#030303
+Soft black	#161616
+Warm white	#FAF8F1
+Muted grey text	#77736B
+Border line	rgba(0,0,0,0.12)
+Card charcoal	#171717
+Accent yellow/gold	#E7B84A
+Soft green/nature	#8C9A7D
+Image Direction
+
+Use images with:
+
+Natural sunlight
+Spa/wellness environments
+Calm human expressions
+Close-up body/skin shots
+Soft focus
+Outdoor nature scenes
+Neutral clothing
+Cream, beige, olive, and skin-tone palettes
+
+Avoid:
+
+Stock photos that look clinical
+Gym-heavy imagery
+Loud colors
+Harsh shadows
+Overly smiling commercial images
+Generic doctor/medical visuals
+Graphic Motifs
+
+Repeated visual elements:
+
+Thin circular line logo mark
+Rounded organic image masks
+Soft UI cards
+Circular progress charts
+Small pill labels
+Minimal line icons
+Thin horizontal dividers
+Card Design Language
+
+Cards should use:
+
+Large radius corners: 20–30px
+Minimal borders
+Soft shadows only where needed
+Layered images and UI mockups
+Text aligned top-left
+Supporting text bottom-left
+Plenty of breathing space
+6. Full Stack Developer Specification
+Recommended Frontend Stack
+
+Best for exact reproduction:
+
+React / Next.js
+Tailwind CSS
+Framer Motion
+GSAP ScrollTrigger
+Lenis smooth scroll
+Headless UI or custom accordion
+CMS: Sanity / Strapi / Supabase / WordPress Headless
+
+For Elementor/WordPress:
+
+Elementor Pro
+ACF Pro
+Custom post types for FAQ, services, testimonials
+GSAP via custom JS
+Custom CSS for exact spacing and animation
+Component Architecture
+/components
+├── Header.tsx
+├── Hero.tsx
+├── IntroSection.tsx
+├── FeatureCardsSection.tsx
+├── WellnessAccordion.tsx
+├── ProofSection.tsx
+├── FAQSection.tsx
+├── CTASection.tsx
+├── Footer.tsx
+├── WellnessCard.tsx
+├── StatCard.tsx
+├── TestimonialCard.tsx
+└── SectionLabel.tsx
+Data Structure
+Services
+type ServiceCard = {
+  title: string;
+  description: string;
+  image: string;
+  uiOverlay?: string;
+};
+Accordion Items
+type WellnessPackageItem = {
+  number: string;
+  title: string;
+  description: string;
+  image?: string;
+  stats?: {
+    label: string;
+    value: string;
+  }[];
+};
+Testimonials
+type Testimonial = {
+  name: string;
+  role: string;
+  quote: string;
+  image: string;
+};
+FAQs
+type FAQ = {
+  question: string;
+  answer: string;
+};
+CMS Editable Fields
+
+The following should be editable from CMS/admin:
+
+Hero headline
+Hero background image
+Hero floating card content
+Navigation links
+Intro headline
+Feature cards
+Wellness package accordion items
+Testimonial quote/name/image
+Tracking metrics
+FAQ questions/answers
+CTA headline/button
+Footer links/contact details
+Performance Requirements
+
+Because the page is image-heavy:
+
+Use WebP/AVIF images.
+Lazy-load all images below hero.
+Preload hero image.
+Use responsive image sizes.
+Compress large scenic backgrounds.
+Avoid autoplay video unless heavily optimized.
+Use CSS gradients instead of image overlays where possible.
+
+Recommended:
+
+Hero image: under 300–450KB
+Section background images: under 250KB each
+Card images: under 100–180KB each
+Total initial load: under 1.5MB
+7. Responsive Behaviour
+Desktop
+Full editorial layout
+Wide sections
+Multi-column cards
+Floating elements visible
+Large typography
+Tablet
+Reduce hero headline size
+Keep 3-card grid if enough width, otherwise 2-column
+Accordion content becomes 2-column
+Footer columns wrap
+Mobile
+Hero height: 90–100vh
+Navigation collapses to logo + menu button
+Floating discovery card moves lower or becomes hidden
+Feature cards stack vertically
+Accordion content stacks
+FAQ becomes single column
+Footer wordmark reduced but still oversized
+CTA headline reduced to maintain elegance
+
+Mobile hero layout:
+
+[Logo]                    [Menu]
+
+Personal wellness
+for a stronger
+body
+
+[Social proof]
+
+[Floating discovery card]
+8. Development Notes for Exact Reproduction
+Important Styling Rules
+
+To reproduce this exactly, the developer must preserve:
+
+Large rounded black sections
+Thin typography
+Cream background
+Editorial spacing
+Image-led storytelling
+Subtle motion
+Oversized footer wordmark
+Minimal icons
+Soft dividers
+Floating UI/product cards
+Common Mistakes to Avoid
+
+Do not:
+
+Use thick fonts
+Add too many icons
+Use bright medical blue/green
+Make cards too sharp
+Add heavy drop shadows
+Overanimate sections
+Use generic stock images
+Make the layout too corporate
+Center everything unnecessarily
+Remove the negative space
+9. Reproduction Prompt for Designer / Developer
+
+Use this as the direct production instruction:
+
+Create a premium wellness-tech landing page inspired by soft spa editorial design and modern SaaS product presentation. Use a warm cream page background, thin modern sans-serif typography, large rounded sections, soft lifestyle wellness photography, black contrast panels, floating UI cards, accordion content, testimonial/stat cards, FAQ rows, and an oversized wordmark footer. The layout should feel calm, personal, intelligent, and premium. Preserve generous spacing, subtle dividers, rounded image masks, and slow smooth animations. Avoid loud colors, heavy fonts, harsh shadows, or corporate medical styling.
+
+10. Suggested Page Copy Cleanup
+
+Some of the reference wording feels visually nice but grammatically rough. For production, I would clean it like this while keeping the same tone:
+
+Hero
+Personal wellness
+for a stronger
+body
+Intro
+If you're beginning or considering a wellness journey with Staybil, it's helpful to understand what to expect and how it works.
+Black Section
+We've created services
+to relieve all sorts of
+pain in the body.
+Package Section
+Thoughtful wellness packages,
+designed to feel deeply personal.
+Proof Section
+Proven treatments tailored
+to your needs.
+FAQ Heading
+Here are a few
+things you might be
+wondering.
+CTA
+Affordable, enjoyable wellness
+for everyone. Experience the
+difference today.
+11. Final Build Summary
+
+This layout should be treated as a high-end wellness landing page with the visual logic of:
+
+Editorial hero
+→ educational intro
+→ product/service cards
+→ personalized accordion
+→ proof/statistics
+→ FAQ
+→ emotional CTA
+→ oversized brand footer
+
+The design is not just about placing sections. The reproduction depends heavily on:
+
+Exact spacing
+Soft image treatment
+Thin typography
+Cream and black contrast
+Rounded cards
+Slow premium motion
+Minimal but confident copy
+
+This should be built like a luxury wellness product website, not a typical clinic, gym, or SaaS website.

@@ -1,0 +1,1237 @@
+UI/UX Production Breakdown — Vale Capital / Northbridge Infrastructure Partners
+
+This reference is a premium private investment / infrastructure asset management website with a highly editorial, institutional, finance-focused design language. The layout combines large minimalist typography, monochrome blue image treatments, structured grid lines, corporate spacing, and calm investor-facing messaging.
+
+The design should feel like a global private capital firm, not a startup website. It is restrained, confident, architectural, and data-driven.
+
+1. Project Manager Perspective
+Product Context
+
+This layout appears to be for an investment firm, private equity platform, infrastructure asset manager, or capital advisory company.
+
+The featured entity is:
+
+Northbridge Infrastructure Partners
+
+The website communicates that the company owns and operates essential transport and energy infrastructure assets across North America.
+
+The entire page is built to support:
+
+Investor trust
+Institutional credibility
+Portfolio storytelling
+Strategic asset positioning
+Long-term capital confidence
+Lead generation through a contact form
+Page Purpose
+
+The page functions as a corporate landing page / investment platform showcase.
+
+Its purpose is to introduce the company, explain its investment thesis, show strategic pillars, highlight portfolio activity, and guide qualified users toward contacting the firm.
+
+User Intent
+
+Primary users are likely:
+
+Institutional investors
+Fund partners
+Infrastructure stakeholders
+Strategic acquisition partners
+Corporate advisors
+Analysts
+Potential portfolio companies
+High-net-worth private investors
+
+The user comes to the page to understand:
+
+Who the company is
+What asset class it focuses on
+Why it is credible
+What its strategy is
+What kind of investments it manages
+How to contact the team
+Content Hierarchy
+
+The page is structured in this order:
+
+Section	Purpose
+Hero	Introduce brand and core platform
+Overview	Explain what Northbridge does
+Visual Asset Statement	Reinforce infrastructure scale
+Investment Thesis	Communicate long-term strategy
+Value Creation Pillars	Explain operating/investment framework
+Portfolio / Investment Highlight	Show example investment
+Contact Section	Convert interested users
+Footer	Navigation, legal, brand closure
+Key User Actions
+
+The main calls to action are:
+
+Contact Us
+Learn More
+View Previous Investments
+View Next Investments
+Navigation to About, Services, Investments, Products
+
+The design intentionally avoids aggressive sales CTAs. The tone is subtle and corporate.
+
+2. UI/UX Engineer Perspective
+Overall Layout System
+Canvas
+
+The reference is designed as a full-width vertical scrolling website, likely optimized for desktop first.
+
+Approximate structure:
+
+Full viewport hero section
+Alternating off-white and deep-blue sections
+Strict grid alignment
+Large editorial spacing
+Thin divider lines throughout
+Image-heavy sections with monochrome blue overlays
+
+The page uses a 12-column grid, but visually behaves more like a 2-column editorial grid with heavy left/right alignment.
+
+Global Design Structure
+Main Container
+.page {
+  width: 100%;
+  background: #eeeeea;
+  color: #111f70;
+}
+Maximum Content Width
+
+The design appears almost full-width with narrow margins.
+
+Recommended implementation:
+
+.section-inner {
+  width: calc(100% - 48px);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+Desktop side padding should be around:
+
+padding-left: 48px;
+padding-right: 48px;
+
+Mobile:
+
+padding-left: 20px;
+padding-right: 20px;
+Header / Navigation
+Header Placement
+
+The header sits inside the hero, fixed at the top visually but likely not sticky in the reference.
+
+Structure
+
+Left:
+
+Small sun/star icon
+Brand name: Vale Capital
+
+Right:
+
+Vertical stacked navigation:
+About
+Services
+Investment
+Products
+
+The nav is placed at the top-right, stacked vertically with tiny text.
+
+Header Specs
+.header {
+  position: absolute;
+  top: 28px;
+  left: 48px;
+  right: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+Logo:
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+Nav:
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 9px;
+  color: #ffffff;
+}
+Hero Section
+Visual Structure
+
+The hero is a large blue-tinted section with:
+
+Monochrome blue infrastructure/bridge background
+Fine grid overlay
+Large white title on lower-left
+Very small supporting description below
+Button aligned toward the lower-right
+Thin horizontal rule across lower hero
+Hero Layout
+
+The hero should occupy roughly 65–75vh on desktop.
+
+.hero {
+  min-height: 720px;
+  position: relative;
+  background: #1f2fb0;
+  overflow: hidden;
+}
+
+The image is treated as an abstract wave/bridge form, placed mostly across the lower half.
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center bottom;
+  mix-blend-mode: multiply;
+  opacity: 0.75;
+}
+
+A blue overlay should sit above the image:
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(33, 47, 178, 0.45);
+}
+Hero Typography
+
+The main headline:
+
+Northbridge
+Infrastructure Partners
+
+Position:
+
+Lower-left
+Starts around 42px from left
+Around 62–68% down the hero
+White
+Large, clean sans-serif
+
+Approximate CSS:
+
+.hero-title {
+  position: absolute;
+  left: 48px;
+  bottom: 135px;
+  max-width: 760px;
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  color: #ffffff;
+}
+
+The line break is important. The first line should be “Northbridge”, second line “Infrastructure Partners”.
+
+Hero Bottom Content
+
+Below the title is a thin horizontal line and a tiny summary paragraph.
+
+.hero-bottom {
+  position: absolute;
+  left: 48px;
+  right: 48px;
+  bottom: 64px;
+  display: grid;
+  grid-template-columns: 20% 45% 1fr auto;
+  align-items: start;
+  border-top: 1px solid rgba(255,255,255,0.35);
+  padding-top: 22px;
+}
+
+CTA button:
+
+.button-light {
+  background: #ffffff;
+  color: #13228f;
+  border: 1px solid #ffffff;
+  padding: 7px 14px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+Button text:
+
+Contact Us +
+
+Overview Section
+Section Background
+
+This section changes to an off-white/stone background.
+
+.overview {
+  background: #efefeb;
+  color: #101c80;
+  padding: 96px 48px 64px;
+}
+Layout
+
+Top area uses a 2-column grid.
+
+Left:
+
+Small label: Overview
+Large text block
+
+Right:
+
+Supporting paragraph
+CTA button
+.overview-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 120px;
+  margin-bottom: 54px;
+}
+Text Styling
+
+Small section label:
+
+.section-kicker {
+  font-size: 11px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+Main overview copy:
+
+.overview-heading {
+  font-size: clamp(28px, 3.4vw, 46px);
+  line-height: 1.02;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  max-width: 760px;
+}
+
+Text:
+
+Northbridge Infrastructure Partners is an owner and operator of essential transport and energy infrastructure assets across North America.
+
+Right paragraph:
+
+.overview-copy {
+  font-size: 15px;
+  line-height: 1.35;
+  max-width: 330px;
+}
+Overview Image Section
+Image Treatment
+
+Large horizontal image block:
+
+Full-width within margin
+Blue duotone treatment
+Infrastructure / bridge / road image
+High contrast
+Small annotation card floating inside image
+.overview-image-wrap {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
+
+Image:
+
+.overview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.15);
+}
+
+Overlay:
+
+.overview-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(21, 31, 170, 0.74);
+  mix-blend-mode: multiply;
+}
+Annotation Card
+
+A small white rectangular label appears inside the image, around left-center.
+
+.annotation-card {
+  position: absolute;
+  left: 24%;
+  top: 42%;
+  width: 170px;
+  background: #ffffff;
+  color: #13228f;
+  padding: 14px 16px;
+  font-size: 8px;
+  line-height: 1.25;
+  z-index: 2;
+}
+
+There is also a thin line extending vertically from the card area, giving an architectural diagram feel.
+
+Investment Thesis Section
+Layout
+
+This section is off-white and text-based, with a left label and a large paragraph offset to the right.
+
+.thesis {
+  background: #efefeb;
+  padding: 110px 48px 120px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+Left label:
+
+Investment Thesis
+
+Right text:
+
+The company’s diversified asset base, stable cash flow profile, and experienced management team aligned with our long-term capital strategy. The investment provided a platform for disciplined expansion into adjacent markets while maintaining downside protection.
+
+Important Divider Line
+
+A thin vertical rule runs from the image annotation down through this section, aligning with the left side of the text block.
+
+.thesis {
+  border-left: 1px solid rgba(20, 30, 130, 0.25);
+}
+
+This line is critical to reproduce the “institutional report” feel.
+
+Thesis Typography
+.thesis-text {
+  max-width: 800px;
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.05em;
+  font-weight: 400;
+}
+Strategic Pillars Section
+Section Background
+
+Deep saturated blue.
+
+.pillars {
+  background: #171fb3;
+  color: #ffffff;
+  padding: 48px;
+}
+
+Top:
+
+Small label: Value Creation
+Title: Strategic Pillars of Value Creation
+.pillars-title {
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+Pillars Content Layout
+
+This section uses a two-column grid:
+
+Left:
+
+Large blue-tinted boardroom image
+
+Right:
+
+Stacked list of 5 pillar rows
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 48% 52%;
+  margin-top: 52px;
+}
+Pillar List
+
+Each row has:
+
+Title
+Supporting sentence
+Star/sun icon on the far right
+Divider line
+
+Rows:
+
+Operational Excellence
+Operational efficiency programs improve asset cash returns.
+Capital Optimization
+Refinancing capital structure to extend debt maturity profile.
+Strategic Growth
+Selective acquisition of complementary regional infrastructure platforms.
+Governance & Oversight
+Strengthened governance and board-level oversight.
+Capability Expansion
+Expansion of asset management capabilities.
+Pillar Row CSS
+.pillar-row {
+  min-height: 122px;
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  align-items: center;
+  padding: 0 0 0 48px;
+  border-top: 1px solid rgba(255,255,255,0.28);
+}
+
+Active row:
+
+The second row is white/off-white with blue text.
+
+.pillar-row.active {
+  background: #ffffff;
+  color: #14209d;
+}
+
+The icon remains blue in the active row.
+
+Portfolio Highlight Section
+Visual Structure
+
+This section remains deep blue but uses a full-width background image of corporate silhouettes / glass building environment.
+
+There is a central white investment card floating over the image.
+
+Layout
+.portfolio {
+  position: relative;
+  min-height: 760px;
+  background: #141ba8;
+  overflow: hidden;
+}
+
+Background image:
+
+.portfolio-bg {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.65;
+  filter: grayscale(1);
+}
+
+Blue overlay:
+
+.portfolio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 28, 160, 0.72);
+}
+Investment Card
+
+The card is centered horizontally and placed in the lower middle.
+
+.investment-card {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 90%);
+  background: #ffffff;
+  color: #121f8e;
+  margin: 260px auto 0;
+}
+
+Top card image:
+
+.investment-card-image {
+  height: 155px;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+}
+
+Text area:
+
+.investment-card-body {
+  padding: 28px 34px 34px;
+}
+
+Title:
+
+Velox Industrial Group
+
+.card-title {
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+Small metadata:
+
+Industry
+Year: 2021
+Previous / Next Navigation
+
+Left bottom:
+
+Previous Investments
+
+Right bottom:
+
+Next Investments
+
+They are placed on the same horizontal axis as the investment card area.
+
+.portfolio-nav {
+  position: absolute;
+  z-index: 3;
+  left: 48px;
+  right: 48px;
+  bottom: 180px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+}
+Contact Section
+Layout
+
+This section splits into two columns.
+
+Left:
+
+Large blue duotone office image
+
+Right:
+
+Contact form on off-white background
+.contact {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  background: #efefeb;
+}
+Left Image
+
+The image has a strong pixelated / halftone texture.
+
+.contact-image {
+  height: 680px;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.2);
+}
+
+Blue overlay:
+
+.contact-image-wrap::after {
+  background: rgba(24, 32, 175, 0.65);
+  mix-blend-mode: multiply;
+}
+Contact Form
+
+Right side has generous whitespace and a compact form.
+
+.contact-form-wrap {
+  padding: 130px 110px 80px;
+}
+
+Kicker:
+
+Let’s Talk
+
+Heading:
+
+Start A Conversation
+
+.contact-heading {
+  font-size: 34px;
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+Description:
+
+.contact-desc {
+  font-size: 12px;
+  line-height: 1.35;
+  max-width: 320px;
+}
+Form Fields
+
+Fields are flat, minimal, rectangular.
+
+.input {
+  width: 100%;
+  height: 34px;
+  border: none;
+  background: #ffffff;
+  padding: 0 14px;
+  font-size: 10px;
+  color: #121f8e;
+  margin-bottom: 12px;
+}
+
+Fields:
+
+Full Name
+Email Address
+Phone Number
+
+Checkbox text:
+
+I agree to the Policies and Terms
+
+Button:
+
+.submit {
+  width: 100%;
+  height: 34px;
+  background: #171fb3;
+  color: #ffffff;
+  border: none;
+  font-size: 10px;
+}
+Footer
+Footer Structure
+
+Deep blue background with multiple rows.
+
+.footer {
+  background: #171fb3;
+  color: #ffffff;
+}
+
+Top footer row:
+
+Logo left
+Location links
+Navigation links
+
+Middle row:
+
+Offices/legal/support links
+
+Bottom row:
+
+Giant ticker/brand phrase
+Footer Grid
+.footer-main {
+  display: grid;
+  grid-template-columns: 22% 1fr 1fr;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+The footer uses thin dividing lines to separate columns and rows.
+
+Giant Footer Text
+
+At the very bottom, there is a huge cropped phrase:
+
+GLOBAL PRIVATE INVES...
+
+It appears partially cut off horizontally, almost like a scrolling marquee.
+
+.footer-marquee {
+  font-size: clamp(42px, 7vw, 96px);
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+This creates a strong final brand moment.
+
+3. Motion Graphics Developer Perspective
+Motion Direction
+
+The motion should be subtle, premium, and controlled. Nothing should feel playful or bouncy.
+
+Use easing like:
+
+ease: [0.16, 1, 0.3, 1]
+
+Recommended animation timing:
+
+Small labels: 0.5s
+Headlines: 0.8s–1.1s
+Images: 1.2s
+Cards: 0.8s
+Section reveals: staggered by 0.08s–0.15s
+Page Load Animation
+Hero
+
+Sequence:
+
+Background image fades in slowly.
+Grid overlay appears subtly.
+Logo and nav fade in from top.
+Hero title reveals line by line from bottom.
+Bottom rule expands from left to right.
+CTA fades in last.
+
+Example:
+
+heroTitle: {
+  opacity: [0, 1],
+  y: [40, 0],
+  duration: 1.1,
+  ease: "expo.out"
+}
+Scroll Animations
+Section Labels
+
+Small labels should fade in and move upward by 12px.
+
+opacity: 0 -> 1
+y: 12 -> 0
+duration: 0.5
+Large Text Blocks
+
+Use masked text reveal.
+
+Text should appear from below
+Line-by-line reveal
+Slight delay between lines
+stagger: 0.08
+duration: 0.85
+Images
+
+Images should use a slow scale-down reveal:
+
+scale: 1.08 -> 1
+opacity: 0 -> 1
+duration: 1.2
+
+Overlay remains consistent.
+
+Pillar Rows
+
+Rows should animate in one by one from the right.
+
+opacity: 0 -> 1
+x: 30 -> 0
+stagger: 0.08
+
+The active white row can gently fade from blue to white when it enters viewport.
+
+Investment Card
+
+The card should rise from below over the background image.
+
+opacity: 0 -> 1
+y: 60 -> 0
+duration: 0.9
+
+The background can have slight parallax:
+
+backgroundY: -40px to 40px
+Hover Interactions
+Buttons
+
+On hover:
+
+White button becomes transparent with white border
+Blue button becomes slightly darker
+Plus icon shifts 3px right
+.button:hover .plus {
+  transform: translateX(3px);
+}
+Pillar Rows
+
+Rows should highlight on hover:
+
+.pillar-row:hover {
+  background: #ffffff;
+  color: #171fb3;
+}
+
+The sun/star icon may rotate slightly.
+
+.icon:hover {
+  transform: rotate(20deg);
+}
+Portfolio Card
+
+On hover:
+
+Image scales to 1.04
+Card shadow increases slightly
+Title shifts up 2px
+
+Keep it minimal.
+
+4. Graphic Designer Perspective
+Visual Language
+
+The visual identity is:
+
+Institutional
+Minimal
+Editorial
+Architectural
+Financial
+Calm
+Strategic
+High-trust
+Corporate luxury
+
+It avoids decoration. The main visual personality comes from:
+
+Blue monochrome imagery
+Thin lines
+Grid overlays
+Large typography
+White space
+Minimal icons
+Duotone photography
+Color Palette
+Primary Blue
+
+Deep corporate blue:
+
+#171FB3
+
+Alternative darker blue:
+
+#111A8F
+Light Background
+
+Warm off-white / stone:
+
+#EFEFEB
+Text Blue
+#101C80
+White
+#FFFFFF
+Divider Lines
+rgba(16, 28, 128, 0.2)
+rgba(255, 255, 255, 0.25)
+Typography
+
+The typeface appears to be a modern Swiss-style grotesk sans-serif, similar to:
+
+Neue Haas Grotesk
+Suisse Int’l
+Helvetica Now
+Söhne
+ABC Diatype
+Inter as a fallback
+
+Recommended pairing:
+
+font-family: "Suisse Int'l", "Neue Haas Grotesk", "Inter", sans-serif;
+Typography Rules
+Headlines
+Thin to regular weight
+Tight letter spacing
+Large size
+Clean line breaks
+font-weight: 400;
+letter-spacing: -0.045em;
+line-height: 0.98;
+Body Text
+Small
+Controlled line-height
+Institutional tone
+font-size: 12px;
+line-height: 1.35;
+font-weight: 400;
+Navigation
+Very small
+Minimal
+White on blue
+No bold styling
+font-size: 9px;
+line-height: 1.2;
+Image Treatment
+
+All images should be treated consistently:
+
+filter: grayscale(1) contrast(1.15);
+
+Then apply a blue overlay:
+
+background: rgba(20, 30, 180, 0.65);
+mix-blend-mode: multiply;
+
+The result should feel like corporate archival photography or an institutional annual report.
+
+Texture
+
+The design includes subtle texture:
+
+Fine grain
+Grid overlay
+Slight pixelation in some images
+Thin architectural guide lines
+
+Recommended overlay:
+
+.noise {
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+}
+
+Grid overlay:
+
+background-image:
+  linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+background-size: 120px 120px;
+Icon Style
+
+The logo/icon and repeated pillar icons are radial sun/starburst marks.
+
+They should be:
+
+Thin line radial icons
+Geometric
+White or blue depending on background
+Not filled
+Minimal
+
+Approximate icon direction:
+
+width: 26px;
+height: 26px;
+stroke-width: 1.2;
+5. Full-Stack Developer Perspective
+Recommended Tech Stack
+
+For exact reproduction:
+
+Frontend
+React / Next.js
+TypeScript
+Tailwind CSS or CSS Modules
+Framer Motion for animations
+GSAP only if advanced scroll control is required
+CMS
+
+Use a headless CMS such as:
+
+Sanity
+Strapi
+Payload CMS
+WordPress REST/GraphQL
+Directus
+Component Structure
+
+Recommended components:
+
+/components
+  Header.tsx
+  Hero.tsx
+  SectionLabel.tsx
+  OverviewSection.tsx
+  ImageAnnotation.tsx
+  InvestmentThesis.tsx
+  PillarsSection.tsx
+  PillarRow.tsx
+  PortfolioHighlight.tsx
+  ContactSection.tsx
+  Footer.tsx
+  Button.tsx
+  StarburstIcon.tsx
+CMS Data Model
+Company / Platform
+type Platform = {
+  name: string;
+  headline: string;
+  description: string;
+  overviewText: string;
+  supportingText: string;
+  heroImage: Image;
+  overviewImage: Image;
+};
+Pillars
+type Pillar = {
+  title: string;
+  description: string;
+  isHighlighted?: boolean;
+  order: number;
+};
+Investment
+type Investment = {
+  title: string;
+  industry: string;
+  year: string;
+  description: string;
+  image: Image;
+  previousSlug?: string;
+  nextSlug?: string;
+};
+Contact Form
+type ContactLead = {
+  fullName: string;
+  email: string;
+  phone: string;
+  acceptedTerms: boolean;
+  sourcePage: string;
+  createdAt: string;
+};
+Form Functionality
+
+The contact form should include:
+
+Required full name
+Required email
+Optional/required phone number depending on business rule
+Terms acceptance checkbox
+Submission state
+Success message
+Error message
+Spam protection
+
+Recommended validation:
+
+const schema = z.object({
+  fullName: z.string().min(2),
+  email: z.string().email(),
+  phone: z.string().min(7),
+  acceptedTerms: z.literal(true)
+});
+API Requirements
+
+Contact form endpoint:
+
+POST /api/contact
+
+Payload:
+
+{
+  "fullName": "John Smith",
+  "email": "john@example.com",
+  "phone": "+1 000 000 0000",
+  "acceptedTerms": true,
+  "sourcePage": "northbridge-infrastructure-partners"
+}
+
+Backend should:
+
+Validate input
+Store lead in database
+Send internal notification email
+Send user confirmation email if required
+Return success state
+Responsive Behaviour
+Desktop
+Preserve large editorial spacing
+Use 2-column layouts
+Keep tiny nav vertical in hero
+Maintain full image width
+Use oversized typography
+Tablet
+
+Adjust:
+
+grid-template-columns: 1fr;
+
+For sections such as:
+
+Overview
+Pillars
+Contact
+
+The header nav can remain visible but reduce spacing.
+
+Mobile
+
+Mobile should become much more linear.
+
+Hero Mobile
+.hero {
+  min-height: 640px;
+}
+
+Title:
+
+font-size: 44px;
+line-height: 0.95;
+
+Hero bottom content should stack:
+
+.hero-bottom {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+Overview Mobile
+.overview-top {
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+Image height:
+
+height: 320px;
+
+Annotation card should either:
+
+Stay inside image but reduce width
+Or be hidden if it becomes too cramped
+Pillars Mobile
+.pillars-grid {
+  grid-template-columns: 1fr;
+}
+
+The image should appear first, then the pillar list.
+
+Rows:
+
+.pillar-row {
+  padding: 24px 20px;
+  min-height: auto;
+}
+Contact Mobile
+.contact {
+  grid-template-columns: 1fr;
+}
+
+Image height:
+
+height: 360px;
+
+Form padding:
+
+padding: 56px 24px;
+Exact Reproduction Notes
+
+To recreate the reference accurately, the most important rules are:
+
+Use a very limited palette
+Deep blue, white, and warm off-white only.
+Keep typography thin and oversized
+Avoid bold headings unless used for tiny labels.
+Use blue duotone image treatments everywhere
+The imagery should feel integrated into the brand system.
+Preserve grid lines and dividers
+Thin rules are essential to the corporate/institutional feel.
+Avoid rounded corners
+The reference uses square, sharp, architectural blocks.
+Use restrained animation
+No playful motion, no elastic easing, no excessive parallax.
+Keep CTAs small
+Buttons should feel quiet and premium, not marketing-heavy.
+Use lots of negative space
+The design breathes through spacing, not decoration.
+Build Summary
+
+This design should be built as a premium institutional investment landing page with a strict editorial grid, blue monochrome image system, thin corporate dividers, oversized Swiss typography, and restrained motion.
+
+The final product should feel like:
+
+A private capital firm’s digital annual report blended with a luxury corporate website.

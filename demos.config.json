@@ -1,0 +1,24 @@
+{
+  "demos": [
+    { "slug": "aurora", "folder": "Aurora", "devPort": 3010 },
+    { "slug": "orizon", "folder": "Orizon", "devPort": 3011 },
+    { "slug": "marden", "folder": "Marden", "devPort": 3012 },
+    { "slug": "emiraxis", "folder": "EmirAxis", "devPort": 3013 },
+    { "slug": "rentflow", "folder": "Rentflow", "devPort": 3014 },
+    { "slug": "cafe-build", "folder": "Cafe Build", "devPort": 3015 },
+    { "slug": "mar-ence", "folder": "Mar-ence", "devPort": 3016 },
+    { "slug": "celt-dash", "folder": "Celt-Dash", "devPort": 3017 },
+    { "slug": "marcate", "folder": "Marcate", "devPort": 3018 },
+    { "slug": "serenique", "folder": "serenique", "devPort": 3019 },
+    { "slug": "luxury-r", "folder": "Luxury-R", "devPort": 3020 },
+    { "slug": "careflow", "folder": "Careflow", "devPort": 3021 },
+    { "slug": "mar-health", "folder": "Mar-Health", "devPort": 3022 },
+    { "slug": "donezo", "folder": "Donezo", "devPort": 3023 },
+    { "slug": "thale-capital", "folder": "Thale Capital", "devPort": 3024 },
+    { "slug": "bongo-fi", "folder": "Bongo-fi", "devPort": 3025 },
+    { "slug": "everydaystyles", "folder": "Everydaystyles", "devPort": 3026 },
+    { "slug": "schwartz", "folder": "schwartz", "devPort": 3027 },
+    { "slug": "staybill", "folder": "staybill", "devPort": 3028 },
+    { "slug": "wierd-try", "folder": "Wierd try", "devPort": 3029 }
+  ]
+}

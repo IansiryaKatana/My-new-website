@@ -1,0 +1,15 @@
+.admin-root {
+  --admin-primary: #765f47;
+  --admin-surface: #34392e;
+  --admin-cream: #d8d7c3;
+  --admin-dark: #10140d;
+  --admin-radius-lg: 0px;
+  min-height: 100vh;
+  background: var(--admin-dark);
+  color: var(--admin-cream);
+  font-family: 'Big Shoulders Display', system-ui, sans-serif;
+}
+
+.admin-root * {
+  box-sizing: border-box;
+}

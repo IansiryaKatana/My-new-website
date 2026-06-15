@@ -1,0 +1,179 @@
+﻿{
+  "siteSettings": {
+    "brand_name": "Marden",
+    "tagline": "Renewable infrastructure for a sustainable world",
+    "admin_primary": "#003F35",
+    "admin_surface": "#F4F5F1"
+  },
+  "navigation": [
+    { "id": "1", "label": "Explore", "href": "#explore", "sort_order": 0, "published": true, "is_cta": false },
+    { "id": "2", "label": "Projects", "href": "#projects", "sort_order": 1, "published": true, "is_cta": false },
+    { "id": "3", "label": "Solutions", "href": "#capabilities", "sort_order": 2, "published": true, "is_cta": false },
+    { "id": "4", "label": "Contact", "href": "#contact", "sort_order": 3, "published": true, "is_cta": false },
+    { "id": "5", "label": "Let's Talk", "href": "#contact", "sort_order": 4, "published": true, "is_cta": true }
+  ],
+  "hero": {
+    "headline_line1": "Energy Systems",
+    "headline_line2": "for a Sustainable World.",
+    "subcopy": "We develop, finance, and operate renewable infrastructure at global scale - solar, wind, and grid systems built for generations.",
+    "cta_label": "About Marden",
+    "cta_url": "#about",
+    "background_image_url": "https://images.unsplash.com/photo-1466613756553-041a8a3f0f6b?w=1920&q=80",
+    "thumbnail_image_url": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&q=80"
+  },
+  "metrics": [
+    { "id": "m1", "value": "500+", "label": "MW developed", "sort_order": 0, "featured": true },
+    { "id": "m2", "value": "12", "label": "Countries", "sort_order": 1, "featured": false },
+    { "id": "m3", "value": "38", "label": "Active sites", "sort_order": 2, "featured": false }
+  ],
+  "projectsSection": {
+    "eyebrow": "Projects",
+    "heading": "Infrastructure we built for the future.",
+    "body": "From transmission corridors to utility-scale solar, our portfolio reflects decades of disciplined development across renewable energy markets."
+  },
+  "projects": [
+    {
+      "id": "p1",
+      "title": "North Ridge Grid",
+      "slug": "north-ridge-grid",
+      "description": "High-voltage transmission enabling regional wind integration.",
+      "phase": "Operational",
+      "location": "Northern Europe",
+      "image_url": "https://images.unsplash.com/photo-1473341303090-48dbb37b8a9c?w=800&q=80",
+      "category": "Grid",
+      "layout": "stacked",
+      "cta_label": "Explore project",
+      "cta_url": "#",
+      "sort_order": 0
+    },
+    {
+      "id": "p2",
+      "title": "Coastal Wind Array",
+      "slug": "coastal-wind-array",
+      "description": "Offshore-adjacent wind development with 180MW capacity.",
+      "phase": "Construction",
+      "location": "North Sea",
+      "image_url": "https://images.unsplash.com/photo-1532601229463-7a1d326d001f?w=800&q=80",
+      "category": "Wind",
+      "layout": "stacked",
+      "cta_label": "Explore project",
+      "cta_url": "#",
+      "sort_order": 1
+    },
+    {
+      "id": "p3",
+      "title": "Solara Plains",
+      "slug": "solara-plains",
+      "description": "320MW utility-scale solar with battery storage co-location.",
+      "phase": "Development",
+      "location": "Iberia",
+      "image_url": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1200&q=80",
+      "category": "Solar",
+      "layout": "featured",
+      "cta_label": "Explore project",
+      "cta_url": "#",
+      "sort_order": 2
+    }
+  ],
+  "capabilities": {
+    "eyebrow": "What We Do",
+    "heading": "Capabilities included.",
+    "body": "End-to-end renewable infrastructure - from early-stage development through decades of operations.",
+    "cta_label": "View core services",
+    "cta_url": "#services",
+    "background_image_url": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1920&q=80",
+    "services_card_title": "Core Services"
+  },
+  "services": [
+    { "id": "s1", "name": "Project Development", "slug": "development", "active": true, "sort_order": 0 },
+    { "id": "s2", "name": "Engineering & Design", "slug": "engineering", "active": false, "sort_order": 1 },
+    { "id": "s3", "name": "EPC Management", "slug": "epc", "active": false, "sort_order": 2 },
+    { "id": "s4", "name": "Asset Management", "slug": "asset-mgmt", "active": false, "sort_order": 3 },
+    { "id": "s5", "name": "Grid Integration", "slug": "grid", "active": false, "sort_order": 4 },
+    { "id": "s6", "name": "Energy Storage", "slug": "storage", "active": false, "sort_order": 5 }
+  ],
+  "processSection": {
+    "eyebrow": "How we deliver",
+    "heading": "From feasibility to decades of operations.",
+    "body": "Our integrated model reduces risk and accelerates time-to-energy across every phase of infrastructure delivery.",
+    "image_url": "https://images.unsplash.com/photo-1532601229463-7a1d326d001f?w=400&q=80"
+  },
+  "processStages": [
+    {
+      "id": "st1",
+      "number": "01",
+      "title": "Development & Feasibility",
+      "description": "Site identification, permitting strategy, resource assessment, and financial modelling.",
+      "sort_order": 0
+    },
+    {
+      "id": "st2",
+      "number": "02",
+      "title": "Engineering & Design",
+      "description": "Technical design, grid studies, procurement planning, and stakeholder alignment.",
+      "sort_order": 1
+    },
+    {
+      "id": "st3",
+      "number": "03",
+      "title": "Construction & Commissioning",
+      "description": "EPC oversight, quality assurance, and grid connection through commercial operation.",
+      "sort_order": 2
+    },
+    {
+      "id": "st4",
+      "number": "04",
+      "title": "Operations & Long-term Support",
+      "description": "Performance monitoring, maintenance, and lifecycle optimisation for lasting returns.",
+      "sort_order": 3
+    }
+  ],
+  "mapSection": {
+    "heading": "Building energy where communities grow.",
+    "cta_label": "Our global footprint",
+    "cta_url": "#map"
+  },
+  "mapLocations": [
+    { "id": "l1", "country": "United Kingdom", "region": "Europe", "x_percent": 48, "y_percent": 28, "status": "active" },
+    { "id": "l2", "country": "Germany", "region": "Europe", "x_percent": 52, "y_percent": 30, "status": "inactive" },
+    { "id": "l3", "country": "Spain", "region": "Europe", "x_percent": 47, "y_percent": 38, "status": "inactive" },
+    { "id": "l4", "country": "United States", "region": "Americas", "x_percent": 22, "y_percent": 35, "status": "inactive" },
+    { "id": "l5", "country": "Australia", "region": "APAC", "x_percent": 82, "y_percent": 72, "status": "inactive" }
+  ],
+  "footerColumns": [
+    {
+      "id": "f1",
+      "title": "Company",
+      "links": [
+        { "label": "About", "href": "#" },
+        { "label": "Leadership", "href": "#" },
+        { "label": "Careers", "href": "#" }
+      ],
+      "sort_order": 0
+    },
+    {
+      "id": "f2",
+      "title": "Projects",
+      "links": [
+        { "label": "Solar", "href": "#" },
+        { "label": "Wind", "href": "#" },
+        { "label": "Grid", "href": "#" }
+      ],
+      "sort_order": 1
+    },
+    {
+      "id": "f3",
+      "title": "Resources",
+      "links": [
+        { "label": "Insights", "href": "#" },
+        { "label": "Sustainability", "href": "#" },
+        { "label": "Contact", "href": "#contact" }
+      ],
+      "sort_order": 2
+    }
+  ],
+  "socialLinks": [
+    { "id": "soc1", "label": "LinkedIn", "href": "https://linkedin.com", "sort_order": 0 },
+    { "id": "soc2", "label": "X", "href": "https://x.com", "sort_order": 1 }
+  ]
+}

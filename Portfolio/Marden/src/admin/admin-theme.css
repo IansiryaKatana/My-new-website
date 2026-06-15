@@ -1,0 +1,86 @@
+:root {
+  --admin-primary: #003f35;
+  --admin-surface: #f4f5f1;
+  --admin-surface-muted: #e8ebe4;
+  --admin-text: #10251f;
+  --admin-muted: #5a6b66;
+  --admin-border: #d8ddd7;
+  --admin-radius-sm: 4px;
+  --admin-radius-lg: 8px;
+  --admin-sidebar-width: 240px;
+}
+
+.admin-shell {
+  min-height: 100vh;
+  background: var(--admin-surface);
+  color: var(--admin-text);
+}
+
+.admin-sidebar {
+  width: var(--admin-sidebar-width);
+  background: var(--admin-primary);
+  color: #f4f5f1;
+}
+
+.admin-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--admin-radius-sm);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  transition: background 0.15s;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link[data-active="true"] {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .admin-main { padding: 1.5rem 2rem; }
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-lg);
+  background: #fff;
+}
+
+.admin-table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.625rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--admin-border);
+  white-space: nowrap;
+}
+
+.admin-table th {
+  font-weight: 500;
+  background: var(--admin-surface-muted);
+}
+
+.admin-step-active {
+  background: var(--admin-primary);
+  color: #fff;
+}
+
+.admin-step-inactive {
+  background: var(--admin-surface-muted);
+  color: var(--admin-muted);
+}

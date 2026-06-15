@@ -1,0 +1,1212 @@
+UI/UX Reference Breakdown — Donezo Dashboard
+1. Project Manager Perspective
+Product Context
+
+This is a modern productivity/project management dashboard for a task management platform called Donezo. The interface is designed for users who need to:
+
+Track project status
+Monitor task progress
+Manage team collaboration
+Start meetings quickly
+Review upcoming project actions
+Track active work time
+
+The screen functions as the main command center after login.
+
+Primary User Intent
+
+The user lands here to quickly answer:
+
+“What is happening across my projects today, what needs attention, and what action should I take next?”
+
+Main Business Purpose
+
+The dashboard supports:
+
+Productivity tracking
+Project management
+Team coordination
+Time monitoring
+Task prioritization
+Project status visibility
+
+This could fit a SaaS product similar to ClickUp, Asana, Linear, Monday, or Notion-style project tools, but with a softer, more premium dashboard aesthetic.
+
+Content Priority
+
+The layout prioritizes information in this order:
+
+Search and user account access
+Dashboard overview title
+Key project statistics
+Project analytics chart
+Reminders / meeting action
+Project list
+Team collaboration updates
+Project progress visualization
+Time tracker
+Primary User Actions
+
+The clearest actions are:
+
+Search for a task
+Add project
+Import data
+Start meeting
+Add new project item
+Add team member
+View project/card details via arrow icons
+Navigate between dashboard, tasks, calendar, analytics, team, settings, help, and logout
+Emotional Intent
+
+The design should feel:
+
+Calm
+Organized
+Premium
+Focused
+Clean
+Productive
+Trustworthy
+
+The dark green brand color gives the app a grounded, stable, professional feel, while the soft background and rounded cards make it friendly and approachable.
+
+2. UI/UX Engineer Perspective
+Overall Layout Structure
+
+The screen uses a desktop dashboard shell with:
+
+Outer light-gray page background
+Large rounded white app container
+Fixed left sidebar
+Main content area
+Top navigation/search bar
+Modular card-based dashboard grid
+Approximate Canvas Proportions
+
+The screenshot appears to be a 4:3-ish dashboard mockup, roughly:
+
+Image size: 1024 x 768
+Main app shell: around 920 x 675
+App shell margin from viewport: around 45–55px
+App border radius: 20–24px
+Main App Shell
+Parent Container
+
+The main dashboard sits inside a large rounded rectangle.
+
+.app-shell {
+  width: 90%;
+  max-width: 920px;
+  min-height: 675px;
+  margin: 45px auto;
+  border-radius: 24px;
+  background: #f8f9f8;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+Main Grid
+
+The app uses a two-column shell layout:
+
+Area	Approx Width	Notes
+Sidebar	170px	Fixed left navigation
+Main content	Remaining width	Dashboard cards and header
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+}
+Sidebar Layout
+Sidebar Structure
+
+The sidebar is a vertical navigation area with:
+
+Brand logo at top
+Menu label
+Main navigation items
+General navigation items
+Mobile app promo card pinned near bottom
+Sidebar Dimensions
+Width: 165–175px
+Padding: 28px 18px
+Background: very light off-white #f7f8f6
+Border radius is inherited from app shell
+Vertical spacing is generous but compact
+Logo Area
+
+Top-left logo area contains:
+
+Circular green target-like icon
+Text: Donezo
+Horizontal alignment
+
+Approximate details:
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 42px;
+}
+
+Logo icon:
+
+Size: 28px
+Color: deep green
+Circular mark with inner ring/check-like form
+
+Brand text:
+
+Font size: 15px
+Weight: 600
+Color: #111
+Navigation Items
+
+Each nav item uses:
+
+Icon on left
+Label on right
+Optional badge on far right
+Active item has green vertical pill marker
+Active Dashboard Item
+
+The active item includes:
+
+Left vertical green indicator
+Darker icon/text
+More contrast
+Slight green tint possible
+
+Approximate active indicator:
+
+.nav-item.active::before {
+  content: "";
+  width: 5px;
+  height: 28px;
+  border-radius: 999px;
+  background: #007a45;
+  position: absolute;
+  left: -18px;
+}
+Menu Text Styling
+Section labels: uppercase, 9–10px
+Nav labels: 13px
+Inactive color: muted gray #8c918d
+Active color: near black #111
+Navigation Order
+
+MENU
+
+Dashboard — active
+Tasks — with small count badge 12+
+Calendar
+Analytics
+Team
+
+GENERAL
+
+Settings
+Help
+Log out
+Mobile App Promo Card
+
+Bottom-left card reads:
+
+“Download our Mobile App”
+“Get easy in another way”
+Download button
+Visual Treatment
+Dark green gradient background
+Abstract circular pattern
+Rounded corners
+White text
+Small green download button
+
+Approximate dimensions:
+
+.mobile-promo {
+  width: 138px;
+  height: 124px;
+  border-radius: 14px;
+  padding: 14px;
+  background:
+    radial-gradient(circle at 75% 25%, rgba(39,130,75,.45), transparent 45%),
+    linear-gradient(135deg, #052d1c, #00170f);
+}
+
+Button:
+
+Height: 32px
+Full width
+Border radius: 999px
+Background: #087c45
+Font size: 10px
+Top Header / Search Bar
+Header Structure
+
+The top header spans the main content area and includes:
+
+Search input on left
+Keyboard shortcut badge
+Mail icon
+Notification bell
+User avatar
+User name and email
+
+Approximate layout:
+
+.topbar {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+Search Input
+
+Search area:
+
+Large rounded white pill/card
+Width around 360–390px
+Height around 48px
+Search icon left
+Placeholder text: “Search task”
+Shortcut badge: ⌘ F
+.search-box {
+  width: 380px;
+  height: 48px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+}
+
+Shortcut badge:
+
+Small square/pill
+Light gray background
+Font size 10px
+Positioned right inside search field
+User Controls
+
+Right side contains:
+
+Mail icon button
+Bell icon button
+Avatar image
+Name: Totok Michael
+Email: tmichael@gmail.com
+
+Icon buttons:
+
+.icon-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+Avatar:
+
+Size: 40px
+Circular
+Warm-toned illustrated/person image
+Slight border or shadow
+
+User name:
+
+Font size: 12–13px
+Weight: 600
+
+Email:
+
+Font size: 10px
+Muted gray
+Main Dashboard Content
+Main Content Padding
+
+The content starts below the topbar with:
+
+.main-content {
+  padding: 22px 26px 24px 20px;
+}
+
+The main body uses a flexible dashboard grid with cards.
+
+Page Title Area
+
+Text:
+
+Heading: Dashboard
+Subtitle: Plan, prioritize, and accomplish your tasks with ease.
+
+Heading:
+
+Font size: 28–30px
+Weight: 700
+Color: black
+Tight line height
+
+Subtitle:
+
+Font size: 12px
+Color: muted gray
+Margin-top: 6px
+
+To the right of this title row:
+
++ Add Project
+Import Data
+Action Buttons
+
+Add Project
+
+Filled dark green
+White text
+Icon plus on left
+Pill shape
+.primary-button {
+  height: 38px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: #005c35;
+  color: #fff;
+}
+
+Import Data
+
+White/transparent
+Green border
+Dark text
+Pill shape
+.secondary-button {
+  height: 38px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid #0d3b2b;
+}
+Metric Cards Row
+
+There are 4 statistic cards in one row.
+
+Card Grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+Approximate card:
+
+Height: 112px
+Border radius: 15–18px
+Padding: 16px
+Background: white
+Soft shadow
+Card 1: Total Projects
+
+Dark green highlighted card.
+
+Content:
+
+Title: Total Projects
+Number: 24
+Small trend badge: 5%
+Text: Increased from last month
+Top-right circular arrow button
+
+Color:
+
+Background: deep green gradient #004d2d → #00683c
+Text: white
+Secondary text: pale green
+
+Number:
+
+Font size: 36px
+Weight: 500/600
+Cards 2–4
+
+White cards with black numbers:
+
+Card	Number	Subtitle
+Ended Projects	10	Increased from last month
+Running Projects	12	Increased from last month
+Pending Project	2	On Discuss
+
+White card title:
+
+Font size: 13px
+Weight: 600
+
+Number:
+
+Font size: 36px
+Weight: 500
+Color: black
+
+Trend badge:
+
+Small rounded outline badge
+Green text
+Font size 8–9px
+
+Top-right arrow:
+
+Circular outline
+Size: 24px
+Arrow icon angled up-right
+Middle Grid
+
+After metric cards, the layout splits into a dashboard grid.
+
+Grid Approximation
+
+The main content below stats uses a 3-column proportional grid:
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr 0.9fr;
+  gap: 10px;
+}
+
+But some cards span columns.
+
+Project Analytics Card
+Placement
+Left side
+Below stats
+Spans around 2 stat-card widths
+Width: about 350px
+Height: about 145px
+
+Content:
+
+Title: Project Analytics
+Bar chart with 7 days: S M T W T F S
+Chart Style
+
+The chart alternates between:
+
+Solid rounded vertical green bars
+Hatched/striped light gray bars
+
+Specific pattern:
+
+Day	Bar Style
+S	striped gray
+M	solid green
+T	light green
+W	dark green
+T	striped gray
+F	striped gray
+S	striped gray
+Visual Detail
+Bars have rounded top corners
+Width: around 38–42px
+Max height: 76px
+Gap: around 10–14px
+Labels below each bar
+
+Hatched bars should use a repeating diagonal pattern:
+
+background: repeating-linear-gradient(
+  135deg,
+  #9b9b9b 0 2px,
+  transparent 2px 6px
+);
+
+The active light green bar has a small 74% label near top.
+
+Reminders Card
+Placement
+
+Middle column, to the right of Project Analytics.
+
+Content:
+
+Title: Reminders
+Main text: Meeting with Arc Company
+Subtext: Time : 02.00 pm - 04.00 pm
+CTA button: Start Meeting
+Card Styling
+White background
+Border radius: 16px
+Padding: 16px
+Height aligned with Project Analytics card
+Typography
+
+Title:
+
+13px, 600
+
+Main reminder:
+
+18px
+Medium weight
+Line breaks after “Arc”
+
+CTA button:
+
+Full width or near-full width
+Height: 38–40px
+Dark green
+White text
+Rounded pill
+Small video/camera icon
+Project List Card
+Placement
+
+Right column, starts below stats and spans vertically.
+
+Content:
+
+Title: Project
+Small + New pill button
+List of 5 project rows
+
+Projects:
+
+Develop API Endpoints
+Due date: Nov 26, 2024
+Onboarding Flow
+Due date: Nov 28, 2024
+Build Dashboard
+Due date: Nov 30, 2024
+Optimize Page Load
+Due date: Dec 5, 2024
+Cross-Browser Testing
+Due date: Dec 6, 2024
+Row Structure
+
+Each row has:
+
+Small colorful icon on left
+Project title
+Due date below
+
+Icon style:
+
+Abstract mini brand-like glyphs
+Bright colors: blue, teal, yellow, orange, purple
+Size: 14–18px
+
+Typography:
+
+Title: 11–12px, medium
+Due date: 8–9px, muted gray
+Card Dimensions
+Width: around 170px
+Height: around 220px
+Padding: 14px
+Border radius: 16px
+Bottom Grid
+Team Collaboration Card
+Placement
+
+Bottom left, below analytics.
+
+Content:
+
+Title: Team Collaboration
++ Add Member button
+4 team rows
+
+Team rows:
+
+Alexandra Deff
+Working on Github Repository
+Status: Completed
+Edwin Adenike
+Working on Integrate User Authentication System
+Status: In Progress
+Isaac Oluwatemilorun
+Working on Develop Search and Filter Functionality
+Status: Pending
+David Oshodi
+Working on Responsive Layout for Homepage
+Status: In Progress
+Row Structure
+
+Each row:
+
+Avatar left
+Name and task text center
+Status badge right
+
+Avatar:
+
+Circular
+Size: 32–36px
+Illustrated profile style
+Different background colors
+
+Name:
+
+Font size: 11px
+Weight: 600
+
+Task:
+
+Font size: 8–9px
+Gray, with task name partially bold/darker
+
+Status badges:
+
+Very small pill
+Completed: pale green
+In Progress: pale yellow
+Pending: pale red/pink
+Card Size
+Width: around 280–300px
+Height: 190px
+Border radius: 16px
+Project Progress Card
+Placement
+
+Bottom middle.
+
+Content:
+
+Title: Project Progress
+Semi-circular gauge chart
+Center number: 41%
+Text: Project Ended
+Legend: Completed, In Progress, Pending
+Gauge Design
+
+The gauge is a half-donut:
+
+Large dark green arc from left to top/right
+Hatched striped segment on right
+Empty/white center
+Centered 41%
+
+Approximate style:
+
+.progress-gauge {
+  width: 190px;
+  height: 95px;
+  border-radius: 190px 190px 0 0;
+}
+
+The visual should resemble a semi-circle donut chart, not a full circle.
+
+Legend:
+
+Three items
+Small dots/hatched square
+Font size 9px
+Muted text
+
+Colors:
+
+Completed: medium green
+In Progress: dark green
+Pending: diagonal hatch
+Time Tracker Card
+Placement
+
+Bottom right, under Project list.
+
+Content:
+
+Title: Time Tracker
+Timer: 01:24:08
+Pause button
+Stop button
+Styling
+
+Dark green gradient card with abstract wave/ring pattern.
+
+.time-tracker {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(0,130,70,.5), transparent 45%),
+    linear-gradient(135deg, #002514, #004627);
+}
+
+Dimensions:
+
+Width: same as Project card
+Height: around 135px
+Border radius: 16px
+Padding: 16px
+
+Title:
+
+White
+Font size 13px
+Weight 600
+
+Timer:
+
+White
+Font size 30px
+Weight 500
+Centered or slightly left-centered
+
+Controls:
+
+Pause button: light green/white circular button
+Stop button: red circular button
+Size: 30–34px
+Gap: 10px
+3. Motion Graphics Developer Perspective
+Page Load Animation
+
+The dashboard should load with a soft staggered reveal.
+
+Recommended sequence:
+
+App shell fades in and scales from 0.98 to 1
+Sidebar appears from left with slight fade
+Topbar fades down
+Dashboard title fades up
+Stat cards animate in from left to right
+Charts and lower cards fade/slide upward
+Timing
+duration: 0.45s
+stagger: 0.06s
+easing: cubic-bezier(0.22, 1, 0.36, 1)
+Stat Card Animations
+
+Metric numbers should count up:
+
+24
+10
+12
+2
+
+Duration:
+
+900–1200ms
+Ease-out
+Start after card appears
+
+Highlighted Total Projects card can have a very subtle background glow movement.
+
+Chart Animations
+Project Analytics
+
+Bars should grow upward from baseline.
+
+Delay after card reveal: 200ms
+Duration: 700ms
+Stagger per bar: 60ms
+Direction: bottom to top
+
+Hatched bars should fade in after height animation.
+
+Project Progress Gauge
+
+Gauge should draw from left to right.
+
+Duration: 900ms
+Ease: smooth cubic
+Percentage text counts from 0% to 41%
+Hover States
+Sidebar Items
+
+On hover:
+
+Icon and text darken
+Background can get a soft green tint
+Active indicator remains fixed
+.nav-item:hover {
+  background: rgba(0, 100, 55, 0.06);
+}
+Cards
+
+On hover:
+
+Translate upward -2px
+Shadow slightly increases
+No dramatic scaling
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+}
+Arrow Buttons
+
+Arrow icons rotate or shift subtly:
+
+.arrow:hover {
+  transform: translate(2px, -2px);
+}
+Button Interactions
+Add Project / Start Meeting
+Slight scale down on press: 0.97
+Hover background becomes slightly lighter green
+Icon nudges right by 2px
+Pause / Stop
+On hover, increase brightness
+On click, use quick scale pulse
+Background Motion
+
+The dark green promo card and time tracker card can have extremely subtle animated radial rings.
+
+Duration: 8–12s
+Slow background-position drift
+Keep motion premium, not distracting
+4. Graphic Designer Perspective
+Visual Language
+
+The design uses a soft SaaS dashboard aesthetic with:
+
+Minimal white cards
+Deep green brand accents
+Rounded corners
+Muted gray typography
+Clean spacing
+Subtle abstract background patterns
+Friendly illustrated avatars
+
+The visual style is modern, calm, and productivity-focused.
+
+Color Palette
+Primary Colors
+Use	Color
+Deep Green	#005c35
+Dark Forest Green	#003b24
+Bright Accent Green	#0f8a4b
+Pale Green	#dff3e8
+Light Background	#f4f6f4
+Card White	#ffffff
+Text Black	#101010
+Muted Gray	#8b918d
+Border Gray	#e8ece8
+Alert Red	#d93333
+Soft Yellow	#f1d35b
+Blue Accent	#1b62ff
+Purple Accent	#6f4cff
+Typography
+
+The font appears similar to:
+
+Inter
+Satoshi
+Geist
+Neue Haas Grotesk
+SF Pro Display
+
+Recommended choice:
+
+font-family: "Inter", "Geist", system-ui, sans-serif;
+Type Scale
+Element	Approx Size	Weight
+Dashboard heading	28–30px	700
+Stat numbers	34–38px	500/600
+Card titles	13–14px	600
+Body text	11–12px	400
+Metadata	8–10px	400
+Buttons	11–12px	500/600
+Timer	30–32px	500
+Typography Character
+Clean geometric sans
+Tight but readable spacing
+Dashboard title has strong visual confidence
+Supporting text is intentionally quiet
+Card Styling
+
+All cards use:
+
+Rounded corners: 14–18px
+White background
+Soft shadow or no visible border
+Internal padding: 14–18px
+Smooth radius consistency
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(18, 32, 24, 0.04);
+}
+Image / Avatar Direction
+
+Avatars are illustrated or AI-stylized headshots.
+
+Characteristics:
+
+Circular crop
+Warm skin tones
+Soft colored backgrounds
+Slight cartoon/3D illustration style
+Friendly, approachable SaaS look
+Icon Style
+
+Icons are:
+
+Thin line icons
+Rounded stroke ends
+Minimal
+Mostly monochrome gray/green
+Small colorful glyphs only in project list
+
+Use icon libraries like:
+
+Lucide
+Feather Icons
+Phosphor Icons
+Remix Icons
+Background Treatment
+
+The outer background is a soft gray with a slight vignette.
+
+The inner app background is near-white.
+
+Dark green cards use:
+
+Abstract circular line art
+Radial gradients
+Low-opacity geometric waves
+Premium fintech/SaaS look
+5. Full-Stack Developer Perspective
+Suggested Frontend Stack
+
+Best implementation stack:
+
+Next.js / React
+Tailwind CSS
+Framer Motion
+Recharts or custom SVG charts
+Lucide React for icons
+Optional: Zustand or React Query for dashboard data
+Component Breakdown
+AppShell
+├── Sidebar
+│   ├── BrandLogo
+│   ├── SidebarSection
+│   ├── SidebarItem
+│   └── MobilePromoCard
+│
+├── DashboardMain
+│   ├── TopBar
+│   │   ├── SearchBox
+│   │   ├── IconButton
+│   │   └── UserProfile
+│   │
+│   ├── DashboardHeader
+│   │   ├── PageTitle
+│   │   └── HeaderActions
+│   │
+│   ├── StatsGrid
+│   │   └── StatCard
+│   │
+│   ├── DashboardGrid
+│   │   ├── ProjectAnalyticsCard
+│   │   ├── ReminderCard
+│   │   ├── ProjectListCard
+│   │   ├── TeamCollaborationCard
+│   │   ├── ProjectProgressCard
+│   │   └── TimeTrackerCard
+Data Structures
+Stats Data
+type StatCard = {
+  title: string;
+  value: number;
+  trend?: string;
+  description: string;
+  highlighted?: boolean;
+};
+Project List Data
+type ProjectItem = {
+  title: string;
+  dueDate: string;
+  iconType: string;
+  color: string;
+};
+Team Data
+type TeamMember = {
+  name: string;
+  avatar: string;
+  task: string;
+  status: "Completed" | "In Progress" | "Pending";
+};
+Reminder Data
+type Reminder = {
+  title: string;
+  company: string;
+  startTime: string;
+  endTime: string;
+};
+CMS/Admin Editable Fields
+
+For a real product, the following should be editable:
+
+Project stats
+Project list
+Due dates
+Team members
+Team task assignments
+Status labels
+Reminder title and time
+Meeting link
+Timer session data
+User profile info
+Sidebar menu permissions
+Backend Requirements
+
+A real backend would need:
+
+Authentication
+User profile API
+Projects API
+Tasks API
+Team members API
+Project analytics API
+Time tracking API
+Meeting/reminder API
+Notifications API
+Role-based permissions
+Suggested Database Tables
+users
+projects
+tasks
+project_members
+project_statuses
+reminders
+time_entries
+notifications
+teams
+activity_logs
+Performance Notes
+Lazy-load avatar images
+Use SVG or CSS charts where possible
+Avoid heavy chart libraries for simple dashboard graphics
+Cache dashboard summary data
+Use skeleton loaders only inside card values, not the whole layout
+Use optimistic updates for project/task actions
+Compress decorative background patterns as SVG or CSS gradients
+Accessibility Notes
+All buttons need visible focus states
+Icon-only buttons need aria-label
+Color-coded statuses should also include text labels
+Timer controls must be keyboard accessible
+Search input should have a proper label
+Sidebar active route should use aria-current="page"
+6. Exact Reproduction Notes
+Key Layout Rules
+Sidebar must remain fixed-width and visually quieter than the main content.
+Main cards should use consistent 16px border radius.
+The topbar must feel airy, not cramped.
+The four metric cards must align perfectly in one row.
+The first stat card must be the strongest visual anchor after the page title.
+The right project list column should be narrow and vertically stacked.
+The time tracker card should visually align under the project list card.
+Bottom cards should align along a shared baseline.
+Approximate Spacing System
+Element	Spacing
+App shell outer margin	45–55px
+Sidebar padding	18–22px
+Main content padding	20–26px
+Card gap	10–12px
+Card padding	14–18px
+Section title margin-bottom	12–16px
+Nav item gap	14–18px
+Stat card height	110–115px
+Small card radius	14–16px
+Large shell radius	22–24px
+Border Radius Rules
+Element	Radius
+App shell	24px
+Cards	16px
+Buttons	999px
+Icon buttons	12px
+Avatars	50%
+Promo/time tracker cards	14–16px
+Shadow Rules
+
+The design should avoid harsh shadows.
+
+Recommended shadow:
+
+box-shadow: 0 10px 28px rgba(17, 36, 26, 0.05);
+
+Outer app shell:
+
+box-shadow: 0 28px 80px rgba(0, 0, 0, 0.08);
+Critical Details Not To Miss
+The dark green highlighted first stat card
+The small arrow icons in stat cards
+The narrow left active sidebar indicator
+The small 12+ task badge
+The abstract circular patterns on dark cards
+The striped chart bars
+The half-gauge progress chart
+The compact illustrated avatars
+The tiny status badges in team collaboration
+The pill-shaped primary and secondary buttons
+The balance between white card surfaces and muted background
+7. Responsive Behavior
+Desktop
+
+Maintain the exact dashboard shell:
+
+grid-template-columns: 170px 1fr;
+
+Cards remain in multi-column layout.
+
+Tablet
+
+Recommended behavior:
+
+Sidebar becomes narrower or icon-only
+Stats grid becomes 2 columns
+Main dashboard grid becomes 2 columns
+Project list moves below reminder or remains right-side if width allows
+Search bar width reduces
+.stats-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+Mobile
+
+Mobile should not simply shrink the desktop.
+
+Recommended mobile structure:
+
+Top mobile header
+Search
+Dashboard title
+Add Project / Import Data buttons
+Stats cards in 2-column grid or horizontal scroll
+Reminder
+Project analytics
+Project progress
+Project list
+Team collaboration
+Time tracker
+Bottom navigation
+Mobile Sidebar
+
+Replace sidebar with:
+
+Bottom navigation
+Or slide-out drawer
+Mobile Cards
+
+Cards should become full-width:
+
+.card {
+  width: 100%;
+}
+
+Use padding:
+
+.mobile-main {
+  padding: 16px;
+}
+Final Build Summary
+
+This reference is a premium productivity SaaS dashboard built around a soft green design system, rounded white cards, compact analytics, team collaboration, reminders, and time tracking.
+
+To reproduce it accurately:
+
+Use a fixed left sidebar and modular dashboard grid.
+Keep the background soft, clean, and low contrast.
+Use deep forest green as the main brand color.
+Use white cards with 16px radius and very subtle shadows.
+Build the topbar with a wide search input and compact user profile controls.
+Recreate the first stat card as the strongest visual highlight.
+Use rounded bar charts, hatched patterns, and a semi-circular progress gauge.
+Keep motion subtle: fade, slide, count-up, grow, and draw animations.
+Maintain tight typography, small metadata labels, pill buttons, and compact spacing.
+
+The final interface should feel like a calm, modern, executive-level project management dashboard: highly organized, visually polished, and immediately understandable.

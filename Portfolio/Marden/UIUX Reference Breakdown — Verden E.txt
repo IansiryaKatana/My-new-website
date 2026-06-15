@@ -1,0 +1,708 @@
+UI/UX Reference Breakdown — Verden Energy Infrastructure Website
+
+This concept is a premium renewable energy / sustainable infrastructure website with a cinematic, editorial feel. The design combines large-scale landscape photography, minimal typography, soft grid discipline, and data-led credibility blocks. It feels like a corporate energy company, infrastructure investor, renewable developer, or sustainability finance platform.
+
+1. Project Manager Perspective
+Product Purpose
+
+This page presents Verden as a renewable infrastructure company focused on sustainable energy systems, solar farms, wind projects, grid infrastructure, and long-term energy development.
+
+The website is not designed like a typical corporate brochure. It is designed as a premium investor-facing brand platform where the company must communicate:
+
+Scale
+Sustainability
+Technical expertise
+Infrastructure credibility
+International reach
+Long-term reliability
+Main User Intent
+
+The visitor is likely one of these groups:
+
+Investors researching renewable infrastructure opportunities
+Government or municipal partners
+Commercial energy clients
+Landowners or project partners
+Corporate stakeholders
+Sustainability-focused organizations
+
+The page needs to make the visitor feel that Verden is serious, established, global, and technically capable.
+
+Page Hierarchy
+
+The page flows in this order:
+
+Hero section
+Cinematic wind farm image
+Navigation
+Large headline
+Key metrics card
+Main CTA
+Projects / infrastructure showcase
+Editorial project grid
+Solar and wind imagery
+Featured project card
+Capabilities section
+Full-width solar farm image
+Overlay service menu card
+CTA and capability messaging
+Process / stages section
+White editorial layout
+Small supporting image
+Accordion-style infrastructure stages
+Global impact / financing section
+Dark green world map
+Community-focused headline
+Global location markers
+Footer
+Multi-column sitemap
+Large brand identity
+Social links
+Content Priority
+
+The top priority is visual trust. The user should immediately understand that Verden operates at infrastructure scale.
+
+The second priority is proof: the metrics, project cards, map pins, and capabilities list all support the main claim.
+
+The third priority is conversion through soft CTAs like:
+
+About Verden
+Explore project
+Contact / learn more
+View core services
+
+The CTAs are intentionally subtle, not sales-heavy.
+
+2. UI/UX Engineer Perspective
+Overall Layout System
+
+The layout uses a wide editorial grid with generous whitespace and strong image-led sections.
+
+Recommended desktop structure:
+
+max-width: 1440px;
+section-padding-x: 48px;
+section-padding-y: 96px;
+grid-columns: 12;
+gutter: 24px;
+
+The page uses a mixture of:
+
+Full-bleed image hero
+Two-column content blocks
+Asymmetric project grids
+Overlay cards
+Accordion lists
+Map visualization sections
+Header / Navigation
+Desktop Header
+
+The header sits over the hero image.
+
+Structure:
+
+Left: Verden logo
+Center/right: navigation links
+Far right: pale green CTA button
+
+Visual style:
+
+Transparent background
+Small typography
+Light text
+Minimal spacing
+Header height around 54–64px
+Positioned absolute at top
+
+Navigation items appear as small capsule/dropdown links:
+
+Explore
+Projects
+Solutions
+Contact
+Let’s Talk
+
+The CTA button uses a pale green fill to contrast against the image.
+
+Hero Section
+Layout
+
+Hero height is approximately 680–760px on desktop.
+
+The background is a full-width aerial landscape image of wind turbines above clouds.
+
+Content placement:
+
+Main headline positioned bottom-left
+CTA positioned lower-left
+Stats/project card positioned bottom-right
+Navigation positioned top center
+
+Hero text block:
+
+width: 460px;
+position: absolute;
+left: 48px;
+bottom: 108px;
+
+Headline:
+
+font-size: 44px;
+line-height: 1.05;
+font-weight: 400;
+letter-spacing: -0.03em;
+
+The line break is important:
+
+Energy Systems
+for a Sustainable World.
+
+Subcopy is very small and understated, around 11–12px, sitting under the headline.
+
+Hero Overlay
+
+The image should have a dark gradient overlay:
+
+background:
+linear-gradient(
+  to bottom,
+  rgba(0,0,0,0.05) 0%,
+  rgba(0,0,0,0.15) 45%,
+  rgba(0,0,0,0.45) 100%
+);
+
+This preserves the photography while making text readable.
+
+Hero Stats Card
+
+The stats block sits on the lower-right.
+
+It contains:
+
+Small image thumbnail
+Large number: 500+
+Smaller metric labels
+Two bottom stats: 12 and 38
+
+The block feels like a glass/dark translucent card, but without heavy borders.
+
+Suggested styling:
+
+background: rgba(255,255,255,0.06);
+backdrop-filter: blur(12px);
+border: 1px solid rgba(255,255,255,0.12);
+
+Grid structure:
+
+width: 330px;
+height: 220px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: auto 1fr auto;
+Projects Section
+
+This section shifts to a clean white background.
+
+Top area:
+
+Small eyebrow label left: Projects
+Main heading centered/right:
+Infrastructure we built for the future.
+Small supporting paragraph below the heading
+
+The heading block is offset, not centered on the whole page. It starts around the middle of the viewport.
+
+Project Grid
+
+The project grid has an asymmetric layout.
+
+Left column:
+
+Two stacked landscape cards
+Each card about 50% height of the large right card
+Images: transmission lines and wind farm
+
+Right column:
+
+One large featured project card
+Solar field aerial image
+Text overlay at top-left
+Description top-right
+CTA bottom-right
+
+Recommended grid:
+
+display: grid;
+grid-template-columns: 0.8fr 1.6fr;
+gap: 12px;
+height: 520px;
+
+Card style:
+
+border-radius: 4px;
+overflow: hidden;
+position: relative;
+
+The cards are nearly rectangular with very subtle rounding, not bubbly.
+
+CTA buttons are small pale green rectangles with a tiny arrow icon.
+
+Capabilities Section
+
+This is a full-width photographic section.
+
+Background:
+
+Solar panel field
+Dark green gradient overlay
+Content left
+Services card right
+
+Height:
+
+min-height: 560px;
+
+Left content:
+
+Eyebrow: What We Do
+Large heading: Capabilities included.
+Small paragraph
+CTA button
+
+Right card:
+
+White card
+Positioned over image
+Contains service tags/buttons
+Header: Core Services
+Top-right small counter/label
+
+The overlay card should feel like a dashboard/service selector.
+
+Suggested card:
+
+width: 520px;
+background: #fff;
+border-radius: 4px;
+padding: 28px;
+box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+
+Service tags:
+
+font-size: 11px;
+padding: 8px 12px;
+border: 1px solid #e5e5e5;
+background: #f9f9f6;
+
+Active service uses pale green background.
+
+Process / Stages Section
+
+This section returns to white.
+
+Layout:
+
+Left: eyebrow, paragraph, small vertical image
+Right: large heading and accordion list
+
+Grid:
+
+grid-template-columns: 0.8fr 1.4fr;
+gap: 120px;
+
+The right column contains accordion rows:
+
+Development & Feasibility
+Engineering & Design
+Construction & Commissioning
+Operations & Long-term Support
+
+Each row:
+
+Title
+Small number on right
+Supporting paragraph
+Bottom border
+
+This section should feel technical, calm, and organized.
+
+Map / Global Section
+
+Dark green background.
+
+Layout:
+
+Headline top-left
+CTA underneath
+Large world map line illustration across center/bottom
+Location markers placed globally
+
+Background color:
+
+#003f35 or #004337
+
+Map line color:
+
+rgba(180, 230, 205, 0.2)
+
+Markers:
+
+White circular dots
+One active pale green marker
+Simple icon inside
+
+The map should not feel like a heavy Google Map. It should be a custom vector illustration.
+
+Footer
+
+Footer is black.
+
+Structure:
+
+Top footer columns
+Large brand/logo section
+Social links bottom-right
+
+The sitemap columns are small and minimal.
+
+Large logo lockup:
+
+Pale green circular geometric mark
+Huge Verden wordmark
+White text
+Bottom aligned
+3. Motion Graphics Developer Perspective
+Motion Direction
+
+Motion should be slow, premium, and atmospheric. Nothing should bounce or feel playful.
+
+Recommended motion style:
+
+Easing: cubic-bezier(0.16, 1, 0.3, 1)
+Duration: 700ms–1200ms
+Movement: subtle vertical reveals, soft fades, image scale
+Hero Animation
+
+On page load:
+
+Background image slowly scales from 1.08 to 1
+Header fades down from -12px
+Headline reveals line by line
+Subcopy fades in after headline
+CTA fades up
+Stats card fades in from right with blur easing
+
+Example sequence:
+
+0ms: hero image scale begins
+200ms: nav fades in
+450ms: headline line 1 reveal
+650ms: headline line 2 reveal
+850ms: subcopy + CTA reveal
+1000ms: metrics card reveal
+Scroll Animations
+
+Project cards:
+
+Cards fade up from 24px
+Image scale reduces from 1.06 to 1
+Text overlays appear after image reveal
+
+Capabilities section:
+
+Background image uses subtle parallax
+Right card floats upward slightly on scroll
+Service tags stagger in row by row
+
+Process section:
+
+Accordion rows reveal one after another
+Numbers fade in slightly later
+Small wind turbine image can use slow vertical parallax
+
+Map section:
+
+Map lines fade in softly
+Markers pulse one by one
+Active marker gets a slow glow/pulse loop
+Hover Interactions
+
+CTA buttons:
+
+hover:
+background shifts slightly brighter;
+arrow moves 3px right;
+
+Project cards:
+
+image scale: 1 → 1.04;
+overlay darkens slightly;
+CTA appears stronger;
+
+Service tags:
+
+hover background: pale green;
+border-color: pale green;
+
+Map markers:
+
+hover scale: 1 → 1.12;
+tooltip appears above marker;
+Motion Rules
+
+Avoid:
+
+Fast transitions
+Elastic easing
+Overly complex animations
+Rotating cards
+Neon glows
+Heavy cursor effects
+
+The brand should feel stable, engineered, and premium.
+
+4. Graphic Designer Perspective
+Visual Language
+
+The visual direction is:
+
+Clean energy editorial
+Premium infrastructure
+Quiet corporate confidence
+Sustainable finance
+European minimalism
+
+It combines natural landscapes with structured corporate UI.
+
+Color Palette
+
+Primary colors:
+
+Role	Color
+Deep green	#003F35
+Dark forest green	#062E29
+Pale energy green	#DDF69A
+Off-white	#F4F5F1
+Soft grey	#D8DDD7
+Black footer	#020403
+White	#FFFFFF
+
+The pale green is used only as an accent for CTAs, active states, and map highlights.
+
+Typography
+
+The typography feels like a clean modern grotesk.
+
+Recommended fonts:
+
+Primary: Neue Haas Grotesk, Suisse Int’l, Inter, Satoshi, or Helvetica Now
+Fallback: Inter / Arial / sans-serif
+
+Heading style:
+
+font-weight: 400;
+letter-spacing: -0.035em;
+line-height: 0.98–1.08;
+
+Body style:
+
+font-size: 11px–14px;
+line-height: 1.4–1.6;
+font-weight: 400;
+
+The page intentionally uses small body text to create a premium editorial feel.
+
+Image Treatment
+
+Images should be:
+
+Cinematic
+Slightly desaturated
+Natural green/blue tones
+Soft haze
+Low contrast in some areas
+Darkened with gradient overlays where text appears
+
+Recommended image treatment:
+
+filter: saturate(0.85) contrast(0.95);
+
+Hero photography should feel atmospheric, with cloud/fog layers.
+
+Buttons
+
+Buttons are small, rectangular, and understated.
+
+Style:
+
+font-size: 11px;
+height: 28px;
+padding: 0 12px;
+border-radius: 2px;
+background: #DDF69A;
+color: #10251F;
+
+Arrow icon should be tiny, usually inside a small square or placed at far right.
+
+Icon Style
+
+Icons should be:
+
+Thin line
+Geometric
+Minimal
+No filled illustrative icons
+Stroke width around 1px–1.5px
+
+Logo mark should be geometric and modular.
+
+Spacing Feel
+
+This design relies on negative space. Do not crowd the layout.
+
+Important rules:
+
+Keep headings isolated with breathing room
+Keep body copy small
+Avoid thick borders
+Use thin dividers
+Keep all UI elements precise and quiet
+5. Full-Stack Developer Perspective
+Suggested Frontend Stack
+
+Recommended implementation:
+
+Next.js / React
+TypeScript
+Tailwind CSS
+Framer Motion
+GSAP optional for scroll/parallax
+CMS: Sanity, Strapi, Payload CMS, or WordPress headless
+Component Architecture
+
+Suggested components:
+
+/components
+  Header.tsx
+  HeroSection.tsx
+  MetricsCard.tsx
+  CTAButton.tsx
+  ProjectGrid.tsx
+  ProjectCard.tsx
+  CapabilitiesSection.tsx
+  ServiceSelectorCard.tsx
+  ProcessStages.tsx
+  AccordionRow.tsx
+  GlobalMapSection.tsx
+  MapMarker.tsx
+  Footer.tsx
+CMS Data Model
+Projects
+type Project = {
+  title: string;
+  phase?: string;
+  location?: string;
+  description: string;
+  image: string;
+  category: "Solar" | "Wind" | "Grid" | "Infrastructure";
+  ctaLabel: string;
+  ctaUrl: string;
+};
+Metrics
+type Metric = {
+  value: string;
+  label: string;
+};
+Services
+type Service = {
+  name: string;
+  category: string;
+  description?: string;
+};
+Process Stages
+type ProcessStage = {
+  number: string;
+  title: string;
+  description: string;
+};
+Map Locations
+type MapLocation = {
+  country: string;
+  region: string;
+  x: number;
+  y: number;
+  status: "active" | "inactive";
+};
+Responsive Behavior
+Desktop
+Full editorial layout
+12-column grid
+Project cards stay asymmetric
+Capabilities card overlays image
+Footer columns spread horizontally
+Tablet
+Header spacing compresses
+Project grid becomes two equal columns or stacked feature layout
+Capabilities card remains overlay but reduces width
+Process section becomes narrower two-column layout
+Mobile
+
+Recommended mobile behavior:
+
+Hero height: 100svh
+Navigation collapses into menu button
+Headline remains large but reduced to 38–44px
+Metrics card moves below hero text or becomes horizontal scroll
+Project grid stacks vertically
+Capabilities card moves below text inside same section
+Process accordions become full-width
+Map section uses simplified marker layout
+Footer columns stack
+
+Mobile hero:
+
+.hero {
+  min-height: 100svh;
+  padding: 24px;
+}
+
+.hero-title {
+  font-size: clamp(38px, 12vw, 56px);
+}
+Performance Notes
+
+Because this page is image-heavy:
+
+Use next/image or equivalent responsive image handling
+Serve WebP/AVIF
+Lazy-load below-fold images
+Preload hero image
+Use low-quality image placeholders
+Compress map SVG
+Avoid video backgrounds unless necessary
+Use CSS gradients instead of heavy overlay images
+Accessibility
+
+Important accessibility requirements:
+
+Maintain contrast on text over images
+Use real buttons/links for CTAs
+Accordion rows must be keyboard accessible
+Map markers need accessible labels
+Service tags should not rely only on color
+Navigation dropdowns must support keyboard focus
+Use semantic section landmarks
+Rebuild Summary
+
+This reference should be rebuilt as a premium sustainability infrastructure homepage with:
+
+Full-screen cinematic hero
+Minimal transparent navigation
+Large editorial typography
+Asymmetric project grid
+Overlay service selector card
+Clean process accordion
+Dark green global impact map
+Large identity-driven footer
+
+The key to reproducing it accurately is restraint: small typography, large images, precise spacing, pale green accents, and slow cinematic motion.

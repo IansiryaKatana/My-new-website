@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Tight", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-valence-navy: #061426;
+  --color-valence-text: #11161a;
+  --color-valence-muted: #5f6870;
+  --color-valence-subtle: #8b949b;
+  --color-valence-border: #e4e8ea;
+  --color-valence-hero-overlay: rgba(4, 18, 31, 0.45);
+  --color-valence-white-soft: #f7f9fa;
+  --radius-valence: 0px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-valence-text);
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .container-valence {
+    width: min(100% - 64px, 1320px);
+    margin-inline: auto;
+  }
+
+  .image-editorial {
+    filter: saturate(0.82) contrast(0.92) brightness(0.94);
+  }
+
+  .hero-title {
+    font-size: clamp(3.5rem, 12vw, 10.625rem);
+    line-height: 0.82;
+    font-weight: 300;
+    letter-spacing: -0.075em;
+  }
+}
+
+/* Admin theme */
+.admin-root {
+  --admin-primary: #061426;
+  --admin-surface: #f4f6f8;
+  --admin-radius-lg: 8px;
+  font-family: var(--font-sans);
+}
+
+.admin-btn-primary {
+  background: var(--admin-primary);
+  color: #fff;
+  border-radius: var(--admin-radius-lg);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.admin-btn-ghost {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: var(--admin-radius-lg);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.admin-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: var(--admin-radius-lg);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  background: #fff;
+}
+
+.admin-table th {
+  text-align: left;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 500;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.875rem;
+}
+
+.admin-step-active {
+  background: var(--admin-primary);
+  color: #fff;
+}
+
+.admin-step-inactive {
+  background: #e5e7eb;
+  color: #374151;
+}

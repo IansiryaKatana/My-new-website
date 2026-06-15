@@ -1,0 +1,893 @@
+UI/UX Concept Breakdown — NGUNJUK Matcha Landing Page
+
+This reference is a mobile-first editorial eCommerce landing page for a matcha drink brand. The visual direction mixes Japanese tea culture, fresh beverage lifestyle, soft wellness branding, and playful Gen Z product marketing. The page is designed as a long vertical scroll experience with strong hero imagery, large typography, curved marquee strips, lifestyle photography, and product call-to-actions.
+
+1. Project Manager Perspective
+Screen Purpose
+
+The page is built to sell matcha as a lifestyle product, not just a drink. It introduces the brand, builds freshness and health credibility, highlights product flavors, and guides users toward ordering.
+
+The main business goal is:
+
+Convert visitors into buyers through emotional lifestyle appeal, freshness messaging, and repeated “Order Now” CTAs.
+
+Product Context
+
+This is likely for:
+
+A matcha café
+Ready-to-drink matcha brand
+Online beverage ordering website
+Social-media-driven drink brand
+Mobile-first product landing page
+
+The design feels optimized for Instagram/TikTok audiences, especially users who are attracted to aesthetic drinks, wellness products, and soft lifestyle branding.
+
+User Intent
+
+The user arriving on this page is expected to:
+
+Understand the brand immediately.
+Feel the drink is refreshing, premium, and healthy.
+See the product visually in lifestyle situations.
+Explore flavor options.
+Order or subscribe to updates.
+Page Hierarchy
+
+The full page is structured as:
+
+Hero section
+Brand logo
+Matcha headline
+Product lifestyle image
+Floating CTA
+Product micro-card
+Best drink badge
+Curved benefit marquee
+Clean Energy
+No Crash
+Antioxidant Rich
+Naturally Calming
+Premium Matcha
+Matcha Essence intro section
+Editorial heading
+Product origin statement
+Matcha powder/whisk image
+Nutrient benefit captions
+Split product/lifestyle promo section
+Left: drink product card
+Right: lifestyle model image
+Diagonal/circular marquee overlay
+Flavor/product selection section
+Large centered product image
+Floating fruit cards
+Seasonal/ceremonial labels
+CTA button
+Footer
+Navigation links
+Newsletter signup
+Brand wordmark
+Legal links
+Final CTA
+Content Priority
+
+The order of importance is:
+
+Visual product desire
+Premium matcha positioning
+Health/wellness benefits
+Ordering action
+Brand memorability
+
+The page is not text-heavy. It relies on imagery, typography, and motion-style composition to communicate value quickly.
+
+Key User Actions
+
+Primary actions:
+
+Order Now
+View menu
+Subscribe to newsletter
+
+Secondary actions:
+
+Learn about product quality
+Explore seasonal specials
+Visit locations
+Contact brand
+2. UI/UX Engineer Perspective
+Overall Layout Structure
+
+The page uses a single-column mobile landing page layout with multiple stacked full-width sections.
+
+Approximate canvas behavior:
+
+Viewport width: mobile-focused, around 390px–430px equivalent
+Layout type: vertical scroll
+Section rhythm: image-led blocks with editorial spacing
+Background: warm cream base with dark green product sections
+Border radius: large rounded corners on major image containers
+
+The design has a mobile app-like flow, not a standard desktop website. Every section is composed to fit a narrow vertical screen.
+
+Section 1 — Hero
+Layout
+
+The hero occupies the top portion of the page with a full-bleed image background.
+
+Top:
+Logo left
+Hamburger menu right
+
+Center:
+Large headline “Matcha”
+Italic subheading “On Perfect”
+
+Middle:
+Two matcha cups held against blue sky background
+
+Overlay:
+Rounded white CTA button centered
+Outlined rectangular product frame
+Yellow badge on right
+Small product description card near bottom center
+Spacing
+Logo sits approximately 24px from top, 24px from left.
+Hamburger menu sits 24px from top, 24px from right.
+Main heading begins near the upper center, overlapping sky.
+Product cups dominate the middle, around 60–70% of hero height.
+CTA is positioned over the cups, centered horizontally.
+Product info card sits near bottom of hero, inside the outlined container.
+Components
+Logo
+
+Small stacked logo:
+
+NGUN
+JUK
+
+White, uppercase, bold italic/sans treatment.
+
+Hamburger
+
+Three-line icon, minimal, white.
+
+Hero headline
+Matcha
+On Perfect
+
+“Matcha” is large sans-serif. “On Perfect” is italic serif.
+
+CTA Button
+
+White pill button:
+
+ORDER NOW →
+Small uppercase text
+Thin arrow icon
+Horizontal pill shape
+Minimal shadow
+Product Frame
+
+Thin white rounded rectangle framing the drink area.
+
+Badge
+
+Yellow starburst badge:
+
+BEST OF
+DRINK
+
+Positioned around lower-right center, overlapping drink.
+
+Product Micro-card
+
+Small white/cream card with green circular icon:
+
+Ceremonial Grade Matcha
+Smooth. Clean. Naturally Energizing.
+Section 2 — Curved Benefit Marquee
+
+A bright yellow-green curved ribbon separates the hero and next section.
+
+Structure
+
+The marquee is placed on a wavy arc, not a straight horizontal strip.
+
+Text repeats across the curve:
+
+Clean Energy
+No Crash
+Antioxidant Rich
+Naturally Calming
+Premium Matcha
+Implementation Notes
+
+This can be created using:
+
+SVG path text
+CSS transform rotation
+Large absolute-positioned curved div
+GSAP motion path if animated
+
+The strip should slightly overlap the bottom of the hero and the top of the cream section.
+
+Section 3 — Matcha Essence
+Layout
+Cream background
+
+Centered heading:
+Matcha Essence
+
+Subheading:
+100% STONE-GROUND GREEN TEA
+SOURCED FROM THE FINEST JAPANESE LEAVES
+
+Large rounded image:
+Matcha powder + whisk bowl
+
+Bottom captions:
+Left: Packed With Nutrients
+Right: Naturally Nutrient Dense
+Typography
+
+Heading combines sans-serif and italic serif:
+
+Matcha Essence
+“Matcha” = bold sans-serif
+“Essence” = italic serif
+Image Treatment
+
+The central product image is horizontally oval/rounded rectangle.
+
+Approximate style:
+
+border-radius: 999px;
+overflow: hidden;
+
+Image composition:
+
+Matcha powder fills left and background.
+Matcha bowl/whisk sits to the right.
+High green contrast against cream page.
+Grid
+
+Even though mobile, this section uses a faint internal grid or centerline:
+
+Thin vertical line through the section
+Thin horizontal separator lines
+Creates editorial structure
+Section 4 — Split Promo Card
+
+This is the most visually complex section.
+
+Layout
+
+A large rounded rectangle container split into two columns:
+
+Left 50%:
+Dark green product graphic card
+
+Right 50%:
+Lifestyle model holding matcha
+
+On mobile, it still preserves the two-column split, creating a dense editorial poster feel.
+
+Left Panel
+
+Dark green background with subtle grid texture.
+
+Content:
+
+Pure Matcha
+Energy
+
+Large headline at top left.
+
+Central object:
+
+Iced matcha glass
+Slight angled/perspective placement
+Strong product shadow
+
+CTA:
+
+ORDER NOW →
+
+Yellow pill button placed over the glass.
+
+Supporting text:
+
+Click to Order
+Naturally Powerful
+Green Essence
+Clean energy from nature.
+Rich, smooth matcha taste.
+Right Panel
+
+Lifestyle image of model holding drink.
+
+Visual details:
+
+Model centered
+Soft natural lighting
+Green hijab matching matcha color palette
+Background appears café/outdoor terrace
+Image cropped to fill panel
+Marquee Overlay
+
+A yellow-green curved strip arcs across the right panel and into the center.
+
+Words include:
+
+Ceremonial Grade
+Green Every Day
+Feel the Energy
+Keep the Calm
+UX Purpose
+
+This section communicates:
+
+Product freshness
+Human lifestyle association
+Brand energy
+Social-friendly drink culture
+Section 5 — Glow With Matcha
+Layout
+Cream background
+
+Top center:
+Glow With
+Matcha
+
+Middle:
+Large iced matcha strawberry drink
+
+Around product:
+Floating fruit cards
+
+Side labels:
+Seasonal Specials
+Ceremonial Matcha
+
+Bottom:
+Click to Order
+ORDER NOW button
+Composition
+
+The product image is the dominant focal point.
+
+Fruit cards are arranged horizontally behind and around it:
+
+Mango
+Strawberry
+Blueberry
+Additional partially cropped fruits on edges
+
+The cards are white rounded rectangles with soft shadows and slight rotation, giving a playful floating effect.
+
+Product Text
+
+On the drink:
+
+Matcha
+Strawbery
+
+Note: The design shows “Strawbery” with one “r”. If recreating exactly, preserve the typo. If producing a polished final brand version, correct it to “Strawberry”.
+
+CTA
+
+Dark green pill button:
+
+ORDER NOW →
+
+Placed bottom center.
+
+Annotations
+
+Small handwritten-style labels/arrows:
+
+Flavor Options
+Click to Order
+
+These add a playful editorial/product-catalog feel.
+
+Section 6 — Footer
+Layout
+
+Dark green footer with subtle grid texture.
+
+Top left:
+Logo
+
+Top right:
+Order Now button
+
+Main left:
+Large navigation menu
+
+Main right:
+Newsletter signup
+
+Bottom:
+Terms, Privacy, Credits
+Copyright
+Huge NGUNJUK wordmark
+Navigation
+
+Large stacked white menu:
+
+Home
+Our Menu
+Signature
+Our Locations
+Contact Us
+
+“Our Menu” is highlighted in yellow-green.
+
+Newsletter
+
+Right-aligned block:
+
+Sign up to our newsletter for all the
+latest news and updates.
+
+Input:
+
+Email Address →
+
+Dark green translucent field with arrow submit icon.
+
+Wordmark
+
+Huge bottom typography:
+
+NGUNJUK
+White
+Italic/slanted sans-serif
+Very large
+Extends almost full width
+Strong brand closure
+3. Motion Graphics Developer Perspective
+General Motion Direction
+
+Motion should feel:
+
+Smooth
+Fresh
+Light
+Organic
+Slightly playful
+Premium but not overly corporate
+
+Recommended easing:
+
+cubic-bezier(0.22, 1, 0.36, 1)
+
+This gives a soft editorial reveal.
+
+Page Load Animation
+Hero Load Sequence
+Background sky image fades in.
+Logo and menu slide down gently.
+“Matcha” fades upward.
+“On Perfect” fades in with slight delay.
+Drink cups scale from 1.04 to 1.00.
+CTA button fades in.
+Product frame draws in from stroke animation.
+Badge pops in with elastic scale.
+Product micro-card slides up.
+
+Suggested timing:
+
+0.0s background fade
+0.2s logo/menu reveal
+0.4s headline reveal
+0.6s drink image settle
+0.9s CTA reveal
+1.1s frame stroke draw
+1.3s badge pop
+1.4s product card reveal
+Marquee Motion
+
+The yellow-green curved text strips should move continuously.
+
+Hero Ribbon
+
+Motion:
+
+Left-to-right infinite scroll along curved path
+
+Speed:
+
+20–35 seconds per loop
+
+The movement should be slow enough to read but active enough to feel alive.
+
+Promo Card Ribbon
+
+The curved ribbon around the lifestyle image can move subtly upward/downward or rotate very slowly.
+
+Possible motion:
+
+rotate: -2deg to 2deg
+duration: 8s
+repeat: infinite
+yoyo: true
+Scroll Animations
+Matcha Essence Section
+
+On scroll:
+
+Heading fades up.
+Subheading fades up after 100ms.
+Oval image reveals using mask expansion from center.
+Side captions fade in from left/right.
+Split Promo Section
+
+On scroll:
+
+Whole rounded card fades up.
+Left product glass scales slightly.
+Right image reveals from right mask.
+CTA button bounces lightly.
+Curved ribbon slides diagonally.
+Flavor Section
+
+On scroll:
+
+Main drink rises from bottom.
+Fruit cards float into position from different directions.
+Side labels fade in.
+CTA appears last.
+Hover / Tap Interactions
+
+Because this is mobile-first, interactions should be tap-friendly.
+
+Buttons
+
+On hover/tap:
+
+transform: scale(0.96);
+
+Arrow shifts right by 4px.
+
+Fruit Cards
+
+On hover/tap:
+
+transform: translateY(-6px) rotate(var(--slight-angle));
+Drink Images
+
+Subtle parallax on scroll:
+
+Product moves slower than background by 10–15%
+4. Graphic Designer Perspective
+Visual Language
+
+The design language is:
+
+Fresh, soft, youthful, organic, premium, and slightly playful.
+
+It avoids harsh luxury styling and instead creates a wellness café meets editorial product campaign feeling.
+
+Color Palette
+Primary Colors
+Role	Color	Usage
+Deep matcha green	#0E3B24 / #123C27	Footer, product card, buttons
+Matcha green	#7FAE42 / #91B84B	Product, accents
+Neon lime	#E7F23B / #E9F542	Ribbons, CTA highlights
+Cream	#F7F0DA / #F8F1DE	Page background
+White	#FFFFFF	Logo, text, cards
+Sky blue	#8CB9D8	Hero image background
+Dark text	#102318	Body/headings
+Typography
+
+The design uses a strong contrast between:
+
+Clean modern sans-serif
+Soft italic serif
+Sans-serif Style
+
+Used for:
+
+“Matcha”
+“Pure Matcha”
+“Glow With”
+Navigation
+CTA labels
+
+Suggested fonts:
+
+Neue Haas Grotesk
+Inter Tight
+Suisse Int’l
+Helvetica Now
+Avenir Next
+Serif Italic Style
+
+Used for:
+
+“On Perfect”
+“Essence”
+“Energy”
+“Matcha” in flavor section
+
+Suggested fonts:
+
+Cormorant Garamond Italic
+Canela Italic
+Editorial New Italic
+Playfair Display Italic
+Libre Baskerville Italic
+Typography Treatment
+Large headings use tight line-height.
+Italic serif words create elegance.
+CTA text is small, uppercase, and letter-spaced.
+Footer nav is oversized and stacked.
+Image Treatment
+Hero Image
+Full-bleed lifestyle/product photo
+Natural lighting
+Blue sky background
+Slight soft-focus/cloudy atmosphere
+Product centered in hand-held composition
+Matcha Powder Image
+Rounded capsule crop
+High texture detail
+Strong organic green contrast
+Lifestyle Model Image
+Soft portrait crop
+Natural environment
+Green styling matched to product
+Cropped tightly inside right half of promo card
+Product Drink Images
+Cutout-style product photography
+Realistic shadows
+High freshness
+Ice/reflection detail important
+Texture and Background
+
+The design uses subtle textures:
+
+Grid texture on dark green sections
+Fine grain overlay throughout
+Soft paper-like cream background
+Minimal shadowing on fruit cards
+Slight blur/softness in hero background
+
+Recommended overlay:
+
+background-image:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size: 18px 18px;
+Shape Language
+
+Key shapes:
+
+Pill buttons
+Rounded rectangles
+Oval/capsule image containers
+Curved ribbons
+Starburst badge
+Floating rounded cards
+
+The brand should feel soft and approachable, so avoid sharp corners except for grid lines and text alignment.
+
+5. Full-Stack Developer Perspective
+Recommended Frontend Structure
+
+A clean component structure:
+
+/pages
+  HomePage.tsx
+
+/components
+  Header.tsx
+  HeroSection.tsx
+  CurvedMarquee.tsx
+  MatchaEssenceSection.tsx
+  SplitPromoSection.tsx
+  FlavorShowcaseSection.tsx
+  Footer.tsx
+  CTAButton.tsx
+  ProductBadge.tsx
+  NewsletterForm.tsx
+Suggested Data Model
+
+For CMS-driven content:
+
+Products
+type Product = {
+  id: string;
+  name: string;
+  slug: string;
+  shortDescription: string;
+  image: string;
+  price?: number;
+  category: "ceremonial" | "seasonal" | "signature";
+  flavor?: string;
+  isFeatured: boolean;
+};
+Benefits
+type Benefit = {
+  id: string;
+  label: string;
+};
+Navigation
+type NavItem = {
+  label: string;
+  href: string;
+  isHighlighted?: boolean;
+};
+Newsletter
+type NewsletterSignup = {
+  email: string;
+  createdAt: string;
+  source: "footer";
+};
+CMS Requirements
+
+The page should ideally allow editing of:
+
+Hero headline
+Hero image
+CTA text/link
+Product cards
+Benefit marquee text
+Matcha origin description
+Flavor options
+Footer navigation
+Newsletter text
+
+Recommended CMS options:
+
+Sanity
+Strapi
+Payload CMS
+WordPress with ACF
+Shopify CMS if eCommerce-first
+Functional Requirements
+Order Now Buttons
+
+All “Order Now” buttons should link to either:
+
+/menu
+/product/[slug]
+/checkout
+
+Best UX option:
+
+Hero CTA → featured product
+Promo card CTA → pure matcha product
+Flavor CTA → strawberry matcha product
+Footer CTA → menu/order page
+Newsletter Form
+
+Required behavior:
+
+Validate email.
+Show loading state.
+Submit to backend/API.
+Show success message.
+Prevent duplicate submissions.
+
+Example states:
+
+Idle
+Loading
+Success
+Error
+Mobile Navigation
+
+Hamburger should open a full-screen menu or bottom-sheet menu.
+
+Suggested menu behavior:
+
+Background: dark green
+Links: large stacked white text
+Highlighted link: neon lime
+Close icon: top-right
+Animation: slide from right or fade/scale
+Responsive Behavior
+
+Although the reference is mobile-first, the desktop version should expand gracefully.
+
+Mobile
+Single-column layout
+Hero full height
+Split promo remains 2-column poster style if width allows
+Footer stacked
+Tablet
+Wider horizontal spacing
+Hero image remains centered
+Matcha Essence image grows wider
+Split promo becomes larger feature card
+Flavor cards spread further apart
+Desktop
+
+Recommended desktop adaptation:
+
+Max-width content: 1280px
+Hero: full viewport height
+Headline larger, centered
+Product image bigger
+Matcha Essence: centered editorial block
+Promo: 2-column full-width card
+Flavor section: product centered with larger floating cards
+Footer: 2-column top area with huge wordmark bottom
+CSS Implementation Notes
+Base Colors
+:root {
+  --cream: #f7f0da;
+  --deep-green: #103b27;
+  --matcha: #89aa45;
+  --lime: #e8f33f;
+  --text-dark: #102318;
+  --white: #ffffff;
+}
+Button Style
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+Section Background
+.page {
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+Dark Grid Background
+.dark-grid {
+  background-color: var(--deep-green);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+6. Exact Reproduction Checklist
+
+To recreate this layout accurately, the team must preserve:
+
+Mobile-first long-scroll composition
+Full-bleed sky hero image
+White logo and hamburger placement
+Large “Matcha” sans-serif heading
+Italic serif “On Perfect”
+Centered floating CTA over product
+Thin rounded rectangle hero frame
+Yellow starburst badge
+Curved lime benefit marquee
+Cream background after hero
+Centered “Matcha Essence” typography mix
+Oval matcha powder/whisk image
+Two-column dark green/lifestyle promo card
+Curved text ribbon over lifestyle image
+Large centered flavor drink cutout
+Floating fruit cards
+Dark green grid footer
+Oversized white NGUNJUK wordmark
+Repeated pill-shaped “Order Now” CTAs
+7. Production Summary
+
+This UI should be built as a premium mobile-first matcha eCommerce landing page with editorial visual composition, lifestyle-led product storytelling, and repeated purchase CTAs.
+
+The strongest design elements are:
+
+The hero drink-in-sky composition
+The curved moving benefit ribbons
+The cream and deep green contrast
+The mix of sans-serif and italic serif typography
+The product/lifestyle split card
+The oversized footer wordmark
+
+The final build should feel less like a standard café website and more like a social-first beverage campaign page designed for brand memorability and product conversion.

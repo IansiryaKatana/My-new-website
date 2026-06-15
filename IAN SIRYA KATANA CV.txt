@@ -1,0 +1,147 @@
+IAN SIRYA KATANA
+Lead Full-Stack Developer & Digital Systems Lead
+Dubai, United Arab Emirates  |  Hello@iankatana.com  |  +971 52 144 0383  |  LinkedIn  |  Portfolio
+PROFESSIONAL SUMMARY
+Lead Full-Stack Developer and Digital Systems Lead with experience building and managing business-critical web platforms, CRM systems, dashboards, booking workflows, internal tools, and multi-brand digital products. Skilled in React, TypeScript, Node.js, Laravel, Supabase, PostgreSQL, WordPress, Shopify, API integrations, analytics tracking, and performance optimization.
+Experienced in translating business requirements into scalable technical solutions across real estate, student accommodation, staffing operations, e-commerce, nonprofit, beauty, investment, and corporate environments. Strong background in full-stack application development, workflow automation, role-based systems, payment integrations, e-signature workflows, SEO architecture, UI/UX improvement, and multi-brand website management.
+Known for combining hands-on development, systems thinking, stakeholder communication, technical leadership, and business process understanding to deliver digital solutions that improve efficiency, reduce manual work, and support measurable business outcomes.
+CORE SKILLS
+Full-Stack Development | React | TypeScript | Node.js | Laravel | JavaScript | Supabase | PostgreSQL | REST APIs | RPC Architecture | WordPress | Shopify | Tailwind CSS | HTML | CSS | CRM Development | Business Systems | Dashboard Development | Workflow Automation | Booking Systems | Role-Based Access Control | API Integration | Payment Gateway Integration | E-Signature Workflows | UI/UX Development | Technical SEO | Google Tag Manager | Google Analytics | Web Performance Optimization | Cloud Hosting | DNS Management | Production Support | Project Coordination
+TECHNICAL STACK
+Frontend: React, TypeScript, JavaScript, Vite, TanStack, Tailwind CSS, HTML5, CSS3, shadcn/Radix-style UI, Responsive Design
+Backend: Node.js, Laravel, Supabase, PostgreSQL, REST APIs, RPC-based workflows, Webhooks
+CMS & E-commerce: WordPress, Elementor, WooCommerce, Shopify
+Tools & Integrations: Stripe, DocuSign/Adobe Sign workflows, Resend, Brevo, Google Tag Manager, Google Analytics, Google Search Console, Microsoft Clarity
+Infrastructure: Hostinger VPS, Cloud Hosting, DNS, Email Records, Production Deployment, Performance Monitoring
+Product & Delivery: CRM Systems, Booking Systems, Internal Dashboards, Admin Panels, User Journeys, Workflow Automation, Technical Documentation
+
+PROFESSIONAL EXPERIENCE
+Lead Full-Stack Developer & Digital Systems Lead | Oct 2025 - Present
+GIOVANNI | Dubai, United Arab Emirates | Full-time | On-site
+Promoted into a wider technical leadership role focused on building and improving business-critical digital systems, internal platforms, CRM workflows, dashboards, booking journeys, and multi-brand web applications.
+• Lead full-stack development across company websites, internal systems, dashboards, and operational platforms.
+• Design and improve CRM workflows, booking processes, student accommodation journeys, payment flows, and role-based admin tools.
+• Translate requirements from directors, operations, sales, finance, marketing, and customer service teams into scalable technical solutions.
+• Work across React, TypeScript, Node.js, Laravel, WordPress, Shopify, Supabase, APIs, analytics tools, and cloud-based environments.
+• Manage integrations including payment gateways, CRM workflows, analytics tracking, Google Tag Manager, email systems, and third-party APIs.
+• Identify operational gaps and manual processes, then design improved software workflows to increase efficiency, visibility, and control.
+• Support digital transformation initiatives by replacing disconnected manual processes with structured, scalable business systems.
+• Improve UI/UX for complex systems including dashboards, booking interfaces, form journeys, cancelled-state handling, admin workflows, and role-based access.
+Lead Web Developer | Oct 2024 - Sep 2025
+GIOVANNI | Dubai, United Arab Emirates | Full-time | On-site
+
+Promoted from Web Developer to Lead Web Developer after taking ownership of multiple company websites, integrations, technical workflows, and delivery coordination across business units.
+• Led development and maintenance of subsidiary websites, landing pages, CMS platforms, and digital assets.
+• Coordinated with designers, developers, marketers, and stakeholders to deliver technical updates and campaign requirements.
+• Managed website performance, mobile responsiveness, SEO structure, bug fixes, plugin updates, hosting support, and security improvements.
+• Implemented API connections, form workflows, CRM integrations, analytics tracking, and marketing tool setups.
+• Supported project planning, task allocation, delivery timelines, QA reviews, and technical troubleshooting.
+• Improved website quality, user experience, speed, scalability, and reliability across multiple business brands.
+• Built investor-focused websites and microsites to showcase real estate, business, and corporate projects.
+• Provided advanced technical support for website issues and collaborated with customer service and operations teams.
+Web Developer | Mar 2024 - Sep 2024
+GIOVANNI | Dubai, United Arab Emirates | Full-time | On-site
+
+Started as a Web Developer responsible for building, maintaining, and improving company websites, landing pages, CMS content, and frontend user experiences.
+• Built and maintained responsive websites, landing pages, and website sections across company brands.
+• Performed CMS updates, layout improvements, bug fixes, mobile optimization, and speed improvements.
+• Supported SEO implementation, Google Analytics, Google Tag Manager, and campaign tracking requirements.
+• Collaborated with design and marketing teams to turn visual concepts into functional web pages.
+• Assisted with hosting, domain, email, DNS, and technical website support.
+• Delivered regular website updates while building deeper responsibility across systems, integrations, and business workflows.
+Full-Stack Web Developer | Aug 2023 - Sep 2024
+TSHTKING | Remote, United States | Freelance
+
+• Delivered full-stack web development and technical support for client websites and digital platforms.
+• Developed responsive websites and custom web interfaces using modern frontend technologies.
+• Implemented CMS updates, backend integrations, payment workflows, and performance improvements.
+• Supported UI/UX enhancements to improve usability, mobile responsiveness, and conversion flows.
+• Managed technical troubleshooting, bug fixes, hosting support, and website optimization.
+• Worked with stakeholders to understand project requirements, define scope, and deliver practical digital solutions.
+• Supported integrations for forms, APIs, analytics tools, payment gateways, and CRM-related workflows.
+Full-Stack Web Developer | Dec 2021 - Nov 2023
+TOURKAL INVESTMENTS LIMITED | Dubai, United Arab Emirates | Full-time | On-site
+
+• Developed and optimized company websites, landing pages, and digital assets for business growth, marketing visibility, and user experience.
+• Designed and developed responsive websites using HTML, CSS, JavaScript, Bootstrap, WordPress, and Elementor.
+• Created website layouts, graphics, and visual assets using Figma, Photoshop, and Illustrator.
+• Implemented SEO improvements including keyword research, metadata optimization, URL structure, XML sitemaps, robots.txt, and content optimization.
+• Used Google Analytics, Google Search Console, Microsoft Clarity, and other tools to monitor traffic, user behavior, and site performance.
+• Improved page speed, mobile responsiveness, and technical website quality.
+• Collaborated with content, marketing, and business teams to align websites with campaign and brand objectives.
+• Customized WordPress and Elementor functionality, design, and layouts to meet client and business requirements.
+• Supported technical SEO best practices to improve indexing, crawling, and search visibility.
+
+Web & Systems Administrator | Mar 2021 - Mar 2022
+SKYMART KENYA | Kenya | Freelance | Hybrid
+
+• Managed and improved e-commerce website operations, performance, security, and user experience.
+• Maintained e-commerce platform stability, product content, website performance, and customer-facing functionality.
+• Implemented security practices to protect customer data, transactions, and website reliability.
+• Supported inventory-related website workflows, product updates, localization, and content management.
+• Monitored website speed, usability, and technical issues to improve customer experience.
+• Collaborated with marketing and design teams to update campaigns, product visuals, and promotional content.
+• Supported website optimization for mobile users and international audiences.
+• Assisted with international e-commerce considerations including language, currency, product content, and region-specific user experience.
+Senior WordPress Developer | Jan 2020 - Nov 2020
+METACORP AGENCY | Dubai, United Arab Emirates | Full-time | Hybrid
+
+Promoted to Senior WordPress Developer after taking ownership of more complex website builds, theme customization, plugin workflows, performance improvements, and client-facing technical delivery.
+• Led the development of custom WordPress websites, themes, templates, and page structures based on client requirements.
+• Customized WordPress plugins, layouts, and website functionality to support project-specific needs.
+• Improved website performance, mobile responsiveness, security, and on-page usability.
+• Provided technical guidance on WordPress best practices, CMS structure, content management, and maintainability.
+• Supported client communication, project handover, troubleshooting, and ongoing website support.
+• Delivered reliable, responsive, and scalable WordPress solutions across multiple client projects.
+WordPress Developer | Feb 2019 - Dec 2019
+METACORP AGENCY | Dubai, United Arab Emirates | Full-time | Hybrid
+
+Started as a WordPress Developer responsible for building, customizing, and maintaining client websites using WordPress, themes, plugins, and responsive frontend layouts.
+• Built and updated WordPress websites based on client briefs, brand guidelines, and design requirements.
+• Customized themes, pages, menus, forms, plugins, and content structures.
+• Implemented responsive layouts to ensure websites worked smoothly across desktop, tablet, and mobile devices.
+• Supported website maintenance, bug fixes, plugin updates, basic security checks, and performance improvements.
+• Collaborated with designers and project teams to turn visual concepts into functional WordPress websites.
+• Assisted with client website handovers, CMS training, and technical support.
+
+SELECTED PROJECT EXPERIENCE
+Student Accommodation Booking & Operations Platform
+• Designed and improved platform workflows for student applications, booking journeys, studio allocation, academic year dates, deposits, installment plans, staff actions, student portals, and operational dashboards.
+• Worked with logic involving studio grades, contract types, check-in and check-out dates, reservation workflows, staff-created applications, and role-based system access.
+• Supported integration concepts involving Stripe payments, e-signature workflows, email notifications, and hospitality/booking system APIs.
+Internal Business Systems & CRM Workflows
+• Built and planned internal systems to replace manual processes, centralize data, improve visibility, and reduce dependency on disconnected third-party tools.
+• Designed dashboards, user roles, workflow stages, reporting logic, admin panels, and operational modules for business teams.
+• Worked across sales, operations, finance, reservations, customer service, marketing, and management workflows.
+
+
+Multi-Brand Website Development & Management
+
+• Managed and developed websites across real estate, investment, nonprofit, beauty, corporate, and business service brands.
+• Supported brands and projects including Synergy, AFFF, Urban Hub, Unity Livin, Centricity Holdings, Luther, Hollins Business Park, Giovanni, K-Beauty/MAEUM, Reign, Fairmont PM, Eden Asset Management, Pillars Holdings, Donate Quran, Mercy For All, and related business platforms.
+• Delivered responsive website development, UI updates, SEO structure, analytics, campaign pages, technical support, hosting, DNS, and performance improvements.
+UAE Staffing Operations CRM Concept
+
+• Designed a UAE-focused staffing agency CRM concept covering staff sourcing, payroll, visa planning, medicals, airport pickup, warning letters, employee issues, uniform fitting, contracts, company clients, and workforce operations.
+• Planned role-based workflows, admin modules, onboarding journeys, dashboards, and white-label SaaS architecture for future scalability.
+Dubai Real Estate Operations Platform Concept
+
+• Ideated a Dubai-focused rental operations platform to digitize the tenant journey from listing discovery to viewing, document submission, signing, payment, and ongoing tenant management.
+• Designed workflows for property companies, agents, tenants, listings, viewings, documents, payments, and operational transparency.
+
+EDUCATION
+Bachelor of Science in Information Technology | Issued Nov 2019
+Jomo Kenyatta University of Agriculture and Technology
+LICENSES & CERTIFICATIONS
+• Optimizing a Website for Google Search - University of California, Davis | Issued May 2022
+• Google SEO Fundamentals - University of California, Davis | Issued Jun 2022
+• Foundations of Project Management - Google | Issued Jun 2023
+• Build a Full Website using WordPress - Coursera | Issued Jun 2019
+• Increase SEO Traffic with WordPress - Coursera | Issued Jul 2019
+
+ADDITIONAL STRENGTHS
+• Strong ability to understand business operations and convert them into software workflows.
+• Experienced working directly with directors, managers, sales teams, operations teams, designers, and external developers.
+• Able to manage both hands-on development and technical coordination across multiple projects.
+• Strong understanding of websites, internal platforms, CRM systems, performance, SEO, analytics, hosting, and integrations.
+• Comfortable working in fast-paced corporate environments with multiple brands, shifting priorities, and business-critical deadlines.

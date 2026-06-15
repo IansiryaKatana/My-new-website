@@ -1,0 +1,689 @@
+UI/UX Reference Breakdown — “Schwartz Estates” Luxury Architecture Website
+Overall Layout Identity
+
+This is a luxury real-estate / architecture portfolio landing page with a cold, editorial, high-end visual direction.
+
+The page combines:
+
+Oversized typography
+Architectural hero imagery
+Minimal black/white structure
+Modular service cards
+Editorial spacing
+Subtle technical UI labels
+Premium real-estate storytelling
+Dark cinematic project showcases
+Large typography footer
+
+The design feels like a mix of:
+
+Architecture studio website
+Luxury property developer website
+Editorial portfolio
+High-end agency landing page
+Minimal Swiss-inspired layout
+1. Project Manager View
+Page Purpose
+
+The website is designed to position the brand as a premium property development / architecture / real-estate advisory company.
+
+The user journey moves through:
+
+Immediate brand impact
+Service positioning
+Experience and scale proof
+Featured project/property showcase
+Client testimonial
+Company performance statistics
+Large statement CTA
+Footer contact conversion
+Page Sections
+Section 1 — Hero
+
+Purpose:
+Create instant prestige and brand memorability.
+
+Content elements:
+
+Thin announcement/navigation strip at very top
+Main navigation
+Huge brand wordmark: schwartz
+Small estates label near wordmark
+Architectural water-house hero image
+Mini text block: “A new way to making owned experience”
+Category chips/buttons at bottom of hero
+Primary CTA button: Book a call
+
+Business function:
+This section sells the brand before selling any property. The hero should feel expensive, quiet, and architectural.
+
+Section 2 — Intro + Services
+
+Purpose:
+Explain the core belief and services.
+
+Content elements:
+
+Small label: # we create
+
+Main statement:
+
+We believe that buying or selling a home isn’t just a transaction — it’s a life-changing experience.
+
+Four service cards:
+Functional design
+Renovation of spaces
+Interior design
+Free consultation
+
+Business function:
+Clarifies what the company does while keeping the premium visual tone.
+
+Section 3 — Experience Statement
+
+Purpose:
+Establish authority and scale.
+
+Content elements:
+
+Small label: # since 2014
+
+Large centered claim:
+
+We have developed more than 250 million square meters in several highly relevant and successful projects in UK and abroad.
+
+Small architectural image fragments on both sides
+
+Business function:
+Builds trust through numbers and international credibility.
+
+Section 4 — Featured Project / Property Showcase
+
+Purpose:
+Showcase a premium project in an immersive format.
+
+Content elements:
+
+Dark background block
+Left editorial copy
+Project title: Riverside
+Supporting project description
+Small secondary image
+Large property image on right
+Location tag: Barcelona
+Price or property number in top right
+CTA: Book call
+
+Business function:
+Turns the brand promise into a tangible property/project example.
+
+Section 5 — Testimonial
+
+Purpose:
+Humanize the brand and build credibility.
+
+Content elements:
+
+Section label
+Previous/next arrow controls
+Client portrait
+Client name
+Star rating
+Large testimonial quote
+Client name and role
+Rating display
+
+Business function:
+Creates emotional reassurance after the more architectural sections.
+
+Section 6 — Metrics
+
+Purpose:
+Communicate measurable authority.
+
+Content elements:
+
+Three columns:
+200K+
+5.0%
+132+
+Thin vertical dividers
+Small descriptive copy under each metric
+
+Business function:
+Reinforces performance, scale, and trust.
+
+Section 7 — Final CTA / Campaign Banner
+
+Purpose:
+Create a cinematic conversion moment.
+
+Content elements:
+
+Full-width dark architectural background image
+
+Overlay statement:
+
+Gain end-to-end visibility of your entire operation for smarter decision making, today and tomorrow.
+
+Left-bottom CTA button
+
+Business function:
+Final emotional conversion push before footer.
+
+Section 8 — Footer
+
+Purpose:
+Close with strong contact visibility.
+
+Content elements:
+
+Dark footer
+Brand mini statement
+Copyright
+Navigation columns
+Address
+Phone
+
+Massive email text:
+
+hello@schwartz.com
+
+Business function:
+The email becomes the final visual CTA.
+
+2. UI/UX Engineer View
+Canvas and Ratio
+
+The reference image is a mobile-width long landing page.
+
+Approximate screenshot dimensions:
+
+Property	Value
+Width	376px
+Height	1339px
+Format	Mobile portrait
+Layout type	Long-scroll landing page
+Design style	Editorial luxury / architectural
+Global Layout System
+Container
+
+Use a narrow mobile-first container:
+
+max-width: 100%;
+padding-left: 12px;
+padding-right: 12px;
+
+Some sections intentionally break out into full-width image areas.
+
+Grid Logic
+
+The layout uses:
+
+Single-column mobile structure
+2-column card grid for services
+3-column stat grid for metrics
+Asymmetrical editorial blocks for project/testimonial sections
+Recommended grid system
+--page-padding: 12px;
+--section-gap: 48px;
+--card-gap: 6px;
+--radius-sm: 4px;
+--radius-md: 8px;
+Typography Hierarchy
+Hero Wordmark
+
+The word schwartz dominates the hero.
+
+Approximate behavior:
+
+font-size: clamp(72px, 24vw, 120px);
+font-weight: 300;
+letter-spacing: -0.08em;
+line-height: 0.8;
+
+The typography should feel oversized and partially integrated into the hero image.
+
+Section Statements
+
+Use large but minimal text:
+
+font-size: 18px;
+line-height: 1.1;
+font-weight: 400;
+letter-spacing: -0.04em;
+Labels / Microcopy
+
+Labels are extremely small and technical.
+
+font-size: 6px;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+
+This gives the website a “designed system” feel.
+
+Hero Section Structure
+Layout
+Top utility bar
+Main nav
+Hero image background
+Huge brand text overlay
+Small intro copy
+Category chips
+Book a call button
+Visual behavior
+Background image fills the hero.
+Huge text is placed above the architecture.
+Image sits visually behind the wordmark.
+CTA buttons sit at the bottom of the hero.
+Approximate hero height
+height: 250px to 290px;
+Service Cards
+Layout
+
+A 2x2 grid.
+
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 6px;
+Card design
+
+Each card:
+
+White background
+Thin border
+Small icon top right
+Tiny number top left
+Title near bottom
+Micro description below title
+min-height: 96px;
+padding: 10px;
+border: 1px solid #d9d9d9;
+background: #fff;
+Featured Project Section
+Layout
+
+Dark section with two-column feel even on mobile:
+
+Left: copy block
+Right: large property image
+
+On actual mobile, this is compressed into a dense editorial split.
+
+Key UI details
+Black background
+White/gray typography
+Large image card on right
+Smaller supporting image below/left
+Blue pill label over image
+CTA pill at bottom
+
+The section must feel like a magazine spread, not a normal website card.
+
+Testimonial Section
+Structure
+Left: image card + carousel arrows
+Right: large quote
+Bottom: rating + metadata
+
+The portrait card uses a pale blue/gray background and strong whitespace.
+
+Metrics Section
+
+The metrics are horizontally aligned, even on mobile.
+
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+
+Each metric has:
+
+Large number
+Small title
+Tiny body copy
+Vertical divider except last item
+Footer
+
+Footer is dark and editorial.
+
+Important detail:
+The footer email is extremely oversized and allowed to run edge-to-edge.
+
+font-size: clamp(38px, 14vw, 72px);
+letter-spacing: -0.08em;
+line-height: 0.85;
+3. Motion Graphics Developer View
+Motion Style
+
+The animation should be minimal, smooth, expensive, and architectural.
+
+Avoid playful motion. Use slow cinematic transitions.
+
+Page Load Animation
+Hero
+
+Recommended sequence:
+
+Top nav fades in.
+Hero image scales from 1.06 to 1.
+schwartz wordmark fades in with slight upward movement.
+Small labels fade in after wordmark.
+CTA chips reveal one by one.
+Timing
+duration: 900ms to 1400ms
+easing: cubic-bezier(0.16, 1, 0.3, 1)
+Scroll Animations
+Section headings
+
+Use soft reveal:
+
+opacity: 0;
+transform: translateY(18px);
+
+On scroll:
+
+opacity: 1;
+transform: translateY(0);
+transition: 900ms cubic-bezier(0.16, 1, 0.3, 1);
+Image Motion
+
+Architectural images should use:
+
+Slow parallax
+Gentle scale
+Subtle vertical drift
+No bounce
+No elastic easing
+
+Example:
+
+imageY: scrollProgress * -24px
+scale: 1.04 to 1
+Service Cards
+
+Cards should animate in a stagger:
+
+Card 1: 0ms
+Card 2: 80ms
+Card 3: 160ms
+Card 4: 240ms
+
+Motion:
+
+opacity: 0;
+transform: translateY(20px);
+Button Hover / Tap Effects
+
+Buttons should feel tactile but restrained.
+
+transform: scale(0.97);
+transition: 180ms ease;
+
+For desktop hover:
+
+Blue circular icon slides slightly right
+Button background subtly darkens
+No dramatic color changes
+Featured Project Section Motion
+
+This should be the strongest motion area.
+
+Recommended:
+
+Dark section fades in.
+Main property image clips open from left to right.
+Text appears line by line.
+Price/location label fades in last.
+Smaller image floats in with a slight upward reveal.
+Footer Motion
+
+The huge email can have a subtle horizontal reveal or mask animation:
+
+hello@schwartz.com slides in from left with clipping mask
+
+Keep it slow and refined.
+
+4. Graphic Designer View
+Visual Direction
+
+The design is cold luxury architecture.
+
+It relies on:
+
+Gray-white backgrounds
+Black editorial sections
+Pale blue accents
+Architectural photography
+Tiny technical labels
+Oversized typography
+Thin lines and borders
+Color Palette
+
+Approximate palette:
+
+Usage	Color
+Main background	#F2F2F2
+White cards	#FFFFFF
+Primary text	#050505
+Secondary text	#5E5E5E
+Dark section	#030303
+Pale blue accent	#6FB9E8
+Border gray	#D6D6D6
+Muted image blue	#9EB8C7
+Typography
+
+The typography appears close to a modern grotesk / Swiss sans-serif.
+
+Recommended font options:
+
+Best matches
+Neue Haas Grotesk
+Suisse Int’l
+Helvetica Now
+ABC Diatype
+Inter Tight as accessible alternative
+Typography rules
+Use tight tracking.
+Use large lowercase wordmarks.
+Keep headings clean and unembellished.
+Avoid decorative serif fonts.
+Use very small uppercase labels for system-like detail.
+Image Style
+
+Architecture imagery should be:
+
+Minimal
+Cool-toned
+Slightly desaturated
+High contrast but not overly sharp
+Blue/gray atmosphere
+Modern concrete, glass, water, twilight lighting
+Image treatment
+filter: saturate(0.85) contrast(1.05);
+
+For darker sections:
+
+filter: brightness(0.82) contrast(1.08);
+Shape Language
+
+The design uses:
+
+Rectangular image blocks
+Minimal pill buttons
+Thin borders
+Small circular icons
+No heavy rounded corners
+No colorful gradients
+No illustrative icons
+
+Corners are subtle:
+
+border-radius: 2px to 8px;
+Graphic Motifs
+
+Important repeated motifs:
+
+Small blue circular CTA icons
+Tiny numbered labels: 01, 02, 03, 04
+Technical labels beginning with #
+Thin horizontal/vertical separators
+Oversized brand text
+Cropped architecture fragments
+5. Full-Stack Developer View
+Recommended Stack
+
+For accurate reproduction:
+
+Frontend: React / Next.js
+Styling: Tailwind CSS or CSS modules
+Animations: Framer Motion / GSAP
+CMS: Sanity, Strapi, WordPress Headless, or Supabase
+Image optimization: Next/Image or Cloudinary
+Forms: Custom API route or CRM webhook
+Analytics: GA4 / GTM event tracking
+Component Structure
+/components
+  Header.tsx
+  Hero.tsx
+  ServiceGrid.tsx
+  ExperienceStatement.tsx
+  FeaturedProject.tsx
+  TestimonialCarousel.tsx
+  MetricsStrip.tsx
+  FinalCTA.tsx
+  Footer.tsx
+  ButtonPill.tsx
+  SectionLabel.tsx
+  ImageCard.tsx
+Data Model
+Services
+type Service = {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  icon: string;
+};
+Projects
+type Project = {
+  id: string;
+  title: string;
+  location: string;
+  priceLabel?: string;
+  description: string;
+  mainImage: string;
+  secondaryImage?: string;
+  ctaLabel: string;
+};
+Testimonials
+type Testimonial = {
+  id: string;
+  clientName: string;
+  clientRole: string;
+  quote: string;
+  rating: number;
+  image: string;
+};
+Metrics
+type Metric = {
+  value: string;
+  label: string;
+  description: string;
+};
+CTA Tracking
+
+Important clickable events:
+
+Element	Event Name
+Hero Book a Call	hero_book_call_click
+Service Card	service_card_click
+Featured Project CTA	project_book_call_click
+Testimonial Carousel	testimonial_navigation_click
+Footer Email	footer_email_click
+Performance Notes
+
+Because the design is image-heavy:
+
+Use compressed WebP/AVIF images.
+Lazy-load below-the-fold images.
+Preload hero image.
+Avoid large animation libraries unless needed.
+Use CSS transitions where possible.
+Keep mobile layout extremely optimized.
+Exact Section-by-Section Build Brief
+Header
+Height: approximately 34px total
+Top utility links: very small text, 5–6px
+Main nav: minimal links, horizontally spaced
+Logo not separate; hero wordmark acts as brand identity
+Background: transparent over hero
+Hero
+Full-width architectural image background.
+Massive lowercase “schwartz” text in white/pale gray.
+Small “estates” word near the top-right of the wordmark.
+CTA chip row at bottom.
+Primary “Book a call” button positioned bottom-right.
+Hero image should have calm water, modern concrete architecture, and blue-gray sky.
+Services Intro
+Light gray background.
+Two-column intro text row.
+Left side: tiny label.
+Right side: large belief statement.
+Below: four white service cards in 2x2 grid.
+Each card has a number, small blue icon, title, and micro description.
+Experience Statement
+Centered text block.
+Small label above.
+Large multiline statement.
+Tiny architectural image crops on far left and far right.
+Very open spacing.
+Featured Property
+Black background section.
+Left column contains belief statement, project title, description, and CTA.
+Right column contains large modern house image.
+Small image appears below the copy.
+Use white text, gray descriptions, and pale blue UI labels.
+Testimonial
+Light gray background.
+Left side carousel image card.
+Right side large quote.
+Use blue square arrow buttons.
+Star rating beneath.
+Keep layout airy and editorial.
+Stats
+Three equal columns.
+Large metric number at top.
+Tiny labels below.
+Thin vertical separators.
+White/light-gray background.
+Final CTA
+Full-width dark architectural image.
+Overlay large white centered/lower text.
+CTA button bottom-left.
+Image should be cinematic, dusk/night, glass architecture.
+Footer
+Black background.
+Top area split into columns:
+- brand description
+- nav links
+- address
+- phone
+Massive email text at bottom.
+Email text must nearly touch screen edges.
+Reproduction Prompt / Build Brief
+
+Create a mobile-first luxury architecture and real-estate landing page inspired by a premium Swiss editorial design style. Use a cold gray, white, black, and pale blue palette. The page should feature a cinematic hero section with a modern concrete house over calm water, a massive lowercase wordmark reading schwartz, and minimal navigation. Use oversized typography, tiny uppercase technical labels, thin borders, modular white service cards, architectural image crops, and dark cinematic project showcase sections.
+
+The page must include:
+
+Transparent minimal header over hero
+Large architectural hero with oversized schwartz wordmark
+Intro belief statement about buying/selling homes
+Four service cards in a 2x2 grid
+Centered experience/stat authority statement
+Dark featured project section with image-led split layout
+Testimonial carousel with portrait and quote
+Three-column metrics strip
+Full-width dark image CTA banner
+Black footer with oversized hello@schwartz.com email
+
+Use tight grotesk typography similar to Helvetica Neue / Neue Haas Grotesk / Inter Tight. Animations should be slow, minimal, cinematic, and premium: fade-up text reveals, image parallax, staggered service cards, soft CTA hover effects, and masked footer email reveal. Keep spacing editorial and refined, avoid bright colors, avoid decorative icons, and prioritize architectural imagery, scale, silence, and luxury.

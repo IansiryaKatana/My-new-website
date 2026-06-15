@@ -1,0 +1,994 @@
+UI/UX Concept Breakdown — Orizon Portfolio Dashboard
+
+This reference is a modern fintech / crypto portfolio dashboard with a strong premium SaaS feel. The design combines a high-energy purple portfolio overview header with a soft, card-based analytics area below. The layout should be recreated as a desktop-first financial dashboard, with mobile behavior planned as stacked cards.
+
+1. Project Manager Perspective
+Product Context
+
+This screen represents a personal finance / crypto investment portfolio dashboard where a user can:
+
+View connected wallets and exchanges.
+Track asset values across platforms.
+Monitor portfolio balance over time.
+Review holdings.
+Access AI-based investment guidance.
+Add new assets, wallets, or accounts.
+
+The page is not just informational; it is designed to make the user feel that their portfolio is active, visual, premium, and easy to understand.
+
+Screen Purpose
+
+The main objective is to give the user a quick snapshot of:
+
+Current portfolio performance
+Wallet-level balance changes
+Total balance trend
+Individual asset holdings
+AI/actionable financial prompts
+
+The top section is performance-focused.
+The lower section is decision/action-focused.
+
+Main User Intent
+
+The user arrives here to answer:
+
+“How is my portfolio doing right now?”
+
+Secondary intents:
+
+Compare wallet/exchange balances.
+See which holdings are increasing.
+Access AI investment guidance.
+Add another portfolio item.
+Move between overview and holdings.
+Content Priority
+Priority 1 — Top Navigation
+
+The user needs to know they are inside the Portfolio module.
+
+Priority 2 — Hero Portfolio Summary
+
+The purple top section shows the key wallet summaries:
+
+Coinbase
+Trust Wallet
+MetaMask
+Crypto
+
+Each has:
+
+Asset/source name
+Main balance
+Small positive/negative movement
+Last updated timestamp
+Mini performance chart
+Priority 3 — Main Analytics Area
+
+Below the purple header:
+
+AI assistant card
+Savings promotional card
+Main balance chart
+Holdings list
+Priority 4 — Actions
+
+Primary actions:
+
++ Add
+Ask AI Assistant
+View all holdings
+Switch balance chart timeframe
+Functional Requirements
+
+The page should support:
+
+Feature	Requirement
+Wallet summary cards	Display live or cached wallet values
+Sparkline charts	Show short-term movement per wallet
+Total balance chart	Show historical portfolio balance
+Time filters	1W, 1M, 3M, 6M, YTD, 1Y
+Holdings list	Show asset icon, name, subtitle, value, and performance
+AI prompt card	Route user to assistant or portfolio insights
+Add button	Open modal/dropdown to add wallet, exchange, or asset
+Navigation	Active route highlight for Portfolio
+Data freshness	Show relative update time such as “56 second ago”
+2. UI/UX Engineer Perspective
+Overall Layout Structure
+
+The screen uses a two-zone layout:
+
+┌──────────────────────────────────────────────┐
+│ Top App Navigation                           │
+├──────────────────────────────────────────────┤
+│ Purple Portfolio Hero / Wallet Summary Area  │
+├──────────────────────────────────────────────┤
+│ Light Dashboard Content Area                 │
+│ ┌────────────┐ ┌────────────────────┐ ┌────┐ │
+│ │ Left Cards │ │ Main Chart Card     │ │Hold│ │
+│ │            │ │                    │ │ing │ │
+│ └────────────┘ └────────────────────┘ └────┘ │
+└──────────────────────────────────────────────┘
+Canvas Dimensions
+
+The screenshot appears close to a 16:10 / desktop dashboard ratio.
+
+Recommended implementation baseline:
+
+min-height: 100vh;
+width: 100%;
+background: #f2f2f3;
+
+The dashboard should feel like a full-screen app, not a normal webpage.
+
+Top Navigation
+Structure
+
+The top navbar sits inside the purple background.
+
+Approximate height:
+
+height: 44px;
+Left Area
+Brand icon
+Brand name: Orizon
+
+The brand sits at the far left with a compact white icon and text.
+
+Center Navigation
+
+Navigation items:
+
+Home
+Spending
+Portfolio
+Invest
+Advice
+Estate planning
+
+The active item is Portfolio.
+
+Active State
+
+Portfolio has:
+
+White text
+Thin underline
+Slightly brighter visibility
+border-bottom: 1px solid rgba(255,255,255,0.9);
+Right Area
+
+Right side includes:
+
+Get $25 pill button
++ Account button
+Notification icon
+User avatar
+
+The buttons are small, rounded, and compact.
+
+Purple Hero Section
+Height
+
+Approximate height:
+
+height: 270px;
+
+Including navbar.
+
+The main purple dashboard area begins below the navbar and ends before the light grey content area.
+
+Background
+
+Use a deep electric purple gradient:
+
+background:
+  radial-gradient(circle at 50% 0%, rgba(130, 80, 255, 0.9), transparent 45%),
+  linear-gradient(180deg, #5627f5 0%, #4b22e8 100%);
+
+The reference has a vivid crypto/fintech purple.
+
+Page Header
+
+Inside the hero section:
+
+Large title: Portfolio
+Tabs: Overview, Holding
+Add button on the right
+Header Layout
+Portfolio     Overview   Holding                         + Add
+Typography
+
+Portfolio title:
+
+font-size: 30px;
+font-weight: 400;
+letter-spacing: -0.04em;
+color: white;
+
+Tabs:
+
+Overview active pill
+Holding plain text
+
+Active tab:
+
+background: rgba(255,255,255,0.12);
+border-radius: 999px;
+padding: 10px 18px;
+
+Add button:
+
+border: 1px solid rgba(255,255,255,0.25);
+border-radius: 999px;
+padding: 10px 18px;
+Wallet Summary Cards
+
+The hero contains four equal columns.
+
+┌───────────┬───────────┬───────────┬───────────┐
+│ Coinbase  │ Trust     │ MetaMask  │ Crypto    │
+│ $42.50    │ $56.20    │ $82.25    │ $120.25   │
+│ chart     │ chart     │ chart     │ chart     │
+└───────────┴───────────┴───────────┴───────────┘
+Column Layout
+
+Each column should have:
+
+flex: 1;
+padding-right: 28px;
+border-right: 1px solid rgba(255,255,255,0.12);
+
+The last card should have no right border.
+
+Card Content
+
+Each wallet column includes:
+
+Small wallet/source label
+Main balance
+Tiny value change
+Update time
+Mini chart
+Main Balance Typography
+font-size: 34px;
+font-weight: 300;
+letter-spacing: -0.06em;
+color: #ffffff;
+Supporting Text
+font-size: 10px;
+color: rgba(255,255,255,0.55);
+Sparkline Charts
+
+Each wallet chart is positioned at the bottom of its column.
+
+Visual Style
+Thin white or lavender line
+Low-opacity filled area
+Some cards include markers and tooltip labels
+Purple-on-purple subtle grid/area effect
+
+Recommended library:
+
+Use Recharts for simple sparklines.
+Use ECharts only if tooltip behavior or large datasets become more complex.
+Recharts Structure
+
+Use:
+
+ResponsiveContainer
+AreaChart
+Area
+Optional Line
+Optional custom tooltip marker
+
+For this design, chart axes should be hidden.
+
+<XAxis hide />
+<YAxis hide />
+<Tooltip content={<CustomMiniTooltip />} />
+<Area type="monotone" dataKey="value" stroke="rgba(255,255,255,.9)" fill="rgba(255,255,255,.12)" />
+Lower Dashboard Area
+Background
+
+Below the hero, the main content area uses a light neutral background:
+
+background: #f2f2f2;
+padding: 24px 12px 12px;
+
+The cards sit close to the top edge of the grey section.
+
+Grid Layout
+
+The bottom section uses a 3-column layout:
+
+Left column: 25%
+Center chart: 44%
+Right holdings: 31%
+
+Approximate CSS:
+
+display: grid;
+grid-template-columns: 1.05fr 1.75fr 1.25fr;
+gap: 12px;
+Left Promo / AI Cards
+
+There are two stacked cards.
+
+Card 1 — AI Assistant
+
+White rounded card with:
+
+Blue label: QUESTION OF THE DAY
+Heading: How are my investments doing?
+Black button: Ask AI Assistant
+Purple crystal image on right
+Card Style
+background: #ffffff;
+border-radius: 20px;
+height: 136px;
+padding: 22px 18px;
+overflow: hidden;
+position: relative;
+AI Button
+background: #151515;
+color: white;
+border-radius: 999px;
+height: 38px;
+font-size: 13px;
+
+The button should span almost the full width of the card.
+
+Card 2 — Savings Promo
+
+Second card:
+
+Text: High interest is in your interest
+CTA: START SAVING
+Yellow coin image
+Floating translucent circle elements
+
+This card is more visual and promotional.
+
+Visual Behavior
+
+The coin image should overflow slightly to the right/bottom but remain clipped by the card.
+
+overflow: hidden;
+Center Total Balance Chart Card
+Purpose
+
+This is the main data visualization card. It shows total portfolio balance over selected time ranges.
+
+Card Dimensions
+
+Approximate:
+
+height: 282px;
+border-radius: 20px;
+padding: 24px;
+Header
+
+Top left:
+
+Total balance
+$25,000.69
+
+Top right:
+
+Two round icon buttons
+Icon Buttons
+
+Each is a circular white/soft control.
+
+width: 42px;
+height: 42px;
+border-radius: 999px;
+background: rgba(255,255,255,0.7);
+
+Use lucide-react icons:
+
+LineChart
+BarChart3
+TrendingUp
+Activity
+Main Chart
+
+The chart appears as a vertical bar chart with soft purple gradient bars.
+
+Chart Style
+Bars have very light borders.
+Main active bar is purple.
+Other bars are white with lavender shadows.
+Background is white but has a soft inner glow.
+
+Recommended library:
+
+Recharts for this chart.
+
+Use:
+
+<BarChart data={balanceData}>
+  <XAxis hide />
+  <YAxis hide />
+  <Tooltip />
+  <Bar dataKey="value" radius={[2, 2, 0, 0]} />
+</BarChart>
+
+For exact visual reproduction, custom bar rendering is better.
+
+Active Bar
+
+One bar is highlighted in purple:
+
+background: linear-gradient(180deg, #6d3df5 0%, #b5a4ff 100%);
+
+Inactive bars:
+
+background: linear-gradient(180deg, #ffffff 0%, #eee9ff 100%);
+box-shadow: 0 10px 30px rgba(98, 67, 255, 0.12);
+Time Filter
+
+Bottom centered filter:
+
+1W   1M   3M   6M   YTD   1Y
+
+Active state: 1M
+
+background: #111111;
+color: white;
+border-radius: 999px;
+padding: 6px 10px;
+
+Use Zustand only if this filter state affects multiple components.
+Otherwise, local component state is enough.
+
+Right Holdings Card
+Purpose
+
+The holdings card shows a compact list of portfolio assets and performance.
+
+Card Structure
+Holding                         See all holding >
+──────────────────────────────────────────────
+Total Value
+Near                            $1.98
+BTC                             $1.44
+──────────────────────────────────────────────
+Total Value
+Near          mini chart        6.5%
+BTC           mini chart        5.29%
+Card Style
+background: #ffffff;
+border-radius: 20px;
+padding: 22px;
+height: 282px;
+Header
+
+Left:
+
+Holding
+
+Right:
+
+See all holding >
+
+The right button is very subtle with a white/grey pill background.
+
+background: #fafafa;
+border-radius: 999px;
+font-size: 11px;
+Asset Row
+
+Each asset row includes:
+
+Circular coin icon
+Asset name
+Asset subtitle
+Right-aligned value or percentage
+Icon Treatment
+
+Near:
+
+background: #d9ff2f;
+color: #111;
+
+BTC:
+
+background: #ff9900;
+color: white;
+
+Use custom icons or simple initials if exact coin icons are unavailable.
+
+Dividers
+
+Use soft horizontal dividers:
+
+border-bottom: 1px solid #eeeeee;
+
+Spacing should remain airy.
+
+3. Motion Graphics Developer Perspective
+Motion Style
+
+The design should feel:
+
+Smooth
+Premium
+Fast
+Light
+Financial-tech inspired
+
+Avoid heavy bouncy animations. Use soft easing.
+
+Recommended default easing:
+
+ease: [0.22, 1, 0.36, 1]
+Page Load Sequence
+
+Use Motion for normal page entrance.
+
+Suggested Load Timeline
+Navbar fades/slides down.
+Portfolio title fades in from left.
+Tabs fade in with slight delay.
+Four wallet columns rise one by one.
+Sparkline charts draw from left to right.
+Lower cards fade upward after hero content.
+Timing
+Navbar: 0.2s
+Title/Tabs: 0.35s
+Wallet cards stagger: 0.08s each
+Lower cards: 0.45s after hero
+Wallet Card Animations
+
+Each wallet card should animate:
+
+initial={{ opacity: 0, y: 16 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.45 }}
+
+Sparkline lines can use SVG path draw animation.
+
+Use Motion for the path:
+
+initial={{ pathLength: 0 }}
+animate={{ pathLength: 1 }}
+transition={{ duration: 1.2 }}
+Hover States
+Navigation Items
+Slight opacity increase
+Tiny upward movement
+Underline transition
+transition: all 180ms ease;
+Wallet Columns
+
+On hover:
+
+Chart becomes slightly brighter
+Column background gets a very subtle white overlay
+Tooltip marker can appear
+background: rgba(255,255,255,0.035);
+Cards
+
+On hover:
+
+transform: translateY(-2px);
+box-shadow: 0 20px 60px rgba(22, 18, 55, 0.08);
+
+Keep the movement minimal.
+
+Button Micro-Interactions
+Ask AI Assistant Button
+
+On hover:
+
+Slight scale to 1.015
+Icon shifts right/rotates subtly
+Background lightens from black to dark charcoal
+Add Button
+
+On hover:
+
+White border becomes stronger
+Background becomes rgba(255,255,255,0.12)
+When to Use GSAP
+
+Use GSAP only if recreating premium chart-line drawing and hero timeline exactly.
+
+Best GSAP use cases here:
+
+Hero wallet chart drawing sequence
+Delayed tooltip marker movement
+Coordinated page-load timeline
+Purple background glow/parallax movement
+
+For normal UI transitions, use Motion.
+
+4. Graphic Designer Perspective
+Visual Language
+
+This design uses a premium crypto-finance visual language:
+
+Electric purple hero section
+Frosted glass controls
+Minimal white cards
+Soft grey dashboard background
+Financial data presented with calm spacing
+Futuristic but friendly visual assets
+
+The style feels like a mix of:
+
+Wealth app
+Crypto wallet dashboard
+SaaS analytics interface
+AI finance assistant
+Color Palette
+Primary Purple
+--primary-purple: #5728f3;
+--primary-purple-dark: #4218d6;
+--primary-purple-light: #7b5cff;
+Backgrounds
+--app-bg: #f2f2f3;
+--card-bg: #ffffff;
+--soft-card-bg: #f7f7f8;
+Text
+--text-dark: #111111;
+--text-muted: #8a8a8a;
+--text-light: rgba(255,255,255,0.7);
+--text-white: #ffffff;
+Accent Colors
+--btc-orange: #ff9900;
+--near-lime: #d9ff32;
+--ai-blue: #2759ff;
+--success-green: #bdf65b;
+Typography
+
+Use a clean modern sans-serif.
+
+Recommended fonts:
+
+Inter
+Inter Tight
+Geist
+Satoshi
+SF Pro Display-style equivalent
+Typography Hierarchy
+Element	Size	Weight	Style
+Portfolio title	30–32px	400	Tight tracking
+Wallet balance	32–36px	300	Large and elegant
+Main card balance	24px	500	Dark
+Section labels	11–13px	400	Muted
+Nav items	13px	400	Compact
+Holding title	18px	500	Clean
+Asset names	13px	500	Dark
+Asset subtitles	10px	400	Muted
+Card Design
+
+Cards use:
+
+Rounded corners around 20px
+No visible borders or extremely subtle borders
+Soft shadows only where necessary
+White backgrounds
+Clipped image content
+
+Recommended card style:
+
+border-radius: 22px;
+background: #ffffff;
+box-shadow: 0 20px 70px rgba(20, 20, 40, 0.05);
+Image Treatment
+Crystal Image
+
+The AI card uses a glossy purple 3D crystal/abstract object.
+
+Visual qualities:
+
+Transparent background
+High contrast
+Placed right side
+Slight blur/shadow
+Cropped into the card
+Coin Image
+
+The savings card uses yellow/gold 3D coins.
+
+Visual qualities:
+
+Strong foreground depth
+Cropped at bottom/right
+Soft background circles
+Warm accent against white card
+Icon Style
+
+Use lucide-react for UI icons.
+
+Icon style should be:
+
+stroke-width: 1.7;
+width: 16px;
+height: 16px;
+
+Avoid filled heavy icons except for coin/token symbols.
+
+5. Full-Stack Developer Perspective
+Recommended Component Architecture
+src/
+  features/
+    portfolio/
+      components/
+        PortfolioPage.tsx
+        PortfolioHero.tsx
+        PortfolioNavbar.tsx
+        PortfolioTabs.tsx
+        WalletSummaryGrid.tsx
+        WalletSummaryCard.tsx
+        MiniSparkline.tsx
+        AiAssistantCard.tsx
+        SavingsPromoCard.tsx
+        TotalBalanceCard.tsx
+        HoldingsCard.tsx
+        HoldingRow.tsx
+      hooks/
+        usePortfolioOverview.ts
+        useWalletSummaries.ts
+        useHoldings.ts
+      schemas/
+        portfolio.schema.ts
+      types/
+        portfolio.types.ts
+Data Fetching
+
+Use TanStack Query for all server-state.
+
+useQuery({
+  queryKey: ['portfolio', 'overview'],
+  queryFn: getPortfolioOverview,
+});
+
+Recommended API response should already contain finalized values:
+
+type PortfolioOverview = {
+  totalBalance: number;
+  selectedRange: '1W' | '1M' | '3M' | '6M' | 'YTD' | '1Y';
+  wallets: WalletSummary[];
+  holdings: Holding[];
+  balanceHistory: BalancePoint[];
+};
+
+The frontend should not calculate critical financial values. It should receive:
+
+Balance
+Change amount
+Change percentage
+Chart-ready data
+Last updated label
+Permission-safe holdings
+Local UI State
+
+Use Zustand only for shared UI state such as:
+
+Active portfolio tab
+Selected chart range
+Add account modal open state
+Sidebar collapse state
+Global command menu state
+
+Example:
+
+type PortfolioUiState = {
+  activeTab: 'overview' | 'holding';
+  selectedRange: '1W' | '1M' | '3M' | '6M' | 'YTD' | '1Y';
+  setSelectedRange: (range: PortfolioUiState['selectedRange']) => void;
+};
+Forms
+
+The + Add action should open a modal for adding:
+
+Wallet
+Exchange account
+Manual asset
+Bank account
+
+Use:
+
+react-hook-form
+zod
+@hookform/resolvers
+
+Validation should include:
+
+const addAccountSchema = z.object({
+  accountType: z.enum(['wallet', 'exchange', 'manual_asset', 'bank']),
+  provider: z.string().min(1),
+  label: z.string().min(1),
+  publicAddress: z.string().optional(),
+});
+Notifications
+
+Use Sonner for:
+
+Wallet connected
+Account added
+Portfolio sync started
+Failed to load holdings
+AI assistant unavailable
+
+Example:
+
+toast.success('Wallet added successfully');
+Charts
+Use Recharts For
+Wallet sparklines
+Total balance bar chart
+Simple mini holding performance charts
+Use ECharts For
+
+Use ECharts only if the portfolio grows into:
+
+Advanced historical analytics
+Multi-asset overlays
+Heatmaps
+Large datasets
+Risk distribution maps
+Complex allocation charts
+
+For this exact screen, Recharts is enough.
+
+Tables
+
+The visible holdings card does not need a full table.
+But the See all holding page should use:
+
+@tanstack/react-table
+@tanstack/react-virtual if holdings are large
+
+Full holdings page columns:
+
+Column	Example
+Asset	BTC
+Network	Bitcoin
+Quantity	0.052
+Current Value	$1.44
+Change	5.29%
+Wallet	Coinbase
+Updated	56s ago
+Command Menu
+
+Use cmdk for global dashboard search.
+
+Searchable items:
+
+Assets
+Wallets
+Transactions
+Advice topics
+Portfolio reports
+Account settings
+
+Shortcut:
+
+Ctrl + K
+Drag and Drop
+
+Use dnd-kit only if users can customize the dashboard layout.
+
+Example:
+
+Reorder wallet summary cards
+Reorder dashboard widgets
+Pin/unpin holdings
+Rearrange analytics panels
+
+This should be optional, not required for the static reference.
+
+PDF Reports
+
+Use @react-pdf/renderer for portfolio statements.
+
+Possible report actions:
+
+Export monthly portfolio summary
+Export holdings report
+Export tax summary
+Export performance report
+Responsive Behavior
+Desktop
+
+Use the reference layout exactly:
+
+grid-template-columns: 1.05fr 1.75fr 1.25fr;
+
+Wallet cards remain four columns.
+
+Tablet
+
+The hero wallet cards should become a 2x2 grid.
+
+grid-template-columns: repeat(2, 1fr);
+
+Lower section:
+
+grid-template-columns: 1fr 1fr;
+
+Suggested order:
+
+Total balance chart
+Holdings
+AI card
+Savings card
+Mobile
+
+The layout should stack vertically.
+
+Navbar simplified
+Portfolio title
+Tabs
+Add button
+Wallet cards horizontally scrollable
+Total Balance card
+Holdings card
+AI Assistant card
+Savings card
+
+Wallet cards should become a horizontal carousel:
+
+display: flex;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+
+Each wallet card:
+
+min-width: 280px;
+scroll-snap-align: start;
+Implementation Notes
+Best Library Choices for This Exact Screen
+Requirement	Library
+Page/card animations	motion
+Complex hero timeline	gsap only if needed
+Wallet sparklines	recharts
+Main balance chart	recharts
+Advanced analytics later	echarts
+Server data	@tanstack/react-query
+Add account form	react-hook-form, zod, @hookform/resolvers
+Shared dashboard UI state	zustand
+Icons	lucide-react
+Toasts	sonner
+Global search	cmdk
+Reorderable widgets	dnd-kit
+Holdings table page	@tanstack/react-table, @tanstack/react-virtual
+Portfolio PDF exports	@react-pdf/renderer
+Date formatting	date-fns or luxon
+Pixel-Level Design Summary
+Key Measurements
+Element	Approximate Value
+Navbar height	44px
+Purple hero total height	270px
+Main content padding	12–24px
+Card radius	20–22px
+Lower card height	282px
+Left promo card height	136px each
+Wallet balance font size	34px
+Portfolio title size	30px
+Grid gap	12px
+Active pill radius	999px
+Final Build Direction
+
+Recreate this as a premium fintech portfolio dashboard with a strong two-tone structure:
+
+Top purple intelligence layer
+Real-time wallet summaries, glowing charts, and quick actions.
+Bottom white decision layer
+AI guidance, financial prompts, balance analytics, and holdings.
+
+The most important design details to preserve are:
+
+The electric purple hero area.
+The four wallet summary columns.
+Thin white sparkline charts.
+Rounded soft white cards.
+Large negative-space balance chart.
+Compact holdings list.
+Minimal pill-based controls.
+Smooth, subtle, premium motion.

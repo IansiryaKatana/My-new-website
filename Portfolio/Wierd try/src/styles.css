@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Neue Haas Portfolio";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    local("Neue Haas Grotesk Text Pro 55 Roman"),
+    local("Neue Haas Grotesk Text Pro Roman"),
+    local("Neue Haas Grotesk Display Pro 55 Roman"),
+    local("Neue Haas Grotesk Display Pro Roman");
+}
+
+@font-face {
+  font-family: "Neue Haas Portfolio";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    local("Neue Haas Grotesk Text Pro 65 Medium"),
+    local("Neue Haas Grotesk Text Pro Medium"),
+    local("Neue Haas Grotesk Display Pro 65 Medium"),
+    local("Neue Haas Grotesk Display Pro Medium");
+}
+
+@font-face {
+  font-family: "Neue Haas Portfolio";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src:
+    local("Neue Haas Grotesk Text Pro 75 Bold"),
+    local("Neue Haas Grotesk Text Pro Bold"),
+    local("Neue Haas Grotesk Display Pro 75 Bold"),
+    local("Neue Haas Grotesk Display Pro Bold");
+}
+
+@theme {
+  --font-sans:
+    "Neue Haas Portfolio", "Helvetica Neue", Arial, ui-sans-serif, system-ui,
+    sans-serif;
+  --color-ink: #050505;
+  --color-ink-soft: #6d6d6d;
+  --color-paper: #ffffff;
+  --color-paper-soft: #f7f7f4;
+  --color-line: rgba(5, 5, 5, 0.08);
+  --color-night: #030303;
+  --color-night-soft: #a7a7a7;
+  --color-accent: #ffd21a;
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 12px 35px rgba(0, 0, 0, 0.07);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  :root {
+    color: var(--color-ink);
+    background: var(--color-paper);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  ::selection {
+    color: var(--color-ink);
+    background: var(--color-accent);
+  }
+}
+
+@layer utilities {
+  .container-page {
+    width: min(100% - 2rem, 1180px);
+    margin-inline: auto;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .reveal {
+    animation: reveal 760ms var(--ease-premium) both;
+  }
+
+  .reveal-delay-1 {
+    animation-delay: 120ms;
+  }
+
+  .reveal-delay-2 {
+    animation-delay: 240ms;
+  }
+
+  .reveal-delay-3 {
+    animation-delay: 360ms;
+  }
+
+  .animate-accordion-down {
+    animation: accordion-down 300ms var(--ease-premium);
+  }
+
+  .animate-accordion-up {
+    animation: accordion-up 300ms var(--ease-premium);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+
+  to {
+    height: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

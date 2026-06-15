@@ -1,0 +1,43 @@
+:root {
+  --admin-primary: #46482f;
+  --admin-surface: #faf9f7;
+  --admin-radius-lg: 2px;
+}
+
+.admin-shell {
+  --admin-primary: var(--admin-primary, #46482f);
+  background: var(--admin-surface, #faf9f7);
+  min-height: 100vh;
+}
+
+.admin-nav-active {
+  background: color-mix(in srgb, var(--admin-primary) 12%, transparent);
+  color: var(--admin-primary);
+  border-left: 2px solid var(--admin-primary);
+}
+
+.admin-btn-primary {
+  background-color: #46482f !important;
+  border: 1px solid #3f432d !important;
+  color: #f2eee7 !important;
+}
+
+.admin-btn-primary:hover {
+  background-color: #3f432d !important;
+}
+
+.admin-input {
+  border: 1px solid #d8d2c7;
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #d8d2c7;
+  font-size: 0.875rem;
+}

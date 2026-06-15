@@ -1,0 +1,1265 @@
+Complete CRM Blueprint for a Dubai Staffing Agency
+
+You are not just building a normal CRM. For this type of business, you need a staffing operations management system that handles the full worker lifecycle:
+
+Client company requests staff → agency sources candidates → documents/visa/medical onboarding → deployment → attendance/payroll → employee welfare/issues → renewals → offboarding.
+
+Because this is Dubai/UAE-based, the system should be built around compliance, documentation, payroll accuracy, worker tracking, client billing, and operational accountability. UAE private-sector employers must process wages through approved wage channels such as WPS, and MoHRE provides services around work permits, employment contracts, labour accommodation, and permit cancellation, so the CRM should treat compliance as a core module, not an afterthought.
+
+1. Main System Modules
+1. Client Companies Module
+
+This manages the companies that request workers from your staffing agency.
+
+Key Features
+Company profile
+Trade license details
+Contact persons
+Contract terms
+Service agreement uploads
+Job order history
+Active deployed staff
+Billing cycle
+Invoice history
+Client complaints
+Client satisfaction rating
+Client-specific rules
+Client Profile Fields
+Field	Purpose
+Company Name	Main client account
+Industry	Hospitality, construction, security, cleaning, retail, logistics, etc.
+Trade License No.	Compliance record
+Main Contact Person	HR/Admin/Operations contact
+Email / Phone / WhatsApp	Communication
+Location	Deployment site
+Contract Start / End Date	Agreement tracking
+Payment Terms	15 days, 30 days, advance, monthly
+Required Uniform Type	Site-specific requirement
+Accommodation Provided?	Yes/No
+Transport Provided?	Yes/No
+VAT/TRN Number	Invoicing
+2. Job Orders / Manpower Requests Module
+
+This is where clients request workers.
+
+Example:
+“Client needs 25 cleaners, female, 6-month contract, Dubai Marina, AED 1,400 basic salary, accommodation provided.”
+
+Key Features
+Create manpower request
+Define number of workers needed
+Role/job title
+Gender preference if legally appropriate
+Nationality preference if applicable
+Salary package
+Work location
+Contract duration
+Shift timing
+Required documents
+Required experience
+Uniform size requirements
+Mobilization deadline
+Request approval status
+Fulfilment progress
+Job Order Statuses
+Draft
+Pending Client Confirmation
+Approved
+Sourcing Candidates
+Candidates Shortlisted
+Documents Collection
+Visa Processing
+Medical Pending
+Ready for Deployment
+Partially Deployed
+Fully Deployed
+Cancelled
+Completed
+Useful Dashboard Metrics
+Total open job orders
+Staff required
+Staff sourced
+Staff pending visa
+Staff ready for deployment
+Urgent requests due within 7 days
+Underfilled client requests
+3. Candidate / Applicant Tracking Module
+
+This is your recruitment pipeline.
+
+Key Features
+Candidate database
+CV upload
+Passport upload
+Visa status
+Experience tracking
+Interview status
+Skill tags
+Language ability
+Availability
+Previous deployment history
+Blacklist/ban status
+Candidate rating
+Source tracking
+Candidate Sources
+Walk-in
+Referral
+Facebook
+TikTok
+WhatsApp group
+Recruitment partner
+Overseas agent
+LinkedIn
+Indeed
+Bayt
+Dubizzle
+Existing employee referral
+Candidate Pipeline
+Stage	Meaning
+New Applicant	Just entered into system
+Screening	Basic eligibility check
+Interview Scheduled	Interview booked
+Interview Passed	Approved by agency
+Client Shortlisted	Sent to client
+Client Approved	Selected by client
+Documents Pending	Missing documents
+Visa Processing	Immigration/work permit stage
+Medical Pending	Awaiting medical fitness
+Ready for Deployment	Cleared to work
+Deployed	Active employee
+Rejected	Not proceeding
+Blacklisted	Do not rehire
+4. Employee Master File Module
+
+Once a candidate is hired/deployed, they become an employee.
+
+This becomes the central employee record.
+
+Employee Profile
+Category	Fields
+Personal	Full name, nationality, gender, DOB, marital status
+Contact	UAE phone, home country phone, email, emergency contact
+Passport	Passport no., issue date, expiry date, copy upload
+Visa	Visa type, UID, visa expiry, sponsor, labour card, Emirates ID
+Medical	Medical test date, result, certificate upload
+Employment	Job title, client assignment, start date, salary, contract type
+Accommodation	Camp/building/room/bed no.
+Uniform	Shirt, trouser, shoe size, fitting date, issued items
+Payroll	Basic salary, allowances, deductions, bank/exchange details
+Status	Active, on leave, absconded, terminated, resigned, cancelled
+Employee Statuses
+Active
+Pending Deployment
+On Leave
+Sick Leave
+Under Investigation
+Warning Issued
+Suspended
+Absconded
+Resigned
+Terminated
+Visa Cancellation Pending
+Cancelled
+Repatriated
+5. Visa & Immigration Tracking Module
+
+This is one of the most important modules for Dubai staffing.
+
+The CRM should track every visa step clearly because one missed expiry or document can create operational and legal problems.
+
+Visa Workflow
+Offer accepted
+Documents collected
+Entry permit / status change
+Medical fitness booking
+Medical completed
+Emirates ID application
+Visa stamping / residency process
+Labour contract/work permit
+Employee activated
+Renewal reminders
+Cancellation when employee exits
+
+Foreign nationals generally need to meet UAE health requirements for residence/work permits, including being free from specified communicable diseases, and Dubai medical fitness centers process medical fitness exams for residency visas.
+
+Visa Fields
+Field	Purpose
+Visa Type	Employment, visit, cancelled, own visa, spouse visa
+Sponsor	Agency, client, free zone, third party
+Entry Permit No.	Immigration tracking
+UID No.	UAE immigration identity
+Labour Card No.	MoHRE tracking
+Emirates ID No.	Identity record
+Medical Appointment Date	Operational planning
+Medical Result	Passed, failed, pending
+Visa Issue Date	Validity
+Visa Expiry Date	Renewal alert
+Cancellation Date	Offboarding
+Grace Period End	Risk tracking
+Automated Alerts
+Passport expiring in 6 months
+Visa expiring in 90/60/30/7 days
+Medical appointment due
+Emirates ID pending
+Labour contract pending
+Visa cancellation pending
+Grace period ending
+Employee deployed without complete documents
+6. Medical Fitness Module
+
+This should not just be a date field. It should be a workflow.
+
+Dubai medical fitness services require booking/submission, attendance at the center, examination, and result delivery via email/SMS according to official service process information.
+
+Medical Workflow
+Medical required
+Appointment booked
+Employee notified
+Transport arranged
+Attended
+Missed appointment
+Result pending
+Passed
+Failed
+Retest required
+Certificate uploaded
+Fields
+Medical center
+Appointment date/time
+Assigned PRO/coordinator
+Transport pickup location
+Result
+Result date
+Certificate upload
+Notes
+Follow-up action
+7. Airport Pickup & Arrival Coordination Module
+
+For overseas hires, this is very useful.
+
+Workflow
+Candidate flight booked
+Ticket uploaded
+Arrival date/time
+Airport terminal
+Driver assigned
+Pickup confirmed
+Accommodation assigned
+Welcome kit issued
+SIM card issued
+First-day orientation scheduled
+Fields
+Field	Purpose
+Flight Number	Arrival tracking
+Airline	Coordination
+Terminal	Driver dispatch
+Arrival Time	Pickup schedule
+Driver Name	Accountability
+Vehicle Plate	Tracking
+Accommodation Destination	Drop-off
+Pickup Status	Pending, completed, missed
+Arrival Checklist	SIM, food, room, uniform, documents
+8. Accommodation / Camp Management Module
+
+If your agency manages workers entirely, accommodation tracking is essential.
+
+Features
+Buildings
+Rooms
+Bed allocation
+Capacity tracking
+Occupancy dashboard
+Maintenance complaints
+Room transfers
+Accommodation inspection logs
+Check-in/check-out history
+Accommodation Entities
+Accommodation building
+Floor
+Room
+Bed
+Employee assignment
+Room capacity
+Nationality/grouping rules
+Maintenance requests
+Incident reports
+Useful Metrics
+Total beds
+Occupied beds
+Available beds
+Overcapacity warnings
+Employees without accommodation
+Maintenance complaints pending
+Accommodation cost per employee
+9. Uniform Fitting & Asset Issuance Module
+
+This is very practical and often ignored in basic CRMs.
+
+Trackable Items
+Uniform shirt
+Trousers
+Shoes
+Cap
+Safety shoes
+Helmet
+ID card
+Access card
+Gloves
+Apron
+Name badge
+PPE
+Company phone
+SIM card
+Workflow
+Size collected
+Fitting scheduled
+Uniform issued
+Employee signs acknowledgement
+Replacement requested
+Damaged/lost deduction if applicable
+Return on exit
+Fields
+Field	Purpose
+Shirt Size	Uniform planning
+Trouser Size	Uniform planning
+Shoe Size	Uniform planning
+Issue Date	Asset record
+Item Condition	New/used/damaged
+Quantity	Inventory
+Employee Signature	Proof
+Replacement Date	Audit
+Return Status	Offboarding
+10. Deployment / Assignment Management Module
+
+This is where you match employees to client sites.
+
+Features
+Assign employee to client
+Assign location/site
+Shift schedule
+Start date
+End date
+Supervisor
+Replacement tracking
+Transfer employee between clients
+Track deployment history
+Assignment Fields
+Field	Purpose
+Employee	Worker
+Client	Company
+Site Location	Actual workplace
+Job Role	Cleaner, waiter, helper, security, etc.
+Shift	Day/night/rotating
+Start Date	Deployment start
+End Date	Contract end
+Supervisor	Reporting person
+Client Rate	What client pays
+Employee Salary Cost	Internal cost
+Margin	Profitability
+Status	Active, transferred, ended
+Critical Feature
+
+The system should show:
+
+Employee cost vs client billing vs agency margin.
+
+Example:
+
+Employee	Client Pays	Employee Cost	Visa Cost Allocation	Accommodation Cost	Net Margin
+John	AED 2,800	AED 1,600	AED 250	AED 400	AED 550
+11. Attendance & Timesheet Module
+
+This can start manual and later become biometric/mobile GPS-based.
+
+Attendance Options
+Manual attendance
+Supervisor upload
+Excel import
+Mobile check-in
+GPS check-in
+QR code site check-in
+Biometric integration later
+Track
+Present
+Absent
+Late
+Half day
+Overtime
+Sick leave
+Annual leave
+Unpaid leave
+Site transfer
+Public holiday
+Rest day
+Monthly Timesheet Flow
+Attendance captured daily
+Supervisor verifies
+Client approves
+Payroll calculates salary
+Invoice calculates client billing
+Management approves
+Payroll file generated
+12. Payroll Module
+
+Payroll needs to handle salary, allowances, deductions, advances, overtime, and WPS/export records.
+
+UAE labour market rules require private-sector establishments to pay workers monthly according to the amount and timing agreed in the employment contract through WPS-approved channels.
+
+Payroll Components
+Earnings
+Basic salary
+Food allowance
+Transport allowance
+Accommodation allowance
+Overtime
+Holiday pay
+Bonus
+Reimbursement
+Deductions
+Advance salary
+Loan deduction
+Absence deduction
+Late deduction
+Uniform loss/damage
+Accommodation deduction
+SIM/phone deduction
+Penalty deduction, only if legally allowed and documented
+Other approved deductions
+Payroll Workflow
+Attendance locked
+Overtime approved
+Deductions reviewed
+Payroll generated
+Management approval
+WPS file/export prepared
+Payment processed
+Payslips issued
+Payroll closed
+Payroll Dashboard
+Total salary payable
+Client-wise payroll cost
+Department-wise payroll
+Deductions total
+Advances outstanding
+WPS pending
+Payroll exceptions
+Employees without bank/exchange details
+13. Client Billing & Invoicing Module
+
+Since you are supplying manpower, billing must connect directly to deployments and attendance.
+
+Billing Models
+Fixed monthly rate per employee
+Daily rate
+Hourly rate
+Overtime billing
+Replacement penalty
+Mobilization fee
+Visa processing fee
+Recruitment fee
+Accommodation charge
+Transport charge
+Invoice Workflow
+Timesheet approved
+Client rate applied
+Overtime calculated
+Deductions/credits added
+Invoice generated
+VAT applied if applicable
+Sent to client
+Payment tracked
+Receipt uploaded
+Outstanding ageing monitored
+Invoice Statuses
+Draft
+Pending Approval
+Sent
+Partially Paid
+Paid
+Overdue
+Disputed
+Cancelled
+Finance Dashboard
+Monthly revenue
+Outstanding invoices
+Overdue payments
+Client profitability
+Payroll cost
+Visa cost
+Accommodation cost
+Net profit
+Gross margin per client
+Gross margin per employee
+14. Employee Issues, Complaints & Case Management
+
+This is a major module because your agency manages people entirely.
+
+Case Types
+Salary complaint
+Client mistreatment complaint
+Accommodation issue
+Food issue
+Transport issue
+Medical issue
+Harassment complaint
+Attendance dispute
+Uniform issue
+Workplace injury
+Conflict with supervisor
+Absconding risk
+Resignation request
+Performance complaint from client
+Misconduct allegation
+Case Workflow
+Case opened
+Assigned to HR/Operations
+Employee statement recorded
+Client statement recorded
+Evidence uploaded
+Action taken
+Warning issued if needed
+Escalated
+Resolved
+Closed
+Case Priority
+Low
+Medium
+High
+Critical
+Important Features
+Internal notes
+Employee-visible notes
+Evidence uploads
+Voice note upload
+WhatsApp screenshot upload
+Timeline/audit trail
+Escalation alerts
+Resolution deadline
+Repeat issue detection
+15. Warning Letter & Disciplinary Tracking Module
+
+You specifically mentioned warning letter tracking. This should be treated as its own structured module.
+
+Warning Types
+Verbal warning
+First written warning
+Final warning
+Suspension notice
+Termination recommendation
+Absconding notice
+Performance improvement notice
+Warning Letter Fields
+Field	Purpose
+Employee	Who received it
+Client/Site	Where issue happened
+Incident Date	Event date
+Warning Type	First/final/verbal
+Reason	Absence, misconduct, lateness, etc.
+Description	Full details
+Evidence	Uploads
+Issued By	HR/manager
+Employee Acknowledged?	Yes/No
+Signature	Digital/physical
+Follow-up Date	Review
+Status	Draft, issued, disputed, closed
+Automation
+If employee receives 3 warnings, flag for review
+If same complaint repeats, notify HR manager
+If warning not acknowledged in 3 days, escalate
+Generate PDF warning letter
+Store signed copy
+Link warning to employee profile
+16. Contract Management Module
+
+You need contracts for both clients and employees.
+
+Client Contracts
+Service agreement
+Rate card
+SLA
+Replacement terms
+Payment terms
+Contract expiry
+Renewal reminders
+Employee Contracts
+Offer letter
+Employment contract
+Labour contract reference
+Salary details
+Job title
+Start date
+Contract period
+Signed copy
+Renewal date
+
+MoHRE provides services related to employment contracts and work permits, and the UAE government notes that MoHRE issues different types of work permits depending on job nature and establishment registration.
+
+Contract Automation
+Generate offer letter
+Generate employee agreement
+Generate deployment letter
+Generate warning letter
+Generate salary certificate
+Generate NOC
+Generate experience certificate
+Generate termination letter
+Generate visa cancellation request
+E-signature integration later
+17. Document Management Module
+
+Each employee and client needs a complete document vault.
+
+Employee Documents
+Passport copy
+Passport photo
+CV
+Education certificate
+Experience certificate
+Visit visa copy
+Employment visa copy
+Emirates ID
+Labour card
+Medical fitness result
+Health insurance card
+Contract
+Offer letter
+Warning letters
+Salary slips
+Bank/exchange details
+Uniform acknowledgement
+Accommodation agreement
+Exit documents
+Document Features
+Expiry date tracking
+Document category
+Version control
+Required/missing document checklist
+Upload from mobile
+Admin approval
+OCR extraction later
+Auto-renaming
+Secure access permissions
+18. PRO / Government Process Module
+
+For a Dubai staffing agency, you may have PRO staff handling visa, immigration, medical, Emirates ID, and labour processes.
+
+PRO Task Types
+Quota request
+Work permit application
+Offer letter submission
+Entry permit
+Status change
+Medical booking
+Emirates ID typing
+Visa stamping/residency
+Labour card
+Insurance
+Visa renewal
+Visa cancellation
+Absconding process
+Fine check
+Document collection
+PRO Dashboard
+Tasks due today
+Pending government processes
+Delayed applications
+Employees stuck at medical
+Visa expiring soon
+Cancellations pending
+PRO workload by person
+19. Recruitment Partner / Overseas Agent Module
+
+If you source workers from overseas or via recruiters, track that pipeline.
+
+Fields
+Agent name
+Country
+Contact details
+Agreement
+Commission structure
+Candidates supplied
+Candidate success rate
+Rejected candidates
+Replacement liability
+Payment status
+Complaints
+Agent Metrics
+Number of candidates submitted
+Number approved
+Number deployed
+Number absconded
+Medical failure rate
+Average processing time
+Cost per successful hire
+20. Leave & Vacation Management Module
+Leave Types
+Annual leave
+Sick leave
+Emergency leave
+Unpaid leave
+Maternity/paternity leave if applicable
+Home country vacation
+Compassionate leave
+Leave Workflow
+Employee applies
+Supervisor/client approval
+HR approval
+Replacement required?
+Payroll impact calculated
+Ticket required?
+Leave completed
+Employee returns
+Rejoin status updated
+Useful Features
+Leave balance
+Leave calendar
+Replacement planning
+Return-to-work confirmation
+Overstay alert
+Passport custody tracking if applicable and legally compliant
+21. Employee Welfare & HR Support Module
+
+This separates your system from a basic manpower database.
+
+Track
+Employee complaints
+Salary concerns
+Accommodation concerns
+Health concerns
+Family emergency
+Counselling notes
+HR meetings
+Welfare visits
+Employee satisfaction
+Repeat-risk employees
+Absconding risk indicators
+Employee Portal
+
+Workers should eventually be able to:
+
+View payslips
+Submit complaints
+Request leave
+Upload documents
+View visa expiry
+View assigned site
+View warnings
+Request salary advance
+Request uniform replacement
+Receive announcements
+Chat with HR/operations
+22. Incident & Accident Reporting Module
+
+Useful for staffing agencies deploying workers to client sites.
+
+Incident Types
+Workplace injury
+Property damage
+Fight/conflict
+Theft allegation
+Client complaint
+Employee misconduct
+Site accident
+Transport accident
+Accommodation incident
+Incident Fields
+Date/time
+Location
+Employee involved
+Client involved
+Witnesses
+Description
+Photos/videos
+Action taken
+Medical treatment
+Insurance claim
+Police report, if applicable
+Case status
+23. Transport Coordination Module
+
+Especially useful if workers are picked from accommodation and deployed to client locations.
+
+Features
+Vehicle management
+Driver management
+Pickup routes
+Employee pickup list
+Shift transport schedule
+Missed pickup report
+Vehicle cost tracking
+Fuel/maintenance tracking
+Entities
+Vehicle
+Driver
+Route
+Pickup point
+Shift
+Passenger list
+Transport complaint
+24. Inventory Management Module
+
+For uniforms, PPE, ID cards, SIM cards, bedding, tools, and work equipment.
+
+Inventory Categories
+Uniforms
+Safety shoes
+Helmets
+Gloves
+ID cards
+Access cards
+SIM cards
+Phones
+Bed sheets
+Mattresses
+Tools
+Cleaning equipment
+PPE
+Features
+Stock in/out
+Supplier tracking
+Cost per item
+Assigned employee
+Return tracking
+Damaged/lost tracking
+Low stock alerts
+Purchase request workflow
+25. Internal Task Management Module
+
+Your operations team needs task assignment.
+
+Task Examples
+Call candidate
+Collect passport copy
+Book medical
+Arrange airport pickup
+Issue uniform
+Visit client site
+Resolve complaint
+Follow up invoice
+Renew visa
+Prepare warning letter
+Replace absent employee
+Task Fields
+Task title
+Related employee/client/job order
+Assigned user
+Due date
+Priority
+Status
+Notes
+Attachments
+Completion proof
+26. Communication & WhatsApp Tracking
+
+In Dubai staffing operations, most communication happens on WhatsApp. The CRM should at least record the communication history.
+
+Features
+WhatsApp click-to-chat
+Message templates
+Communication log
+Call log
+Email log
+SMS/WhatsApp reminders
+Bulk announcements
+Employee notification history
+Client communication history
+Message Templates
+Document request
+Medical appointment reminder
+Airport pickup details
+Deployment confirmation
+Uniform fitting appointment
+Salary slip notification
+Visa renewal reminder
+Warning letter notice
+Leave approval
+Client invoice reminder
+27. Reports & Analytics Module
+
+This is where management gets real value.
+
+Operational Reports
+Active employees
+Employees by client
+Employees by nationality
+Employees by visa status
+Employees by accommodation
+Employees by deployment site
+Employees pending documents
+Employees pending medical
+Employees with expiring visa/passport
+Absconding cases
+Warning letters issued
+Complaints by category
+Client complaints by frequency
+Recruitment Reports
+Candidates by source
+Conversion rate from applicant to deployed
+Rejection reasons
+Time to deploy
+Agent performance
+Cost per hire
+Open manpower requests
+Job order fulfilment rate
+Payroll Reports
+Monthly payroll summary
+Salary advances
+Deductions
+Overtime
+Payroll exceptions
+Employees without payment details
+Client-wise salary cost
+WPS/export status
+Finance Reports
+Revenue by client
+Profit by client
+Profit by employee
+Outstanding invoices
+Overdue clients
+Visa cost recovery
+Accommodation cost
+Transport cost
+Uniform cost
+Monthly gross margin
+Net margin trend
+HR Reports
+Warnings by employee
+Complaints by client
+Absence rate
+Late attendance rate
+Turnover rate
+Resignation reasons
+Termination reasons
+High-risk employees
+Employee satisfaction score
+28. User Roles & Permissions
+Recommended Roles
+Role	Access
+Super Admin	Full system access
+Admin	Manage most modules
+HR Manager	Employees, contracts, complaints, warnings
+Recruiter	Candidates, job orders, interviews
+PRO Officer	Visa, medical, Emirates ID, government tasks
+Payroll Officer	Attendance, payroll, payslips
+Finance Officer	Invoices, payments, client billing
+Operations Manager	Deployment, transport, accommodation, complaints
+Client Portal User	View assigned staff, approve timesheets, raise complaints
+Employee Portal User	View own documents, payslips, requests, complaints
+Viewer	Read-only dashboards/reports
+29. Portals You Should Build
+A. Admin Portal
+
+For internal agency management.
+
+Includes:
+
+Dashboard
+Clients
+Job orders
+Candidates
+Employees
+Visa tracking
+Medical tracking
+Deployment
+Attendance
+Payroll
+Invoices
+Complaints
+Warnings
+Accommodation
+Uniforms/inventory
+Reports
+Settings
+B. Client Portal
+
+For companies that use your staffing agency.
+
+Client can:
+
+Request manpower
+View deployed employees
+Approve timesheets
+Raise complaints
+Request replacement
+Download invoices
+View contract terms
+View attendance summary
+View monthly reports
+C. Employee Portal
+
+For workers.
+
+Employee can:
+
+View profile
+View visa/passport expiry
+Upload documents
+View payslips
+Submit complaints
+Request leave
+Request salary advance
+View warnings
+View assigned site
+View announcements
+D. Recruiter / Agent Portal
+
+For external recruitment partners.
+
+Agent can:
+
+Submit candidates
+Upload documents
+Track candidate status
+View rejected/approved candidates
+View commission/payment status
+30. Core Database Tables
+
+Here is a strong starting schema structure.
+
+Main Tables
+companies
+client_contacts
+client_contracts
+job_orders
+job_order_positions
+candidates
+candidate_documents
+candidate_interviews
+employees
+employee_documents
+employee_visas
+employee_medicals
+employee_contracts
+employee_assignments
+employee_accommodation
+employee_uniforms
+attendance_records
+timesheets
+payroll_runs
+payroll_items
+salary_advances
+deductions
+invoices
+invoice_items
+payments
+complaints
+disciplinary_cases
+warning_letters
+incidents
+tasks
+pro_tasks
+accommodations
+rooms
+beds
+transport_routes
+vehicles
+drivers
+inventory_items
+inventory_transactions
+leave_requests
+communication_logs
+audit_logs
+users
+roles
+permissions
+settings
+31. Suggested Dashboard Layout
+Main Admin Dashboard Cards
+Active Employees
+Employees Deployed Today
+Open Job Orders
+Visa Expiring Soon
+Medical Pending
+Payroll Due
+Client Invoices Overdue
+Open Complaints
+Warnings This Month
+Employees Pending Documents
+Accommodation Occupancy
+Monthly Gross Margin
+Dashboard Charts
+Employees by client
+Employees by nationality
+Job order fulfilment rate
+Visa pipeline status
+Payroll cost vs invoice revenue
+Complaints by category
+Warning letters by month
+Client profitability
+Attendance trend
+Recruitment source performance
+32. Most Important Workflows to Build First
+Phase 1 — Foundation
+
+Build the core CRM first:
+
+Login and roles
+Clients
+Job orders
+Candidates
+Employees
+Document uploads
+Basic dashboard
+Activity logs
+Phase 2 — Staffing Operations
+Candidate pipeline
+Employee assignment/deployment
+Accommodation tracking
+Uniform tracking
+PRO task tracking
+Medical tracking
+Visa expiry alerts
+Phase 3 — Payroll & Billing
+Attendance
+Timesheets
+Payroll calculation
+Salary advances/deductions
+Client invoices
+Payment tracking
+Profitability reports
+Phase 4 — HR Case Management
+Complaints
+Warning letters
+Incidents
+Leave requests
+Employee welfare
+Disciplinary tracking
+PDF letter generation
+Phase 5 — Portals
+Client portal
+Employee portal
+Recruitment agent portal
+Phase 6 — Automation & Intelligence
+WhatsApp templates
+Email notifications
+Document expiry automation
+Payroll exception detection
+Visa renewal reminders
+Absconding risk flags
+Client profitability scoring
+AI document extraction
+AI complaint summarization
+33. Critical Automations
+
+The CRM should automatically alert management when:
+
+Visa expires in 90/60/30/7 days
+Passport expires in 6 months
+Medical appointment is missed
+Employee has missing documents
+Employee receives multiple warnings
+Complaint remains unresolved for more than 48 hours
+Client invoice is overdue
+Payroll is not approved before cutoff
+Employee is absent 2+ days consecutively
+Employee has no accommodation assigned
+Employee is deployed without uniform
+Employee is deployed without complete visa/compliance status
+Client manpower request deadline is approaching
+Contract renewal is due
+Employee grace period is ending after cancellation
+34. Advanced Features That Would Make It Premium
+AI Candidate Matching
+
+The system can recommend candidates for a job order based on:
+
+Job role
+Experience
+Nationality
+Language
+Availability
+Visa status
+Previous client rating
+Warning history
+Location/accommodation proximity
+Employee Risk Score
+
+Score employees based on:
+
+Absence history
+Complaints
+Warnings
+Salary advance frequency
+Client feedback
+Accommodation issues
+Visa status
+Deployment stability
+Client Profitability Score
+
+Score clients based on:
+
+Revenue
+Payment delays
+Complaint frequency
+Staff turnover
+Replacement requests
+Margin percentage
+Operational workload
+Compliance Heatmap
+
+Show high-risk areas:
+
+Expired visas
+Missing contracts
+Pending medicals
+Missing Emirates ID
+Unpaid salary cases
+Pending cancellations
+Document gaps
+35. Best Tech Stack for This CRM
+
+Since you already work heavily with Supabase-style systems, I would recommend:
+
+Frontend
+React / Next.js
+Tailwind CSS
+shadcn/ui
+Recharts
+TanStack Table
+React Hook Form
+Zod validation
+Backend
+Supabase PostgreSQL
+Supabase Auth
+Supabase Storage
+Row Level Security
+Edge Functions
+Cron jobs for reminders
+Optional Integrations
+WhatsApp Business API
+Resend for email
+DocuSign / Adobe Sign
+Stripe or payment gateway if needed
+Google Maps for accommodation/site locations
+OCR for passport/visa extraction
+Excel import/export
+WPS payroll file export depending on bank/exchange requirements
+36. Recommended MVP Scope
+
+For the first working version, do not try to build everything at once.
+
+Build this first:
+
+MVP Modules
+Clients
+Job Orders
+Candidates
+Employees
+Visa & Medical Tracking
+Deployment
+Documents
+Complaints
+Warning Letters
+Payroll Basics
+Client Billing Basics
+Dashboard & Alerts
+
+This will already give the agency a powerful system.
+
+37. The Main Idea
+
+The CRM should be designed around this sentence:
+
+Every worker must have a complete lifecycle record from recruitment to visa processing, deployment, payroll, complaints, warnings, renewals, and exit — while every client must have full visibility of requested staff, deployed staff, timesheets, invoices, and service issues.
+
+That is the difference between a normal CRM and a proper Dubai Staffing Agency Management Platform.

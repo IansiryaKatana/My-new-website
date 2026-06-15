@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Geist", "SF Pro Display", ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #e9eaec;
+  color: #111111;
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.dashboard-shell {
+  animation: dashboard-shell-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.topbar-reveal {
+  animation: topbar-in 420ms cubic-bezier(0.22, 1, 0.36, 1) 100ms both;
+}
+
+.sidebar-reveal {
+  animation: sidebar-in 360ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
+}
+
+.sidebar-item {
+  animation: sidebar-item-in 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.card-reveal {
+  animation: card-in 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.chart-bar {
+  animation: chart-grow 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: bottom;
+}
+
+.spending-progress {
+  animation: progress-grow 800ms cubic-bezier(0.22, 1, 0.36, 1) 450ms both;
+}
+
+.notification-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.dashboard-content-scroll {
+  scrollbar-color: rgba(16, 16, 16, 0.24) transparent;
+  scrollbar-width: thin;
+}
+
+.dashboard-content-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dashboard-content-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dashboard-content-scroll::-webkit-scrollbar-thumb {
+  background: rgba(16, 16, 16, 0.18);
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
+}
+
+.dashboard-content-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 16, 16, 0.32);
+  background-clip: padding-box;
+}
+
+@keyframes dashboard-shell-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes topbar-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sidebar-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sidebar-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chart-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes progress-grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--progress);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 95, 53, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 95, 53, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}

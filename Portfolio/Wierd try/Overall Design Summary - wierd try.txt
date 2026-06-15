@@ -1,0 +1,1054 @@
+Overall Design Summary
+
+This reference is a high-end personal portfolio / creative developer / web designer landing page. The screen communicates a premium, minimal, editorial web presence for a designer or creative studio.
+
+The design uses:
+
+A white-first minimalist layout
+Black typography and microcopy
+Small yellow accent labels
+Large negative space
+Centralized hero composition
+Floating cards and soft shadows
+Project mockup sections
+Alternating white and black content zones
+Case-study blocks
+Service/skill cards
+Testimonial-style social proof
+Blog/article preview cards
+FAQ section
+Minimal footer
+
+The page feels like a designer portfolio for a Webflow/Framer/creative developer profile, focused on building trust through visual restraint, portfolio proof, and curated expertise.
+
+1. Project Manager Breakdown
+Purpose of the Page
+
+The page is designed to position the individual or studio as a premium web designer / website creator offering thoughtful, polished, high-impact digital experiences.
+
+The main business objective is to convert visitors into leads by:
+
+Establishing expertise immediately in the hero.
+Showing measurable credibility through stats.
+Demonstrating project quality through visual mockups.
+Explaining the working approach.
+Showing services/capabilities.
+Adding trust through testimonials.
+Providing thought leadership through articles.
+Ending with FAQ and a final conversion path.
+Likely Product Context
+
+This is likely a landing page for:
+
+Freelance web designer
+Webflow developer
+Framer designer
+Creative developer
+No-code website specialist
+Boutique digital studio
+UI/UX portfolio site
+
+The page is not a generic agency layout. It feels intentionally personal and craft-led.
+
+Primary User Intent
+
+The visitor likely wants to know:
+
+Who is this designer?
+Are they credible?
+What kind of work do they produce?
+Can they create premium websites?
+What services do they offer?
+What is the process like?
+How do I contact or hire them?
+Section Hierarchy
+
+The page appears to follow this order:
+
+Header / navigation
+Hero introduction
+Hero visual portrait card
+Stats and intro credibility block
+Featured project mockup previews
+Case-study / selected work section
+Dark services or expertise section
+Process / feature list section
+Testimonials / social proof section
+Article or insights section
+FAQ / closing conversion section
+Footer
+Content Priority
+Highest Priority
+Hero headline: the designer’s core promise.
+Portrait / central personality visual.
+Primary CTA.
+Project visuals.
+Secondary Priority
+Statistics.
+Service descriptions.
+Process blocks.
+Testimonials.
+Lower Priority
+Blog cards.
+FAQ.
+Footer links.
+Key User Actions
+
+The visible actions appear to include:
+
+Primary CTA in hero
+Likely “Work with me”, “Contact”, “Book a call”, or similar.
+Secondary hero action
+Small text/button near the primary CTA, likely “View work” or “See projects”.
+Project CTAs
+Each case-study card includes a button, likely “View case study”.
+Blog/article cards
+Cards are clickable.
+FAQ interaction
+Accordion-style expandable questions.
+Footer CTA
+Final contact or booking action.
+What the User Should Notice First, Second, Third
+Hero headline
+Large centered text immediately communicates the offer.
+Central portrait card
+Humanizes the portfolio and creates a memorable focal point.
+Floating project/stat elements below
+Shows this is not only a personal profile but a credible professional service.
+2. UI/UX Engineering Breakdown
+Page Structure
+
+The layout is a single-column vertical landing page with mostly centered content and occasional split layouts.
+
+The entire page uses a narrow content rhythm despite being desktop-oriented. The screenshot is compressed, but the likely desktop max-width is around:
+
+Main container: 1120px–1280px inferred
+Text container: 520px–720px inferred
+Card grids: 960px–1120px inferred
+Header
+Position
+
+Header sits at the very top with:
+
+Logo at top-left
+Navigation links centered or slightly right
+CTA button top-right
+Layout
+
+Likely structure:
+
+[Logo]                         [Nav links] [CTA button]
+Header Styling
+White background
+Minimal height
+Very small text
+No heavy divider
+Top padding appears compact
+
+Inferred values:
+
+Element	Estimated Value
+Header height	56px–72px
+Horizontal padding	32px–64px desktop
+Logo size	18px–24px wide
+Nav font	12px–14px
+CTA height	28px–34px
+CTA radius	999px or 6px–10px
+Hero Section
+Structure
+
+The hero is centered vertically and horizontally.
+
+Small yellow label
+Large headline
+Supporting subtext
+Primary CTA + secondary link
+Central portrait image/card
+Decorative mini preview cards behind portrait
+Hero Visual Composition
+
+The central portrait card is the strongest visual anchor.
+
+Positioned exactly in the center.
+Rectangular card with rounded corners.
+Strong but soft shadow.
+Portrait is cropped close-up, side profile facing right.
+Behind it are smaller website mockup cards on the left and right.
+These side cards are partially obscured by the portrait.
+Hero Typography
+
+The headline appears to say something like:
+
+Web designer crafting purposeful online presence
+
+Layout characteristics:
+
+Center aligned
+Two-line heading
+Large but not oversized
+Tight line-height
+Black text on white background
+
+Inferred desktop typography:
+
+Element	Size	Weight	Line Height
+Eyebrow label	10px–12px	500–600	1.2
+Hero heading	44px–64px	400–500	0.95–1.1
+Hero body	13px–16px	400	1.4–1.6
+CTA	12px–14px	500	1
+Hero Spacing
+
+Inferred:
+
+Relationship	Estimated Spacing
+Header to hero label	60px–90px
+Label to headline	12px–18px
+Headline to paragraph	10px–16px
+Paragraph to CTA	18px–28px
+CTA to portrait card	40px–60px
+Hero bottom spacing	80px–120px
+Stats / Credibility Section
+
+This section begins after a light-grey horizontal area.
+
+Layout
+
+Appears to contain:
+
+Left black card with intro or featured text
+Right grid of four stat cards
+
+Structure:
+
+[Large black intro card] [Stat card] [Stat card]
+                         [Stat card] [Stat card]
+Visual Treatment
+Background section: very light grey, almost #F7F7F7
+Cards: white and black
+Black card has white text and a small thumbnail/action strip at bottom
+White cards are minimal, with large numbers such as 8+, 120+, 35+, 99%
+
+Inferred card values:
+
+Property	Estimated Value
+Section padding	90px–130px vertical
+Grid gap	16px–24px
+Card radius	10px–16px
+Card padding	24px–32px
+Black card width	320px–420px
+Stat card height	130px–170px
+Featured Project Mockup Section
+
+This section shows two large horizontal mockup blocks stacked vertically.
+
+Structure
+Small centered label
+Centered heading
+Project preview card
+Project preview card
+Project Preview Card
+
+Each card appears like a blurred website screenshot background with a centered white modal/card overlay.
+
+The center overlay contains:
+
+Project title
+Short text
+Small metadata
+Black CTA button
+Visual Behavior
+
+The project mockup background is faded/blurred, placing emphasis on the white center overlay.
+
+Inferred values:
+
+Element	Estimated Value
+Preview card width	900px–1100px
+Preview card height	280px–360px
+Border radius	16px–24px
+Inner overlay width	300px–420px
+Overlay radius	12px–18px
+Button height	36px–44px
+Selected Work / Case Study Section
+
+This section starts with a heading:
+
+A curated selection of websites designed with care
+
+It includes multiple horizontal work blocks.
+
+Layout
+
+Each project row uses a two-column composition:
+
+[Project text/details] [Large image/mockup]
+
+The left column includes:
+
+Small colored square icon
+Project title
+Short description
+Metadata
+CTA button
+
+The right column includes:
+
+Large image block
+Rounded corners
+High-quality dark or monochrome image treatment
+Project Cards
+
+There are three visible project rows:
+
+Dark product/moon-style image
+Minimal grayscale meditative/person image
+Metallic/abstract object image
+Layout Rhythm
+
+Each card alternates but appears mostly consistent:
+
+Text on left
+Visual on right
+Cards stacked with vertical gaps
+Large image dominates over text
+
+Inferred proportions:
+
+Column	Width
+Text column	32%–38%
+Image column	62%–68%
+Dark Services Section
+
+The page switches to a full black background section.
+
+Structure
+
+Left side mostly empty or contains subtle text. Right side contains stacked service cards or capability rows.
+
+The visible cards include colored square icons and headings, likely:
+
+Web Design
+Development
+SEO / Strategy
+Branding or UI/UX
+Visual Treatment
+Background: near-black #030303 / #050505
+Text: white and muted grey
+Accent icons: yellow, blue, green
+Thin dividers or subtle borders
+Purpose
+
+This section creates contrast and gives the page a premium editorial rhythm. It likely explains the designer’s offer in a more focused way.
+
+Process / Feature List Section
+
+After the dark section, the page returns to a light background.
+
+Structure
+
+The visible content appears aligned to the right with stacked white cards.
+
+Each card includes:
+
+Small icon
+Heading
+Short paragraph
+
+This may represent the working process:
+
+Discovery
+Strategy
+Design
+Development
+Launch
+Layout
+
+Likely a two-column section:
+
+[Left intro heading / label] [Right stacked process cards]
+
+But in the narrow screenshot, only the right stack is highly visible.
+
+Testimonials Section
+
+This section has a creative stacked collage layout.
+
+Structure
+
+Multiple testimonial cards are arranged around a central vertical image card.
+
+          [Small card]
+[Card] [Central portrait/image card] [Card]
+          [Small card]
+[Card]                         [Card]
+          [Bottom card]
+Central Card
+
+The center card contains:
+
+Portrait or image with yellow background
+Dark text overlay or text below image
+Black card base
+Surrounding Cards
+
+White testimonial cards with:
+
+Avatar image or small icon
+Quote text
+Name/metadata
+Visual Purpose
+
+This breaks the linear rhythm and adds social proof in a more editorial, designed way.
+
+Articles / Insights Section
+
+Heading appears like:
+
+My curated thoughts, insights, and inspiration
+
+Layout
+
+Three article cards in a horizontal grid.
+
+Each card includes:
+
+Image thumbnail
+Small category or metadata
+Title
+Date/read time or secondary metadata
+Card Treatment
+Rounded top image
+White card background
+Small typography
+Even spacing
+Minimal border/shadow
+FAQ / Final CTA Section
+Structure
+
+Two-column layout:
+
+[Heading + short intro] [FAQ accordion stack]
+FAQ Stack
+
+Right column contains accordion rows.
+
+Each row includes:
+
+Question text
+Plus icon or chevron on right
+Thin border/divider
+White or very light grey background
+Purpose
+
+Handles objections before conversion:
+
+Pricing
+Process
+Timeline
+Platforms
+Revisions
+Maintenance
+Footer
+Structure
+
+Footer is black with:
+
+Brand/logo at left
+Short description
+Small CTA buttons/social icons
+Navigation columns on right
+Copyright row at bottom
+Visual Treatment
+Black background
+White text
+Muted grey secondary text
+Small typography
+Strong negative space
+3. Motion Graphics Breakdown
+Overall Motion Direction
+
+Motion should be subtle, premium, and restrained. The design should not feel like a loud animated website. It should feel smooth, elegant, and intentional.
+
+Recommended animation style:
+
+Soft fade
+Slight upward movement
+Gentle scale
+Staggered reveals
+Slow parallax on images
+Smooth hover transitions
+Page Load Animation
+Sequence
+Header fades in from opacity 0 to 1.
+Yellow eyebrow label appears.
+Hero heading reveals line-by-line.
+Supporting paragraph fades in.
+CTA buttons fade/slide upward.
+Central portrait card scales from 0.96 to 1.
+Side preview cards slide slightly inward behind portrait.
+
+Inferred timings:
+
+Element	Duration	Delay
+Header	500ms	0ms
+Eyebrow	400ms	150ms
+Heading lines	700ms	250ms
+Paragraph	500ms	500ms
+CTA	450ms	650ms
+Portrait card	800ms	750ms
+Side cards	700ms	850ms
+
+Easing:
+
+cubic-bezier(0.22, 1, 0.36, 1)
+Scroll Reveal Behavior
+
+Each major section should reveal with:
+
+opacity: 0 → 1
+translateY: 24px → 0
+Optional blur: blur(6px) → blur(0)
+Recommended Trigger
+
+Start animation when section enters 15%–25% of viewport.
+
+Hero Image Motion
+
+The central portrait can have very subtle parallax:
+
+Portrait moves upward slower than scroll
+Side cards move at a slightly different rate
+Max movement should stay below 20px–30px
+
+Do not rotate aggressively. The reference is clean and centered.
+
+Project Mockup Animations
+
+For the blurred website preview cards:
+
+Background mockup fades in first.
+Center overlay card appears after with slight scale.
+CTA button receives subtle hover fill or darkening.
+
+Hover interaction:
+
+Card image: scale 1.02
+Overlay: translateY(-4px)
+Shadow: slightly stronger
+CTA: background deepens
+Case Study Card Motion
+
+Each selected work row can animate as:
+
+Text column slides from left -24px
+Image column slides from right 24px
+Both fade in together
+Image has gentle scale-in from 0.98
+
+Hover:
+
+Image zooms to 1.03
+CTA arrow moves 4px right
+Card image shadow increases subtly
+Dark Services Section Motion
+
+Because this section is visually dramatic, use staggered service card reveals.
+
+Cards appear one by one.
+Colored icons fade in slightly before text.
+Lines/dividers draw in horizontally.
+
+Timing:
+
+Item	Value
+Card reveal duration	500ms
+Stagger	90ms–130ms
+Movement	16px upward
+Testimonials Motion
+
+The testimonial collage can use a more playful but still refined entrance:
+
+Central card appears first.
+Surrounding cards appear with staggered fade/scale.
+Cards should not fly in from far distances.
+
+Hover:
+
+Individual cards lift -4px
+Avatar image subtly scales
+Shadow increases lightly
+FAQ Interaction
+
+Accordion behavior:
+
+Smooth height transition
+Chevron/plus rotates 45deg or 180deg
+Answer fades in after expansion begins
+
+Recommended duration:
+
+250ms–350ms
+Reduced Motion
+
+For accessibility:
+
+Disable parallax.
+Replace slide animations with opacity-only fades.
+Keep accordion transitions functional but simple.
+4. Graphic Designer Breakdown
+Visual Language
+
+The design language is:
+
+Minimal
+Editorial
+Premium
+Calm
+Personal
+Studio-like
+Highly curated
+
+It avoids loud gradients or overdecorated UI. The visual value comes from spacing, clean typography, composition, and restrained contrast.
+
+Color Palette
+
+Estimated palette:
+
+Use	Color	Hex
+Primary background	White	#FFFFFF
+Soft section background	Off-white / light grey	#F6F6F4 / #F7F7F7
+Primary text	Near black	#050505
+Secondary text	Muted grey	#6D6D6D
+Dark section	Almost black	#030303
+Dark section muted text	Grey	#A7A7A7
+Yellow accent	Warm yellow	#F4C400 / #FFD21A
+Blue accent	Muted blue	#3E5CFF
+Green accent	Fresh green	#27C86B
+Red/orange accent	Warm red	#FF4A32
+Typography Style
+
+The typography appears modern sans-serif, possibly similar to:
+
+Inter
+Neue Haas Grotesk
+Satoshi
+Geist
+Manrope
+Helvetica Now
+Font Characteristics
+Clean sans-serif
+Tight spacing
+Low decorative detail
+Headings are not overly bold
+Body text is compact and restrained
+Typography Scale
+
+Inferred desktop scale:
+
+Element	Size	Weight	Style
+Hero heading	48px–64px	400–500	Tight, centered
+Section heading	28px–42px	400–500	Minimal
+Card heading	16px–22px	500–600	Compact
+Body text	13px–16px	400	Muted
+Meta text	10px–12px	400–500	Uppercase or small
+Button text	12px–14px	500–600	Clean
+Image Treatment
+
+Images are treated as premium editorial assets.
+
+Hero Portrait
+Dark, moody portrait
+Side profile
+Strong contrast
+Cropped inside a rounded rectangle
+Shadowed card treatment
+Project Images
+Blurred or softened screenshots
+Reduced contrast behind overlay cards
+Used as environmental context rather than main readable UI
+Case Study Images
+Dark cinematic product images
+Abstract object imagery
+Minimal grayscale lifestyle image
+Strong negative space
+Article Images
+Smaller editorial thumbnails
+Rounded corners
+High-contrast visual subjects
+Shadows and Elevation
+
+The design uses soft shadows only where needed.
+
+Inferred shadow styles:
+
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+
+For smaller cards:
+
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+The shadow system should be soft, not harsh.
+
+Borders and Radius
+
+Radius is consistent and modern.
+
+Element	Estimated Radius
+Buttons	999px or 8px
+Cards	12px–20px
+Large mockups	18px–28px
+Portrait card	16px–22px
+FAQ rows	10px–14px
+
+Borders, where used, are very subtle:
+
+border: 1px solid rgba(0,0,0,0.06);
+
+Dark section borders:
+
+border: 1px solid rgba(255,255,255,0.08);
+Mood and Brand Personality
+
+The page communicates:
+
+Confidence without being loud
+Craftsmanship
+Calm expertise
+Personal credibility
+Premium digital taste
+Detail-oriented thinking
+Modern creative professionalism
+
+This is a strong direction for a freelancer or boutique studio that wants to look expensive without looking corporate-heavy.
+
+5. Full-Stack Development Breakdown
+Recommended Frontend Stack
+
+Best fit:
+
+Next.js / React
+Tailwind CSS
+Framer Motion
+CMS integration through Sanity, Payload, Strapi, WordPress headless, or Supabase
+Image optimization through Next/Image
+
+Alternative no-code/prototyping fit:
+
+Framer
+Webflow
+WordPress + Elementor custom sections
+
+For production-grade reproduction, React/Next.js gives the most control.
+
+Suggested Component Structure
+/app
+  /page.tsx
+/components
+  Header.tsx
+  HeroSection.tsx
+  FloatingHeroMockups.tsx
+  StatsSection.tsx
+  FeaturedProjectsSection.tsx
+  ProjectPreviewCard.tsx
+  SelectedWorksSection.tsx
+  WorkCard.tsx
+  ServicesDarkSection.tsx
+  ServiceItem.tsx
+  ProcessSection.tsx
+  ProcessCard.tsx
+  TestimonialsSection.tsx
+  TestimonialCard.tsx
+  ArticlesSection.tsx
+  ArticleCard.tsx
+  FAQSection.tsx
+  FAQAccordion.tsx
+  Footer.tsx
+/lib
+  content.ts
+  animations.ts
+  cms.ts
+/styles
+  globals.css
+Reusable Components
+Core UI
+Button
+SectionLabel
+SectionHeading
+Container
+Card
+ImageCard
+Accordion
+StatCard
+CTAButton
+Page Sections
+HeroSection
+StatsSection
+ProjectShowcaseSection
+SelectedWorkSection
+ServicesSection
+ProcessSection
+TestimonialsSection
+ArticlesSection
+FAQSection
+Footer
+CMS / Dynamic Content Areas
+
+The following should be CMS-driven:
+
+Projects
+
+Fields:
+
+title
+slug
+description
+category
+year
+coverImage
+mockupImage
+caseStudyUrl
+servicesProvided
+featured
+Services
+
+Fields:
+
+title
+description
+icon
+accentColor
+order
+Testimonials
+
+Fields:
+
+clientName
+clientRole
+company
+quote
+avatar
+rating
+featured
+Articles
+
+Fields:
+
+title
+slug
+excerpt
+coverImage
+category
+publishedDate
+readTime
+author
+FAQ
+
+Fields:
+
+question
+answer
+category
+order
+API / Data Requirements
+
+For a static portfolio, content can be loaded at build time.
+
+Recommended data fetching:
+
+getStaticProps equivalent / Next.js server component fetch
+CMS API for projects, testimonials, articles, FAQ
+Optional contact form API route
+
+If there is a contact form:
+
+POST /api/contact
+
+Should handle:
+
+Name
+Email
+Company
+Budget
+Project type
+Message
+Spam protection
+Email notification
+CRM entry
+Accessibility Requirements
+
+Must include:
+
+Semantic headings in correct order
+Real button and anchor elements
+Keyboard-accessible FAQ accordion
+Visible focus states
+Alt text for all meaningful images
+Decorative images marked as decorative
+Sufficient contrast on grey text
+Reduced-motion support
+ARIA attributes for accordions
+Logical tab order
+SEO Structure
+
+Recommended heading structure:
+
+H1: Web designer crafting purposeful online presence
+H2: Projects building momentum
+H2: A curated selection of websites designed with care
+H2: Services / Expertise
+H2: Process
+H2: Testimonials
+H2: Curated thoughts, insights, and inspiration
+H2: Answers to common questions
+
+Meta requirements:
+
+Strong title tag
+Meta description
+Open Graph image
+JSON-LD for Person or ProfessionalService
+Article schema for blog posts
+Optimized image filenames
+Performance Notes
+
+Important because the page is image-heavy.
+
+Use:
+
+WebP/AVIF images
+Lazy loading below the fold
+Responsive image sizes
+Blur placeholders
+CSS-based shadows instead of heavy image effects
+Component-level animation only after hydration
+Avoid large video backgrounds unless optimized
+Use prefers-reduced-motion
+Keep JavaScript minimal for FAQ and animations
+6. Reproduction Notes
+Critical Details Not to Miss
+1. Hero Must Stay Centered
+
+The reference depends heavily on exact central alignment.
+
+Do not shift the hero into a generic left/right SaaS layout. The heading, CTA, and portrait must stay centered.
+
+2. Portrait Card Is the Main Identity Anchor
+
+The portrait card must:
+
+Sit in the center
+Have rounded corners
+Use a strong editorial crop
+Overlap or visually dominate side mockups
+Cast a soft shadow
+3. Use Large Negative Space
+
+The layout should breathe. Avoid crowding sections.
+
+This reference uses spacing as a design feature.
+
+4. Maintain White / Black Contrast Rhythm
+
+The page rhythm depends on alternating:
+
+White hero
+Light grey stats
+White project previews
+Black services section
+White process/testimonials/articles
+Black footer
+5. Keep Typography Understated
+
+Avoid overly bold or oversized type. The design feels premium because the typography is calm and precise.
+
+6. Cards Must Feel Soft, Not Heavy
+
+Use:
+
+Light shadows
+Subtle borders
+Rounded corners
+Muted backgrounds
+
+Avoid harsh outlines or bulky UI.
+
+7. Dark Section Must Feel Editorial
+
+The black services section should not look like a generic feature grid. It should feel like a refined content break with sparse layout and careful spacing.
+
+8. Testimonials Must Use Collage Composition
+
+Do not convert testimonials into a normal carousel unless required. The scattered card layout is a key visual feature.
+
+7. Implementation Checklist
+Design Checklist
+ Create global spacing system.
+ Define white, off-white, black, muted grey, and yellow accent colors.
+ Build typography scale for hero, section headings, cards, body, and meta text.
+ Design hero with centered heading and portrait.
+ Create blurred side mockup cards behind portrait.
+ Build stat card system.
+ Design project preview mockup cards.
+ Create selected work two-column cards.
+ Design dark services section.
+ Create stacked process cards.
+ Build testimonial collage.
+ Design article preview cards.
+ Build FAQ accordion.
+ Create minimal black footer.
+Frontend Checklist
+ Build reusable Container component.
+ Build reusable SectionLabel.
+ Build reusable Button.
+ Build reusable Card.
+ Build responsive image components.
+ Implement desktop grid layouts.
+ Implement tablet reflow.
+ Implement mobile single-column stacking.
+ Add keyboard-accessible FAQ.
+ Add hover states.
+ Add loading states for dynamic content.
+ Optimize images.
+Motion Checklist
+ Add hero load sequence.
+ Add scroll reveal animations.
+ Add project card hover movement.
+ Add image parallax subtly.
+ Add testimonial card stagger reveal.
+ Add FAQ accordion transitions.
+ Add reduced-motion fallback.
+Backend / CMS Checklist
+ Create project content model.
+ Create services content model.
+ Create testimonials content model.
+ Create articles content model.
+ Create FAQ content model.
+ Add contact form endpoint if needed.
+ Add SEO metadata fields.
+ Add image alt text fields.
+QA Checklist
+ Check desktop spacing against reference.
+ Check hero alignment precisely.
+ Check mobile stacking order.
+ Test all CTA links.
+ Test FAQ keyboard navigation.
+ Test reduced-motion mode.
+ Test Lighthouse performance.
+ Test contrast ratios.
+ Test image loading speed.
+ Test layout at 1440px, 1024px, 768px, 430px, and 375px.
+Production Summary
+
+This reference should be recreated as a premium personal portfolio landing page with a clean editorial structure, strong central hero, soft card-based sections, restrained motion, high-quality imagery, and CMS-driven portfolio content.
+
+The most important reproduction priorities are:
+
+Centered hero composition
+Portrait-over-mockup layering
+Large negative space
+Minimal black/white/yellow visual system
+Soft card styling
+Editorial project presentation
+Dark service contrast section
+Collage-style testimonials
+Clean FAQ and footer closure

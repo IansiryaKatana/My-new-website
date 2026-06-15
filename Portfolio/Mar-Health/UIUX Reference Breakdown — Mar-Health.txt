@@ -1,0 +1,931 @@
+UI/UX Reference Breakdown — Mar-Health / Wellbeing Medical Landing Page
+
+This concept is a high-end editorial healthcare landing page with a modern wellness-tech aesthetic. It mixes large photographic storytelling, modular medical service cards, rounded dashboard-like UI blocks, and soft futuristic interaction elements.
+
+The design feels like a mix of:
+
+Healthcare platform
+Wellness membership product
+Medical booking SaaS
+Lifestyle health brand
+Premium clinic experience
+
+The layout is not a standard corporate medical website. It is more like a visual product website for healthcare access, using lifestyle imagery and soft tech interfaces.
+
+1. Project Manager Breakdown
+Page Objective
+
+The landing page presents a healthcare/wellbeing platform that connects patients to medical programs, consultations, and wellness services.
+
+The goal is to make healthcare feel:
+
+Simple
+Human
+Modern
+Accessible
+Lifestyle-oriented
+Technology-enabled
+
+The page should guide the user through:
+
+Brand introduction
+Platform promise
+Why the service matters
+Featured medical service
+Featured programs
+Activity / wellness support
+Footer conversion and navigation
+Page Sections
+Order	Section	Purpose
+1	Hero	Immediate emotional brand positioning
+2	Intro / Observe With Team	Explain what the platform does
+3	About / Patient Matters	Brand mission and medical problem framing
+4	Single Session Card	Highlight bookable consultation/service
+5	Featured Medical Programs	Showcase structured healthcare programs
+6	Flexible Activity Section	Lifestyle / wellness support cards
+7	Footer CTA	Final brand message and navigation
+Core User Journey
+
+The user lands on a cinematic wellness hero, understands the platform is about healthcare access, then scrolls through modular sections showing:
+
+Medical support
+Program options
+Single-session consultation
+Activity tracking
+Wellness resources
+Final call-to-action
+
+This page does not push hard sales. It builds confidence through visual trust, premium design, and calm conversion points.
+
+Functional Requirements
+
+The final build should include:
+
+Sticky or fixed minimal navigation
+Large hero image with overlay content
+Floating feature card on hero
+Rounded content cards
+Hoverable CTA buttons
+Program accordion/list section
+Featured image overlays
+Responsive grid system
+Animated section reveals
+Footer with navigation and legal links
+Content Priority
+
+The page prioritizes visual hierarchy over heavy copy.
+
+Most copy blocks are short and editorial:
+
+Large headline
+Short support statement
+Minimal labels
+Small metadata text
+CTA button
+
+The website should feel like a premium health-tech product, not a text-heavy medical directory.
+
+2. UI/UX Engineer Breakdown
+Overall Page Structure
+
+The design sits inside a centered website frame with:
+
+Light grey outer background
+White/light grey page body
+Rounded card sections
+Consistent horizontal margin
+Modular grid layout
+
+Approximate structure:
+
+body
+ └── page-wrapper
+      ├── header
+      ├── hero-section
+      ├── intro-section
+      ├── about-grid-section
+      ├── service-card-section
+      ├── programs-section
+      ├── activity-section
+      └── footer
+Canvas / Frame
+
+The page appears designed around a mobile-narrow desktop preview ratio, but the actual layout is desktop-like compressed into a tall vertical frame.
+
+Approximate visual proportions:
+
+Outer background: medium grey #c6c9cc
+Page background: off-white #f4f4f2
+Main content max width: around 900px–1000px
+Inner section padding: 24px–40px
+Card radius: 18px–28px
+Header Layout
+
+The top navigation is compact and minimal.
+
+Header Structure
+[Logo] [Service] [Program] [Resource] [About]          [Status text] [icon] [blue circular button]
+Header Details
+White background
+Very slim height, around 40px–48px
+Logo left aligned
+Nav links small, black
+“Resource” has a small black pill indicator
+Right side has tiny status/date text
+Final CTA/icon is a small blue circle
+UX Notes
+
+The header should remain visually lightweight so the hero image dominates.
+
+Recommended behavior:
+
+Desktop: horizontal navigation
+Tablet: compact nav
+Mobile: logo left, circular menu button right
+3. Hero Section Breakdown
+Visual Layout
+
+The hero is the strongest section.
+
+It uses a full-width image card with:
+
+Big oversized word: “Wellbeing”
+Smiling person image
+Blue sky background
+Floating lime-green medical product card
+Small supporting text on left
+Small bottom utility labels
+Hero Composition
+┌────────────────────────────────────────────┐
+│ Huge headline: Wellbeing                   │
+│                                            │
+│     person image centered                  │
+│                                            │
+│ left copy block       floating lime card   │
+│                                            │
+│ bottom left label        bottom right CTA  │
+└────────────────────────────────────────────┘
+Hero Typography
+Main Headline
+
+Text: Wellbeing
+
+Style:
+
+Extremely large
+Thin sans-serif
+White
+Letter spacing slightly tight
+Positioned across top area
+Behind / partially intersecting subject visually
+
+Approximate CSS:
+
+.hero-title {
+  font-size: clamp(72px, 13vw, 170px);
+  font-weight: 300;
+  letter-spacing: -0.06em;
+  color: #ffffff;
+  line-height: 0.85;
+}
+Hero Image Treatment
+
+The image should feel:
+
+Bright
+Natural
+Airy
+Optimistic
+Slightly overexposed
+Blue/cyan dominant
+
+Image placement:
+
+Person centered
+Head overlaps the large text area
+Image fills the whole hero container
+Cropped to maintain cinematic feel
+
+Recommended CSS:
+
+.hero {
+  min-height: 560px;
+  border-radius: 0 0 0 0;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+Hero Floating Card
+
+The lime card is a product/service feature module.
+
+Card Style
+Bright lime / neon green
+Rounded corners
+Black text
+Small category pill
+Checkerboard graphic
+Overlaps hero image
+Positioned mid-right
+
+Approximate details:
+
+.hero-floating-card {
+  width: 180px;
+  background: #b8ff00;
+  border-radius: 14px;
+  padding: 14px;
+  position: absolute;
+  right: 20%;
+  top: 38%;
+}
+Visual Details
+
+Inside the card:
+
+Top section has checkerboard squares
+Small lock/health icon
+Label: “Assurance”
+Title: “Simple Powerful Tech Solutions”
+Tiny supporting category text
+
+This card is a recurring design motif and appears again later in black/lime versions.
+
+4. Intro Section — “Observe With Team”
+Layout
+
+This is a clean two-column informational section with cards.
+
+Top row:
+[Small label: OUR VISION]                    [ADMISSION]
+
+Content row:
+[Observe With Team]       [Large paragraph text]
+
+Bottom row:
+[image card + image]      [rating + copy]        [blue circular CTA]
+Left Column
+
+Headline:
+
+Observe
+With Team
+
+Style:
+
+Black
+Large
+Simple sans-serif
+Line break after Observe
+Medium weight
+Right Column
+
+Paragraph:
+
+Our platform connects patients with trusted medical professionals through secure and reliable technology. We’re here to make managing your health easier — Whether it’s booking consultations.
+
+Style:
+
+Larger than body text
+Editorial layout
+Line height around 1.15–1.25
+Width constrained
+Supporting Card
+
+Small image card:
+
+Rounded rectangle
+Soft medical/wellness photo
+Small year label
+White “View More” pill
+Light overlay
+
+Next to it is a small image thumbnail.
+
+CTA Button
+
+Blue circular button with arrow:
+
+Located far right
+Size around 72px
+Background: electric blue #006cff
+Arrow icon white
+Rounded full circle
+
+This button style repeats across the page.
+
+5. About Section — “Because Every Patient Matters”
+Layout
+
+Three-column card grid.
+
+[Mission copy]      [Large diagnosis image card]      [small category + stat card]
+Left Block
+
+Content:
+
+Because every patient matters
+
+The word “every” has a small lime/blue decorative pill/icon between text.
+
+Style
+Large black headline
+Editorial line height
+Small body paragraph
+Small technical label: “WITH GPT 5.0”
+Blue horizontal CTA button
+CTA Button
+Rounded pill
+Blue background
+White text
+Arrow icon right
+Width around 200px
+Height around 36px
+Middle Image Card
+
+Medical diagnosis card:
+
+Dark grayscale image
+Rounded corners
+Slight translucent overlay
+Icons at top
+Label: “Osteoporosis”
+Floating arrow button bottom-right
+
+This card has a dark glassmorphism medical UI feel.
+
+Right Stat Card
+
+Small right column contains:
+
+Two category labels: “Empowerment”, “Impact”
+Lime green stat card
+Text: “Scan Cardiology”
+Large number: 1,276
+
+Style:
+
+.stat-card {
+  background: #b8ff00;
+  border-radius: 12px;
+  padding: 18px;
+}
+6. Single Session Section
+Layout
+
+Two large cards side by side.
+
+[Large image + floating product card]     [Single Session info + CTA]
+Left Visual Card
+
+A large lifestyle/medical image is used as background.
+
+Overlay elements:
+
+Small top-left label: “Assurance”
+Top-right date: “OCT — NOV 2026”
+Floating black/lime product card in center
+Bottom-left label: “FAMILY HEALTHY COVER”
+
+This card repeats the hero product card but in a darker style.
+
+Visual Notes
+
+The image is intentionally blurred/soft behind the floating product card. This creates a premium product showcase effect.
+
+Right Service Card
+
+White/light card with:
+
+Small labels:
+Professional Doctor
+Consultation
+Main title:
+Single Session
+Subtitle:
+Trauma Processing Therapy (TPT) – Public
+Price pill:
+$99 / Session
+YouTube/live label at bottom
+Blue circular CTA on right
+Card Style
+Rounded corners
+Plenty of whitespace
+Strong typographic hierarchy
+CTA aligned bottom-right/mid-right
+7. Featured Medical Programs Section
+
+This is the most visually distinctive section after the hero.
+
+Layout
+
+Large black rounded container.
+
+Black container:
+ ├── small label
+ ├── large headline
+ ├── right counter “1/4 — PROGRAM”
+ ├── vertical list of programs
+ └── floating tilted image card
+Container Style
+Background: pure black or near-black #030303
+Text: white
+Border radius: around 22px
+Padding: 36px–44px
+Height: large, around 560px
+Headline
+Featured medical programs
+Through reliable innovation.
+
+The word area includes small decorative lime/blue circular icon cluster.
+
+Style:
+
+White
+Large
+Sans-serif
+Tight line height
+Editorial feel
+Program List
+
+Programs shown:
+
+Nutrition
+Specialist
+Recovery
+Mindcare
+Educare
+
+Each row includes:
+
+Year-like number on left
+Program title
+Short subtitle
+Arrow icon on right
+Divider line
+Active Row
+
+The “Specialist” row is active:
+
+White background
+Black text
+Taller row
+Contains small category pills
+Looks like selected accordion item
+Floating Image Card
+
+A medical image card overlaps the active row.
+
+Style:
+
+Rounded rectangle
+Slight rotation
+Positioned right-center
+Contains small pills:
+Professional Trainer
+Mexican Health
+Bottom-right white circular arrow
+
+This creates depth and makes the section feel interactive.
+
+UX Behavior
+
+This section should behave like an interactive program selector.
+
+Expected interaction:
+
+Hovering/clicking a program row updates the floating image
+Active row turns white
+Other rows remain black
+Counter changes from 1/4 etc.
+Image card animates with rotation/slide
+8. Activity / Flexible Section
+Layout
+Headline row:
+[Explore flexible of activity.]             [Happy Patients / Experience]
+
+Card row:
+[Blue customer card] [Image mood boost card] [White product news card]
+Headline
+
+Text:
+
+Explore flexible of activity.
+
+The headline uses decorative icon pills inside the line, consistent with earlier sections.
+
+Card 1 — Blue Customer Card
+
+Style:
+
+Bright blue background
+Rounded corners
+White text
+Small label
+Large paragraph
+Small footer text
+“Tell Your Story” link
+
+Color:
+
+background: #0072ff;
+color: #ffffff;
+
+This card adds strong visual contrast after the black section.
+
+Card 2 — Mood Boost Image Card
+
+Style:
+
+Full image background
+Rounded corners
+Overlay pill button: “View More”
+Bottom label: “Mood Boost”
+Small lime star/icon
+
+Image is close-up wellness/medical lifestyle.
+
+Card 3 — Product News Card
+
+Style:
+
+White background
+Very minimal
+Product news label top-left
+Center soft typography:
+Access
+Wellness
+Connection
+Support Community
+Bottom YouTube label
+
+This card acts like a quiet editorial/news block.
+
+9. Footer Section
+Layout
+
+The footer is not heavy. It works as a final CTA.
+
+[Footer label]
+[Large statement]
+[nav links]
+
+[large lime circular button]       [small image card]
+[contact/legal info bottom]
+Main Footer Headline
+Transforming the future of
+healthcare with solutions.
+
+The decorative icon cluster appears inside the headline again.
+
+Footer Navigation
+
+Links:
+
+About Us
+Program
+Services
+Product
+Testimonial
+
+Small uppercase text, widely spaced.
+
+Right Image CTA
+
+Small rounded image card:
+
+Medical/wellness photo
+Text: “Explore Now”
+White arrow button
+Positioned top-right of footer block
+Bottom Footer
+
+Includes:
+
+Large lime circular arrow button left
+Company/address text
+Email
+Privacy Policy
+Terms & Conditions
+Design credit
+10. Graphic Designer Breakdown
+Visual Identity
+
+This design direction is:
+
+Clinical but warm
+Futuristic but human
+Premium but approachable
+Minimal but expressive
+Wellness-first rather than hospital-first
+Color Palette
+Usage	Color	Notes
+Page background	#f3f3f1	Soft off-white
+Outer background	#bfc3c6	Neutral grey frame
+Primary black	#050505	Used in program section
+Primary blue	#006cff / #0072ff	CTA and activity card
+Lime accent	#b8ff00 / #c7ff00	Signature brand accent
+White	#ffffff	Cards and hero text
+Muted grey	#8b8b8b	Labels and secondary copy
+Typography
+
+The font appears like a modern grotesk/sans-serif similar to:
+
+Neue Haas Grotesk
+Helvetica Neue
+Suisse Intl
+Inter
+Satoshi
+Manrope
+
+Recommended pairing:
+
+font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+Typography Rules
+Use very large thin display headings
+Use tight line-height
+Use small uppercase labels
+Use medium-weight card titles
+Avoid decorative fonts
+Let spacing and image treatment carry the luxury feel
+Icon Style
+
+Icons are:
+
+Minimal line icons
+Small scale
+Black or white
+Often inside circular buttons
+Arrow icons are consistent throughout
+
+Use icons sparingly.
+
+Recommended icon style:
+
+1px or 1.5px stroke
+Rounded caps
+No filled complex icons
+Image Direction
+
+Images should feel:
+
+Bright
+Human
+Medical lifestyle
+Wellness-oriented
+Softly blurred in some cards
+Cropped close for intimacy
+Not overly corporate or stocky
+
+Image categories:
+
+Smiling outdoor portrait
+Medical consultation
+Doctor/patient treatment
+Wellness tracker
+Close-up of hands/body
+Diagnostic scan imagery
+Decorative Motif
+
+The repeated brand motif is a small cluster of overlapping circles/pills in lime, blue, black, and white.
+
+This appears inside headlines as a visual logo-like interruption.
+
+It should be reused as a signature brand element across the site.
+
+11. Motion Graphics Developer Breakdown
+Motion Style
+
+The motion should be:
+
+Smooth
+Soft
+Premium
+Delayed slightly
+Not flashy
+Not bouncy
+
+Use subtle transform and opacity animations.
+
+Page Load Animation
+
+Recommended sequence:
+
+Header fades down
+Hero image scales from 1.05 to 1
+“Wellbeing” title fades/slides upward
+Left hero copy fades in
+Floating lime card slides in from right
+Bottom hero labels fade in
+
+Example timing:
+
+duration: 0.8s
+ease: cubic-bezier(0.22, 1, 0.36, 1)
+stagger: 0.08s
+Scroll Animations
+
+Each section should animate on scroll:
+
+Cards fade up by 24px
+Image cards scale from 0.96 to 1
+Text blocks fade in with slight delay
+CTA circles rotate arrow slightly on hover
+Hero Motion
+
+Hero should include:
+
+Slow image parallax on scroll
+Floating card slight vertical drift
+Large title moves slower than scroll
+Subject/image remains grounded
+
+Suggested:
+
+transform: translateY(scroll * 0.15);
+Program Section Motion
+
+This section should have the most interaction.
+
+On Program Hover
+Active row background slides in from left
+Text changes from white to black
+Floating image card changes image
+Card rotates from -4deg to 2deg
+Arrow icon moves diagonally
+Timing
+transition: 500ms ease-out;
+Button Hover Effects
+Blue Circular CTA
+
+Default:
+
+Blue circle
+White arrow
+
+Hover:
+
+Circle scales to 1.06
+Arrow moves 4px diagonally
+Optional soft glow
+Lime Circular CTA
+
+Hover:
+
+Lime brightens
+Arrow rotates -45deg
+Circle scales slightly
+12. Full-Stack Developer Breakdown
+Recommended Frontend Stack
+
+Best suited for:
+
+React / Next.js
+Framer Motion
+Tailwind CSS
+GSAP for advanced scroll effects
+Sanity / Strapi / WordPress Headless CMS if editable content is needed
+Component Architecture
+components/
+ ├── Header.tsx
+ ├── HeroSection.tsx
+ ├── FloatingServiceCard.tsx
+ ├── IntroSection.tsx
+ ├── AboutSection.tsx
+ ├── ServiceSessionSection.tsx
+ ├── ProgramShowcase.tsx
+ ├── ActivityCards.tsx
+ ├── FooterCTA.tsx
+ ├── CircleButton.tsx
+ ├── ImageCard.tsx
+ └── DecorativePillCluster.tsx
+Data Structure
+Programs
+type Program = {
+  id: string;
+  yearLabel: string;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  image: string;
+};
+
+Example:
+
+const programs = [
+  {
+    id: "nutrition",
+    yearLabel: "2011",
+    title: "Nutrition",
+    subtitle: "Smart meal guidance — Patient",
+    tags: ["Health", "Patient"],
+    image: "/images/nutrition.jpg"
+  },
+  {
+    id: "specialist",
+    yearLabel: "2021",
+    title: "Specialist",
+    subtitle: "Best facilities — Professional Doctor",
+    tags: ["Best Facilities", "Professional Doctor"],
+    image: "/images/specialist.jpg"
+  }
+];
+CMS Fields
+
+For production, the CMS should allow editing:
+
+Hero
+Main headline
+Background image
+Supporting copy
+Floating card title
+Floating card category
+CTA text
+Services
+Section labels
+Titles
+Descriptions
+Service cards
+Prices
+YouTube/live link
+Programs
+Program title
+Program subtitle
+Tags
+Image
+Order
+Active/default state
+Footer
+Footer headline
+Navigation links
+Contact details
+Legal links
+Performance Notes
+
+Important because the page uses many images:
+
+Use WebP/AVIF
+Lazy-load below-fold images
+Preload hero image
+Compress hero photo carefully
+Use responsive image sizes
+Avoid huge background images on mobile
+Use CSS transforms for animations, not layout properties
+Use SVG for decorative icons
+13. Responsive Behavior
+Desktop
+Full multi-column layout
+Large hero headline
+Cards arranged in 2–3 columns
+Program section has floating image overlay
+Tablet
+Reduce headline size
+Keep two-column layout where possible
+Stack smaller right-side stat cards under image cards
+Program floating card can remain but should reduce in size
+Mobile
+
+Mobile should become:
+
+Header
+Hero
+Floating card below hero copy or over lower image
+Intro stacked
+About stacked
+Service card stacked
+Program list full width
+Activity cards stacked
+Footer stacked
+Mobile Adjustments
+Hero headline: 64px–82px
+Hero height: 560px–680px
+Floating card: bottom-right or below title
+CTA circles: 56px
+Program floating image: remove rotation or place below active row
+Section padding: 20px
+Card radius: 18px
+14. Exact Visual Reproduction Checklist
+
+To recreate this reference accurately, the developer/designer must follow these rules:
+
+Use a soft off-white page background
+Keep most sections inside rounded cards
+Use oversized thin typography
+Use lime green and electric blue as the only strong accent colors
+Use real medical/wellness photography
+Use repeated floating card overlays
+Use small uppercase labels before each section
+Use large empty space around content
+Use circular arrow buttons consistently
+Use an interactive black program showcase section
+Avoid standard hospital icons and generic medical blue branding
+Avoid dense content blocks
+Avoid sharp corners
+Avoid heavy shadows
+Keep everything calm, clean, and premium
+15. Developer Build Prompt
+
+Use this as the final build instruction:
+
+Build a premium healthcare and wellbeing landing page inspired by a modern wellness-tech product website. The design should use an off-white page background, oversized thin sans-serif typography, soft rounded content cards, electric blue CTA buttons, lime-green accent cards, and editorial medical lifestyle photography. The hero section must feature a full-width image of a smiling person outdoors with a huge white “Wellbeing” headline layered across the top and a floating lime-green service card on the right. Below, create modular sections for platform introduction, patient mission, single-session consultation, featured medical programs, activity support, and footer CTA. Use rounded cards, small uppercase labels, floating image overlays, circular arrow buttons, and repeated lime/blue decorative pill motifs inside headings. Add smooth fade-up scroll animations, subtle parallax on the hero image, hover motion on cards, and an interactive program selector where the active row turns white inside a black rounded container. The final result should feel premium, calm, human, futuristic, and medically trustworthy.

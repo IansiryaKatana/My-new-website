@@ -1,0 +1,158 @@
+@import "@fontsource/geist/400.css";
+@import "@fontsource/geist/500.css";
+@import "@fontsource/geist/600.css";
+@import "@fontsource/geist/700.css";
+@import "tailwindcss";
+
+@source not "../.output/**/*";
+@source not "../.tanstack/**/*";
+@source not "../dist/**/*";
+@source not "../build/**/*";
+
+@theme {
+  --font-sans: Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --color-care-bg: #819286;
+  --color-care-shell: #f7f8f4;
+  --color-care-card: #ffffff;
+  --color-care-green: #d6e3d4;
+  --color-care-green-soft: #edf4eb;
+  --color-care-ink: #0b0d0c;
+  --color-care-muted: #6f7771;
+  --color-care-line: #e4e9e0;
+  --color-care-danger: #f4a3a3;
+  --color-care-danger-soft: #f9d4d2;
+  --color-care-info: #b7dcef;
+}
+
+@layer base {
+  :root {
+    color: var(--color-care-ink);
+    background: var(--color-care-bg);
+    font-family: var(--font-sans);
+    font-synthesis: none;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    background: var(--color-care-bg);
+  }
+
+  body {
+    min-width: 320px;
+    min-height: 100dvh;
+    margin: 0;
+    background:
+      radial-gradient(circle at 18% 14%, rgb(255 255 255 / 18%), transparent 28rem),
+      linear-gradient(135deg, #77887d 0%, var(--color-care-bg) 45%, #93a192 100%);
+  }
+
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .care-shell-enter {
+    animation: care-shell-enter 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .care-nav-enter {
+    animation: care-fade-up 360ms ease-out 120ms both;
+  }
+
+  .care-video-enter {
+    animation: care-video-enter 620ms cubic-bezier(0.16, 1, 0.3, 1) 160ms both;
+  }
+
+  .care-fade-up {
+    animation: care-fade-up 460ms ease-out both;
+  }
+
+  .care-chart-line {
+    stroke-dasharray: 390;
+    stroke-dashoffset: 390;
+    animation: care-draw-line 1100ms ease-out 520ms forwards;
+  }
+
+  .care-heart-pulse {
+    animation: care-heart-pulse 2600ms ease-in-out infinite;
+  }
+
+  .care-gradient-drift {
+    background-size: 180% 180%;
+    animation: care-gradient-drift 10s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes care-shell-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes care-video-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes care-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes care-draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes care-heart-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes care-gradient-drift {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}

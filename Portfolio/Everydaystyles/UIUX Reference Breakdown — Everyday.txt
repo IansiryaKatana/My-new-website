@@ -1,0 +1,1031 @@
+UI/UX Reference Breakdown — Everydaystyles Landing Page
+Overall Concept
+
+This is a minimal editorial lifestyle landing page for a sex-positive education/intimacy platform called Everydaystyles. The visual direction borrows from premium outdoor/cycling editorial websites, but the copy and purpose reposition it around healthy intimacy, confidence, education, and guided adult learning.
+
+The page should feel:
+
+Modern
+Editorial
+Premium
+Calm
+Sex-positive but not vulgar
+Lifestyle-led rather than clinical
+Community and education focused
+
+The strongest design feature is the contrast between:
+
+Oversized condensed typography
+Soft black-and-white lifestyle photography
+Rounded content cards
+Minimal navigation
+Section numbering
+Subtle dashboard/stat elements
+1. Project Manager Specification
+Page Type
+
+Single-page marketing landing page
+
+Brand Name
+
+EVERYDAYSTYLES
+
+Core Message
+
+The platform helps adults learn about intimacy, confidence, pleasure, consent, safety, and connection in a calm, guided, non-intimidating way.
+
+Primary User Journey
+
+The visitor should move through the page in this order:
+
+Arrive on bold hero message
+Understand the platform’s mission
+See the emotional promise: intimacy, confidence, learning
+Discover educational modules and topic guides
+See social proof/testimony
+Recognize brand/community credibility
+Reach footer CTA and navigation
+Target Audience
+
+Adults looking for:
+
+Sex education
+Intimacy improvement
+Relationship confidence
+Communication guidance
+Safer, healthier sexual understanding
+Non-judgmental learning
+Page Sections
+Section	Purpose
+Header	Brand identity and navigation
+Hero	Immediate positioning and CTA
+Section 01	Brand promise and purpose
+Section 02	Learning/content modules
+Section 03	Social proof/testimony
+Brand strip	Partnership/social credibility
+Footer	Final CTA, navigation, legal links
+2. Exact Layout Structure
+Page Canvas
+Aspect: Tall landing page screenshot
+Background: Soft off-white / very light grey
+Outer margin: Approximately 40px left/right on desktop
+Content width: Full-width container with consistent inner padding
+General style: Rounded editorial cards stacked vertically
+
+Approximate desktop proportions:
+
+body {
+  background: #f4f4f1;
+  color: #111;
+  font-family: 'Inter', sans-serif;
+}
+
+.page-wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 40px 0;
+}
+3. Header Specification
+Visual Layout
+
+The header sits at the very top, above the hero title.
+
+Left
+
+Brand wordmark:
+
+EVERYDAYSTYLES
+Black
+Uppercase
+Condensed bold
+Small size
+Positioned around 40px from left edge
+Center Navigation
+
+Navigation items:
+
+About Us
+Guides Hub
+New
+Real Stories
+Tips
+Horizontally centered
+Small font size
+Black text
+Minimal spacing
+New appears as a small black pill badge beside or attached to “Guides Hub”
+Right
+
+CTA button:
+
+Join The Hub
+White or light background
+Rounded pill
+Thin border or subtle shadow
+Small text
+Positioned top-right
+Header Styling
+.header {
+  height: 48px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.header-cta {
+  justify-self: end;
+  border-radius: 999px;
+  padding: 10px 20px;
+}
+4. Hero Section Specification
+Main Headline
+YOU OWN THE MOOD
+
+This is the dominant visual element of the page.
+
+Typography
+Huge uppercase condensed font
+Black
+Extremely bold
+Tight letter spacing
+Nearly spans full page width
+Sits behind or partially overlapped by the hero image
+
+Recommended font style:
+
+.hero-title {
+  font-family: 'Big Shoulders Display', 'Anton', 'Bebas Neue', sans-serif;
+  font-size: clamp(80px, 13vw, 210px);
+  line-height: 0.78;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+Hero Image Card
+
+A large rounded rectangle sits below/overlapping the headline.
+
+Image
+Dark cycling/lifestyle image
+Desaturated / almost monochrome
+High contrast
+Person centered
+Person overlaps headline vertically
+Image is darkened with overlay
+Card Styling
+.hero-card {
+  position: relative;
+  height: 470px;
+  border-radius: 28px;
+  overflow: hidden;
+  margin-top: -24px;
+  background: #111;
+}
+Hero Card Elements
+Left Badge
+Since 2025
+Top-left inside card
+Small rounded pill
+White/transparent border
+Light text
+Right Toggle
+Light  Dark
+Top-right inside card
+Capsule control
+“Light” active in white
+“Dark” black/dark segment
+Center Copy
+We are a sex-positive space with a mission
+to help every adult build healthier intimacy.
+White text
+Centered
+Medium size
+Two-line layout
+CTA Button
+Start Your Learning →
+Centered below copy
+Dark pill button
+Small white text
+Arrow icon
+Hero Mood
+
+The hero should communicate ownership, self-confidence, and calm sexuality without looking explicit.
+
+5. Section 01 — Purpose / Connection
+Section Number
+
+Top-right:
+
+/01
+Light grey
+Large enough to notice
+Thin weight
+Section Badge
+Build the Connection
+Small pill
+Top-left
+Light border
+Rounded
+Main Heading
+MORE THAN JUST SEX
+— ATTAIN INTIMACY.
+Typography
+Condensed uppercase
+Black
+Large
+Tight line height
+Uses em dash on second line
+.section-heading {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+Subcopy
+Trust, pleasure, and connection.
+Small
+Dark grey
+Under heading
+Thin horizontal line extends from the text toward the image area
+Layout
+
+Two-column asymmetric grid.
+
+Left Column
+
+Contains heading and a dark card.
+
+Right Column
+
+Large image card of cyclist close-up.
+
+Left Dark Card
+Text
+Helping people
+understand desire, safety,
+and enjoy healthy intimacy.
+Mini Stats Card
+Total Insights
+13 insights this week
+
+With block chart visualization.
+
+Visual Style
+Black/dark card
+Rounded corners
+Slight inner padding
+White text
+Mini white stats card floats inside right side
+Small icon circle at top of stats card
+.purpose-card {
+  background: #111;
+  color: #fff;
+  border-radius: 24px;
+  padding: 28px;
+  min-height: 230px;
+}
+Right Image Card
+Close-up image
+Rounded corners
+Soft contrast
+Mostly grey/white
+Small stats overlay bottom-right:
+Confidence Built
+1,498 readers
+
+With circular progress indicator.
+
+6. Section 02 — Learning Modules
+Container
+
+This section sits inside a large rounded white/off-white card.
+
+.learning-section {
+  background: #fafafa;
+  border-radius: 32px;
+  padding: 40px;
+}
+Section Number
+
+Top area:
+
+/02
+
+Positioned near the center/top between left and right columns.
+
+Badge
+Learn with Purpose
+
+Top-left, pill style.
+
+Main Heading
+
+Right-aligned:
+
+JOIN INTIMACY LESSONS
+— FOR EVERY ADULT.
+Typography
+Condensed uppercase
+Very bold
+Aligned to right
+Similar size to section 01 heading
+Subcopy
+Learn at your pace, one step at a time.
+Small
+Right aligned
+With horizontal divider line extending left
+Layout
+
+Asymmetric editorial grid:
+
+Area	Content
+Left	Large image card
+Center	Quote icon and growth text
+Right	Module card
+Left Image Card
+
+Image of two cyclists.
+
+Overlay card at bottom:
+
+Gain practical guidance, reassurance,
+and supportive insight.
+White translucent rounded rectangle
+Small black icon circle on left
+Text right
+Center Text Block
+
+Contains quote mark/icon above.
+
+Track your growth
+and see how far your
+confidence has come.
+
+Below text:
+
+Explore A Topic →
+
+Button is black/dark pill.
+
+Right Module Card
+Image
+
+Small rectangular image at top.
+
+Text
+Consent Guide
+15 modules with 160 expert takeaways
+Arrow Button
+Circular dark button on right side
+White arrow
+Bottom-right inside card
+Card Styling
+Dark background
+Rounded corners
+Compact
+Image top
+Text bottom
+7. Section 03 — Testimony / Journey
+Section Number
+
+Top-right:
+
+/03
+Badge
+Reader Testimony
+
+Top-left pill.
+
+Main Heading
+YOUR INTIMACY JOURNEY
+— INTO CONFIDENCE.
+Typography
+Condensed uppercase
+Bold
+Left aligned
+Large
+Supporting Text
+Listen to these real stories
+
+Small text with horizontal line.
+
+Slider Controls
+
+Two circular buttons:
+
+‹   ›
+Positioned right of support text
+Previous button white/light
+Next button black/dark
+Layout
+
+Two-column grid.
+
+Left Column
+
+Testimonial card.
+
+Right Column
+
+Large lifestyle image.
+
+Testimonial Card
+Quote Icon
+
+Large opening quote mark.
+
+Quote Text
+“Never knew learning
+this could feel
+so freeing!”
+Attribution
+— Maya Johnson, 29
+Image
+
+Small rectangular photo placed to the right inside the testimonial card.
+
+Card Styling
+White/off-white
+Rounded
+Soft shadow
+Horizontal card format
+Padding around 28px
+Right Image Card
+
+Large image of smiling cyclist.
+
+Overlay stat card bottom-left:
+
+1,500+ learners
+have joined
+White translucent rounded rectangle
+Large bold number
+Supporting text on right
+8. Brand / Conversation Strip
+Text
+In Conversation with
+
+Followed by partner-style wordmarks:
+
+mindbody
+SHIMANO
+satisfyer
+LELO
+Style
+Light grey / muted black logos
+Horizontally spaced
+Minimal
+Positioned above footer
+Editorial partnership strip
+
+This section gives the brand credibility and implies community/relevance.
+
+9. Footer Specification
+Footer Container
+Full-width dark rounded/flat section
+Black/charcoal background
+Image texture faintly visible at bottom
+Strong contrast
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 56px 40px 32px;
+}
+Top Footer Layout
+
+Four columns.
+
+Column 1 — CTA Copy
+Join us and start discovering
+the value of healthier, more
+connected intimacy.
+
+Large white text, left aligned.
+
+Below it: three small square/rounded image thumbnails.
+
+Column 2 — Navigation
+Navigation
+Home
+About
+Topics Hub
+Real Stories
+Tips
+Column 3 — Socials
+Socials
+Instagram
+Facebook
+Twitter (X)
+LinkedIn
+Column 4 — Contact
+Contact
+(239) 555-0108
+hi@styles.studio
+Huge Footer Wordmark
+EVERYDAYSTYLES
+Massive condensed uppercase
+White
+Spans almost full footer width
+Sits near bottom
+Similar font to hero headline
+Bottom Footer
+
+Left:
+
+Copyright ©2025 All Rights Reserved.
+
+Right:
+
+Terms & Conditions
+Privacy Policy
+10. Graphic Designer Specification
+Color Palette
+Use	Color
+Main background	#F4F4F1
+Card background	#FFFFFF / #FAFAF7
+Primary text	#111111
+Secondary text	#5F5F5F
+Light grey lines	#D9D9D4
+Dark cards	#111111
+Footer	#101010
+White text	#FFFFFF
+Typography
+Primary Display Font
+
+Use a tall compressed uppercase font.
+
+Recommended options:
+
+Big Shoulders Display
+Anton
+Bebas Neue
+Druk Condensed if available
+Neue Haas Grotesk Display Condensed if available
+Body Font
+
+Use a neutral modern sans-serif:
+
+Inter
+Inter Tight
+Neue Haas Grotesk Text
+Suisse Intl
+Image Treatment
+
+All imagery should be:
+
+Desaturated
+Slightly grainy
+Editorial
+Lifestyle-focused
+Non-explicit
+Human-centered
+Cropped close
+High contrast but soft
+Image Mood
+
+The reference uses cycling as metaphor. For the intimacy brand, imagery can remain abstract/lifestyle-based rather than sexual:
+
+Movement
+Outdoor confidence
+Human warmth
+Close-ups
+Fabric textures
+Soft smiles
+Connection
+Hands, posture, bodies in non-explicit lifestyle context
+Shape Language
+Large radius cards: 24px–32px
+Pill buttons: 999px
+Rounded mini cards: 18px–24px
+Circular controls
+Visual Motifs
+Huge typography behind imagery
+Numbered editorial sections
+Thin horizontal divider lines
+Mini data/stat cards
+Floating overlays
+Soft shadows
+Clean negative space
+11. UI/UX Engineer Specification
+Desktop Grid
+
+Use a 12-column grid.
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+Section Width
+.section {
+  margin-top: 72px;
+}
+Responsive Behavior
+Desktop
+Full editorial layout
+Two-column asymmetric grids
+Large headline typography
+Floating cards allowed
+Tablet
+Reduce headline size
+Maintain two columns where possible
+Stack cards earlier if image becomes cramped
+Footer becomes 2-column grid
+Mobile
+Single-column stack
+Hero title still huge but wrapped cleanly
+Image cards full width
+Section numbers move to top-right
+Header nav collapses into menu icon
+Footer becomes vertical
+Large footer wordmark scales down
+Mobile Layout Rules
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 72px;
+    line-height: 0.82;
+  }
+
+  .grid-12 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    height: 520px;
+  }
+
+  .section-heading {
+    font-size: 52px;
+  }
+}
+Accessibility
+Text over images must maintain contrast
+Buttons need clear hover/focus states
+CTA buttons should be keyboard accessible
+Use semantic HTML sections
+Use proper heading order
+Do not rely only on animations for comprehension
+12. Motion Graphics Developer Specification
+Overall Motion Style
+
+Motion should feel:
+
+Smooth
+Premium
+Calm
+Editorial
+Not overly playful
+Slightly cinematic
+Page Load Animation
+Header
+Fade in from top
+Duration: 600ms
+Delay: 100ms
+Hero Headline
+Reveal with vertical mask
+Text rises from below
+Duration: 900ms
+Easing: cubic-bezier(0.22, 1, 0.36, 1)
+Hero Image
+Slow scale from 1.08 to 1
+Fade from 0 to 1
+Duration: 1000ms
+Delay: 250ms
+Hero CTA
+Fade and slide up
+Duration: 500ms
+Delay: 700ms
+Scroll Animations
+
+Each section should animate as it enters viewport.
+
+Section Headings
+Masked text reveal
+Direction: bottom to top
+Stagger per line: 100ms
+Image Cards
+Fade in
+Scale from 0.96 to 1
+Slight blur removal
+initial: { opacity: 0, y: 40, scale: 0.96, filter: "blur(8px)" }
+animate: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }
+transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+Floating Stat Cards
+Slide in from lower direction
+Slight delay after parent image
+Duration: 500ms
+Footer Wordmark
+Horizontal reveal or upward mask reveal
+Trigger when footer enters viewport
+Hover Interactions
+Buttons
+button:hover {
+  transform: translateY(-2px);
+}
+Image Cards
+Slight scale up image only: 1.03
+Card remains fixed
+Overlay content remains stable
+Slider Arrows
+Active arrow darkens
+Icon shifts slightly right on hover
+Footer Links
+Underline appears from left to right
+Opacity increases from 0.6 to 1
+13. Full-Stack Developer Specification
+Recommended Frontend Stack
+React / Next.js
+Tailwind CSS
+Framer Motion
+Headless CMS optional
+Supabase or Sanity if content needs editing
+Image optimization via Next/Image
+Component Structure
+/components
+  Header.tsx
+  Hero.tsx
+  SectionBadge.tsx
+  SectionNumber.tsx
+  PurposeSection.tsx
+  LearningSection.tsx
+  TestimonialSection.tsx
+  BrandStrip.tsx
+  Footer.tsx
+  StatCard.tsx
+  ImageCard.tsx
+  CTAButton.tsx
+CMS/Data Model
+Page Content
+type LandingPage = {
+  hero: HeroSection;
+  purpose: PurposeSection;
+  learning: LearningSection;
+  testimonials: TestimonialSection;
+  partners: PartnerLogo[];
+  footer: FooterContent;
+};
+Hero
+type HeroSection = {
+  headline: string;
+  badge: string;
+  missionText: string;
+  ctaLabel: string;
+  ctaUrl: string;
+  image: Media;
+};
+Content Section
+type EditorialSection = {
+  sectionNumber: string;
+  badge: string;
+  heading: string;
+  subheading: string;
+  body?: string;
+  image: Media;
+  statCards?: StatCard[];
+};
+Testimonial
+type Testimonial = {
+  quote: string;
+  name: string;
+  age?: number;
+  image: Media;
+};
+Partner Logo
+type PartnerLogo = {
+  name: string;
+  logoText?: string;
+  logoImage?: Media;
+};
+Dynamic Features
+
+Potential dynamic features:
+
+Dark/light theme toggle
+Topic modules pulled from CMS
+Testimonials carousel
+Newsletter/Hub signup form
+Analytics tracking on CTA clicks
+Learning topic cards
+User progress if platform has accounts
+Backend Requirements
+
+Minimum backend:
+
+Contact/signup form endpoint
+Newsletter subscription
+CMS content API
+Testimonial management
+Topic/module management
+
+Optional backend:
+
+User accounts
+Learning progress
+Saved lessons
+Consent/intimacy quiz
+Personalized lesson recommendations
+14. Exact Copy Extraction
+Header
+EVERYDAYSTYLES
+
+About Us
+Guides Hub
+New
+Real Stories
+Tips
+
+Join The Hub
+Hero
+YOU OWN THE MOOD
+
+Since 2025
+
+Light
+Dark
+
+We are a sex-positive space with a mission
+to help every adult build healthier intimacy!
+
+Start Your Learning →
+Section 01
+Build the Connection
+
+/01
+
+MORE THAN JUST SEX
+— ATTAIN INTIMACY.
+
+Trust, pleasure, and connection.
+
+Our Purpose
+
+Helping people
+understand desire, safety,
+and enjoy healthy intimacy.
+
+Total Insights
+13 insights this week
+
+Confidence Built
+1,498 readers
+Section 02
+Learn with Purpose
+
+/02
+
+JOIN INTIMACY LESSONS
+— FOR EVERY ADULT.
+
+Learn at your pace, one step at a time.
+
+Gain practical guidance, reassurance,
+and supportive insight!
+
+Track your growth
+and see how far your
+confidence has come.
+
+Explore A Topic →
+
+Consent Guide
+15 modules with 160 expert takeaways
+Section 03
+Reader Testimony
+
+/03
+
+YOUR INTIMACY JOURNEY
+— INTO CONFIDENCE.
+
+Listen to these real stories
+
+“Never knew learning
+this could feel
+so freeing!”
+
+— Maya Johnson, 29
+
+1,500+ learners
+have joined
+Brand Strip
+In Conversation with
+
+mindbody
+SHIMANO
+satisfyer
+LELO
+Footer
+Join us and start discovering
+the value of healthier, more
+connected intimacy.
+
+Navigation
+Home
+About
+Topics Hub
+Real Stories
+Tips
+
+Socials
+Instagram
+Facebook
+Twitter (X)
+LinkedIn
+
+Contact
+(239) 555-0108
+hi@styles.studio
+
+EVERYDAYSTYLES
+
+Copyright ©2025 All Rights Reserved.
+
+Terms & Conditions
+Privacy Policy
+15. Developer Implementation Notes
+Key CSS Details
+:root {
+  --bg: #f4f4f1;
+  --text: #111111;
+  --muted: #6d6d6d;
+  --line: #dcdcd6;
+  --card: #ffffff;
+  --dark: #111111;
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+}
+Buttons
+.btn {
+  border-radius: var(--radius-pill);
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: transform 250ms ease, opacity 250ms ease;
+}
+
+.btn-dark {
+  background: #111;
+  color: #fff;
+}
+
+.btn-light {
+  background: #fff;
+  color: #111;
+}
+Image Cards
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.85) contrast(1.05);
+}
+Overlay Cards
+.overlay-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 16px 20px;
+}
+16. Final Build Direction
+
+This page should not be rebuilt as a generic landing page. It should be treated as a premium editorial web experience.
+
+The most important things to reproduce are:
+
+Oversized compressed typography
+Strong black/off-white contrast
+Rounded lifestyle image cards
+Section numbers /01, /02, /03
+Floating stat cards
+Minimal pill badges
+Soft motion and masked text reveals
+Footer with massive wordmark
+Adult education copy that feels mature, safe, and confident
+No explicit imagery — keep the brand lifestyle-led and emotionally intelligent

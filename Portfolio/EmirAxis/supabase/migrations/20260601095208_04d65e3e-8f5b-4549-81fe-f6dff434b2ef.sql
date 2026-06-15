@@ -1,0 +1,1 @@
+UPDATE public.branding_settings SET logo_dark_url = '/assets/emiraxis-logo-white.png';

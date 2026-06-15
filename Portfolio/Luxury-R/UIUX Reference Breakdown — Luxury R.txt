@@ -1,0 +1,885 @@
+UI/UX Reference Breakdown — Luxury Real Estate Website
+
+Reference type: Long-form luxury real estate landing page
+Canvas ratio: Tall mobile-style screenshot, approximately 405 × 2047 px
+Brand feel: Quiet luxury, editorial, minimal, architectural, high-net-worth property concierge
+
+1. Project Manager View
+Product Purpose
+
+This layout is designed for a luxury real estate concierge / villa sales platform. The website does not feel like a standard property listing portal. It feels like a high-touch private advisory service for affluent buyers looking for premium homes.
+
+The user journey is:
+
+Establish luxury credibility immediately.
+Show curated property options.
+Build trust through reviews.
+Explain the buying/request process.
+Introduce expert agents.
+Answer objections through FAQ.
+Convert through a contact/project request form.
+Page Hierarchy
+
+The page is structured as a complete landing funnel:
+
+Hero section
+Brand introduction.
+Luxury property visual.
+Main CTA: “Get in touch”.
+Property category selector
+Allows users to choose between lifestyle categories such as “Loft”, “Budget”, “Rent”.
+Featured property listings
+Large cinematic image cards.
+Property name, location, feature chips, price, CTA.
+Quote / editorial trust statement
+Short emotional statement to slow the page down.
+Real stories / testimonials
+Human proof and social credibility.
+Process section
+Explains the journey from request to result.
+Team section
+Shows experts behind the service.
+FAQ section
+Handles objections and improves clarity.
+Final CTA section
+Contact form over a luxury villa background.
+Footer
+Brand links and final contact information.
+Key User Actions
+
+Primary actions:
+
+Get in touch
+View property
+Request project
+Submit contact form
+
+Secondary actions:
+
+Explore property categories.
+View testimonials.
+Read FAQ items.
+Browse team members.
+Content Priority
+
+The design prioritizes emotion over data. Property images dominate the experience, while text is deliberately minimal. This is correct for luxury real estate because users are buying into lifestyle, trust, and exclusivity before they compare specifications.
+
+2. UI/UX Engineer View
+Global Layout System
+
+The layout uses a single-column vertical landing page with strong editorial pacing.
+
+Page width
+
+The screenshot appears to represent a mobile or narrow responsive layout, but the design language suggests a desktop-first site compressed into a tall preview.
+
+Recommended desktop build:
+
+Max content width: 1200–1320px
+Outer padding: 40–64px
+Mobile padding: 16–20px
+Section spacing: 72–120px desktop, 48–72px mobile
+Header / Navigation
+Structure
+
+The header sits over the hero image as a transparent overlay.
+
+Left:
+
+Script-style logo: Marcellaro
+
+Center:
+
+Navigation links:
+What’s on
+Sales
+Agencies
+For Partners
+About Us
+FAQ
+
+Right:
+
+Phone number
+Small status text
+CTA button: Get in touch
+Styling
+Header height: approximately 56–70px
+Text: small uppercase sans-serif
+Logo: italic/script serif
+CTA: white rectangular button with dark text
+Header is visually light, allowing the property image to dominate.
+Responsive Behavior
+
+On mobile:
+
+Logo left.
+Menu becomes hamburger or minimal hidden nav.
+Phone number may be hidden.
+CTA remains visible or moves into menu drawer.
+3. Hero Section
+Layout
+
+The hero uses a full-width luxury villa background image with a dark overlay.
+
+Left content
+
+Positioned top-left/mid-left:
+
+LUXURY
+REAL ESTATE
+with full service support
+
+The heading uses a large uppercase sans-serif. The supporting italic phrase uses a serif/script style.
+
+Right content
+
+Small trust statement near upper right:
+
+We'll find and verify truly the best option for you
+Bottom left stats
+
+Three compact statistics:
+
+100+ successful deals
+15 years experience
+87 verified houses
+Bottom right CTA
+
+White rectangular button:
+
+GET IN TOUCH
+Visual Composition
+Background: modern villa, palm trees, soft evening sky.
+Overlay: subtle dark tint for readability.
+Text color: white/off-white.
+CTA uses sharp rectangular luxury styling.
+Rebuild Notes
+
+Hero should be 100vh desktop, around 640–760px mobile.
+
+Use:
+
+background-size: cover;
+background-position: center;
+
+Add a pseudo-element overlay:
+
+background: rgba(0,0,0,0.25);
+
+The heading should sit around 8–12% from left and 18–25% from top on desktop.
+
+4. Property Filter Section
+Purpose
+
+This section lets the user choose the type of property journey.
+
+Layout
+
+Left:
+
+WHICH OPTION
+is right for you?
+
+Right:
+
+Select your way
+Make a request
+Watch your project
+
+Below heading:
+
+Three small tab buttons:
+Loft
+Budget
+Rent
+Styling
+Background: warm ivory/off-white.
+Text: dark olive/charcoal.
+Heading: uppercase sans-serif.
+Italic subtitle: serif.
+Active tab: dark olive fill.
+Inactive tabs: outlined.
+UX Behavior
+
+Tabs should filter the property cards below or change the listing category.
+
+Interaction states:
+
+Active: filled dark olive.
+Hover: soft background tint.
+Focus: visible outline for accessibility.
+5. Property Listing Cards
+
+There are three major property cards:
+
+Family Villa
+Serene Edge
+Modern Hillside
+
+Each card uses a full-width cinematic background image.
+
+Card Layout
+Top left
+
+Small location label:
+
+Malibu, California
+Main title
+
+Large uppercase property name:
+
+FAMILY VILLA
+SERENE EDGE
+MODERN HILLSIDE
+Description
+
+Short two-line description.
+
+Feature chips
+
+Small white rectangular tags:
+
+Beds
+Baths
+Area
+Other feature count
+Top right
+
+Small white label:
+
+New Listing
+Bottom left
+
+Price:
+
+from $2,950,000
+from $2,470,000
+from $1,650,000
+Bottom right
+
+CTA button:
+
+VIEW PROPERTY
+Visual Treatment
+Large image card height: approximately 360–440px desktop, 260–320px mobile
+Text sits over image with a dark gradient overlay.
+White typography.
+CTA button is white with dark text.
+Cards touch or nearly touch vertically, giving a cinematic editorial scroll.
+Technical Structure
+
+Each property card should be a reusable component:
+
+<PropertyCard
+  location="Malibu, California"
+  title="Family Villa"
+  description="A spacious villa with a pool, living area, outdoor patio, and terrace..."
+  price="$2,950,000"
+  image="/images/family-villa.jpg"
+  badges={["5 bd", "4 ba", "320 m²", "25 yr"]}
+  status="New Listing"
+/>
+6. Quote / Pause Section
+Layout
+
+A small centered editorial pause appears after the property cards.
+
+Visual details:
+
+Small curved line / decorative stroke above.
+Centered quote.
+CTA button below.
+
+Text structure:
+
+We've seen all misleading labels.
+Not perfect option and we will show some listings
+
+GET BORN GROWN
+
+The exact text can be refined, but the purpose is clear: it reinforces that the brand filters poor options and only presents verified choices.
+
+Styling
+Background: warm ivory.
+Very small text size.
+Center alignment.
+Button: dark olive rectangle.
+Lots of breathing room.
+7. Real Stories / Testimonials
+Section Layout
+
+Left heading:
+
+REAL STORIES
+& real results
+
+Right helper text:
+
+What clients want
+and go from
+
+Below: horizontal testimonial carousel.
+
+Cards
+
+The section includes four visible cards:
+
+Text testimonial
+Image card
+Text testimonial
+Text testimonial
+
+Each text card includes:
+
+Small circular avatar
+Client name
+Location
+Testimonial title
+Body copy
+Small agent attribution at bottom
+Visual Rules
+Cards are white.
+Background remains warm ivory.
+Thin borders or soft shadows.
+Equal card heights.
+Horizontal carousel arrows appear on the far left and right.
+UI Behavior
+
+Desktop:
+
+4 cards visible.
+Horizontal drag/arrow carousel.
+
+Tablet:
+
+2 cards visible.
+
+Mobile:
+
+1 card visible.
+Swipe enabled.
+8. Process Section — From Request to Result
+Purpose
+
+This section explains how the service works in a refined, non-corporate way.
+
+Layout
+
+Heading left:
+
+FROM REQUEST
+TO RESULT
+all under control
+
+Right helper text:
+
+From request to result
+our work, we make
+planning of you
+
+Center carousel/timeline card:
+
+Numbered steps.
+Large featured card.
+Property images layered to the right.
+
+Visible steps:
+
+05
+06
+01 Property selection
+
+The active step appears enlarged and centered.
+
+Interaction
+
+This should behave like a horizontal process slider.
+
+Controls:
+
+Left arrow
+Right arrow
+Active card scale-up
+Adjacent cards partially visible
+Motion
+Cards slide horizontally.
+Active card expands slightly.
+Images shift with subtle parallax.
+Transition duration: 500–700ms
+Easing: cubic-bezier(0.22, 1, 0.36, 1)
+9. Team Section
+Purpose
+
+Humanizes the brand and reinforces expert guidance.
+
+Layout
+
+Left:
+
+WE ARE A TEAM
+OF EXPERTS
+working for you
+
+Supporting paragraph below.
+
+Right:
+
+Team member image cards.
+Large portraits with overlaid or adjacent text cards.
+
+Visible members:
+
+Natalie Brooks
+Daniel Merron
+Markus Bell
+Card Treatment
+Portraits are cropped vertically.
+Names appear in white or dark text depending on background.
+Job title small.
+Middle card uses white text block with bullet points and CTA.
+UX Notes
+
+This section should feel like a refined editorial magazine spread, not a standard “team grid”.
+
+Desktop:
+
+Asymmetric 3-column layout.
+Left text column around 30% width.
+Right team carousel around 70% width.
+
+Mobile:
+
+Heading first.
+Cards become horizontal swipe carousel.
+10. FAQ Section
+Purpose
+
+Handles common buyer concerns before conversion.
+
+Layout
+
+Left:
+
+Heading:
+GOT QUESTIONS?
+we’ve got you
+Interior image card.
+Small decorative caption below.
+
+Right:
+
+FAQ accordion list.
+
+Questions include:
+
+How can I be sure the property is legally verified?
+Why work with agents that have passed a full legal check?
+Can I buy property if I’m not from this country?
+Do I need to be present in person for the paperwork?
+How long does the whole process take?
+I’m afraid of losing my money — how is this protected?
+Can I sell the property I buy?
+I don’t understand legal details — who will explain everything?
+Accordion Style
+Thin horizontal dividers.
+Circular plus icon on the right.
+No heavy boxed cards.
+Minimal luxury style.
+Interaction
+
+Accordion open state:
+
+Plus changes to minus.
+Answer expands below.
+Transition height: 250–350ms.
+Only one item may be open at a time for clean UX.
+11. Final CTA Section
+Purpose
+
+Primary conversion section.
+
+Layout
+
+Full-width background image of luxury villa/palm scene with dark overlay.
+
+Left:
+
+LET’S TALK ABOUT
+your dream home
+
+Supporting copy below.
+
+Large phone number:
+
++1 (310) 555-0487
+
+Small availability note:
+
+available 7 days a week
+
+Right:
+
+White contact form card.
+
+Form Fields
+Your name
+Your number
+Choose your goal
+
+Button:
+
+SEND REQUEST
+
+Below button:
+
+Small privacy text.
+
+Styling
+Background image darkened.
+Form card: warm white.
+Button: dark olive.
+Inputs: pale grey/cream backgrounds.
+Heading: uppercase sans-serif + italic serif.
+UX Behavior
+
+Form validation:
+
+Required name.
+Required phone/email.
+Dropdown for goal.
+Success state after submit.
+Error messages should remain subtle but visible.
+12. Footer
+Layout
+
+Left:
+
+Logo
+Small copyright
+
+Center:
+
+Navigation links
+
+Right:
+
+Phone number
+CTA button
+
+Bottom center:
+
+Social icons
+Attribution text
+Styling
+Warm ivory background.
+Dark olive text.
+Minimal horizontal spacing.
+Tiny typography.
+13. Graphic Designer View
+Visual Language
+
+The design is based on:
+
+Editorial luxury
+Minimal Swiss-inspired spacing
+Architectural photography
+Warm neutral palette
+Thin typography
+Soft serif italics
+Restrained CTAs
+Color Palette
+
+Recommended palette:
+
+Use	Color
+Background ivory	#F2EEE7
+Dark olive text	#3F432D
+Soft grey text	#8B897F
+White cards	#FFFFFF
+Image overlay	rgba(0,0,0,0.28)
+Button dark	#46482F
+Border line	#D8D2C7
+Typography
+Headings
+
+Use a refined uppercase sans-serif:
+
+Helvetica Now
+Neue Haas Grotesk
+Suisse Int’l
+Inter Tight
+Maison Neue
+
+Style:
+
+text-transform: uppercase;
+letter-spacing: -0.04em;
+font-weight: 400;
+line-height: 0.9;
+Italic Accent Text
+
+Use a luxury serif italic:
+
+Cormorant Garamond Italic
+Editorial New Italic
+Canela Italic
+Playfair Display Italic
+
+Style:
+
+font-style: italic;
+font-weight: 300;
+letter-spacing: -0.02em;
+Body Text
+
+Use small clean sans-serif:
+
+Inter
+Inter Tight
+Neue Haas Grotesk Text
+
+Recommended sizes:
+
+Hero heading desktop: 72–110px
+Section heading desktop: 48–72px
+Body: 13–16px
+Micro labels: 10–12px
+Buttons: 10–12px uppercase
+Image Direction
+
+Images must be:
+
+Modern villas.
+Palm trees.
+Warm California/Malibu atmosphere.
+Soft shadows.
+Golden hour or muted daylight.
+Minimal human presence.
+Architectural, not overly commercial.
+Buttons
+
+Buttons are simple rectangles:
+
+No rounded corners or very subtle 2px
+Uppercase text
+Wide horizontal padding
+Height: 42–52px desktop, 38–44px mobile
+14. Motion Graphics Developer View
+Overall Motion Style
+
+Motion should be slow, refined, and restrained. Avoid flashy effects.
+
+Recommended easing:
+
+cubic-bezier(0.22, 1, 0.36, 1)
+Page Load
+
+Suggested sequence:
+
+Hero background fades in: 700ms
+Header slides down: 500ms
+Hero heading reveals line by line: 800ms
+Stats fade upward: 600ms
+CTA fades in last: 500ms
+Scroll Animations
+
+Use subtle reveal animations:
+
+Section headings: fade up by 24px
+Property cards: image scale from 1.06 to 1
+Text blocks: staggered fade
+Testimonials: horizontal reveal
+FAQ: line draw animation
+Hover States
+
+Property cards:
+
+Image scales to 1.04
+Overlay darkens slightly.
+CTA background changes from white to dark olive.
+Button text changes from dark to white.
+
+Team cards:
+
+Portrait image scales slightly.
+Name/title fades upward.
+CTA underline animates.
+
+FAQ:
+
+Plus icon rotates 90deg.
+Divider line darkens.
+
+Form:
+
+Input border darkens on focus.
+Button hover darkens and moves up by -1px.
+Carousel Motion
+
+Testimonials and process cards should use:
+
+Drag/swipe.
+Snap alignment.
+Smooth easing.
+Active card scale: 1
+Inactive card scale: 0.94–0.97
+Transition: 500–700ms
+15. Full-Stack Developer View
+Recommended Frontend Stack
+
+Best implementation:
+
+Next.js / React
+Tailwind CSS or SCSS modules
+Framer Motion for animations
+Swiper.js or Embla Carousel for carousels
+Headless UI / Radix for accessible accordion
+CMS: Sanity, Strapi, WordPress, or Supabase-backed admin
+Component Structure
+components/
+  Header.tsx
+  Hero.tsx
+  PropertyFilter.tsx
+  PropertyCard.tsx
+  QuoteBlock.tsx
+  TestimonialsCarousel.tsx
+  ProcessSlider.tsx
+  TeamCarousel.tsx
+  FAQAccordion.tsx
+  ContactCTA.tsx
+  Footer.tsx
+Data Models
+Property
+type Property = {
+  id: string;
+  title: string;
+  slug: string;
+  location: string;
+  description: string;
+  priceFrom: number;
+  image: string;
+  category: "loft" | "budget" | "rent";
+  status?: "New Listing" | "Featured";
+  features: {
+    bedrooms: number;
+    bathrooms: number;
+    area: string;
+    year?: string;
+  };
+};
+Testimonial
+type Testimonial = {
+  id: string;
+  name: string;
+  location: string;
+  title: string;
+  quote: string;
+  avatar: string;
+  assignedAgent?: string;
+};
+Team Member
+type TeamMember = {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  stats?: string[];
+};
+FAQ
+type FAQ = {
+  id: string;
+  question: string;
+  answer: string;
+};
+Contact Request
+type ContactRequest = {
+  name: string;
+  phone: string;
+  goal: string;
+  sourcePage: string;
+  propertyInterest?: string;
+  createdAt: string;
+};
+Backend Requirements
+
+The form should submit to:
+
+CRM
+Email notification
+Database
+Optional WhatsApp alert
+
+Recommended endpoint:
+
+POST /api/contact-request
+
+Required actions:
+
+Validate input.
+Store lead.
+Send email to sales team.
+Send confirmation to client.
+Track event in analytics.
+Analytics Events
+
+Track:
+
+hero_cta_click
+property_filter_click
+property_view_click
+testimonial_carousel_scroll
+process_step_view
+faq_open
+contact_form_start
+contact_form_submit
+phone_click
+16. Exact Rebuild Specification
+Page Background
+
+Use warm ivory across most non-image sections:
+
+background-color: #F2EEE7;
+Layout Rhythm
+Hero: full viewport.
+Filter: compact intro section.
+Property cards: stacked cinematic blocks.
+Quote: centered breathing space.
+Testimonials: editorial cards.
+Process: horizontal slider.
+Team: asymmetric editorial layout.
+FAQ: image + accordion.
+CTA: image background + form.
+Footer: minimal.
+Critical Reproduction Rules
+
+To recreate this reference accurately:
+
+Do not over-round corners.
+The design uses rectangular, architectural geometry.
+Keep text small and refined.
+Luxury feeling comes from restraint, not oversized body copy.
+Use real architectural photography.
+Avoid generic AI-looking mansions or overly glossy renders.
+Keep CTAs minimal.
+Buttons should feel like editorial labels, not SaaS buttons.
+Use serif italics only as accents.
+Main headings remain uppercase sans-serif.
+Maintain large image dominance.
+Property visuals should take more attention than text.
+Use thin lines and subtle dividers.
+No heavy borders, cards, or shadows.
+Spacing must breathe.
+The layout should feel expensive, quiet, and intentional.
+17. Production Prompt for Recreating This Layout
+
+Use this as the design brief:
+
+Create a luxury real estate landing page for a high-end property concierge brand. The design should feel editorial, minimal, architectural, and premium. Use a warm ivory background, dark olive typography, uppercase condensed sans-serif headings, and elegant italic serif accent text. The page should begin with a full-screen hero using a cinematic modern villa background image with palm trees and a subtle dark overlay. Include a transparent navigation bar, large stacked hero heading, small trust copy, property statistics, and a refined rectangular CTA.
+
+Below the hero, add a compact property option filter section with small tab buttons. Follow this with three full-width cinematic property listing cards using luxury villa photography, dark gradient overlays, large uppercase property titles, location labels, feature chips, prices, and white rectangular “View Property” buttons.
+
+Continue with a centered quote section, then a testimonial carousel with white editorial cards and one image card. Add a horizontal process slider explaining the journey from request to result with numbered cards and layered property images. Add an expert team section with asymmetric portrait cards and refined copy. Add a FAQ section with a left-side interior image and right-side thin-line accordion questions. Finish with a dark image-based CTA section containing a large phone number and a white contact form card, followed by a minimal footer.
+
+The overall design must avoid rounded SaaS styling. Use thin lines, restrained spacing, minimal buttons, soft image overlays, subtle motion, and quiet luxury visual language.

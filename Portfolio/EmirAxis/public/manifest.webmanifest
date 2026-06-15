@@ -1,0 +1,14 @@
+{
+  "name": "EmirAxis",
+  "short_name": "EmirAxis",
+  "description": "The command center for UAE workforce operations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0c2340",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/assets/emiraxis-favicon.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/emiraxis-favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

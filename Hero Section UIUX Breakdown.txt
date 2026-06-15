@@ -1,0 +1,812 @@
+Hero Section UI/UX Breakdown
+
+Concept: Bold editorial portfolio hero for a full-stack developer
+Target replacement:
+Name: Ian Katana
+Role: Full Stack Developer
+Subject: Centered cutout portrait to be provided
+
+1. Project Manager Perspective
+Purpose of the Hero
+
+This hero section is designed to immediately position Ian Katana as a confident, creative, high-level technical professional. It should feel less like a standard developer portfolio and more like a premium editorial identity page.
+
+The hero should communicate:
+
+Strong personal brand
+Technical authority
+Creative confidence
+Modern full-stack capability
+High visual memorability
+User Intent
+
+The visitor should instantly understand:
+
+Who the person is
+What they do
+That this is a premium personal portfolio
+That they can start a project or contact Ian directly
+Primary User Action
+
+The main CTA should be:
+
+Let’s talk
+
+This action should lead to:
+
+Contact section
+Booking form
+Email link
+Project inquiry form
+Content Priority
+
+The visual hierarchy should be:
+
+Massive role title: FULL STACK DEVELOPER
+Central subject cutout
+Name: IAN KATANA
+Supporting intro copy
+CTA button
+Service/category ticker at the bottom
+Product Context
+
+This hero works best for:
+
+Personal portfolio
+Developer landing page
+Freelance profile
+Creative-tech founder page
+Agency personal brand
+Case study website homepage
+
+The layout should not feel corporate. It should feel fashion/editorial/creative-tech.
+
+2. UI/UX Engineer Perspective
+Overall Layout Structure
+
+The hero should be a full viewport section, ideally:
+
+min-height: 100vh;
+width: 100%;
+overflow: hidden;
+position: relative;
+
+Recommended desktop canvas ratio:
+
+16:9 / 1440 × 900
+Also works as 1024 × 768 like the reference
+Should scale fluidly across desktop
+Main Section Grid
+
+Use a 3-column editorial grid:
+
+Area	Width	Purpose
+Left panel	30%	CTA, intro, project start
+Center panel	40%	Subject, main name/role overlap
+Right panel	30%	Description, tags, badge
+
+Suggested CSS grid:
+
+.hero {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+However, the large typography must sit above the grid as an absolute background layer.
+
+Background Blocks
+
+The background should be split into muted blocks:
+
+Left Background
+Dark olive / charcoal green
+Approximate color: #34392E
+Covers left 30–32% width
+Center Background
+Warm brown / muted clay
+Approximate color: #765F47
+Covers center 38–40%
+Right Background
+Dark olive / charcoal green
+Same as left: #34392E
+Covers right 28–30%
+
+This creates the editorial triptych structure.
+
+Hero Typography Placement
+Main Title
+
+Replace the reference title with:
+
+FULL STACK
+DEVELOPER
+
+The text should be oversized, uppercase, condensed, and heavy.
+
+Position
+Absolute positioned behind the subject
+Starts around 6–8% from the left
+Top begins around 12–14% from top
+Second line begins around 32–36% from top
+Text spans almost the full width
+Subject overlaps the middle of the letters
+Typography Style
+
+Use a condensed display font such as:
+
+Big Shoulders Display
+Bebas Neue
+Druk Wide
+Anton
+Compacta-style condensed font
+
+Recommended:
+
+font-family: "Big Shoulders Display", sans-serif;
+font-weight: 900;
+font-size: clamp(5rem, 13vw, 13rem);
+line-height: 0.78;
+letter-spacing: -0.04em;
+text-transform: uppercase;
+Text Color
+
+Use muted cream:
+
+#D8D7C3
+
+The text should not be pure white. It should feel aged, warm, and slightly faded.
+
+Name Placement
+
+At the top center, replace:
+
+DAVID FRITTIZOE
+
+With:
+
+IAN KATANA
+Styling
+Uppercase
+Condensed
+Small compared to the title
+Center aligned
+Positioned around 24–32px from the top
+Color: warm cream
+font-size: 20px;
+font-weight: 700;
+letter-spacing: -0.02em;
+Top Left Link
+
+Keep the same functional style:
+
+START A PROJECT ↗
+Position
+Top left
+Around 32px from left
+Around 28px from top
+Styling
+Small uppercase condensed text
+Underline
+External arrow icon
+Cream color
+Hover: underline expands or arrow moves slightly upward-right
+Top Right Menu Icon
+
+Keep a simple 2×2 dot grid icon.
+
+Position
+Top right
+Around 32px from right
+Around 28px from top
+Behavior
+
+On click:
+
+Opens fullscreen menu
+Or opens side navigation
+Menu should use the same dark olive background
+Central Subject Placement
+
+The subject cutout should be the visual anchor.
+
+Position
+Centered horizontally
+Bottom aligned to the ticker/header bottom region
+Should overlap the main text
+Head should sit in front of the top title line
+Torso should cover the middle section
+Size
+
+Subject should occupy:
+
+Around 38–45% of viewport width
+Around 78–88% of hero height
+Bottom should align just above the ticker bar
+
+Recommended:
+
+.subject {
+  position: absolute;
+  left: 50%;
+  bottom: 54px;
+  transform: translateX(-50%);
+  height: 78vh;
+  z-index: 5;
+}
+Important
+
+The subject must be a clean PNG cutout or masked image with transparent background.
+
+Do not place the subject inside a rectangle.
+Do not use a visible image frame.
+Do not add a harsh drop shadow.
+
+Use a very soft grounding shadow only if necessary.
+
+Left Copy Block
+
+Positioned in the lower left section.
+
+Suggested Copy
+AS A FULL STACK DEVELOPER, I FOCUS ON
+BUILDING FAST, SCALABLE AND IMPACTFUL
+DIGITAL PRODUCTS.
+Secondary Copy
+IAN’S DEVELOPMENT EXPERTISE
+DELIVERED.
+Position
+Left column
+Around 32px from left
+Around 58–64% from top
+Styling
+Small uppercase condensed text
+Narrow line length
+Line height tight but readable
+font-size: 14px;
+line-height: 1.25;
+letter-spacing: 0.01em;
+text-transform: uppercase;
+CTA Button
+
+Text:
+
+Let’s talk
+Position
+
+Below the left copy block.
+
+Styling
+Transparent background
+Cream border
+Rectangular shape
+Arrow line/icon on the right
+Height around 44–48px
+Width around 150–170px
+border: 1px solid #D8D7C3;
+color: #D8D7C3;
+background: transparent;
+Hover State
+Background becomes cream
+Text becomes dark olive
+Arrow slides right by 8px
+Transition: 250–350ms ease
+Right Copy Block
+
+Positioned lower-right, aligned with the circular badge.
+
+Suggested Copy
+A FULL STACK DIGITAL PLATFORM
+DEVELOPER BUILDING RELIABLE, FAST AND
+USER-FOCUSED WEB EXPERIENCES.
+
+Second paragraph:
+
+EXCEPTIONAL FRONTEND, BACKEND
+AND PRODUCT ENGINEERING.
+Position
+Right column
+Around 70–74% from left
+Around 58–62% from top
+Width: 220–260px
+Styling
+
+Same as left copy:
+
+font-size: 14px;
+line-height: 1.25;
+text-transform: uppercase;
+Circular Badge
+
+The circular badge should remain a dominant detail.
+
+Badge Content
+
+Keep:
+
+05
+
+Or adapt to portfolio section index.
+
+Position
+Lower center-right
+Overlapping the subject and right copy area
+Around 61–64% from left
+Around 55–62% from top
+Styling
+width: 150px;
+height: 150px;
+border-radius: 50%;
+background: #D8D7C3;
+color: #11140F;
+font-size: 72px;
+font-weight: 900;
+font-style: italic;
+transform: rotate(8deg);
+
+The number should be large, compressed, italic, and slightly rotated.
+
+Tags / Pills
+
+At the bottom of the right copy block, keep two pill tags.
+
+Suggested:
+
+FULL STACK
+2026
+
+or:
+
+WEB APP
+2026
+Styling
+
+First pill:
+
+Cream background
+Dark text
+
+Second pill:
+
+Dark background
+Cream text
+border-radius: 999px;
+padding: 8px 14px;
+font-size: 10px;
+text-transform: uppercase;
+Bottom Ticker Bar
+
+The bottom bar should run full width.
+
+Suggested Items
+Frontend Development ✦ Backend Development ✦ UI Engineering ✦ API Systems ✦ Web Applications ✦ Full Stack Development
+Structure
+Fixed at bottom inside hero
+Height: 58–70px
+Darker background: #10140D
+Cream text
+Horizontal scrolling or static marquee
+Styling
+height: 64px;
+background: #10140D;
+display: flex;
+align-items: center;
+font-size: 26px;
+font-family: "Big Shoulders Display";
+text-transform: capitalize;
+Separator
+
+Use a starburst/diamond symbol:
+
+✦
+3. Motion Graphics Developer Perspective
+Page Load Animation
+
+The hero should load with layered editorial motion.
+
+Recommended Sequence
+Element	Animation	Delay
+Background blocks	Fade in / scale slightly	0ms
+Huge title	Mask reveal upward	150ms
+Subject cutout	Fade + rise from bottom	350ms
+Name/top links	Fade down	500ms
+Left/right copy	Fade up stagger	650ms
+Badge	Scale in + slight rotate	800ms
+Bottom ticker	Slide in from bottom	900ms
+Main Title Animation
+
+Use a clipping mask reveal.
+
+transform: translateY(100%);
+opacity: 0;
+
+Animate to:
+
+transform: translateY(0);
+opacity: 1;
+Timing
+Duration: 900–1200ms
+Easing: cubic-bezier(0.76, 0, 0.24, 1)
+
+The text should feel heavy, cinematic, and smooth.
+
+Subject Animation
+
+The subject should not bounce.
+
+Use:
+
+Slight upward movement
+Subtle fade
+Very small scale from 0.98 to 1
+from {
+  opacity: 0;
+  transform: translateX(-50%) translateY(40px) scale(0.98);
+}
+to {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+Badge Animation
+
+The badge should feel playful but premium.
+
+from {
+  opacity: 0;
+  transform: scale(0.75) rotate(-12deg);
+}
+to {
+  opacity: 1;
+  transform: scale(1) rotate(8deg);
+}
+
+Duration:
+
+700ms
+Slight elastic easing, but not cartoonish
+CTA Hover
+
+On button hover:
+
+Border fills with cream
+Text becomes dark
+Arrow moves right
+Optional tiny background wipe from left to right
+
+Duration:
+
+transition: all 0.28s ease;
+Menu Icon Hover
+
+Each dot should slightly scale.
+
+.dot:hover {
+  transform: scale(1.3);
+}
+
+The whole menu icon can rotate very subtly, around 5 degrees.
+
+Bottom Ticker Motion
+
+The ticker can loop continuously.
+
+Motion
+Horizontal left movement
+Slow and consistent
+No acceleration
+Infinite loop
+animation: marquee 18s linear infinite;
+
+On hover:
+
+Pause ticker
+Or slow ticker to 50%
+4. Graphic Designer Perspective
+Visual Language
+
+The reference uses a retro-modern editorial portfolio aesthetic.
+
+It combines:
+
+Oversized condensed typography
+Muted military/earth colors
+Editorial portrait placement
+High contrast blocks
+Minimal decorative UI
+Vintage print-style grain
+Confident spacing
+Fashion magazine composition
+
+The final design should feel like:
+
+“A developer portfolio treated like a luxury creative director profile.”
+
+Color Palette
+Use	Color	Hex
+Dark olive background	#34392E	
+Deep black-green	#10140D	
+Warm brown panel	#765F47	
+Cream typography	#D8D7C3	
+Muted beige badge	#DAD8C5	
+Near-black text	#11140F	
+Deep burgundy shadow tone	#20120F	
+Typography
+Main Display Font
+
+Use a tall, condensed, heavy typeface.
+
+Best fit:
+
+Big Shoulders Display ExtraBold / Black
+
+Alternative fonts:
+
+Anton
+Bebas Neue
+Oswald Heavy
+Druk Condensed
+Tungsten
+Supporting Text
+
+Use the same condensed family but smaller.
+
+Supporting copy should feel narrow, technical, and editorial.
+
+Avoid rounded fonts.
+Avoid soft SaaS fonts.
+Avoid generic Inter-only layout.
+
+Texture Treatment
+
+Add a grain/noise overlay above the full hero.
+
+Recommended Overlay
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('/noise.png');
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+The texture should be subtle, not dirty.
+
+Image Treatment
+
+The subject should have:
+
+Slightly muted contrast
+Warm shadows
+Green/brown color grading
+Soft integration into the background
+Editorial studio feel
+
+Avoid:
+
+Bright modern corporate lighting
+Overly saturated skin tones
+Sharp AI cutout edges
+White outline glow
+Heavy shadow
+Composition Rules
+
+The subject must sit in front of the large typography.
+
+The large title must still be readable even though the subject overlaps it.
+
+The badge must partially interrupt the right side to create visual tension.
+
+The bottom ticker must anchor the entire composition.
+
+5. Full-Stack Developer Perspective
+Recommended Component Architecture
+/components
+  /Hero
+    HeroSection.tsx
+    HeroBackground.tsx
+    HeroTypography.tsx
+    HeroSubject.tsx
+    HeroCopyBlock.tsx
+    HeroBadge.tsx
+    HeroTicker.tsx
+    HeroNavigation.tsx
+Data Structure
+
+Use a simple configuration object so content can be changed easily.
+
+const heroContent = {
+  name: "Ian Katana",
+  roleLines: ["Full Stack", "Developer"],
+  leftIntro: [
+    "As a full stack developer, I focus on",
+    "building fast, scalable and impactful",
+    "digital products."
+  ],
+  expertise: "Ian’s development expertise delivered.",
+  cta: {
+    label: "Let’s talk",
+    href: "#contact"
+  },
+  rightIntro: [
+    "A full stack digital platform",
+    "developer building reliable, fast and",
+    "user-focused web experiences."
+  ],
+  rightSecondary: [
+    "Exceptional frontend, backend",
+    "and product engineering."
+  ],
+  badge: "05",
+  tags: ["Full Stack", "2026"],
+  ticker: [
+    "Frontend Development",
+    "Backend Development",
+    "UI Engineering",
+    "API Systems",
+    "Web Applications",
+    "Full Stack Development"
+  ]
+};
+Frontend Build Notes
+
+Recommended stack:
+
+React / Next.js
+Tailwind CSS
+Framer Motion
+CSS modules or component-scoped CSS
+Image optimization through Next Image where possible
+
+For the subject PNG, use:
+
+<img
+  src="/images/ian-cutout.png"
+  alt="Ian Katana"
+  className="hero-subject"
+/>
+
+If using Next.js, transparent PNGs can still use next/image, but normal img gives easier absolute positioning control.
+
+Accessibility Requirements
+
+Even though the design is highly visual, still include:
+
+Proper h1
+Descriptive alt text
+Keyboard-accessible CTA
+Menu button with aria-label
+Sufficient color contrast
+Reduced-motion support
+
+Example:
+
+<h1>
+  <span>Full Stack</span>
+  <span>Developer</span>
+</h1>
+
+For reduced motion:
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+6. Responsive Behavior
+Desktop
+
+Desktop should match the reference closely.
+
+3-column background
+Oversized typography
+Subject centered
+Left and right copy visible
+Bottom ticker full width
+Badge large and overlapping
+Tablet
+
+On tablet:
+
+Keep the same composition
+Reduce title size
+Reduce badge size
+Move copy blocks slightly inward
+Subject remains centered
+Ticker stays visible
+
+Suggested changes:
+
+.hero-title {
+  font-size: clamp(4rem, 15vw, 9rem);
+}
+
+.badge {
+  width: 110px;
+  height: 110px;
+  font-size: 54px;
+}
+Mobile
+
+Mobile should become a stacked editorial hero, not a squeezed desktop version.
+
+Mobile Layout
+Background can remain split but simplified
+Main title at top/middle
+Subject centered
+Left and right copy stacked below the subject
+CTA visible above ticker
+Badge smaller, overlapping the subject’s lower right
+Mobile Recommended Order
+Top nav
+Name
+Large title
+Subject
+Badge
+Intro copy
+CTA
+Bottom ticker
+Mobile Title
+font-size: clamp(4rem, 24vw, 7rem);
+line-height: 0.82;
+Mobile Subject
+height: 58vh;
+bottom: 120px;
+Mobile Copy
+
+Keep copy short. Do not overload the hero.
+
+7. Exact Hero Copy Recommendation
+Top Center
+IAN KATANA
+Main Title
+FULL STACK
+DEVELOPER
+Left Copy
+AS A FULL STACK DEVELOPER, I FOCUS ON
+BUILDING FAST, SCALABLE AND IMPACTFUL
+DIGITAL PRODUCTS.
+
+IAN’S DEVELOPMENT EXPERTISE
+DELIVERED.
+CTA
+Let’s talk
+Right Copy
+A FULL STACK DIGITAL PLATFORM
+DEVELOPER BUILDING RELIABLE, FAST AND
+USER-FOCUSED WEB EXPERIENCES.
+
+EXCEPTIONAL FRONTEND, BACKEND
+AND PRODUCT ENGINEERING.
+Pills
+FULL STACK
+2026
+Bottom Ticker
+Frontend Development ✦ Backend Development ✦ UI Engineering ✦ API Systems ✦ Web Applications ✦ Full Stack Development
+8. Build Checklist
+Must Preserve
+Oversized condensed typography
+Centered cutout subject
+Split background panels
+Muted olive/brown/cream palette
+Circular tilted number badge
+Bottom ticker bar
+Editorial portfolio feel
+Small uppercase supporting text
+Strong asymmetrical balance
+Must Avoid
+Do not make it look like a normal SaaS hero
+Do not center all text like a landing page
+Do not use bright gradients
+Do not use rounded modern cards
+Do not place the subject inside a frame
+Do not over-animate
+Do not use generic developer icons everywhere
+Final Direction
+
+The hero should feel like a high-fashion editorial cover translated into a developer portfolio.
+
+The core visual message is:
+
+Ian Katana is not just a developer — he is a technical creative building polished digital systems with strong identity, structure, and execution.

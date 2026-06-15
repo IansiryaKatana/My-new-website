@@ -1,0 +1,231 @@
+{
+  "brand": {
+    "name": "NGUNJUK",
+    "tagline": "Matcha On Perfect",
+    "primaryColor": "#103b27",
+    "limeColor": "#e8f33f",
+    "creamColor": "#f7f0da"
+  },
+  "hero": {
+    "headlineMain": "Matcha",
+    "headlineSub": "On Perfect",
+    "bgImageUrl": "https://images.unsplash.com/photo-1515823064-24b604ea0a0a?auto=format&fit=crop&w=1200&q=80",
+    "ctaText": "Order Now",
+    "ctaHref": "/menu",
+    "badgeText": "BEST OF DRINK",
+    "microCardTitle": "Ceremonial Grade Matcha",
+    "microCardDescription": "Smooth. Clean. Naturally Energizing.",
+    "showFrame": true
+  },
+  "essence": {
+    "headingMain": "Matcha",
+    "headingAccent": "Essence",
+    "subheading": "100% STONE-GROUND GREEN TEA SOURCED FROM THE FINEST JAPANESE LEAVES",
+    "imageUrl": "https://images.unsplash.com/photo-1563823002068-5a1c7b0b0b0b?auto=format&fit=crop&w=900&q=80",
+    "captionLeft": "Packed With Nutrients",
+    "captionRight": "Naturally Nutrient Dense"
+  },
+  "promo": {
+    "leftTitle": "Pure Matcha",
+    "leftAccent": "Energy",
+    "productImageUrl": "https://images.unsplash.com/photo-1556675593-ef0fdf2939f3?auto=format&fit=crop&w=600&q=80",
+    "lifestyleImageUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80",
+    "ctaText": "Order Now",
+    "ctaHref": "/menu",
+    "supportLines": [
+      "Click to Order",
+      "Naturally Powerful",
+      "Green Essence",
+      "Clean energy from nature.",
+      "Rich, smooth matcha taste."
+    ],
+    "marqueeWords": [
+      "Ceremonial Grade",
+      "Green Every Day",
+      "Feel the Energy",
+      "Keep the Calm"
+    ]
+  },
+  "flavor": {
+    "headingMain": "Glow With",
+    "headingAccent": "Matcha",
+    "productImageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da8558?auto=format&fit=crop&w=800&q=80",
+    "productLabel": "Matcha Strawberry",
+    "ctaText": "Order Now",
+    "ctaHref": "/menu",
+    "labelLeft": "Seasonal Specials",
+    "labelRight": "Ceremonial Matcha",
+    "fruitCards": [
+      {
+        "name": "Mango",
+        "imageUrl": "https://images.unsplash.com/photo-1553279766-86024f0f3f8c?auto=format&fit=crop&w=200&q=80"
+      },
+      {
+        "name": "Strawberry",
+        "imageUrl": "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=200&q=80"
+      },
+      {
+        "name": "Blueberry",
+        "imageUrl": "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?auto=format&fit=crop&w=200&q=80"
+      }
+    ]
+  },
+  "footer": {
+    "newsletterTitle": "Sign up to our newsletter for all the latest news and updates.",
+    "newsletterPlaceholder": "Email Address",
+    "wordmark": "NGUNJUK",
+    "copyright": "© 2026 NGUNJUK. All rights reserved."
+  },
+  "products": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "Ceremonial Grade Matcha",
+      "slug": "ceremonial-grade",
+      "shortDescription": "Smooth. Clean. Naturally Energizing.",
+      "descriptionHtml": "",
+      "imageUrl": "https://images.unsplash.com/photo-1563823002068-5a1c7b0b0b0b?auto=format&fit=crop&w=400&q=80",
+      "price": null,
+      "category": "ceremonial",
+      "flavor": null,
+      "isFeatured": true,
+      "sortOrder": 1,
+      "ctaHref": "/menu"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "name": "Pure Matcha Energy",
+      "slug": "pure-matcha-energy",
+      "shortDescription": "Clean energy from nature.",
+      "descriptionHtml": "",
+      "imageUrl": "https://images.unsplash.com/photo-1556675593-ef0fdf2939f3?auto=format&fit=crop&w=400&q=80",
+      "price": null,
+      "category": "signature",
+      "flavor": null,
+      "isFeatured": true,
+      "sortOrder": 2,
+      "ctaHref": "/menu"
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "name": "Matcha Strawberry",
+      "slug": "matcha-strawberry",
+      "shortDescription": "Seasonal special with fresh strawberry.",
+      "descriptionHtml": "",
+      "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da8558?auto=format&fit=crop&w=400&q=80",
+      "price": null,
+      "category": "seasonal",
+      "flavor": "strawberry",
+      "isFeatured": true,
+      "sortOrder": 3,
+      "ctaHref": "/menu"
+    }
+  ],
+  "benefits": [
+    {
+      "id": "00000000-0000-4000-8000-000000000101",
+      "label": "Clean Energy",
+      "sortOrder": 1
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000102",
+      "label": "No Crash",
+      "sortOrder": 2
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000103",
+      "label": "Antioxidant Rich",
+      "sortOrder": 3
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000104",
+      "label": "Naturally Calming",
+      "sortOrder": 4
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000105",
+      "label": "Premium Matcha",
+      "sortOrder": 5
+    }
+  ],
+  "navItems": [
+    {
+      "id": "00000000-0000-4000-8000-000000000201",
+      "label": "Home",
+      "href": "/",
+      "isHighlighted": false,
+      "sortOrder": 1
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000202",
+      "label": "Our Menu",
+      "href": "/menu",
+      "isHighlighted": true,
+      "sortOrder": 2
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000203",
+      "label": "Signature",
+      "href": "/signature",
+      "isHighlighted": false,
+      "sortOrder": 3
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000204",
+      "label": "Our Locations",
+      "href": "/locations",
+      "isHighlighted": false,
+      "sortOrder": 4
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000205",
+      "label": "Contact Us",
+      "href": "/contact",
+      "isHighlighted": false,
+      "sortOrder": 5
+    }
+  ],
+  "productsBySlug": {
+    "ceremonial-grade": {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "Ceremonial Grade Matcha",
+      "slug": "ceremonial-grade",
+      "shortDescription": "Smooth. Clean. Naturally Energizing.",
+      "descriptionHtml": "",
+      "imageUrl": "https://images.unsplash.com/photo-1563823002068-5a1c7b0b0b0b?auto=format&fit=crop&w=400&q=80",
+      "price": null,
+      "category": "ceremonial",
+      "flavor": null,
+      "isFeatured": true,
+      "sortOrder": 1,
+      "ctaHref": "/menu"
+    },
+    "pure-matcha-energy": {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "name": "Pure Matcha Energy",
+      "slug": "pure-matcha-energy",
+      "shortDescription": "Clean energy from nature.",
+      "descriptionHtml": "",
+      "imageUrl": "https://images.unsplash.com/photo-1556675593-ef0fdf2939f3?auto=format&fit=crop&w=400&q=80",
+      "price": null,
+      "category": "signature",
+      "flavor": null,
+      "isFeatured": true,
+      "sortOrder": 2,
+      "ctaHref": "/menu"
+    },
+    "matcha-strawberry": {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "name": "Matcha Strawberry",
+      "slug": "matcha-strawberry",
+      "shortDescription": "Seasonal special with fresh strawberry.",
+      "descriptionHtml": "",
+      "imageUrl": "https://images.unsplash.com/photo-1553530666-ba11a7da8558?auto=format&fit=crop&w=400&q=80",
+      "price": null,
+      "category": "seasonal",
+      "flavor": "strawberry",
+      "isFeatured": true,
+      "sortOrder": 3,
+      "ctaHref": "/menu"
+    }
+  }
+}

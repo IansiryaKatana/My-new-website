@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', 'Geist', system-ui, sans-serif;
+
+  --color-donezo-green: #005c35;
+  --color-donezo-forest: #003b24;
+  --color-donezo-accent: #0f8a4b;
+  --color-donezo-pale: #dff3e8;
+  --color-donezo-bg: #f4f6f4;
+  --color-donezo-shell: #f8f9f8;
+  --color-donezo-card: #ffffff;
+  --color-donezo-ink: #101010;
+  --color-donezo-muted: #8b918d;
+  --color-donezo-border: #e8ece8;
+  --color-donezo-red: #d93333;
+  --color-donezo-yellow: #f1d35b;
+  --color-donezo-blue: #1b62ff;
+  --color-donezo-purple: #6f4cff;
+
+  --shadow-card: 0 10px 28px rgba(17, 36, 26, 0.05);
+  --shadow-card-hover: 0 14px 34px rgba(17, 36, 26, 0.08);
+  --shadow-shell: 0 28px 80px rgba(0, 0, 0, 0.08);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100dvh;
+    background:
+      radial-gradient(circle at 15% 10%, rgba(0, 92, 53, 0.08), transparent 28rem),
+      radial-gradient(circle at 85% 0%, rgba(15, 138, 75, 0.08), transparent 22rem),
+      var(--color-donezo-bg);
+    color: var(--color-donezo-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .animate-shell {
+    animation: shell-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal-up {
+    animation: reveal-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .reveal-left {
+    animation: reveal-left 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .bar-grow {
+    transform-origin: bottom;
+    animation: bar-grow 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .draw-arc {
+    animation: draw-arc 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hatched {
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(120, 126, 121, 0.75) 0 2px,
+        transparent 2px 6px
+      ),
+      #eef2ee;
+  }
+
+  .dark-pattern {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 80% 18%, rgba(15, 138, 75, 0.45), transparent 38%),
+      linear-gradient(135deg, #052d1c, #00170f);
+  }
+
+  .dark-pattern::before {
+    position: absolute;
+    inset: -45%;
+    content: '';
+    background:
+      radial-gradient(circle, transparent 42%, rgba(255, 255, 255, 0.08) 43% 45%, transparent 46%),
+      radial-gradient(circle, transparent 56%, rgba(255, 255, 255, 0.05) 57% 59%, transparent 60%);
+    background-size: 180px 180px, 260px 260px;
+    animation: pattern-drift 11s linear infinite;
+    pointer-events: none;
+  }
+
+  .dark-pattern > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@keyframes shell-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    opacity: 0;
+    transform: scaleY(0.15);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes draw-arc {
+  from {
+    stroke-dashoffset: 260;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pattern-drift {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(6%, 4%, 0) rotate(8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

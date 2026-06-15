@@ -1,0 +1,762 @@
+This reference is a modern healthcare telemedicine dashboard called CareFlow. The screen combines a live doctor consultation, upcoming appointments, patient health metrics, calendar scheduling, and subscription upsell in one clean medical admin/patient portal interface.
+
+The design goal is to feel:
+
+Calm
+Clinical
+Premium
+Simple
+Trustworthy
+Human-centered
+
+The layout is built as a desktop dashboard with a large primary content area on the left and a compact utility/sidebar area on the right.
+
+B. Layout Anatomy
+1. Overall Canvas
+
+Aspect ratio: 4:3 dashboard mockup
+Approximate canvas: 1024 × 768
+Main app container: centered card with rounded corners
+Background: muted sage green / grey-green full-page backdrop
+App width: roughly 88–90% of viewport
+App height: roughly 82–85% of viewport
+Container radius: around 18–24px
+Container color: soft off-white / very light grey
+
+The design uses a single floating dashboard shell placed inside a green background, creating a premium SaaS/app presentation.
+
+C. Project Manager Notes
+Product Context
+
+This is likely a patient-facing healthcare dashboard for:
+
+Online consultations
+Appointment tracking
+Health statistics
+Calendar scheduling
+Subscription-based medical guidance
+
+The brand name CareFlow suggests a smooth, connected healthcare workflow.
+
+Primary User Intent
+
+The user is likely a patient who wants to:
+
+Join or continue a live consultation.
+View upcoming appointments.
+Track basic health metrics.
+Check available dates.
+Manage their care subscription.
+Content Priority
+
+The hierarchy is very clear:
+
+Priority	Area	Purpose
+1	Live video consultation	Main current action
+2	Upcoming appointments	Next medical commitments
+3	Health stats	Quick personal health overview
+4	Calendar	Scheduling and date awareness
+5	Subscription card	Monetization / upgrade action
+
+The video consultation dominates the screen, which confirms the main user task is active care interaction rather than data review.
+
+Key User Actions
+
+Primary actions:
+
+End call
+Toggle camera
+Toggle microphone
+Expand call
+View appointments
+Navigate calendar
+Upgrade subscription
+Access dashboard sections from nav
+
+Secondary actions:
+
+Review doctor/patient profile
+Inspect weight, heart rate, and glucose
+Check appointment payment status
+D. UI/UX Engineering Notes
+1. Layout Structure
+
+The dashboard uses a two-column layout:
+
+Main App Container
+│
+├── Top Navigation Bar
+│
+└── Dashboard Body
+    ├── Left Main Column
+    │   ├── Video Consultation Card
+    │   └── Upcoming Appointments Table
+    │
+    └── Right Sidebar
+        ├── Weight Metric Card
+        ├── Heart Rate + Blood Glucose Cards
+        ├── Calendar Card
+        └── Subscription Card
+2. Grid System
+
+Approximate column split:
+
+Region	Width
+Left content	66–68%
+Right sidebar	30–32%
+Gap	16–20px
+
+The layout appears to use a 12-column grid:
+
+Left column: 8 columns
+Right sidebar: 4 columns
+Gutters: 16px
+3. App Shell
+
+The main app shell has:
+
+Outer padding: approximately 14–18px
+Internal section gap: 14–16px
+Background: #F8F9F6 or close off-white
+Border radius: 22px
+Very soft shadow or none
+
+The design avoids harsh borders. Most separation is achieved through spacing, soft fills, and rounded cards.
+
+E. Top Navigation Breakdown
+Structure
+
+The top navigation is a horizontal bar with:
+
+Logo icon
+Brand name
+Navigation items
+User profile chip
+[Logo] CareFlow    [Dashboard] [Calendar] [Appointments] [Chats] [Statistics]       [Avatar] Diane Lara
+                                                                                           29 years old
+Logo Area
+Small rounded-square icon
+Pale green background
+Dark ECG/heartbeat-style symbol
+Brand text in black
+Brand weight: medium/bold
+Navigation Items
+
+Each nav item includes:
+
+Minimal line icon
+Text label
+Horizontal alignment
+Compact spacing
+
+Active item:
+
+Dashboard
+Highlighted with pale green pill background
+Rounded radius around 8–10px
+
+Inactive items:
+
+Black/dark grey icon
+Black text
+No background
+User Profile
+
+Right-aligned profile group:
+
+Circular avatar image
+Name: Diane Lara
+Age: 29 years old
+Text stacked vertically
+Avatar around 32–36px
+F. Main Video Consultation Card
+Placement
+
+This is the dominant component on the screen.
+
+Approximate size:
+
+Width: full left column
+Height: 380–390px
+Border radius: 10–14px
+Image/video clipped inside rounded container
+Visual Treatment
+
+The video is darkened by a subtle overlay, especially on the top-left where the doctor name and timer appear.
+
+The video frame shows:
+
+Doctor centered
+Medical office background
+Soft clinical lighting
+Greenish tint overlay matching the dashboard theme
+Text Overlay
+
+Top-left text:
+
+Scarlet Everett
+02:1:43
+
+Name:
+
+White
+Serif-like or slightly elegant font
+Medium weight
+Approx. 20–22px
+
+Timer:
+
+White
+Smaller
+Approx. 12px
+Positioned directly below name
+Call Controls
+
+Bottom center overlay:
+
+[End Call] [Camera] [Mic] [Expand]
+
+Approximate behavior:
+
+Controls float above video
+Circular buttons
+Button diameter: 32–36px
+Gap: 8–10px
+End call button uses soft red/pink fill
+Other buttons use white fill
+Icons are simple black line icons
+Picture-in-Picture Call Window
+
+Bottom-right overlay:
+
+Small rounded video card
+Approx. 160 × 95px
+Shows patient participant
+Border radius: 10–12px
+Light border or soft shadow
+Positioned with around 18px right and 22px bottom inset
+
+This secondary video gives the layout a real telehealth call experience.
+
+G. Upcoming Appointments Table
+Placement
+
+Directly under the video consultation card.
+
+Header
+
+Left:
+
+Upcoming Appointments
+
+Right:
+
+View more >
+
+Heading:
+
+Black
+Medium/bold
+Approx. 20–22px
+Tight spacing
+
+“View more”:
+
+Small text
+Right aligned
+Chevron arrow
+Approx. 12px
+Table Columns
+Specialist | Date | Time | Reason | Payment
+
+Rows:
+
+Cardiologist     Oct 14, 2025    2:00 PM    General Consultation    Paid
+Endocrinologist  Oct 19, 2025    10:30 AM   Follow-up                Unpaid
+Dermatologist    Oct 20, 2025    1:30 PM    Test Results Review      Insurance
+Table Styling
+No visible table borders
+Spacious rows
+Small typography
+Column headers in muted grey
+Data text in black
+Payment shown as soft status pills
+Status Pills
+Status	Color
+Paid	Pale green
+Unpaid	Soft red/pink
+Insurance	Pale blue
+
+Pills:
+
+Rounded radius: 8–10px
+Padding: 8–12px horizontal
+Height: approx. 26–30px
+Centered label
+H. Right Sidebar Breakdown
+
+The right sidebar stacks multiple widgets vertically.
+
+1. Weight Card
+
+Top right large card.
+
+Approximate size:
+
+Width: full sidebar
+Height: 92–100px
+Background: pale sage green
+Border radius: 10–14px
+
+Content:
+
+[Icon] Weight                       58 kg
+
+Includes:
+
+Icon in small rounded square
+Label left
+Large metric right
+Tiny unit “kg”
+Subtle white line chart across the lower card
+Small black tooltip label showing 64 kg
+Weight Chart
+
+The chart is decorative but functional.
+
+Visual:
+
+Thin white line
+Smooth curve
+One highlighted data point
+Tooltip above point
+Tooltip black with white text
+
+This gives the card a premium analytics feel without overcrowding.
+
+2. Heart Rate and Blood Glucose Cards
+
+Two half-width cards under the weight card.
+
+[Heart icon] Heart rate
+70 bpm
+
+[Drop icon] Blood Glucose
+4,5 mmol/L
+
+Approximate dimensions:
+
+Each card: 50% sidebar width minus gap
+Height: 88–94px
+Background: white/off-white
+Radius: 10–14px
+
+Text hierarchy:
+
+Label row at top
+Icon inside pale green chip
+Metric large and bold
+Unit small and regular
+
+Important visual detail:
+
+Blood glucose uses comma decimal: 4,5
+Metric typography is large and dark
+Unit is smaller and aligned baseline
+3. Calendar Card
+
+The calendar occupies the largest sidebar area.
+
+Header:
+
+<    October 2025    >
+
+Month title centered.
+
+Calendar structure:
+
+7 columns
+Monday-first week layout
+Compact square day cells
+Rounded corners
+Pale green day backgrounds
+Selected date is black
+
+Visible selected date:
+
+9
+
+Selected state:
+
+Black background
+White text
+Rounded square
+
+Inactive previous-month dates:
+
+Pale grey text
+No strong background
+
+Calendar spacing:
+
+Header margin-bottom: 12–16px
+Day labels: small, dark grey
+Day cells: approx. 34–38px wide
+Gap: 4–6px
+4. Subscription Card
+
+Bottom sidebar card.
+
+Pro Subscription
+Priority consultations with doctors and personalized
+health guidance
+
+[Upgrade]
+
+Background:
+
+Green-tinted blurred image/gradient
+Soft highlight
+Rounded corners
+
+Text:
+
+Heading black, bold, approx. 20px
+Description small, black/dark grey
+Button white with black text
+
+Button:
+
+Full width
+Height approx. 28–34px
+Border radius approx. 6–8px
+Center aligned label
+
+This card functions as a monetization prompt, but it is designed subtly so it does not overpower the healthcare content.
+
+I. Graphic Design Direction
+Color Palette
+
+Approximate colors:
+
+Use	Color
+Outer background	#819286 / muted sage
+App background	#F7F8F4
+Card background	#FFFFFF
+Pale green card	#D6E3D4
+Active nav	#D7E8D8
+Dark text	#0B0D0C
+Muted text	#6F7771
+Selected calendar date	#050505
+Paid pill	#CFE6D0
+Unpaid pill	#F5A3A3
+Insurance pill	#B7DCEF
+Red call button	#F4A3A3
+Typography
+
+The typography uses a modern SaaS/healthcare style:
+
+Primary font likely similar to Inter, Satoshi, SF Pro, or Helvetica Neue
+Clean sans-serif for navigation, tables, and metrics
+Doctor name may use a slightly more editorial serif or high-contrast font, but could also be a medium-weight sans-serif rendered over video
+
+Typography hierarchy:
+
+Element	Approx. Size	Weight
+Brand	14–15px	600
+Nav items	12–13px	500
+Video doctor name	20–22px	600
+Section heading	21–23px	600
+Table text	11–12px	400–500
+Metric value	24–30px	600–700
+Calendar month	20–22px	500–600
+Subscription title	21–23px	600
+Visual Language
+
+The design style is:
+
+Minimal healthcare SaaS
+Soft glassy dashboard
+Calm medical green palette
+Rounded card system
+Compact spacing
+Human-centered imagery
+Light analytics UI
+Premium but not overly futuristic
+Shape Language
+Rounded rectangles everywhere
+No sharp edges
+No heavy shadows
+No thick borders
+Soft pill elements
+Circular icon buttons
+Image Treatment
+
+The main video has:
+
+Slight dark overlay
+Green/cyan tint
+Muted contrast
+Soft medical office setting
+Human subject centered
+
+The overall visual treatment keeps the healthcare experience warm and approachable rather than cold and technical.
+
+J. Motion Direction
+Page Load Animation
+
+Recommended sequence:
+
+App shell fades in with slight upward motion.
+Navbar appears first.
+Video card scales in subtly from 0.98 to 1.
+Sidebar cards stagger upward.
+Appointment table fades in last.
+
+Suggested timing:
+
+App shell: 500ms ease-out
+Navbar: 350ms fade
+Video card: 600ms ease-out
+Sidebar cards: 80ms stagger, 450ms each
+Table: 400ms fade-up
+Video Card Motion
+Video frame should appear stable, not over-animated.
+Call controls can fade in after 300ms.
+Hovering controls should scale to 1.06.
+End call button can slightly deepen in color on hover.
+Expand icon can rotate or scale subtly.
+Sidebar Widget Motion
+Weight Card
+Chart line can draw from left to right.
+Tooltip can pop in with slight vertical lift.
+Metric number can count up from 0 to 58.
+Heart Rate Card
+Heart icon can pulse gently every 2–3 seconds.
+Metric can count up quickly to 70.
+Blood Glucose Card
+Drop icon can fade in.
+No aggressive motion; healthcare data should feel stable.
+Calendar Motion
+Month arrows should have hover states.
+Changing month should slide calendar grid left/right.
+Selected date should scale from 0.92 to 1.
+Hovered dates should slightly darken or raise opacity.
+Subscription Card
+Button hover: slight brightness increase.
+Background can have very subtle slow pan or gradient movement.
+Avoid loud promotional animation.
+K. Full-Stack Build Notes
+Recommended Frontend Stack
+
+This interface could be built with:
+
+React / Next.js
+Tailwind CSS
+Framer Motion
+Recharts or custom SVG chart
+WebRTC integration for consultation
+Calendar library or custom calendar component
+Suggested Component Structure
+AppShell
+├── TopNavigation
+├── DashboardLayout
+│   ├── MainColumn
+│   │   ├── ConsultationVideoCard
+│   │   └── UpcomingAppointmentsTable
+│   └── SidebarColumn
+│       ├── WeightMetricCard
+│       ├── HealthMetricGrid
+│       │   ├── HeartRateCard
+│       │   └── BloodGlucoseCard
+│       ├── CalendarWidget
+│       └── SubscriptionCard
+Suggested Data Models
+User
+type User = {
+  id: string;
+  name: string;
+  age: number;
+  avatarUrl: string;
+};
+Doctor / Consultation
+type Consultation = {
+  id: string;
+  doctorName: string;
+  duration: string;
+  doctorVideoUrl?: string;
+  patientVideoUrl?: string;
+  status: "live" | "scheduled" | "ended";
+};
+Appointment
+type Appointment = {
+  id: string;
+  specialist: string;
+  date: string;
+  time: string;
+  reason: string;
+  paymentStatus: "Paid" | "Unpaid" | "Insurance";
+};
+Health Metrics
+type HealthMetric = {
+  weightKg: number;
+  previousWeightKg?: number;
+  heartRateBpm: number;
+  bloodGlucoseMmol: number;
+};
+Subscription
+type Subscription = {
+  plan: "Free" | "Pro";
+  description: string;
+  upgradeAvailable: boolean;
+};
+Backend Requirements
+
+For a real product, backend would need:
+
+User authentication
+Patient profile storage
+Doctor profile storage
+Appointment booking
+Payment tracking
+Medical metric history
+Video consultation sessions
+Subscription management
+Notification system
+Audit logs for medical compliance
+API Requirements
+
+Potential endpoints:
+
+GET /api/user/profile
+GET /api/appointments/upcoming
+GET /api/health/metrics
+GET /api/health/weight-history
+POST /api/consultation/start
+POST /api/consultation/end
+POST /api/subscription/upgrade
+Performance Notes
+Lazy-load video streams.
+Use skeleton loaders for metrics and appointments.
+Keep calendar rendering lightweight.
+Compress avatars and preview video thumbnails.
+Use SVG for chart instead of heavy charting library if possible.
+Avoid animating large video layers unnecessarily.
+Accessibility Notes
+Call buttons must have aria-label.
+Calendar dates must be keyboard navigable.
+Selected date must not rely on color only.
+Payment statuses should include readable labels.
+Video controls must support keyboard focus.
+Text contrast should be checked, especially over video.
+L. Responsive Behavior
+Desktop
+
+Desktop should match the reference:
+
+Two-column layout
+Left: video + table
+Right: metrics + calendar + subscription
+Tablet
+
+Recommended tablet structure:
+
+Navbar wraps or becomes condensed
+Video card full width
+Sidebar widgets become 2-column grid below video
+Appointments remain below video or below metrics
+
+Suggested order:
+
+Video consultation
+Health metrics
+Calendar
+Appointments
+Subscription
+Mobile
+
+Mobile should become a single-column app layout:
+
+Top compact header
+Live consultation card
+Call controls sticky inside video
+Health metric cards
+Calendar
+Appointments list as cards
+Subscription card
+Bottom navigation
+
+Table should convert into appointment cards:
+
+Cardiologist
+Oct 14, 2025 · 2:00 PM
+General Consultation
+[Paid]
+
+The desktop table will be too compressed on mobile.
+
+M. Exact Recreation Checklist
+Layout
+ Use muted sage page background.
+ Center a large rounded off-white dashboard shell.
+ Build a top horizontal navbar.
+ Use two-column dashboard grid.
+ Make left column approximately two-thirds width.
+ Make right sidebar approximately one-third width.
+ Keep internal gaps around 14–18px.
+ Use rounded cards with minimal shadow.
+Video Section
+ Use large video card as main focal point.
+ Add dark/green overlay on video.
+ Place doctor name and timer top-left.
+ Place call control buttons bottom-center.
+ Use red/pink for end-call button.
+ Add picture-in-picture video bottom-right.
+Appointment Table
+ Place directly under video.
+ Use clean table with five columns.
+ Keep headers small and muted.
+ Use status pills for payment column.
+ Avoid visible grid lines.
+Sidebar
+ Add large weight card at top.
+ Add white line chart inside weight card.
+ Place 58kg metric top-right.
+ Add black tooltip for 64kg.
+ Add two smaller health metric cards below.
+ Add calendar with selected black date.
+ Add green image/gradient subscription card at bottom.
+Visual Style
+ Use soft healthcare greens.
+ Use black text with muted grey secondary text.
+ Use Inter/SF Pro/Satoshi-style font.
+ Use rounded corners consistently.
+ Avoid harsh shadows and borders.
+ Keep design calm and clinical.
+N. Prompt for Recreating Similar UI
+{
+  "prompt_name": "CareFlow Telemedicine Dashboard UI Reference",
+  "main_prompt": "Create a premium modern healthcare telemedicine dashboard UI inside a centered rounded desktop app shell on a muted sage green background. The interface should use a calm medical SaaS aesthetic with soft off-white cards, pale green accents, rounded corners, minimal shadows, compact spacing, and clean modern typography similar to Inter or SF Pro. Build a top navigation bar with a small heartbeat logo, brand name CareFlow, nav items Dashboard, Calendar, Appointments, Chats, Statistics, and a right-aligned user profile with avatar, name, and age. The main dashboard body should use a two-column layout: a large left column and a narrower right sidebar. In the left column, place a large live video consultation card showing a female doctor in a clinical office, dark green overlay, doctor name and call duration in white at top-left, circular call control buttons at bottom-center, and a small picture-in-picture patient video card at bottom-right. Below it, add an Upcoming Appointments table with columns Specialist, Date, Time, Reason, Payment, and three rows with soft status pills for Paid, Unpaid, and Insurance. In the right sidebar, place a large pale green Weight metric card with a white curved line chart, tooltip, and bold 58 kg value. Below it, add two small metric cards for Heart rate 70 bpm and Blood Glucose 4,5 mmol/L. Under those, add a compact October 2025 calendar with rounded pale green date cells and the selected date 9 shown as a black square with white text. At the bottom, add a Pro Subscription card with soft green blurred background image, short text, and a white Upgrade button. The composition must feel clean, balanced, clinical, premium, and highly polished, with precise dashboard spacing and strong visual hierarchy.",
+  "style_keywords": [
+    "healthcare SaaS dashboard",
+    "telemedicine app",
+    "soft sage green",
+    "rounded cards",
+    "minimal clinical UI",
+    "premium patient portal",
+    "video consultation interface",
+    "clean analytics widgets",
+    "modern medical dashboard"
+  ],
+  "layout_ratio": "4:3 desktop dashboard",
+  "color_palette": {
+    "background": "#819286",
+    "app_shell": "#F7F8F4",
+    "card": "#FFFFFF",
+    "pale_green": "#D6E3D4",
+    "text_dark": "#0B0D0C",
+    "text_muted": "#6F7771",
+    "danger_soft": "#F4A3A3",
+    "info_soft": "#B7DCEF"
+  }
+}

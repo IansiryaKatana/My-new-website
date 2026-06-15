@@ -1,0 +1,76 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #f4f6fc;
+  --foreground: #0f1642;
+  --muted: #6470a3;
+  --border: #e4e8f6;
+  --card: #ffffff;
+  --primary: #14107a;
+  --primary-foreground: #ffffff;
+  --success: #1f9d5f;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  background: var(--background);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dashboard-top {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #05033f;
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(5, 3, 63, 0.35) 0%,
+      rgba(5, 3, 63, 0.55) 55%,
+      rgba(5, 3, 63, 0.72) 100%
+    ),
+    linear-gradient(115deg, rgba(32, 24, 112, 0.45) 0%, transparent 42%),
+    url('/images/dashboard-header-bg.webp');
+  background-size: cover, cover, cover;
+  background-position: center top, center top, center top;
+  background-repeat: no-repeat;
+}
+
+.dashboard-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(167, 161, 255, 0.22), transparent 38%),
+    radial-gradient(circle at 88% 10%, rgba(103, 91, 219, 0.28), transparent 42%);
+}
+
+.dashboard-top > * {
+  position: relative;
+  z-index: 1;
+}

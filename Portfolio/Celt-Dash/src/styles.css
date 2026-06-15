@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap');
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #070503;
+  --foreground: #f6ede6;
+  --card: #160b05;
+  --card-foreground: #f6ede6;
+  --popover: #160b05;
+  --popover-foreground: #f6ede6;
+  --primary: #f26a2e;
+  --primary-foreground: #ffffff;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: #f6ede6;
+  --muted: #8b8178;
+  --muted-foreground: #8b8178;
+  --accent: #f26a2e;
+  --accent-foreground: #ffffff;
+  --destructive: #d85656;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: rgba(242, 106, 46, 0.45);
+  --chart-1: #f26a2e;
+  --chart-2: #5cc779;
+  --chart-3: #8b8178;
+  --chart-4: #b93a12;
+  --chart-5: #d85656;
+  --radius: 0.9rem;
+}
+
+@theme inline {
+  --font-sans: 'Inter Tight', ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-charcoal: #46474a;
+  --color-coffee: #070503;
+  --color-brown: #160b05;
+  --color-card-brown: #211007;
+  --color-orange-accent: #f26a2e;
+  --color-deep-orange: #b93a12;
+  --color-cream: #f6ede6;
+  --color-muted: #8b8178;
+  --color-success: #5cc779;
+  --color-warning: #d85656;
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+html {
+  background: #46474a;
+}
+
+body {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  background: #46474a;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(242, 106, 46, 0.55);
+}
+
+.grain {
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+    linear-gradient(transparent, transparent);
+  mix-blend-mode: overlay;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.field-input {
+  width: 100%;
+  min-height: 2.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.18);
+  color: #f6ede6;
+  outline: none;
+  padding: 0 1rem;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.field-input::placeholder {
+  color: rgba(139, 129, 120, 0.86);
+}
+
+.field-input:focus {
+  border-color: rgba(242, 106, 46, 0.55);
+  background: rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 0 4px rgba(242, 106, 46, 0.08);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+}

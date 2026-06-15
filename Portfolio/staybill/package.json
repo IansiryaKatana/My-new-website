@@ -1,0 +1,38 @@
+{
+  "name": "staybil-wellness",
+  "version": "1.0.0",
+  "description": "Premium Staybil wellness landing page built with TanStack Start, React 19, Vite, TypeScript, and Tailwind CSS v4.",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "start": "node .output/server/index.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-slot": "^1.2.4",
+    "@tailwindcss/vite": "^4.3.0",
+    "@tanstack/react-router": "^1.170.8",
+    "@tanstack/react-start": "^1.168.13",
+    "@vitejs/plugin-react": "^6.0.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.16.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.14"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3"
+  }
+}

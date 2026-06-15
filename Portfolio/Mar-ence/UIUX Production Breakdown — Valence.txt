@@ -1,0 +1,1198 @@
+UI/UX Production Breakdown — Valence Capital Website Reference
+
+This reference is a premium investment / capital firm landing page with a restrained institutional aesthetic. It uses large whitespace, cinematic architectural imagery, thin typography, minimal navigation, and editorial spacing to communicate trust, patience, discretion, long-term value, and global financial credibility.
+
+The design should not feel like a startup SaaS site. It should feel like a private investment firm, asset management company, or institutional capital platform.
+
+1. Project Manager Perspective
+Product Context
+
+This layout is for a capital investment / private equity / asset management company. The goal is to establish credibility immediately through:
+
+Institutional photography
+Trusted media/partner logo strip
+Clear investment principles
+Structured investment approach
+Minimal but confident calls to action
+Long-form homepage storytelling
+
+The brand personality is:
+
+Attribute	Description
+Premium	Minimal, clean, high-value presentation
+Institutional	Feels serious, regulated, and financially mature
+Strategic	Messaging focuses on long-term capital and partnerships
+Quiet luxury	No loud colors, no heavy gradients, no playful UI
+Trust-based	Supported by logos, principles, and structured methodology
+Page Purpose
+
+The homepage should function as a brand credibility and conversion page.
+
+Primary goals:
+
+Introduce Valence Capital as a long-term investment firm.
+Communicate its philosophy: patience, risk management, and alignment.
+Establish credibility through trusted logos.
+Showcase sectors/portfolio thinking through architecture-led visuals.
+Guide users toward submission or inquiry through “Submit Opportunity.”
+Create a calm, premium, editorial reading journey.
+Content Hierarchy
+Priority 1: Hero Identity
+
+The first screen is dominated by:
+
+Brand name: Valence Capital
+Full-width cinematic background image
+Minimal navigation
+One small CTA: Submit Opportunity
+Supporting line: Long-Term Capital. Clear Conviction.
+
+The hero should instantly communicate scale, money, confidence, and sophistication.
+
+Priority 2: Credibility Strip
+
+A centered “Trusted by Industry Leaders” section with logos:
+
+Morgan Stanley
+KPMG
+Bloomberg
+Deloitte
+Prudential
+Forbes
+
+This section acts as the trust bridge between hero and explanation.
+
+Priority 3: Brand Perspective
+
+The “The Valence Perspective” section introduces the firm’s worldview.
+
+It combines:
+
+Small label
+Large heading
+Short supporting paragraph
+Large architectural image
+
+This should feel like an editorial feature inside a finance magazine.
+
+Priority 4: Core Principles
+
+Three-column principle section:
+
+Patience
+Risk
+Alignment
+
+Each principle has a number, title, and short description.
+
+This provides the company philosophy in a digestible, memorable way.
+
+Priority 5: Selected Work / Portfolio
+
+The “Built on Principle” section introduces portfolio logic.
+
+It includes:
+
+Left-side vertical list of selected projects/companies
+Main image grid
+Portfolio title
+Short description
+Small CTA button
+
+This section shows investment activity without becoming a traditional case-study grid.
+
+Priority 6: Investment Approach
+
+Structured three-row strategy block:
+
+Public Markets
+Private Equity
+Real Assets
+
+This explains how the firm invests.
+
+Priority 7: Final CTA + Footer
+
+A dark, atmospheric final CTA section leads into a deep navy footer.
+
+This closes the page with:
+
+Strong call to action
+Footer navigation
+Large faded “VALENCE” wordmark
+Legal links
+2. UI/UX Engineer Perspective
+Overall Layout System
+
+The page uses a single-column editorial landing page structure with strong vertical rhythm.
+
+Recommended desktop canvas:
+
+max-width: 1440px;
+page-background: #ffffff;
+content-width: 92%;
+section-padding-x: 40px to 56px;
+section-padding-y: 88px to 140px;
+
+The design relies on wide spacing and controlled asymmetry.
+
+Global Grid
+
+Use a 12-column grid.
+
+Suggested grid:
+
+.container {
+  width: min(100% - 64px, 1320px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+}
+
+Mobile:
+
+.container {
+  width: calc(100% - 32px);
+  grid-template-columns: repeat(4, 1fr);
+}
+Section-by-Section Layout
+A. Hero Section
+Structure
+
+The hero occupies approximately 720px to 820px height on desktop.
+
+Header
+↓
+Large background image
+↓
+Oversized brand title
+↓
+Supporting copy + right-side statement
+Visual Layout
+
+The background is a full-width aerial city/mountain image with a dark blue overlay.
+
+Hero elements:
+
+Element	Placement
+Logo	Top-left
+Navigation	Top-center
+CTA	Top-right
+Giant “Valence Capital”	Left/middle, oversized
+Supporting paragraph	Under title, left
+Secondary statement	Right of title area
+Small “Let’s Talk” button	Under secondary statement
+Header
+
+Header height: approximately 64px.
+
+Layout:
+
+[Logo]                    [Home About Us Works Process FAQ]                    [Submit Opportunity] [+]
+
+Logo:
+
+Top-left
+Small icon mark
+Text: Valence Capital
+Black/charcoal or light depending on overlay
+
+Navigation:
+
+Center aligned
+Tiny text
+High letter spacing
+Low opacity
+
+CTA group:
+
+White rectangular button
+Dark square icon button beside it
+
+Suggested sizes:
+
+.header {
+  height: 64px;
+  padding: 0 40px;
+}
+
+.nav a {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.submit-btn {
+  height: 28px;
+  padding: 0 16px;
+  font-size: 10px;
+}
+Hero Typography
+
+The title is the most important visual element.
+
+It is split across two lines:
+
+Valence
+      Capital
+
+The first word begins near the left edge and is partially oversized. The second word is indented toward the center.
+
+Approximate desktop sizing:
+
+.hero-title {
+  font-size: clamp(80px, 12vw, 170px);
+  line-height: 0.82;
+  font-weight: 300;
+  letter-spacing: -0.075em;
+  color: rgba(255,255,255,0.92);
+}
+
+Important detail:
+
+The text is extremely large.
+The word “Capital” starts further right than “Valence.”
+A thin horizontal line crosses through or aligns around the typography area.
+The text feels embedded into the image, not placed on top like a standard banner.
+Hero Copy
+
+Left intro copy:
+
+Valence Capital is a private investment firm focused on building long-term conviction across capital markets.
+
+Approximate style:
+
+.hero-copy {
+  max-width: 270px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.78);
+}
+
+Right statement:
+
+Long-Term Capital.
+Clear Conviction.
+
+Style:
+
+.hero-statement {
+  font-size: 24px;
+  line-height: 1.12;
+  font-weight: 400;
+  color: rgba(255,255,255,0.86);
+}
+
+CTA:
+
+Let’s Talk    ↗
+
+Small white button + dark icon block.
+
+B. Logo Trust Strip
+Purpose
+
+A calm credibility section directly after the hero.
+
+Layout
+
+White background.
+
+Centered label:
+
+Trusted by Industry Leaders
+
+Below it, logos in a horizontal row.
+
+Spacing:
+
+.logo-strip {
+  padding: 90px 40px 80px;
+  text-align: center;
+}
+
+Logo row:
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+Logos should be black or charcoal with low visual aggression.
+
+Logo height:
+
+height: 18px to 26px;
+opacity: 0.78;
+
+Mobile behavior:
+
+Wrap into 2 or 3 columns.
+Maintain central alignment.
+Increase vertical spacing between rows.
+C. The Valence Perspective Section
+Layout Structure
+
+This section has:
+
+Small eyebrow label left
+Large title left
+Short paragraph right
+Large full-width image underneath
+
+Desktop arrangement:
+
+[Perspective]
+[The Valence Perspective]                         [Paragraph copy]
+[Large architecture image spanning full width]
+
+Recommended spacing:
+
+.perspective {
+  padding: 80px 40px 56px;
+}
+
+Header row:
+
+.perspective-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  margin-bottom: 48px;
+}
+
+Title:
+
+.section-title {
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+Small label:
+
+.eyebrow {
+  font-size: 11px;
+  color: #6f777d;
+  margin-bottom: 12px;
+}
+
+Right paragraph:
+
+.section-copy {
+  max-width: 420px;
+  justify-self: end;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #3f464b;
+}
+
+Image:
+
+.perspective-image {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+Image treatment:
+
+Desaturated blue/green tone
+Slight atmospheric haze
+Corporate architecture subject
+No rounded corners
+Sharp editorial rectangle
+D. Principles Section
+Structure
+
+Three equal columns with vertical borders.
+
+01 | 02 | 03
+Patience | Risk | Alignment
+Description | Description | Description
+Layout
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #e5e8ea;
+  border-bottom: 1px solid #e5e8ea;
+}
+
+Each card:
+
+.principle-card {
+  min-height: 260px;
+  padding: 34px 28px 42px;
+  border-right: 1px solid #e5e8ea;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+Number:
+
+font-size: 13px;
+color: #4f575c;
+
+Title:
+
+font-size: 18px;
+font-weight: 400;
+letter-spacing: -0.02em;
+
+Description:
+
+font-size: 12px;
+line-height: 1.45;
+color: #667078;
+max-width: 320px;
+
+Mobile behavior:
+
+Stack cards vertically.
+Keep top/bottom borders.
+Replace right borders with bottom borders.
+Maintain card height around 190px to 220px.
+E. Built on Principle / Selected Work Section
+
+This is one of the most important and visually distinctive sections.
+
+Layout
+
+Desktop grid:
+
+Left column:
+[Selected Work]
+[Built on Principle]
+[List of projects]
+
+Right area:
+[Small paragraph]
+[Large image] [Tall image]
+[Title + description] [CTA]
+
+The section uses an asymmetric editorial portfolio layout.
+
+Parent Grid
+.portfolio-section {
+  padding: 110px 40px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  column-gap: 56px;
+}
+Left Column
+
+Width: approximately 25%.
+
+Content:
+
+Selected Work
+Built on Principle
+
+Mayweather Holdings       ↗
+Berto Investments Group   ↗
+Atlas Industrial Holdings ↗
+Intersummit Systems       ↗
+Cascade Timber Reserve    ↗
+Harbour Logistics Capital ↗
+
+Styling:
+
+.project-list a {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #e7eaec;
+  font-size: 12px;
+  color: #7a8288;
+}
+
+Active item:
+
+Darker text
+Slightly stronger weight
+Still minimal
+Right Visual Layout
+
+Top paragraph sits above the image block, aligned to the right.
+
+Image grid:
+
+.portfolio-images {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+Large image:
+
+height: 520px;
+object-fit: cover;
+
+Tall image:
+
+height: 520px;
+object-fit: cover;
+
+Image subjects:
+
+Main image: architectural corridor / concrete entry / greenery
+Side image: glass atrium / roof grid / vegetation
+
+Both images should share:
+
+Cool tone
+Slight green-blue cast
+Soft contrast
+Modern infrastructure feel
+Bottom Content Row
+
+Under images:
+
+Atlas Industrial Holdings
+Description text
+                            [See Project] [↗]
+
+Suggested structure:
+
+.project-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  margin-top: 24px;
+}
+
+Title:
+
+font-size: 20px;
+font-weight: 400;
+letter-spacing: -0.03em;
+
+Description:
+
+font-size: 12px;
+line-height: 1.5;
+color: #5c656c;
+max-width: 520px;
+
+CTA:
+
+Dark navy rectangular button
+Small text
+Adjacent arrow square
+.dark-cta {
+  height: 32px;
+  background: #061426;
+  color: #fff;
+  padding: 0 18px;
+  font-size: 10px;
+}
+F. Full-Width Architecture Image Break
+
+A large image section separates portfolio and approach.
+
+Layout
+.image-break {
+  padding: 0 40px 100px;
+}
+
+.image-break img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+Image subject:
+
+Tall glass skyscrapers
+Upward corporate perspective
+Blue/cyan tone
+Slight mist or haze
+Strong vertical lines
+
+Purpose:
+
+Reinforces institutional scale.
+Gives the user visual breathing room.
+Prevents the page from becoming text-heavy.
+G. Investment Approach Section
+Structure
+[Process label]        Investment Approach
+Left paragraph         01 Public Markets     Description
+                       02 Private Equity     Description
+                       03 Real Assets        Description
+Layout
+
+Three-column style but practically two major zones:
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  column-gap: 80px;
+}
+
+Left:
+
+Small label
+Short paragraph placed lower
+
+Right:
+
+Heading
+List of investment categories
+
+Heading:
+
+.approach-title {
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+  margin-bottom: 48px;
+}
+
+Approach rows:
+
+.approach-row {
+  display: grid;
+  grid-template-columns: 48px 1fr 1.6fr;
+  padding: 28px 0;
+  border-bottom: 1px solid #e1e5e7;
+  align-items: start;
+}
+
+Number:
+
+font-size: 12px;
+color: #8b9298;
+
+Category:
+
+font-size: 15px;
+font-weight: 500;
+
+Description:
+
+font-size: 12px;
+line-height: 1.45;
+color: #5f6970;
+
+Mobile:
+
+Stack label, heading, paragraph, and rows.
+Approach row becomes:
+01
+Public Markets
+Description
+H. Final CTA Section
+Visual Style
+
+Dark blue overlay on a city skyscraper image.
+
+Text centered:
+
+Our Commitment to Create Long-Term Value Through
+Strategic Partnerships and Focused Investments
+
+Button below:
+
+Submit Opportunity    ↗
+Layout
+.final-cta {
+  min-height: 380px;
+  background-image: linear-gradient(rgba(5,18,35,.72), rgba(5,18,35,.72)), url(...);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+Text:
+
+.cta-heading {
+  max-width: 760px;
+  font-size: 28px;
+  line-height: 1.25;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+Button:
+
+White rectangular main button
+Small dark square arrow
+Centered below heading
+I. Footer
+Structure
+
+Deep navy background.
+
+Top footer:
+
+Left brand message        Navigation        Legal/Policy/Portfolio links
+Social icons
+
+Bottom footer:
+
+Huge faded VALENCE wordmark
+Copyright / Privacy / Cookies / Terms
+Footer Styling
+.footer {
+  background: #061426;
+  color: #ffffff;
+  padding: 56px 40px 24px;
+}
+
+Footer grid:
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 5fr 2fr 2fr 2fr;
+  gap: 48px;
+}
+
+Left text:
+
+.footer-statement {
+  font-size: 18px;
+  line-height: 1.35;
+  max-width: 360px;
+}
+
+Footer links:
+
+.footer a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  line-height: 2;
+}
+
+Large wordmark:
+
+.footer-wordmark {
+  font-size: clamp(96px, 18vw, 260px);
+  line-height: 0.75;
+  letter-spacing: -0.08em;
+  color: rgba(255,255,255,0.06);
+  margin-top: 90px;
+}
+
+Important: The large “VALENCE” wordmark should feel like a background watermark, not readable primary content.
+
+3. Motion Graphics Developer Perspective
+
+The motion should be quiet, expensive, slow, and controlled. Avoid bouncy animations, playful effects, or aggressive scroll effects.
+
+Page Load Animation
+Header
+Header fades in from opacity 0 to 1.
+Slight downward movement: 8px.
+Duration: 700ms.
+Delay: 100ms.
+opacity: 0 → 1
+y: -8 → 0
+ease: cubic-bezier(0.22, 1, 0.36, 1)
+Hero Background
+Slow scale-down from 1.06 to 1.
+Duration: 1600ms.
+Opacity from 0.85 to 1.
+Creates cinematic entrance.
+Hero Title
+
+Animate title line-by-line:
+
+Valence
+Capital
+
+Animation:
+
+Clip-path reveal from bottom to top.
+Slight y movement: 48px to 0.
+Duration: 900ms each.
+Delay between lines: 150ms.
+Scroll Animations
+Logo Strip
+Logos fade in one by one.
+Stagger: 80ms.
+Movement: y 16px to 0.
+Duration: 500ms.
+Section Headers
+
+Use masked text reveal.
+
+clip-path: inset(100% 0 0 0) → inset(0 0 0 0)
+
+This matches luxury editorial motion.
+
+Images
+
+Images should use:
+
+Subtle parallax
+Slow scale
+Vertical reveal mask
+
+Example:
+
+image scale: 1.08 → 1
+container clip reveal: top to bottom
+
+On scroll:
+
+translateY: -24px to 24px
+
+This should be subtle.
+
+Principle Cards
+
+Each card animates in from bottom.
+
+Stagger: 120ms
+Y: 24px to 0
+Opacity: 0 to 1
+Duration: 650ms
+
+Border lines can animate horizontally from 0% width to 100%.
+
+Portfolio Section
+
+Recommended animation sequence:
+
+Left title fades in.
+Project list items reveal top to bottom.
+Main image reveals using vertical mask.
+Side image follows with 120ms delay.
+Project metadata fades up.
+CTA fades in last.
+
+Hover state for project list:
+
+Text darkens
+Arrow shifts 4px diagonally
+Bottom border opacity increases
+CTA Buttons
+
+Button hover:
+
+Main rectangle darkens or inverts.
+Arrow square slides slightly.
+Arrow icon moves 3px diagonally upward.
+Duration: 240ms.
+transition: all 240ms cubic-bezier(.22,1,.36,1);
+Footer Motion
+
+Large “VALENCE” wordmark can slowly fade in when footer enters viewport.
+
+Optional subtle motion:
+
+VALENCE moves from y: 40px to y: 0
+opacity: 0 → 0.06
+
+Do not animate it aggressively.
+
+4. Graphic Designer Perspective
+Visual Language
+
+The overall design language is:
+
+Institutional editorial minimalism
+
+It combines:
+
+Swiss-style layout discipline
+Luxury finance typography
+Architectural photography
+Muted monochrome palette
+Deep navy footer contrast
+Large editorial type
+Color Palette
+Primary Colors
+Use	Color
+Main background	#FFFFFF
+Primary text	#11161A
+Secondary text	#5F6870
+Muted text	#8B949B
+Border lines	#E4E8EA
+Deep navy footer	#061426
+Hero overlay	rgba(4, 18, 31, 0.45)
+White text	#F7F9FA
+Image Treatment
+
+All images should feel visually connected.
+
+Treatment rules:
+
+filter: saturate(0.82) contrast(0.92) brightness(0.94);
+
+Mood:
+
+Cool blue-green shadows
+Corporate architecture
+Large scale
+Clean geometry
+Glass, steel, concrete, greenery
+No overly warm lifestyle photography
+No people-focused imagery
+
+The photography should communicate:
+
+Stability
+Scale
+Global capital
+Structure
+Precision
+Quiet growth
+Typography
+
+The typography appears to use a modern grotesk/sans-serif with editorial proportions.
+
+Recommended font options:
+
+Option 1 — Closest Premium Feel
+font-family: "Neue Haas Grotesk Display", "Inter", sans-serif;
+Option 2 — Web-Safe Modern
+font-family: "Inter Tight", "Inter", sans-serif;
+Option 3 — More Institutional
+font-family: "Suisse Int'l", "Helvetica Neue", Arial, sans-serif;
+Type Hierarchy
+Element	Size Desktop	Weight	Letter Spacing
+Hero title	120–170px	300	-7%
+Section title	30–38px	400	-4%
+Body copy	12–14px	400	-1%
+Labels	10–12px	400	0%
+Nav	10–11px	400	0%
+CTA	10–11px	500	0%
+Graphic Details
+
+Important visual details to preserve:
+
+Thin horizontal line across hero typography.
+Very small navigation text.
+Large, quiet whitespace.
+Sharp rectangular imagery.
+Thin divider lines between content blocks.
+No rounded image corners.
+No decorative icons except arrow marks.
+Logo strip should be monochrome.
+Footer wordmark should be oversized and barely visible.
+Buttons should be compact, not oversized.
+5. Full-Stack Developer Perspective
+Recommended Component Architecture
+
+For React / Next.js:
+
+components/
+  Header.tsx
+  Hero.tsx
+  LogoStrip.tsx
+  PerspectiveSection.tsx
+  PrinciplesGrid.tsx
+  PortfolioSection.tsx
+  ImageBreak.tsx
+  InvestmentApproach.tsx
+  FinalCTA.tsx
+  Footer.tsx
+  ButtonArrow.tsx
+  SectionLabel.tsx
+  RevealImage.tsx
+  AnimatedText.tsx
+CMS/Data Structure
+
+This page should be CMS-driven.
+
+Hero Fields
+hero: {
+  logoText: string;
+  navItems: NavItem[];
+  titleLineOne: string;
+  titleLineTwo: string;
+  introText: string;
+  statement: string;
+  backgroundImage: Image;
+  primaryCTA: CTA;
+}
+Logo Strip Fields
+trustedLogos: {
+  label: string;
+  logos: {
+    name: string;
+    image: string;
+    alt: string;
+  }[];
+}
+Perspective Section Fields
+perspective: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: Image;
+}
+Principles Fields
+principles: {
+  number: string;
+  title: string;
+  description: string;
+}[];
+Portfolio Fields
+portfolio: {
+  eyebrow: string;
+  title: string;
+  introText: string;
+  selectedItems: {
+    name: string;
+    url: string;
+    active: boolean;
+  }[];
+  featuredProject: {
+    title: string;
+    description: string;
+    imageLarge: Image;
+    imageSide: Image;
+    cta: CTA;
+  };
+}
+Investment Approach Fields
+investmentApproach: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: {
+    number: string;
+    title: string;
+    description: string;
+  }[];
+}
+Footer Fields
+footer: {
+  statement: string;
+  socialLinks: SocialLink[];
+  linkGroups: {
+    title?: string;
+    links: NavItem[];
+  }[];
+  wordmark: string;
+  legalLinks: NavItem[];
+}
+Frontend Implementation Notes
+
+Use:
+
+Next.js or React
+Framer Motion for controlled reveal animations
+GSAP only if advanced scroll/masking is needed
+CSS Grid for layout
+CSS variables for theme consistency
+Responsive image optimization
+Lazy loading for below-fold images
+Performance Rules
+
+Because this page is image-heavy:
+
+1. Use WebP or AVIF images.
+2. Serve responsive sizes.
+3. Preload only the hero image.
+4. Lazy-load all below-fold imagery.
+5. Add low-quality blurred placeholders.
+6. Keep animations transform/opacity based.
+7. Avoid heavy scroll listeners.
+8. Use IntersectionObserver for reveals.
+Accessibility Notes
+
+Even though the design is minimal, it still needs:
+
+Proper heading order
+Alt text for every image
+Keyboard-accessible navigation
+Focus states on CTAs
+Sufficient contrast over hero image
+Reduced motion fallback
+
+Example:
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+Responsive Behavior
+Desktop
+Full editorial composition.
+12-column grid.
+Hero title oversized.
+Portfolio section keeps split layout.
+Logos in one horizontal row.
+Tablet
+
+Adjustments:
+
+Reduce hero title size.
+Header nav may remain visible but compressed.
+Portfolio section becomes 40/60 split or stacked.
+Principles remain three columns if width allows.
+Investment approach stays two-column.
+Mobile
+
+Mobile behavior should be carefully simplified.
+
+Header
+[Logo]                                  [Menu]
+Hide center nav.
+Keep Submit Opportunity either hidden or inside menu.
+Use hamburger or compact plus icon.
+Hero
+Valence
+Capital
+Intro copy
+Statement
+CTA
+Title remains large but not overflowing.
+Background image height: 90vh.
+Text aligns left.
+Remove complex horizontal line if it causes clutter.
+Logos
+2-column or 3-column grid.
+More spacing between rows.
+Perspective
+Stack title and paragraph.
+Image height around 320px.
+Principles
+Stack cards vertically.
+Keep numbered structure.
+Portfolio
+Stack all content.
+Project list appears before images.
+Images become single-column.
+Side image can appear below main image.
+CTA aligns left.
+Investment Approach
+Stack all rows.
+Each approach item becomes a clean card/list row.
+Footer
+Stack columns.
+Wordmark remains large but cropped or reduced.
+Legal links wrap.
+Build Summary
+
+This layout should be recreated as a premium institutional landing page with:
+
+Full-width cinematic hero
+Oversized editorial typography
+Minimal header navigation
+Small compact CTA buttons
+Trusted logo strip
+Large architectural imagery
+Three-part principle grid
+Asymmetric selected work section
+Structured investment approach list
+Dark image-based final CTA
+Deep navy footer with giant faded wordmark
+
+The most important thing to preserve is the quiet confidence of the layout. Every element should feel intentional, restrained, and expensive.

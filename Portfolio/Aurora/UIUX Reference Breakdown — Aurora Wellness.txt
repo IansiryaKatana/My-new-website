@@ -1,0 +1,730 @@
+UI/UX Reference Breakdown — Wellness / Self-Care Landing Page
+
+This concept is a premium wellness, nutrition, and guided self-care landing page. The design language is soft, editorial, calm, clinical-but-human, and image-led. It combines lifestyle photography, minimal typography, rounded cards, and subtle product/service commerce UI.
+
+The page should feel like a mix of:
+
+Wellness platform
+Nutrition consultation service
+Personal health subscription
+Premium self-care brand
+Light digital therapy / coaching product
+1. Project Manager View
+Overall Page Objective
+
+The page is designed to sell a calm, personalized wellness experience. It introduces the brand, builds trust through lifestyle imagery and reviews, presents treatment/nutrition solutions, showcases product formulas, and closes with testimonials, FAQs, and footer conversion.
+
+The experience should not feel like aggressive sales. It should feel guided, intimate, natural, and expert-led.
+
+Page Structure
+Section 1 — Hero
+
+Purpose:
+Create immediate emotional connection through soft cinematic lifestyle imagery.
+
+Content elements:
+
+Full-width hero image/video background
+Top navigation
+Logo/brand mark
+Large soft headline
+Small supporting paragraph
+Primary CTA button
+Small page/status labels
+
+Message:
+Thoughtful care for the body, designed to bring balance naturally and gently.
+
+Section 2 — Lifestyle / Value Statement
+
+Purpose:
+Explain the philosophy of the platform and build emotional trust.
+
+Content elements:
+
+Editorial quote headline
+Lifestyle image card
+Secondary wellness image
+Small progress/stat card
+Rating snippet
+CTA button
+
+Message:
+Digital self-help positioned as mindful practice, not a cold app.
+
+Section 3 — Nutrition Support
+
+Purpose:
+Introduce expert-led nutrition and balanced living support.
+
+Content elements:
+
+Section heading
+Category filter chips
+Doctor profile card
+Food/lifestyle image
+Metric/stat overlay card
+CTA button
+
+Message:
+Users receive human-backed nutritional guidance.
+
+Section 4 — Treatment Discovery
+
+Purpose:
+Present the available treatment/service options in a clean comparison-style layout.
+
+Content elements:
+
+Heading
+Large treatment card with image and price
+Service list on right
+Active treatment highlight
+Reviews/rating
+CTA
+
+Message:
+The platform offers guided treatments for weight loss, hormones, aging, and overall health.
+
+Section 5 — Product Formula / Shop Section
+
+Purpose:
+Showcase daily wellness products or formulas.
+
+Content elements:
+
+Category navigation
+Search field
+Large product gallery
+Featured product detail
+Product thumbnails
+Rating
+CTA
+
+Message:
+Daily formulas are crafted to support natural rhythm.
+
+Section 6 — Testimonials
+
+Purpose:
+Build credibility and trust with member stories.
+
+Content elements:
+
+Dark green full-width section
+Large testimonial card
+Customer image
+Quote
+Customer name/title
+Carousel controls
+
+Message:
+Members have built trusted wellness habits through the program.
+
+Section 7 — FAQ
+
+Purpose:
+Answer conversion objections before the footer.
+
+Content elements:
+
+FAQ heading
+Accordion questions
+Small CTA block
+
+Likely FAQ topics:
+
+Private experience
+Session cost
+Beginner access
+Physical locations
+Internet/technical support
+Section 8 — Footer
+
+Purpose:
+Final conversion and navigation.
+
+Content elements:
+
+Dark footer
+Newsletter/journey CTA
+Service links
+Contact details
+Legal/social links
+Product/service categories
+2. UI/UX Engineer View
+Layout System
+
+The page uses a 12-column desktop grid with generous whitespace. Most sections appear constrained inside a large max-width container, while the hero and testimonial section use a fuller width.
+
+Recommended container system:
+
+.page-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+Mobile should collapse into a single-column layout with large image cards stacked vertically.
+
+Visual Rhythm
+
+The layout alternates between:
+
+Full-width cinematic hero
+White editorial sections
+Soft gray product/treatment blocks
+Dark green trust section
+Clean FAQ
+Black footer
+
+This creates a calm scroll journey rather than a repetitive page.
+
+Hero Layout
+Desktop Structure
+------------------------------------------------
+| Logo         Nav Links                CTA     |
+|                                              |
+|                                              |
+| Large headline         Small intro + CTA     |
+|                                              |
+| Small label                          Counter |
+------------------------------------------------
+Key UX Details
+Background image/video should be slightly blurred or softened.
+Text is white or off-white.
+CTA is a pill-shaped button.
+Navigation is tiny, refined, and minimal.
+Hero height should be close to full viewport.
+
+Recommended:
+
+.hero {
+  min-height: 760px;
+  height: 100vh;
+  position: relative;
+  border-radius: 0;
+  overflow: hidden;
+}
+Section 2 Layout
+
+This section uses an editorial collage layout.
+
+------------------------------------------------
+| Small label                              2025 |
+|                                              |
+| Image card      Large quote text             |
+|                 Small image + CTA/stat card  |
+|                                              |
+| Rating                                       |
+------------------------------------------------
+UX Purpose
+
+The section should feel like a visual magazine spread. It is not a standard card grid.
+
+Important Details
+Left image card is vertical with rounded corners.
+Central quote takes visual priority.
+Lower-right green stat card gives product/app credibility.
+Small image beside stat card creates lifestyle depth.
+Section 3 Layout
+------------------------------------------------
+| Label                                  2025   |
+| Heading        subtle icon/mark               |
+| Category chips                                 |
+| Doctor card                    Food image     |
+|                                Stats overlay  |
+------------------------------------------------
+Interaction
+
+Category chips should be clickable filters.
+
+Example categories:
+
+Clinical support
+Professional care
+Mindful wellness
+Weight loss
+Gut health
+Sleep
+
+The doctor card can update based on selected category.
+
+Section 4 Layout
+------------------------------------------------
+| Heading                  Small quote          |
+| Large card               Treatment list       |
+|                          Active item          |
+|                          Inactive items       |
+------------------------------------------------
+UX Details
+The active treatment is darker and has a CTA.
+Inactive treatments are lower contrast.
+Circular step markers sit between image card and list.
+Treatment card contains price, duration, and metrics.
+Section 5 Layout
+------------------------------------------------
+| Category tabs                      Search     |
+| Main headline                                  |
+| Product gallery        Product detail panel   |
+| Large featured item    Thumbnail options      |
+------------------------------------------------
+Product UX
+
+The selected product should control:
+
+Product name
+Image
+Rating
+Description
+CTA
+Thumbnails
+
+This section behaves like a small product configurator.
+
+Section 6 Layout
+
+Dark testimonial section.
+
+------------------------------------------------
+| Small label                              2025 |
+| Heading                          Controls     |
+|                                              |
+| Portrait image     Large testimonial card     |
+|                    Quote + person info        |
+------------------------------------------------
+UX Details
+The dark green background creates visual pause.
+Testimonial card uses pale cream/green.
+Carousel arrows sit top-right.
+Portrait is soft and cinematic.
+Section 7 Layout
+
+FAQ section uses two columns.
+
+------------------------------------------------
+| Left heading           Right accordion list   |
+|                        Question row + icon    |
+| Small CTA                                    |
+------------------------------------------------
+FAQ Behavior
+
+Each item should expand smoothly on click.
+
+Accordion row styling:
+
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  padding: 22px 0;
+}
+Footer Layout
+------------------------------------------------
+| CTA headline       Services    Contact        |
+| CTA button         Links       Address        |
+|                                              |
+| Social/legal links                            |
+------------------------------------------------
+
+Footer should be dense but still clean.
+
+3. Motion Graphics Developer View
+Overall Motion Language
+
+Motion should be slow, soft, and premium.
+
+Avoid:
+
+Fast bouncy effects
+Harsh zooms
+Overly playful animation
+Heavy 3D transitions
+
+Use:
+
+Smooth fade-ins
+Gentle image scale
+Mask reveals
+Text line reveals
+Slow parallax
+Soft hover transitions
+Hero Motion
+On Page Load
+Background image/video fades in.
+Background slowly scales from 1.08 to 1.0.
+Navigation fades down.
+Headline appears line by line.
+CTA fades in after headline.
+
+Recommended timing:
+
+heroImage: 1200ms ease-out
+nav: 600ms delay 200ms
+headline: 900ms delay 400ms
+cta: 500ms delay 900ms
+Background Treatment
+
+Hero image should have a subtle breathing motion:
+
+transform: scale(1.05);
+animation: slowZoom 14s ease-out forwards;
+Scroll Animation
+
+Each section should use scroll-triggered reveals.
+
+Suggested Pattern
+Section label: fade up first
+Heading: line mask reveal
+Images/cards: fade up with slight scale
+Buttons: fade in last
+
+Example:
+
+Section enters viewport:
+0ms label
+150ms heading
+300ms image/card group
+500ms supporting text
+650ms CTA
+Card Hover Effects
+
+Cards should have minimal movement.
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+Image hover:
+
+.image-card img:hover {
+  transform: scale(1.04);
+}
+
+Use a long transition:
+
+transition: all 700ms cubic-bezier(.16, 1, .3, 1);
+Treatment List Motion
+
+When selecting a treatment:
+
+Active item expands slightly
+Description fades in
+CTA slides/fades in
+Image card changes with crossfade
+Step marker fills subtly
+
+Do not use hard tab switching. It should feel fluid.
+
+Product Section Motion
+
+Product carousel behavior:
+
+Selected product image slides softly from right to left
+Main product card fades and scales
+Thumbnail opacity changes
+CTA pill gently appears
+Testimonial Motion
+
+Carousel should use:
+
+Fade transition
+Slight vertical movement
+Portrait crossfade
+Quote text line reveal
+
+Controls should have hover opacity and soft background fill.
+
+4. Graphic Designer View
+Design Personality
+
+The visual identity is:
+
+Natural
+Minimal
+Editorial
+Human
+Premium
+Soft clinical
+Wellness-focused
+Slightly Scandinavian/Japanese in spacing and restraint
+
+It avoids loud fitness branding. It is closer to ritual, balance, calm, and guided care.
+
+Color Palette
+Primary Colors
+Use	Color Direction
+Background	Warm white / off-white
+Text	Soft black / charcoal
+Primary accent	Deep forest green
+Secondary accent	Pale lime green
+Card background	Light stone gray
+Highlight background	Cream green
+Footer	Near black
+
+Approximate palette:
+
+--white: #F7F7F3;
+--warm-white: #F2F1EA;
+--stone: #E9E8E2;
+--charcoal: #1D211F;
+--muted-text: #777A73;
+--forest: #17382D;
+--deep-green: #10281F;
+--lime-card: #DDFB72;
+--cream-green: #EEF5C9;
+--black: #050706;
+Typography
+
+The type style is minimal and highly refined.
+
+Recommended Fonts
+
+For exact visual closeness:
+
+Primary sans: Neue Haas Grotesk, Helvetica Now, Suisse Intl, Inter, or Satoshi
+Fallback: Inter / Arial
+Typography Style
+Element	Style
+Hero headline	Large, light-weight sans
+Section heading	Light sans, tight line-height
+Body text	Small, muted, regular
+Navigation	Tiny uppercase or small-case
+Buttons	Small, rounded, clean
+Labels	Micro text, uppercase or spaced
+Suggested Sizes
+.hero-title {
+  font-size: clamp(42px, 6vw, 86px);
+  line-height: 0.95;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+}
+
+.section-title {
+  font-size: clamp(34px, 4vw, 64px);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.045em;
+}
+
+.body-small {
+  font-size: 13px;
+  line-height: 1.45;
+}
+Image Direction
+
+Images are the strongest part of the design.
+
+Photography Style
+Soft natural light
+Slight blur/motion blur
+Warm highlights
+Low contrast
+Human skin tones
+Wellness, food, meditation, quiet lifestyle
+No over-polished stock image look
+Image Treatment
+
+Use:
+
+filter: saturate(0.85) contrast(0.9);
+
+Optional overlay:
+
+background: rgba(20, 30, 20, 0.18);
+
+Hero image should feel slightly dreamy and out of focus.
+
+Card Styling
+
+Cards are rounded but not overly playful.
+
+.card {
+  border-radius: 18px;
+  overflow: hidden;
+  background: #F2F1EA;
+}
+
+Buttons:
+
+.button {
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 12px;
+}
+Visual Hierarchy Rules
+Large typography leads each section.
+Images support mood and trust.
+Buttons are small and refined.
+Stats are minimal but visually distinct.
+Nothing should feel crowded.
+Text blocks should remain short.
+White space is part of the design.
+5. Full-Stack Developer View
+Recommended Tech Stack
+
+For exact reproduction:
+
+Frontend
+Next.js / React
+TypeScript
+Tailwind CSS
+Framer Motion
+GSAP optional for advanced scroll reveals
+Lenis for smooth scrolling
+Swiper or Embla for testimonials/product carousel
+Backend / CMS
+
+Use a CMS if content needs to be editable:
+
+Sanity
+Strapi
+Payload CMS
+WordPress headless
+Supabase for structured product/treatment data
+Component Architecture
+/components
+  Header.tsx
+  HeroSection.tsx
+  PhilosophySection.tsx
+  NutritionSection.tsx
+  TreatmentSection.tsx
+  FormulaSection.tsx
+  TestimonialSection.tsx
+  FAQSection.tsx
+  Footer.tsx
+
+/components/ui
+  Button.tsx
+  SectionLabel.tsx
+  ImageCard.tsx
+  Rating.tsx
+  Accordion.tsx
+  ProductCard.tsx
+  TreatmentListItem.tsx
+Data Models
+Treatments
+type Treatment = {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  duration: string;
+  image: string;
+  rating: number;
+  reviewCount: number;
+  benefits: string[];
+};
+
+Example treatments:
+
+[
+  {
+    title: "Weight loss treatment",
+    description: "Expert nutritional and balanced weight care through personalized care plans.",
+    price: 400,
+    duration: "12 weeks",
+    rating: 5,
+    reviewCount: 74
+  },
+  {
+    title: "Testosterone booster",
+    description: "Support energy, strength, and hormonal balance."
+  },
+  {
+    title: "Progesterone balancing",
+    description: "Restore hormonal rhythm with guided care."
+  },
+  {
+    title: "Anti-aging treatment",
+    description: "Support longevity and natural vitality."
+  }
+]
+Products
+type Product = {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  rating: number;
+  image: string;
+  thumbnails: string[];
+  price?: number;
+};
+Testimonials
+type Testimonial = {
+  id: string;
+  quote: string;
+  name: string;
+  role: string;
+  image: string;
+};
+FAQs
+type FAQ = {
+  question: string;
+  answer: string;
+};
+CMS Editable Fields
+
+The client should be able to edit:
+
+Hero headline
+Hero image/video
+Hero CTA
+Philosophy quote
+Nutrition categories
+Doctor/expert profiles
+Treatments
+Product formulas
+Testimonials
+FAQ questions/answers
+Footer links
+Contact details
+Performance Requirements
+
+Because this page is image-heavy, development must prioritize performance.
+
+Required Optimizations
+Use responsive images.
+Use WebP/AVIF formats.
+Lazy-load below-the-fold images.
+Preload hero image/video.
+Compress video background heavily.
+Avoid loading all carousel images upfront.
+Use skeleton placeholders if content is CMS-driven.
+
+Example:
+
+<Image
+  src={image}
+  alt={alt}
+  fill
+  priority={isHero}
+  sizes="(max-width: 768px) 100vw, 50vw"
+/>
+6. Exact Reproduction Notes
+Key Things That Must Be Preserved
+
+To reproduce this reference accurately, the developer/designer must preserve:
+
+Soft cinematic hero image
+Large light-weight typography
+Tiny refined navigation
+Editorial collage layouts
+Rounded lifestyle image cards
+Deep green testimonial block
+Pale lime highlight cards
+Minimal pill buttons
+Very generous whitespace
+Muted, calm color palette
+Subtle wellness/clinical credibility
+Smooth scroll reveal animation
+FAQ accordion with thin divider lines
+Dark dense footer
+7. Prompt for Rebuilding This UI
+
+Use this as the production direction:
+
+Create a premium wellness and self-care landing page with a soft editorial design system. The page should use cinematic lifestyle photography, warm off-white backgrounds, deep forest green accents, pale lime highlight cards, minimal pill buttons, and large light-weight sans-serif typography. The layout should feel calm, natural, clinical, and human. Build sections for a full-screen hero, mindful self-help philosophy, nutrition support, treatment discovery, product formula showcase, testimonials, FAQs, and footer. Use generous spacing, rounded image cards, subtle stat overlays, animated scroll reveals, smooth carousel transitions, and a refined luxury wellness tone. Avoid harsh colors, heavy shadows, clutter, or generic SaaS styling.

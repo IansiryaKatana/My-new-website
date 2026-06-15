@@ -1,0 +1,39 @@
+<svg width="780" height="1080" viewBox="0 0 780 1080" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Ian Katana editorial portrait placeholder</title>
+  <desc id="desc">A warm, muted vector cutout silhouette for the portfolio hero, ready to be replaced with a transparent portrait PNG.</desc>
+  <defs>
+    <linearGradient id="skin" x1="373" y1="104" x2="390" y2="416" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A47558"/>
+      <stop offset="1" stop-color="#6F4939"/>
+    </linearGradient>
+    <linearGradient id="jacket" x1="380" y1="452" x2="390" y2="1038" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172015"/>
+      <stop offset="1" stop-color="#090B08"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="370" y1="514" x2="419" y2="1038" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8D7C3"/>
+      <stop offset="1" stop-color="#8E856F"/>
+    </linearGradient>
+    <filter id="soften" x="-40" y="-40" width="860" height="1160" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="0.45"/>
+    </filter>
+  </defs>
+  <g filter="url(#soften)">
+    <path d="M290 475C222 500 178 574 151 686C124 798 84 951 41 1080H739C695 946 656 796 629 687C602 577 556 501 490 476C448 508 332 507 290 475Z" fill="url(#jacket)"/>
+    <path d="M309 493C331 537 356 573 388 601C421 573 446 536 469 493C438 516 338 516 309 493Z" fill="#11140F"/>
+    <path d="M331 531L388 1034L451 531C431 565 411 589 388 607C366 589 346 565 331 531Z" fill="url(#shirt)"/>
+    <path d="M266 537C224 622 207 792 205 1080H51C91 942 124 799 151 687C178 574 222 501 290 475C293 489 285 508 266 537Z" fill="#252D21"/>
+    <path d="M514 537C556 622 573 792 575 1080H729C689 942 656 799 629 687C602 574 556 501 490 475C487 489 495 508 514 537Z" fill="#252D21"/>
+    <path d="M305 353C316 432 344 493 389 493C433 493 463 432 474 353C486 266 453 202 389 202C324 202 293 266 305 353Z" fill="url(#skin)"/>
+    <path d="M287 296C294 210 331 156 386 152C453 148 504 207 494 302C489 349 478 379 470 397C473 340 461 318 448 282C427 303 382 312 333 298C321 326 309 363 305 397C294 378 283 344 287 296Z" fill="#15130F"/>
+    <path d="M323 189C341 128 392 95 452 112C504 127 541 174 550 230C515 190 480 183 444 194C401 207 360 212 323 189Z" fill="#20120F"/>
+    <path d="M300 339C279 329 272 352 281 382C289 409 305 419 316 409L300 339Z" fill="#8A5C46"/>
+    <path d="M478 339C499 329 507 352 498 382C490 409 474 419 463 409L478 339Z" fill="#8A5C46"/>
+    <path d="M337 412C357 435 423 435 443 412C428 471 352 471 337 412Z" fill="#5C372C" opacity="0.72"/>
+    <path d="M347 344C360 336 372 336 384 344" stroke="#1B130F" stroke-width="8" stroke-linecap="round"/>
+    <path d="M430 344C417 336 405 336 393 344" stroke="#1B130F" stroke-width="8" stroke-linecap="round"/>
+    <path d="M389 354C383 380 379 398 387 406C394 413 407 409 417 402" stroke="#583528" stroke-width="7" stroke-linecap="round"/>
+    <path d="M264 535L331 531L388 1034L276 828L310 731L252 648L264 535Z" fill="#10140D" opacity="0.7"/>
+    <path d="M516 535L451 531L388 1034L504 828L470 731L528 648L516 535Z" fill="#10140D" opacity="0.7"/>
+  </g>
+</svg>
