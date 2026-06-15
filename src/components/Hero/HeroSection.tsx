@@ -28,8 +28,6 @@ export function HeroSection() {
       <HeroBackground />
       <HeroNavigation />
 
-      <div className="absolute inset-0 z-[2] bg-[radial-gradient(circle_at_50%_20%,rgba(218,216,197,0.16),transparent_25%),linear-gradient(90deg,rgba(16,20,13,0.2),transparent_45%,rgba(16,20,13,0.25))]" />
-
       <HeroTypography name={heroContent.name} role={heroRoleTitle} />
       <HeroSubject src={heroContent.subject.src} alt={heroContent.subject.alt} />
 
@@ -91,11 +89,6 @@ export function HeroSection() {
       </div>
 
       <HeroTicker items={heroContent.ticker} />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[30] opacity-[0.08] mix-blend-overlay [background-image:radial-gradient(circle_at_1px_1px,#fff_1px,transparent_0)] [background-size:4px_4px]"
-      />
     </section>
   )
 }
