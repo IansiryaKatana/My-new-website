@@ -20,8 +20,9 @@ insert into public.site_settings (key, value) values
       "twitter": "https://x.com/iansirya"
     },
     "navigation": [
-      {"label": "Work", "href": "/projects", "description": "Selected projects"},
+      {"label": "Work", "href": "/portfolio", "description": "Selected projects"},
       {"label": "About", "href": "/about", "description": "Background & approach"},
+      {"label": "Certifications", "href": "/certifications", "description": "Licenses & credentials"},
       {"label": "Experience", "href": "/experience", "description": "Roles & milestones"},
       {"label": "Contact", "href": "/contact", "description": "Start a project"}
     ],
@@ -61,8 +62,9 @@ insert into public.hero_content (
   '["Full Stack", "2026"]'::jsonb,
   '["Frontend Development", "Backend Development", "UI Engineering", "API Systems", "Web Applications", "Full Stack Development"]'::jsonb,
   '[
-    {"label": "Work", "href": "/projects"},
+    {"label": "Work", "href": "/portfolio"},
     {"label": "About", "href": "/about"},
+    {"label": "Certifications", "href": "/certifications"},
     {"label": "Experience", "href": "/experience"},
     {"label": "Contact", "href": "/contact"}
   ]'::jsonb,

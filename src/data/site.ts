@@ -16,6 +16,11 @@
     { label: 'Work', href: '/portfolio', description: 'Selected projects' },
     { label: 'About', href: '/about', description: 'Background & approach' },
     {
+      label: 'Certifications',
+      href: '/certifications',
+      description: 'Licenses & credentials',
+    },
+    {
       label: 'Experience',
       href: '/experience',
       description: 'Roles & milestones',

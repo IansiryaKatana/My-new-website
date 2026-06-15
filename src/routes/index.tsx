@@ -11,6 +11,7 @@ import { useSiteConfig } from '../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../lib/cms/useMarketingPage'
 import { createPageMeta, personJsonLd, websiteJsonLd } from '../lib/seo'
 import { buttonVariants } from '../components/ui/button'
+import { textCopySmResponsive } from '../lib/typography'
 import { cn } from '../lib/utils'
 
 export const Route = createFileRoute('/')({
@@ -83,7 +84,7 @@ function HomePage() {
                 ))}
               </div>
             </div>
-            <p className="mt-10 max-w-3xl text-sm leading-relaxed text-[#D8D7C3]/75 sm:text-base">
+            <p className={`mt-10 max-w-3xl ${textCopySmResponsive} text-[#D8D7C3]/75`}>
               {capabilities.description}
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">

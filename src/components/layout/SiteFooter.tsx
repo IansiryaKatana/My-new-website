@@ -1,6 +1,8 @@
 ﻿import { Link } from '@tanstack/react-router'
 
 import { useSiteConfig } from '../../contexts/CmsContext'
+import { fontCopy, textCopySm } from '../../lib/typography'
+import { cn } from '../../lib/utils'
 
 export function SiteFooter() {
   const siteConfig = useSiteConfig()
@@ -13,7 +15,7 @@ export function SiteFooter() {
           <p className="font-display text-3xl font-black uppercase tracking-[-0.03em]">
             {siteConfig.name}
           </p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-[#D8D7C3]/75">
+          <p className={cn('mt-4 max-w-md', textCopySm, 'text-[#D8D7C3]/75')}>
             {siteConfig.tagline}
           </p>
           <a
@@ -74,7 +76,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-6xl flex-col gap-3 border-t border-[#D8D7C3]/10 pt-6 text-sm text-[#D8D7C3]/60 sm:flex-row sm:items-center sm:justify-between">
+      <div className={cn('mx-auto mt-12 flex max-w-6xl flex-col gap-3 border-t border-[#D8D7C3]/10 pt-6 text-sm text-[#D8D7C3]/60 sm:flex-row sm:items-center sm:justify-between', fontCopy)}>
         <p>
           © {year} {siteConfig.name}. All rights reserved.
         </p>

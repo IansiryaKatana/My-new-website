@@ -18,6 +18,7 @@ import { AdminAuthProvider } from '../contexts/AdminAuthContext'
 import { CmsProvider } from '../contexts/CmsContext'
 import { siteConfig } from '../data/site'
 
+import { fontCopy } from '../lib/typography'
 import { createPageMeta } from '../lib/seo'
 
 
@@ -108,7 +109,7 @@ export const Route = createRootRoute({
 
         rel: 'stylesheet',
 
-        href: 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Geist:wght@200&display=swap',
 
       },
 
@@ -162,7 +163,7 @@ export const Route = createRootRoute({
           <h1 className="mt-3 font-display text-3xl font-black uppercase">
             Something went wrong
           </h1>
-          <p className="mt-4 text-sm text-[#D8D7C3]/80">
+          <p className={`mt-4 text-sm text-[#D8D7C3]/80 ${fontCopy}`}>
             {error instanceof Error ? error.message : String(error)}
           </p>
         </div>

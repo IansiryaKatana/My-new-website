@@ -6,7 +6,14 @@ import { siteConfig } from '../data/site'
 import { projects as staticProjects } from '../data/projects'
 import { projectCaseStudyPath } from '../lib/projectLinks'
 
-const STATIC_PATHS = ['/', '/about', '/portfolio', '/experience', '/contact']
+const STATIC_PATHS = [
+  '/',
+  '/about',
+  '/certifications',
+  '/portfolio',
+  '/experience',
+  '/contact',
+]
 
 export const Route = createFileRoute('/sitemap.xml')({
   server: {

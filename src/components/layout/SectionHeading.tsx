@@ -1,6 +1,7 @@
 ﻿import { Link } from '@tanstack/react-router'
-import { buttonVariants } from '../ui/button'
+import { textCopyBase } from '../../lib/typography'
 import { cn } from '../../lib/utils'
+import { buttonVariants } from '../ui/button'
 
 type SectionHeadingProps = {
   eyebrow: string
@@ -37,7 +38,7 @@ export function SectionHeading({
           {title}
         </h2>
         {description ? (
-          <p className={`mt-4 max-w-2xl text-base leading-relaxed ${muted}`}>
+          <p className={cn('mt-4 max-w-2xl', textCopyBase, muted)}>
             {description}
           </p>
         ) : null}

@@ -2,6 +2,7 @@
 
 import { useHeroContent, useSiteConfig } from '../../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../../lib/cms/useMarketingPage'
+import { textCopySm } from '../../lib/typography'
 import { SectionHeading } from '../layout/SectionHeading'
 
 type AboutPreviewSection = {
@@ -67,7 +68,7 @@ export function AboutPreview() {
             {section.stats.map((stat) => (
               <div key={stat.label} className="border border-[#D8D7C3]/15 p-5">
                 <p className="font-display text-4xl font-black uppercase">{stat.value}</p>
-                <p className="mt-2 text-sm text-[#D8D7C3]/75">{stat.label}</p>
+                <p className={`mt-2 ${textCopySm} text-[#D8D7C3]/75`}>{stat.label}</p>
               </div>
             ))}
           </div>

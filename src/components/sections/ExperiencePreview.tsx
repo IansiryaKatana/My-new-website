@@ -3,6 +3,7 @@
 import { useExperience } from '../../contexts/CmsContext'
 import { getHomeExperiencePreview } from '../../lib/cms/queries'
 import { getMarketingSection, useMarketingPage } from '../../lib/cms/useMarketingPage'
+import { fontCopy, textCopySm } from '../../lib/typography'
 import { SectionHeading } from '../layout/SectionHeading'
 
 type ExperiencePreviewSection = {
@@ -60,11 +61,11 @@ export function ExperiencePreview() {
                 <p className="mt-2 font-display text-lg font-black uppercase text-[#D8D7C3]/80">
                   {item.company}
                 </p>
-                <p className="mt-2 text-sm text-[#D8D7C3]/65">{item.location}</p>
+                <p className={`mt-2 text-sm text-[#D8D7C3]/65 ${fontCopy}`}>{item.location}</p>
               </div>
               <div>
-                <p className="text-sm leading-relaxed text-[#D8D7C3]/85">{item.summary}</p>
-                <ul className="mt-4 grid gap-2 text-sm text-[#D8D7C3]/75">
+                <p className={`${textCopySm} text-[#D8D7C3]/85`}>{item.summary}</p>
+                <ul className={`mt-4 grid gap-2 text-sm text-[#D8D7C3]/75 ${fontCopy}`}>
                   {item.highlights.slice(0, item.previewLimit).map((highlight) => (
                     <li key={highlight} className="flex gap-3">
                       <span aria-hidden="true" className="text-[#D8D7C3]/40">

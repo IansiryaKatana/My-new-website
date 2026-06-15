@@ -6,6 +6,7 @@ import { PageShell } from '../components/layout/PageShell'
 import { buttonVariants } from '../components/ui/button'
 import { useHeroContent, useSiteConfig } from '../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../lib/cms/useMarketingPage'
+import { textCopyLg, textCopySm } from '../lib/typography'
 import { breadcrumbJsonLd, createPageMeta, personJsonLd } from '../lib/seo'
 
 export const Route = createFileRoute('/about')({
@@ -90,7 +91,7 @@ function AboutPage() {
 
         <div className="grid gap-8 text-[#D8D7C3]/85">
           {sections.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="text-base leading-relaxed sm:text-lg">
+            <p key={paragraph} className={textCopyLg}>
               {paragraph}
             </p>
           ))}
@@ -99,7 +100,7 @@ function AboutPage() {
             {sections.cards.map((item) => (
               <div
                 key={item}
-                className="border border-[#D8D7C3]/15 p-5 text-sm leading-relaxed"
+                className={`border border-[#D8D7C3]/15 p-5 ${textCopySm}`}
               >
                 {item}
               </div>

@@ -79,15 +79,11 @@ export const heroContent = {
   ],
 
   navigation: [
-
     { label: 'Work', href: '/portfolio' },
-
     { label: 'About', href: '/about' },
-
+    { label: 'Certifications', href: '/certifications' },
     { label: 'Experience', href: '/experience' },
-
     { label: 'Contact', href: '/contact' },
-
   ],
 
 }

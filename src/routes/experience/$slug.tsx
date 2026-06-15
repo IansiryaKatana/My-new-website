@@ -10,6 +10,7 @@ import {
   experienceDetailPath,
   formatEmploymentMeta,
 } from '../../lib/experienceLinks'
+import { fontCopy, textCopyLg } from '../../lib/typography'
 import { breadcrumbJsonLd, createPageMeta } from '../../lib/seo'
 
 export const Route = createFileRoute('/experience/$slug')({
@@ -73,7 +74,7 @@ function ExperienceDetailPage() {
             </p>
           ) : null}
 
-          <p className="text-base leading-relaxed text-[#D8D7C3]/85 sm:text-lg">
+          <p className={`${textCopyLg} text-[#D8D7C3]/85`}>
             {item.detailIntro || item.summary}
           </p>
 
@@ -86,7 +87,7 @@ function ExperienceDetailPage() {
                 {item.technologies.map((tech) => (
                   <li
                     key={tech}
-                    className="border border-[#D8D7C3]/15 px-3 py-1 text-sm text-[#D8D7C3]/80"
+                    className={`border border-[#D8D7C3]/15 px-3 py-1 text-sm text-[#D8D7C3]/80 ${fontCopy}`}
                   >
                     {tech}
                   </li>
@@ -100,7 +101,7 @@ function ExperienceDetailPage() {
           <h2 className="font-display text-2xl font-black uppercase sm:text-3xl">
             Responsibilities
           </h2>
-          <ul className="mt-6 grid gap-4 text-sm text-[#D8D7C3]/80 sm:text-base">
+          <ul className={`mt-6 grid gap-4 text-sm text-[#D8D7C3]/80 sm:text-base ${fontCopy}`}>
             {responsibilities.map((responsibility) => (
               <li key={responsibility} className="flex gap-3 leading-relaxed">
                 <span aria-hidden="true" className="text-[#D8D7C3]/35">

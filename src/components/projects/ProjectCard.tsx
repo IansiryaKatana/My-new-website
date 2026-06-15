@@ -1,6 +1,7 @@
 ﻿import { Link } from '@tanstack/react-router'
 import type { Project } from '../../data/projects'
 import { resolveProjectHref } from '../../lib/projectLinks'
+import { textCopySm } from '../../lib/typography'
 
 type ProjectCardProps = {
   project: Project
@@ -58,7 +59,7 @@ export function ProjectCard({ project, invert = false }: ProjectCardProps) {
           </Link>
         </h3>
 
-        <p className="mt-4 flex-1 text-sm leading-relaxed opacity-80">{project.summary}</p>
+        <p className={`mt-4 flex-1 ${textCopySm} opacity-80`}>{project.summary}</p>
 
         <div className="mt-6 flex flex-wrap gap-2">
           {project.tags.map((tag) => (

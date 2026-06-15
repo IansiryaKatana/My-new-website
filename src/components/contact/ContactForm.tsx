@@ -2,6 +2,7 @@
 
 import { useSiteConfig } from '../../contexts/CmsContext'
 import { getSupabase } from '../../integrations/supabase/client'
+import { fontCopy, textCopySm } from '../../lib/typography'
 import { Button } from '../ui/button'
 
 type FormState = {
@@ -93,7 +94,7 @@ export function ContactForm() {
   }
 
   const fieldClass =
-    'w-full border border-[#11140F]/20 bg-transparent px-4 py-3 text-sm text-[#11140F] outline-none transition-colors focus:border-[#11140F]'
+    `w-full border border-[#11140F]/20 bg-transparent px-4 py-3 text-sm text-[#11140F] outline-none transition-colors focus:border-[#11140F] ${fontCopy}`
 
   return (
     <form className="grid gap-5" onSubmit={(e) => void handleSubmit(e)} noValidate>
@@ -122,16 +123,16 @@ export function ContactForm() {
         {errors.message ? <span id="message-error" className="text-xs text-[#8B2E2E]">{errors.message}</span> : null}
       </label>
 
-      {submitError ? <p className="text-sm text-[#8B2E2E]">{submitError}</p> : null}
+      {submitError ? <p className={`text-sm text-[#8B2E2E] ${fontCopy}`}>{submitError}</p> : null}
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Button type="submit" variant="dark" disabled={saving}>
           {saving ? 'Sending…' : 'Send inquiry'}
         </Button>
         {submitted ? (
-          <p className="text-sm text-[#11140F]/75">Thanks — your inquiry has been received.</p>
+          <p className={`${textCopySm} text-[#11140F]/75`}>Thanks — your inquiry has been received.</p>
         ) : (
-          <p className="text-sm text-[#11140F]/65">
+          <p className={`${textCopySm} text-[#11140F]/65`}>
             Prefer email directly?{' '}
             <a href={`mailto:${siteConfig.email}`} className="font-display font-black uppercase underline underline-offset-4">{siteConfig.email}</a>
           </p>

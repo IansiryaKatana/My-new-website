@@ -30,6 +30,37 @@ function asNavItems(
     }))
 }
 
+type NavItem = { label: string; href: string; description?: string }
+
+const NAV_HREF_ALIASES: Record<string, string> = {
+  '/projects': '/portfolio',
+}
+
+function normalizeNavHref(href: string) {
+  return NAV_HREF_ALIASES[href] ?? href
+}
+
+function mergeNavigation(cmsNav: NavItem[], fallbackNav: NavItem[]): NavItem[] {
+  if (cmsNav.length === 0) return fallbackNav
+
+  const cmsByHref = new Map(
+    cmsNav.map((item) => [normalizeNavHref(item.href), item]),
+  )
+  const merged = fallbackNav.map((item) => {
+    const cmsItem = cmsByHref.get(item.href)
+    return cmsItem ? { ...item, ...cmsItem, href: item.href } : item
+  })
+  const mergedHrefs = new Set(merged.map((item) => normalizeNavHref(item.href)))
+
+  for (const item of cmsNav) {
+    if (!mergedHrefs.has(normalizeNavHref(item.href))) {
+      merged.push(item)
+    }
+  }
+
+  return merged
+}
+
 export function mapSiteSettings(
   rows: Tables<'site_settings'>[],
   fallback: SiteConfig,
@@ -44,7 +75,10 @@ export function mapSiteSettings(
     ...fallback,
     ...profile,
     social: { ...fallback.social, ...profile.social },
-    navigation: profile.navigation ?? fallback.navigation,
+    navigation: mergeNavigation(
+      asNavItems(profile.navigation),
+      fallback.navigation,
+    ),
     homeSections: profile.homeSections ?? fallback.homeSections,
   } as SiteConfig
 }
@@ -74,10 +108,10 @@ export function mapHero(
       alt: row.subject_alt ?? fallback.subject.alt,
     },
     ticker: asStringArray(row.ticker),
-    navigation: asNavItems(row.navigation).map(({ label, href }) => ({
-      label,
-      href,
-    })),
+    navigation: mergeNavigation(
+      asNavItems(row.navigation).map(({ label, href }) => ({ label, href })),
+      fallback.navigation,
+    ),
     badge: row.badge_text ?? fallback.badge ?? '',
   }
 }

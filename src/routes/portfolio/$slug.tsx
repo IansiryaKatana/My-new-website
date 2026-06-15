@@ -6,6 +6,7 @@ import { buttonVariants } from '../../components/ui/button'
 import { useProjects, useSiteConfig } from '../../contexts/CmsContext'
 import { fetchProjectBySlug } from '../../lib/cms/fetchProject'
 import { projectCaseStudyPath, resolveProjectHref } from '../../lib/projectLinks'
+import { fontCopy, textCopyLg } from '../../lib/typography'
 import { breadcrumbJsonLd, createPageMeta } from '../../lib/seo'
 
 export const Route = createFileRoute('/portfolio/$slug')({
@@ -160,7 +161,7 @@ function PortfolioDetailPage() {
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="grid gap-6 text-[#D8D7C3]/85">
-            <p className="text-base leading-relaxed sm:text-lg">{project.description}</p>
+            <p className={textCopyLg}>{project.description}</p>
 
             {gallery.length > 0 ? (
               <div>
@@ -186,7 +187,7 @@ function PortfolioDetailPage() {
             {project.outcomes.length > 0 ? (
               <div>
                 <h2 className="font-display text-2xl font-black uppercase">Outcomes</h2>
-                <ul className="mt-4 grid gap-3 text-sm sm:text-base">
+                <ul className={`mt-4 grid gap-3 text-sm sm:text-base ${fontCopy}`}>
                   {project.outcomes.map((outcome) => (
                     <li key={outcome} className="flex gap-3">
                       <span aria-hidden="true" className="text-[#D8D7C3]/35">
