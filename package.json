@@ -2,13 +2,16 @@
   "name": "ian-katana-portfolio-hero",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite --port 3000",
     "dev:demo": "node scripts/dev-portfolio-demo.mjs",
     "build": "vite build",
     "build:demos": "node scripts/build-portfolio-demos.mjs",
     "build:all": "npm run build:demos && npm run build",
-    "start": "node .output/server/index.mjs",
+    "start": "srvx --prod -s dist/client dist/server/server.js",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -22,6 +25,7 @@
     "lucide-react": "^1.16.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
+    "srvx": "^0.11.15",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
