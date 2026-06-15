@@ -49,20 +49,46 @@
   --admin-dark: #10140d;
   --admin-content: #ebeae0;
   --admin-radius-lg: 0px;
+  --admin-fg: #1a1f16;
+  --admin-fg-muted: #5a5f52;
+  --admin-fg-subtle: #8a8f84;
+  --admin-border: #cfd0c4;
+  --admin-border-subtle: #e0e1d6;
+  --admin-input-bg: #ffffff;
+  --admin-btn-fg: #10140d;
+  --admin-btn-hover-bg: #765f47;
+  --admin-btn-hover-fg: #d8d7c3;
+  opacity: 1;
   background-color: #ebeae0;
+  color: #1a1f16;
 }
 
 .admin-sheet-header,
 .admin-sheet-body,
 .admin-sheet-footer,
-.admin-sheet-progress {
+.admin-sheet-progress,
+.admin-sheet-tabs {
+  opacity: 1;
   background-color: #ebeae0;
+}
+
+.admin-sheet-header {
+  border-bottom: 1px solid #e0e1d6;
+}
+
+.admin-sheet-tabs {
+  border-bottom: 1px solid #e0e1d6;
+}
+
+.admin-sheet-footer {
+  border-top: 1px solid #e0e1d6;
 }
 
 .admin-sheet-scroll {
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  opacity: 1;
   background-color: #ebeae0;
 }
 
@@ -85,12 +111,11 @@
   background-color: rgb(16 20 13 / 0.5);
 }
 
-.admin-select option {
-  background-color: #ffffff;
-  color: #1a1f16;
+.admin-sheet--centered {
+  margin-bottom: 0;
 }
 
-.admin-sheet .admin-select option {
+.admin-select option {
   background-color: #ffffff;
   color: #1a1f16;
 }

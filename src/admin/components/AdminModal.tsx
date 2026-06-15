@@ -62,9 +62,9 @@ export function AdminModal({
         <Dialog.Overlay className="admin-sheet-overlay fixed inset-0 z-50" />
         <Dialog.Content
           className="admin-sheet fixed inset-x-0 bottom-0 z-[51] flex max-h-[92vh] flex-col overflow-hidden border border-[#cfd0c4] shadow-2xl max-md:rounded-t-none md:inset-x-auto md:bottom-0 md:right-0 md:top-0 md:max-h-none md:w-[min(32rem,100vw)] md:rounded-none md:border-l md:border-t-0"
-          style={{ marginBottom: 0, backgroundColor: '#ebeae0' }}
+          style={{ marginBottom: 0 }}
         >
-          <div className="admin-sheet-header shrink-0 border-b border-[#e0e1d6] px-6 py-4">
+          <div className="admin-sheet-header shrink-0 px-6 py-4">
             <div className="flex items-start justify-between gap-4">
               <Dialog.Title className="font-display text-2xl font-black uppercase text-[#1a1f16]">
                 {title}
@@ -88,13 +88,12 @@ export function AdminModal({
           <div
             ref={scrollRef}
             className="admin-sheet-scroll admin-sheet-body min-h-0 flex-1 px-6 py-4"
-            style={{ backgroundColor: '#ebeae0' }}
           >
             <div className="grid gap-4 text-[#1a1f16]">{children}</div>
           </div>
 
           {footer ? (
-            <div className="admin-sheet-footer flex shrink-0 flex-wrap justify-end gap-3 border-t border-[#e0e1d6] px-6 py-4">
+            <div className="admin-sheet-footer flex shrink-0 flex-wrap justify-end gap-3 px-6 py-4">
               {footer}
             </div>
           ) : null}

@@ -2,6 +2,7 @@ import { Link, createFileRoute, notFound } from '@tanstack/react-router'
 
 import { JsonLd } from '../../components/seo/JsonLd'
 import { PageShell } from '../../components/layout/PageShell'
+import { InquiryTrigger } from '../../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../../components/ui/button'
 import type { ExperienceItem } from '../../data/experience'
 import { fetchExperienceBySlug } from '../../lib/cms/fetchExperience'
@@ -117,9 +118,16 @@ function ExperienceDetailPage() {
           <Link to="/experience" className={buttonVariants({ variant: 'lightMuted' })}>
             Back to experience
           </Link>
-          <Link to="/contact" className={buttonVariants({ variant: 'light' })}>
+          <InquiryTrigger
+            variant="light"
+            inquiry={{
+              source: 'experience',
+              sourceRef: item.slug ?? item.company,
+              prefillMessage: `I'd like to discuss a project related to my ${item.role} experience at ${item.company}.`,
+            }}
+          >
             Discuss a project
-          </Link>
+          </InquiryTrigger>
         </div>
       </div>
     </PageShell>

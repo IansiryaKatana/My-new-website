@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 
 import { JsonLd } from '../components/seo/JsonLd'
 import { PageShell } from '../components/layout/PageShell'
+import { InquiryTrigger } from '../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../components/ui/button'
 import { useCertifications, useEducation } from '../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../lib/cms/useMarketingPage'
@@ -133,12 +134,9 @@ function CertificationsPage() {
           <Link to="/about" className={buttonVariants({ variant: 'dark' })}>
             About me
           </Link>
-          <Link
-            to="/contact"
-            className={buttonVariants({ variant: 'darkMuted' })}
-          >
+          <InquiryTrigger variant="darkMuted" inquiry={{ source: 'certifications' }}>
             Start a project
-          </Link>
+          </InquiryTrigger>
         </div>
       </div>
     </PageShell>

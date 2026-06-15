@@ -79,7 +79,9 @@ export const heroContent = {
   ],
 
   navigation: [
-    { label: 'Work', href: '/portfolio' },
+    { label: 'Home', href: '/' },
+    { label: 'Portfolio', href: '/portfolio' },
+    { label: 'Live demos', href: '/live-demos' },
     { label: 'About', href: '/about' },
     { label: 'Certifications', href: '/certifications' },
     { label: 'Experience', href: '/experience' },

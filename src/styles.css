@@ -248,6 +248,23 @@ body {
   }
 }
 
+/* Portal inquiry sheet — fully opaque light surface */
+.inquiry-sheet,
+.inquiry-sheet-header,
+.inquiry-sheet-body,
+.inquiry-sheet-footer {
+  opacity: 1;
+  background-color: #d8d7c3;
+}
+
+.inquiry-sheet-header {
+  border-bottom: 1px solid rgb(17 20 15 / 0.1);
+}
+
+.inquiry-sheet-footer {
+  border-top: 1px solid rgb(17 20 15 / 0.1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

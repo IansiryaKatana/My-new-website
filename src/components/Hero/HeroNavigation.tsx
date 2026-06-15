@@ -3,26 +3,36 @@ import { Link } from '@tanstack/react-router'
 import { X } from 'lucide-react'
 
 import { useHeroContent, useSiteConfig } from '../../contexts/CmsContext'
+import { isInquiryHref } from '../../lib/inquiry/types'
+import { useInquiry } from '../../contexts/InquiryContext'
+import { InquiryLinkTrigger } from '../inquiry/InquiryTrigger'
 import { Button } from '../ui/button'
 
 export function HeroNavigation() {
   const heroContent = useHeroContent()
   const siteConfig = useSiteConfig()
+  const { openInquiry } = useInquiry()
 
   return (
     <header className="hero-nav absolute left-0 right-0 top-0 z-20 flex items-start justify-between px-6 pt-6 text-[#D8D7C3] sm:px-8 sm:pt-7">
-      <Link
-        to={heroContent.startProject.href}
-        className="group font-display text-sm font-black uppercase underline decoration-[#D8D7C3]/80 underline-offset-4 transition-colors duration-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D8D7C3]"
-      >
-        {heroContent.startProject.label}
-        <span
-          aria-hidden="true"
-          className="inline-block pl-1 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+      {isInquiryHref(heroContent.startProject.href) ? (
+        <InquiryLinkTrigger inquiry={{ source: 'hero-nav' }}>
+          {heroContent.startProject.label}
+        </InquiryLinkTrigger>
+      ) : (
+        <Link
+          to={heroContent.startProject.href}
+          className="group font-display text-sm font-black uppercase underline decoration-[#D8D7C3]/80 underline-offset-4 transition-colors duration-300 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D8D7C3]"
         >
-          ↗
-        </span>
-      </Link>
+          {heroContent.startProject.label}
+          <span
+            aria-hidden="true"
+            className="inline-block pl-1 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          >
+            ↗
+          </span>
+        </Link>
+      )}
 
       <Link
         to="/"
@@ -71,22 +81,40 @@ export function HeroNavigation() {
             </Dialog.Description>
 
             <nav className="mt-12 grid gap-3">
-              {heroContent.navigation.map((item) => (
-                <Dialog.Close asChild key={item.href}>
-                  <Link
-                    to={item.href}
-                    className="group flex items-center justify-between border-b border-[#D8D7C3]/35 py-4 font-display text-5xl font-black uppercase leading-[0.85] tracking-[-0.04em] transition-colors hover:text-white sm:text-7xl"
-                  >
-                    {item.label}
-                    <span
-                      aria-hidden="true"
-                      className="text-2xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+              {heroContent.navigation.map((item) =>
+                isInquiryHref(item.href) ? (
+                  <Dialog.Close asChild key={item.href}>
+                    <button
+                      type="button"
+                      className="group flex w-full items-center justify-between border-b border-[#D8D7C3]/35 py-4 text-left font-display text-5xl font-black uppercase leading-[0.85] tracking-[-0.04em] transition-colors hover:text-white sm:text-7xl"
+                      onClick={() => openInquiry({ source: 'hero-menu' })}
                     >
-                      ↗
-                    </span>
-                  </Link>
-                </Dialog.Close>
-              ))}
+                      {item.label}
+                      <span
+                        aria-hidden="true"
+                        className="text-2xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                      >
+                        ↗
+                      </span>
+                    </button>
+                  </Dialog.Close>
+                ) : (
+                  <Dialog.Close asChild key={item.href}>
+                    <Link
+                      to={item.href}
+                      className="group flex items-center justify-between border-b border-[#D8D7C3]/35 py-4 font-display text-5xl font-black uppercase leading-[0.85] tracking-[-0.04em] transition-colors hover:text-white sm:text-7xl"
+                    >
+                      {item.label}
+                      <span
+                        aria-hidden="true"
+                        className="text-2xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
+                      >
+                        ↗
+                      </span>
+                    </Link>
+                  </Dialog.Close>
+                ),
+              )}
             </nav>
 
             <div className="mt-auto flex flex-col gap-4 pt-10 sm:flex-row sm:items-center sm:justify-between">

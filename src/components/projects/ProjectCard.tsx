@@ -6,6 +6,7 @@ import { textCopySm } from '../../lib/typography'
 type ProjectCardProps = {
   project: Project
   invert?: boolean
+  showImage?: boolean
 }
 
 function cardPreviewImage(project: Project) {
@@ -16,12 +17,12 @@ function cardPreviewImage(project: Project) {
   )
 }
 
-export function ProjectCard({ project, invert = false }: ProjectCardProps) {
+export function ProjectCard({ project, invert = false, showImage = true }: ProjectCardProps) {
   const surface = invert
     ? 'border-[#11140F]/15 bg-[#D8D7C3] text-[#11140F] hover:border-[#11140F]/40'
     : 'border-[#D8D7C3]/15 bg-[#171B14] text-[#D8D7C3] hover:border-[#D8D7C3]/40'
 
-  const preview = cardPreviewImage(project)
+  const preview = showImage ? cardPreviewImage(project) : null
   const referenceLink = resolveProjectHref(project.href)
 
   return (

@@ -148,6 +148,8 @@ export type TablesMap = {
     company: string | null
     phone: string | null
     message: string
+    source: string | null
+    source_ref: string | null
     status: string
     created_at: string
   }

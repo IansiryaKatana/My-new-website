@@ -15,7 +15,9 @@ import type { ReactNode } from 'react'
 import stylesUrl from '../styles.css?url'
 
 import { AdminAuthProvider } from '../contexts/AdminAuthContext'
+import { InquiryProvider } from '../contexts/InquiryContext'
 import { CmsProvider } from '../contexts/CmsContext'
+import { InquiryDialog } from '../components/inquiry/InquiryDialog'
 import { siteConfig } from '../data/site'
 
 import { fontCopy } from '../lib/typography'
@@ -187,7 +189,13 @@ function RootComponent() {
 
         <CmsProvider>
 
-          <Outlet />
+          <InquiryProvider>
+
+            <Outlet />
+
+            <InquiryDialog />
+
+          </InquiryProvider>
 
         </CmsProvider>
 

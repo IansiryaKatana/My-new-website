@@ -42,7 +42,7 @@ export function ProjectsPreview() {
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {featured.map((project) => (
-            <ProjectCard key={project.slug} project={project} invert />
+            <ProjectCard key={project.slug} project={project} invert showImage={false} />
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@
 import { JsonLd } from '../components/seo/JsonLd'
 import { AboutCredentials } from '../components/about/AboutCredentials'
 import { PageShell } from '../components/layout/PageShell'
+import { InquiryOrLink } from '../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../components/ui/button'
 import { useHeroContent, useSiteConfig } from '../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../lib/cms/useMarketingPage'
@@ -114,12 +115,13 @@ function AboutPage() {
             >
               {sections.primaryCta.label}
             </Link>
-            <Link
+            <InquiryOrLink
               to={sections.secondaryCta.to}
               className={buttonVariants({ variant: 'lightMuted' })}
+              inquiry={{ source: 'about' }}
             >
               {sections.secondaryCta.label}
-            </Link>
+            </InquiryOrLink>
           </div>
         </div>
       </div>

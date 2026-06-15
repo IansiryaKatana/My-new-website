@@ -2,10 +2,11 @@
 
 import { useSiteConfig } from '../../contexts/CmsContext'
 import { getSupabase } from '../../integrations/supabase/client'
-import { isValidPhoneE164 } from '../../lib/phone/formatPhone'
+import type { InquiryOpenOptions } from '../../lib/inquiry/types'
+import { isValidPhoneE164, toPhoneE164 } from '../../lib/phone/formatPhone'
 import { fontCopy, textCopySm } from '../../lib/typography'
 import { Button } from '../ui/button'
-import { PhoneInput } from '../ui/phone-input'
+import { PhoneInputField } from '../ui/PhoneInputField'
 
 type FormState = {
   name: string
@@ -25,6 +26,16 @@ const initialState: FormState = {
   message: '',
 }
 
+export const contactFieldClass =
+  `w-full border border-[#11140F]/20 bg-transparent px-4 py-3 text-sm text-[#11140F] outline-none transition-colors focus:border-[#11140F] ${fontCopy}`
+
+function buildInitialState(inquiry?: InquiryOpenOptions): FormState {
+  return {
+    ...initialState,
+    message: inquiry?.prefillMessage ?? '',
+  }
+}
+
 function validate(values: FormState): FormErrors {
   const errors: FormErrors = {}
 
@@ -42,9 +53,17 @@ function validate(values: FormState): FormErrors {
   return errors
 }
 
-export function ContactForm() {
+export function ContactForm({
+  inquiry,
+  onSubmitted,
+  showFooterNote = true,
+}: {
+  inquiry?: InquiryOpenOptions
+  onSubmitted?: () => void
+  showFooterNote?: boolean
+}) {
   const siteConfig = useSiteConfig()
-  const [values, setValues] = useState<FormState>(initialState)
+  const [values, setValues] = useState<FormState>(() => buildInitialState(inquiry))
   const [errors, setErrors] = useState<FormErrors>({})
   const [submitted, setSubmitted] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -63,13 +82,17 @@ export function ContactForm() {
 
     if (Object.keys(nextErrors).length > 0) return
 
-    const phone = values.phone.trim() || null
+    const phone = values.phone.trim() ? toPhoneE164(values.phone) : null
+    const source = inquiry?.source?.trim() || null
+    const sourceRef = inquiry?.sourceRef?.trim() || null
 
     const sb = getSupabase()
     if (!sb) {
       const subject = encodeURIComponent(`Project inquiry from ${values.name.trim()}`)
       const body = encodeURIComponent(
         [
+          source ? `Source: ${source}` : null,
+          sourceRef ? `Reference: ${sourceRef}` : null,
           `Name: ${values.name.trim()}`,
           `Email: ${values.email.trim()}`,
           phone ? `Phone: ${phone}` : null,
@@ -82,6 +105,7 @@ export function ContactForm() {
       )
       window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`
       setSubmitted(true)
+      onSubmitted?.()
       return
     }
 
@@ -92,6 +116,8 @@ export function ContactForm() {
       phone,
       company: values.company.trim() || null,
       message: values.message.trim(),
+      source,
+      source_ref: sourceRef,
       status: 'new',
     })
     setSaving(false)
@@ -102,35 +128,34 @@ export function ContactForm() {
     }
 
     setSubmitted(true)
-    setValues(initialState)
+    setValues(buildInitialState(inquiry))
+    onSubmitted?.()
   }
-
-  const fieldClass =
-    `w-full border border-[#11140F]/20 bg-transparent px-4 py-3 text-sm text-[#11140F] outline-none transition-colors focus:border-[#11140F] ${fontCopy}`
 
   return (
     <form className="grid gap-5" onSubmit={(e) => void handleSubmit(e)} noValidate>
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="grid gap-2">
           <span className="font-display text-xs font-black uppercase tracking-[0.14em] text-[#11140F]/70">Name *</span>
-          <input className={fieldClass} name="name" value={values.name} onChange={(event) => handleChange('name', event.target.value)} autoComplete="name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? 'name-error' : undefined} />
+          <input className={contactFieldClass} name="name" value={values.name} onChange={(event) => handleChange('name', event.target.value)} autoComplete="name" aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? 'name-error' : undefined} />
           {errors.name ? <span id="name-error" className="text-xs text-[#8B2E2E]">{errors.name}</span> : null}
         </label>
 
         <label className="grid gap-2">
           <span className="font-display text-xs font-black uppercase tracking-[0.14em] text-[#11140F]/70">Email *</span>
-          <input className={fieldClass} type="email" name="email" value={values.email} onChange={(event) => handleChange('email', event.target.value)} autoComplete="email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? 'email-error' : undefined} />
+          <input className={contactFieldClass} type="email" name="email" value={values.email} onChange={(event) => handleChange('email', event.target.value)} autoComplete="email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? 'email-error' : undefined} />
           {errors.email ? <span id="email-error" className="text-xs text-[#8B2E2E]">{errors.email}</span> : null}
         </label>
       </div>
 
       <label className="grid gap-2">
         <span className="font-display text-xs font-black uppercase tracking-[0.14em] text-[#11140F]/70">Phone</span>
-        <PhoneInput
+        <PhoneInputField
+          variant="public"
           name="phone"
           value={values.phone}
-          onChange={(phone) => handleChange('phone', phone)}
-          placeholder="52 144 0383"
+          onChange={(phone) => handleChange('phone', phone ?? '')}
+          placeholder="Phone number"
           aria-invalid={Boolean(errors.phone)}
           aria-describedby={errors.phone ? 'phone-error' : undefined}
         />
@@ -139,12 +164,12 @@ export function ContactForm() {
 
       <label className="grid gap-2">
         <span className="font-display text-xs font-black uppercase tracking-[0.14em] text-[#11140F]/70">Company</span>
-        <input className={fieldClass} name="company" value={values.company} onChange={(event) => handleChange('company', event.target.value)} autoComplete="organization" />
+        <input className={contactFieldClass} name="company" value={values.company} onChange={(event) => handleChange('company', event.target.value)} autoComplete="organization" />
       </label>
 
       <label className="grid gap-2">
         <span className="font-display text-xs font-black uppercase tracking-[0.14em] text-[#11140F]/70">Project details *</span>
-        <textarea className={`${fieldClass} min-h-36 resize-y`} name="message" value={values.message} onChange={(event) => handleChange('message', event.target.value)} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? 'message-error' : undefined} />
+        <textarea className={`${contactFieldClass} min-h-36 resize-y`} name="message" value={values.message} onChange={(event) => handleChange('message', event.target.value)} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? 'message-error' : undefined} />
         {errors.message ? <span id="message-error" className="text-xs text-[#8B2E2E]">{errors.message}</span> : null}
       </label>
 
@@ -156,12 +181,12 @@ export function ContactForm() {
         </Button>
         {submitted ? (
           <p className={`${textCopySm} text-[#11140F]/75`}>Thanks — your inquiry has been received.</p>
-        ) : (
+        ) : showFooterNote ? (
           <p className={`${textCopySm} text-[#11140F]/65`}>
             Prefer email directly?{' '}
             <a href={`mailto:${siteConfig.email}`} className="font-display font-black uppercase underline underline-offset-4">{siteConfig.email}</a>
           </p>
-        )}
+        ) : null}
       </div>
     </form>
   )

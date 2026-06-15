@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 
 import { JsonLd } from '../../components/seo/JsonLd'
+import { InquiryOrLink } from '../../components/inquiry/InquiryTrigger'
 import { PageShell } from '../../components/layout/PageShell'
 import { useExperience } from '../../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../../lib/cms/useMarketingPage'
@@ -87,12 +88,13 @@ function ExperiencePage() {
           </article>
         ))}
 
-        <Link
+        <InquiryOrLink
           to={footerCta.to}
           className="mt-4 inline-flex w-fit font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
+          inquiry={{ source: 'experience' }}
         >
           {footerCta.label}
-        </Link>
+        </InquiryOrLink>
       </div>
     </PageShell>
   )

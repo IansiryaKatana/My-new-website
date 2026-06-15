@@ -14,7 +14,13 @@
     twitter: 'https://x.com/iansirya',
   },
   navigation: [
-    { label: 'Work', href: '/portfolio', description: 'Selected projects' },
+    { label: 'Home', href: '/', description: 'Back to homepage' },
+    { label: 'Portfolio', href: '/portfolio', description: 'Selected projects' },
+    {
+      label: 'Live demos',
+      href: '/live-demos',
+      description: 'Hosted project previews',
+    },
     { label: 'About', href: '/about', description: 'Background & approach' },
     {
       label: 'Certifications',
@@ -29,7 +35,7 @@
     { label: 'Contact', href: '/contact', description: 'Start a project' },
   ],
   homeSections: [
-    { label: 'Capabilities', href: '/#capabilities' },
+    { label: 'Live demos', href: '/#live-demos' },
     { label: 'Experience', href: '/#experience' },
     { label: 'Stack', href: '/#stack' },
     { label: 'Contact', href: '/#contact' },

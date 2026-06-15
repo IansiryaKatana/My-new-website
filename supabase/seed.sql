@@ -20,14 +20,16 @@ insert into public.site_settings (key, value) values
       "twitter": "https://x.com/iansirya"
     },
     "navigation": [
-      {"label": "Work", "href": "/portfolio", "description": "Selected projects"},
+      {"label": "Home", "href": "/", "description": "Back to homepage"},
+      {"label": "Portfolio", "href": "/portfolio", "description": "Selected projects"},
+      {"label": "Live demos", "href": "/live-demos", "description": "Hosted project previews"},
       {"label": "About", "href": "/about", "description": "Background & approach"},
       {"label": "Certifications", "href": "/certifications", "description": "Licenses & credentials"},
       {"label": "Experience", "href": "/experience", "description": "Roles & milestones"},
       {"label": "Contact", "href": "/contact", "description": "Start a project"}
     ],
     "homeSections": [
-      {"label": "Capabilities", "href": "/#capabilities"},
+      {"label": "Live demos", "href": "/#live-demos"},
       {"label": "Experience", "href": "/#experience"},
       {"label": "Stack", "href": "/#stack"},
       {"label": "Contact", "href": "/#contact"}
@@ -62,7 +64,9 @@ insert into public.hero_content (
   '["Full Stack", "2026"]'::jsonb,
   '["Frontend Development", "Backend Development", "UI Engineering", "API Systems", "Web Applications", "Full Stack Development"]'::jsonb,
   '[
-    {"label": "Work", "href": "/portfolio"},
+    {"label": "Home", "href": "/"},
+    {"label": "Portfolio", "href": "/portfolio"},
+    {"label": "Live demos", "href": "/live-demos"},
     {"label": "About", "href": "/about"},
     {"label": "Certifications", "href": "/certifications"},
     {"label": "Experience", "href": "/experience"},

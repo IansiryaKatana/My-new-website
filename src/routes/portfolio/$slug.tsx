@@ -2,6 +2,7 @@ import { Link, createFileRoute, notFound } from '@tanstack/react-router'
 
 import { JsonLd } from '../../components/seo/JsonLd'
 import { PageShell } from '../../components/layout/PageShell'
+import { InquiryTrigger } from '../../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../../components/ui/button'
 import { useProjects, useSiteConfig } from '../../contexts/CmsContext'
 import { fetchProjectBySlug } from '../../lib/cms/fetchProject'
@@ -251,9 +252,16 @@ function PortfolioDetailPage() {
           >
             Back to portfolio
           </Link>
-          <Link to="/contact" className={buttonVariants({ variant: 'light' })}>
+          <InquiryTrigger
+            variant="light"
+            inquiry={{
+              source: 'portfolio',
+              sourceRef: project.slug,
+              prefillMessage: `Interested in a build similar to ${project.title}.`,
+            }}
+          >
             Discuss a similar build
-          </Link>
+          </InquiryTrigger>
         </div>
 
         <div className="grid gap-4 border-t border-[#D8D7C3]/10 pt-8 md:grid-cols-2">

@@ -1,0 +1,97 @@
+/* Public contact / inquiry forms — matches contactFieldClass styling */
+.phone-input--public.PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid rgb(17 20 15 / 0.2);
+  background: transparent;
+  transition: border-color 0.15s ease;
+  --PhoneInputCountrySelect-marginRight: 0.25rem;
+  --PhoneInputCountryFlag-height: 1.1rem;
+}
+
+.phone-input--public.PhoneInput:focus-within {
+  border-color: #11140f;
+}
+
+.phone-input--public.PhoneInput.phone-input--invalid {
+  border-color: #8b2e2e;
+}
+
+.phone-input--public .PhoneInputCountry {
+  margin-left: 0.75rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.phone-input--public .PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 0.75rem 1rem 0.75rem 0.25rem;
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 200;
+  color: #11140f;
+  outline: none;
+}
+
+.phone-input--public .PhoneInputInput::placeholder {
+  color: rgb(17 20 15 / 0.4);
+}
+
+.phone-input--public .PhoneInputCountrySelect {
+  cursor: pointer;
+}
+
+.phone-input--public .PhoneInputCountrySelectArrow {
+  opacity: 0.45;
+  border-color: #11140f;
+}
+
+/* Admin forms */
+.phone-input--admin.PhoneInput,
+.admin-content .phone-input--admin.PhoneInput,
+.admin-sheet .phone-input--admin.PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--admin-border, #cfd0c4);
+  background: var(--admin-input-bg, #ffffff);
+  transition: border-color 0.15s ease;
+  --PhoneInputCountrySelect-marginRight: 0.25rem;
+  --PhoneInputCountryFlag-height: 1rem;
+}
+
+.phone-input--admin.PhoneInput:focus-within {
+  border-color: var(--admin-primary, #765f47);
+}
+
+.phone-input--admin .PhoneInputCountry {
+  margin-left: 0.75rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.phone-input--admin .PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 0.75rem 0.5rem 0.25rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.875rem;
+  color: var(--admin-fg, #1a1f16);
+  outline: none;
+}
+
+.phone-input--admin .PhoneInputInput::placeholder {
+  color: var(--admin-fg-subtle, #8a8f84);
+}
+
+.phone-input--admin .PhoneInputCountrySelectArrow {
+  opacity: 0.45;
+}

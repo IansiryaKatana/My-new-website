@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as LiveDemosRouteImport } from './routes/live-demos'
 import { Route as FaviconDoticoRouteImport } from './routes/favicon[.]ico'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CertificationsRouteImport } from './routes/certifications'
@@ -39,6 +40,11 @@ import { Route as DemosSlugSplatRouteImport } from './routes/demos/$slug/$'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiveDemosRoute = LiveDemosRouteImport.update({
+  id: '/live-demos',
+  path: '/live-demos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaviconDoticoRoute = FaviconDoticoRouteImport.update({
@@ -174,6 +180,7 @@ export interface FileRoutesByFullPath {
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
   '/favicon.ico': typeof FaviconDoticoRoute
+  '/live-demos': typeof LiveDemosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -201,6 +208,7 @@ export interface FileRoutesByTo {
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
   '/favicon.ico': typeof FaviconDoticoRoute
+  '/live-demos': typeof LiveDemosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -230,6 +238,7 @@ export interface FileRoutesById {
   '/certifications': typeof CertificationsRoute
   '/contact': typeof ContactRoute
   '/favicon.ico': typeof FaviconDoticoRoute
+  '/live-demos': typeof LiveDemosRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -260,6 +269,7 @@ export interface FileRouteTypes {
     | '/certifications'
     | '/contact'
     | '/favicon.ico'
+    | '/live-demos'
     | '/sitemap.xml'
     | '/admin/experience'
     | '/admin/hero'
@@ -287,6 +297,7 @@ export interface FileRouteTypes {
     | '/certifications'
     | '/contact'
     | '/favicon.ico'
+    | '/live-demos'
     | '/sitemap.xml'
     | '/admin/experience'
     | '/admin/hero'
@@ -315,6 +326,7 @@ export interface FileRouteTypes {
     | '/certifications'
     | '/contact'
     | '/favicon.ico'
+    | '/live-demos'
     | '/sitemap.xml'
     | '/admin/experience'
     | '/admin/hero'
@@ -344,6 +356,7 @@ export interface RootRouteChildren {
   CertificationsRoute: typeof CertificationsRoute
   ContactRoute: typeof ContactRoute
   FaviconDoticoRoute: typeof FaviconDoticoRoute
+  LiveDemosRoute: typeof LiveDemosRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ExperienceSlugRoute: typeof ExperienceSlugRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
@@ -362,6 +375,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/live-demos': {
+      id: '/live-demos'
+      path: '/live-demos'
+      fullPath: '/live-demos'
+      preLoaderRoute: typeof LiveDemosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/favicon.ico': {
@@ -581,6 +601,7 @@ const rootRouteChildren: RootRouteChildren = {
   CertificationsRoute: CertificationsRoute,
   ContactRoute: ContactRoute,
   FaviconDoticoRoute: FaviconDoticoRoute,
+  LiveDemosRoute: LiveDemosRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ExperienceSlugRoute: ExperienceSlugRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,

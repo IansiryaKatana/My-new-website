@@ -36,7 +36,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
       >
         <div className="mb-6 flex shrink-0 items-center justify-between">
           <Link to="/admin" className="font-display text-xl font-black uppercase">
-            CMS
+            Admin Portal
           </Link>
           <button type="button" className="lg:hidden" onClick={() => setOpen(false)} aria-label="Close menu">
             <X className="h-5 w-5" />

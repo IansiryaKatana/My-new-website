@@ -48,9 +48,9 @@ export function AdminSubmissions() {
   }
 
   function exportCsv() {
-    const header = ['name', 'email', 'phone', 'company', 'message', 'created_at']
+    const header = ['name', 'email', 'phone', 'company', 'source', 'source_ref', 'message', 'created_at']
     const lines = rows.map((r) =>
-      [r.name, r.email, r.phone ?? '', r.company ?? '', r.message, r.created_at]
+      [r.name, r.email, r.phone ?? '', r.company ?? '', r.source ?? '', r.source_ref ?? '', r.message, r.created_at]
         .map((v) => `"${String(v).replace(/"/g, '""')}"`)
         .join(','),
     )
@@ -124,6 +124,8 @@ export function AdminSubmissions() {
             <p><strong>Name:</strong> {viewRow.name}</p>
             <p><strong>Email:</strong> {viewRow.email}</p>
             {viewRow.phone ? <p><strong>Phone:</strong> {formatPhoneDisplay(viewRow.phone)}</p> : null}
+            {viewRow.source ? <p><strong>Source:</strong> {viewRow.source}</p> : null}
+            {viewRow.source_ref ? <p><strong>Reference:</strong> {viewRow.source_ref}</p> : null}
             {viewRow.company ? <p><strong>Company:</strong> {viewRow.company}</p> : null}
             <p className="whitespace-pre-wrap"><strong>Message:</strong><br />{viewRow.message}</p>
           </div>

@@ -1,8 +1,8 @@
 import { ImagePlus, Link2, X } from 'lucide-react'
 import { useState } from 'react'
 
-import { uploadCmsImage } from '../../lib/cms/uploadCmsImage'
 import { adminInput, adminLabel } from '../adminClassNames'
+import { MediaPickerModal } from './MediaPickerModal'
 
 export function MultiImageUploadField({
   label,
@@ -17,31 +17,9 @@ export function MultiImageUploadField({
   folder: string
   hint?: string
 }) {
-  const [busy, setBusy] = useState(false)
-  const [err, setErr] = useState<string | null>(null)
+  const [pickerOpen, setPickerOpen] = useState(false)
   const [showUrl, setShowUrl] = useState(false)
   const [urlDraft, setUrlDraft] = useState('')
-
-  async function onFiles(files: FileList | null) {
-    if (!files?.length) return
-    setBusy(true)
-    setErr(null)
-    const uploaded: string[] = []
-
-    for (const file of Array.from(files)) {
-      const result = await uploadCmsImage(file, folder)
-      if ('error' in result) {
-        setErr(result.error)
-        break
-      }
-      uploaded.push(result.publicUrl)
-    }
-
-    if (uploaded.length) {
-      onChange([...values, ...uploaded])
-    }
-    setBusy(false)
-  }
 
   function removeAt(index: number) {
     onChange(values.filter((_, i) => i !== index))
@@ -62,7 +40,10 @@ export function MultiImageUploadField({
       {values.length > 0 ? (
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {values.map((url, index) => (
-            <div key={`${url}-${index}`} className="relative aspect-[4/3] overflow-hidden border border-[var(--admin-border-subtle)]">
+            <div
+              key={`${url}-${index}`}
+              className="relative aspect-[4/3] overflow-hidden border border-[var(--admin-border-subtle)]"
+            >
               <img src={url} alt="" className="h-full w-full object-cover" />
               <button
                 type="button"
@@ -77,23 +58,17 @@ export function MultiImageUploadField({
         </div>
       ) : null}
 
-      <label
-        className={`flex cursor-pointer flex-col items-center justify-center gap-2 border border-dashed border-[var(--admin-border)] bg-white px-4 py-5 transition-colors hover:border-[var(--admin-primary)] hover:bg-white/80 ${busy ? 'pointer-events-none opacity-60' : ''}`}
+      <button
+        type="button"
+        className="flex flex-col items-center justify-center gap-2 border border-dashed border-[var(--admin-border)] bg-white px-4 py-5 transition-colors hover:border-[var(--admin-primary)] hover:bg-white/80"
+        onClick={() => setPickerOpen(true)}
       >
         <ImagePlus className="h-7 w-7 text-[var(--admin-fg-subtle)]" />
-        <span className="font-sans text-sm text-[var(--admin-fg)]">
-          {busy ? 'Uploading…' : 'Upload gallery images'}
+        <span className="font-sans text-sm text-[var(--admin-fg)]">Add media</span>
+        <span className="font-sans text-xs text-[var(--admin-fg-muted)]">
+          Choose from library or upload from computer
         </span>
-        <span className="font-sans text-xs text-[var(--admin-fg-muted)]">Select one or more files</span>
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          className="sr-only"
-          disabled={busy}
-          onChange={(e) => void onFiles(e.target.files)}
-        />
-      </label>
+      </button>
 
       <button
         type="button"
@@ -128,7 +103,15 @@ export function MultiImageUploadField({
         </div>
       ) : null}
 
-      {err ? <p className="text-xs text-[#c44]">{err}</p> : null}
+      <MediaPickerModal
+        open={pickerOpen}
+        onOpenChange={setPickerOpen}
+        folder={folder}
+        mode="multiple"
+        accept="image"
+        title={`Add ${label.toLowerCase()}`}
+        onSelect={(urls) => onChange([...values, ...urls])}
+      />
     </div>
   )
 }

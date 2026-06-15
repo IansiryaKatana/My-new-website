@@ -3,6 +3,8 @@ import { ArrowRight } from 'lucide-react'
 
 import { useHeroContent } from '../../contexts/CmsContext'
 import { heroRoleTitle } from '../../data/hero-content'
+import { isInquiryHref } from '../../lib/inquiry/types'
+import { InquiryLinkTrigger, InquiryTrigger } from '../inquiry/InquiryTrigger'
 import { Button } from '../ui/button'
 import { HeroBackground } from './HeroBackground'
 import { HeroCopyBlock } from './HeroCopyBlock'
@@ -34,19 +36,33 @@ export function HeroSection() {
             lines={heroContent.leftIntro}
             secondary={[heroContent.expertise]}
           />
-          <Button
-            asChild
-            variant="light"
-            className="hero-cta group mt-6 w-[10.5rem]"
-          >
-            <Link to={heroContent.cta.href}>
+          {isInquiryHref(heroContent.cta.href) ? (
+            <InquiryTrigger
+              variant="light"
+              className="hero-cta group mt-6 w-[10.5rem]"
+              inquiry={{ source: 'hero', title: heroContent.cta.label }}
+            >
               {heroContent.cta.label}
               <ArrowRight
                 className="ml-5 h-4 w-4 text-current transition-transform duration-300 group-hover:translate-x-2"
                 aria-hidden="true"
               />
-            </Link>
-          </Button>
+            </InquiryTrigger>
+          ) : (
+            <Button
+              asChild
+              variant="light"
+              className="hero-cta group mt-6 w-[10.5rem]"
+            >
+              <Link to={heroContent.cta.href}>
+                {heroContent.cta.label}
+                <ArrowRight
+                  className="ml-5 h-4 w-4 text-current transition-transform duration-300 group-hover:translate-x-2"
+                  aria-hidden="true"
+                />
+              </Link>
+            </Button>
+          )}
         </div>
 
         <div className="hidden lg:block" aria-hidden="true" />
