@@ -114,6 +114,20 @@ for (const demo of targets) {
   const demoBase = demoPublicBase(demo.slug)
   console.log(`\nBuilding ${demo.slug} → ${demoBase}`)
 
+  if (!existsSync(join(demoDir, 'node_modules'))) {
+    console.log(`Installing dependencies for ${demo.slug}...`)
+    try {
+      execSync('npm install', {
+        cwd: demoDir,
+        stdio: 'inherit',
+      })
+    } catch {
+      console.error(`Dependency install failed for ${demo.slug}`)
+      failed.push({ slug: demo.slug, reason: 'npm install failed' })
+      continue
+    }
+  }
+
   try {
     execSync('npm run build', {
       cwd: demoDir,

@@ -8,9 +8,10 @@
   "scripts": {
     "dev": "vite --port 3000",
     "dev:demo": "node scripts/dev-portfolio-demo.mjs",
-    "build": "vite build",
+    "build": "npm run build:all",
+    "build:app": "vite build",
     "build:demos": "node scripts/build-portfolio-demos.mjs",
-    "build:all": "npm run build:demos && npm run build",
+    "build:all": "npm run build:demos && npm run build:app && node scripts/publish-demos-to-dist.mjs",
     "start": "node server.mjs",
     "typecheck": "tsc --noEmit"
   },
