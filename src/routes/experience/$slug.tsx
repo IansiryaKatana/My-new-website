@@ -4,6 +4,7 @@ import { JsonLd } from '../../components/seo/JsonLd'
 import { PageShell } from '../../components/layout/PageShell'
 import { InquiryTrigger } from '../../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../../components/ui/button'
+import { useCms } from '../../contexts/CmsContext'
 import type { ExperienceItem } from '../../data/experience'
 import { fetchExperienceBySlug } from '../../lib/cms/fetchExperience'
 import { getSupabase } from '../../integrations/supabase/client'
@@ -48,9 +49,21 @@ export const Route = createFileRoute('/experience/$slug')({
 
 function ExperienceDetailPage() {
   const item: ExperienceItem = Route.useLoaderData()
+  const { snapshot } = useCms()
   const employmentMeta = formatEmploymentMeta(item)
   const responsibilities =
     item.responsibilities.length > 0 ? item.responsibilities : item.highlights
+  const intentPages = Object.values(snapshot.marketingPages)
+    .filter((page) => page.intentPage)
+    .filter((page) => {
+      const combined = `${page.title} ${page.description} ${page.targetService} ${page.targetKeyword}`.toLowerCase()
+      return (
+        combined.includes(item.role.toLowerCase()) ||
+        combined.includes(item.company.toLowerCase()) ||
+        combined.includes(item.location.toLowerCase())
+      )
+    })
+    .slice(0, 3)
 
   return (
     <PageShell
@@ -129,6 +142,31 @@ function ExperienceDetailPage() {
             Discuss a project
           </InquiryTrigger>
         </div>
+        {intentPages.length > 0 ? (
+          <div className="grid gap-4 border-t border-[#D8D7C3]/10 pt-8 md:grid-cols-2">
+            <h2 className="font-display text-sm uppercase tracking-[0.2em] text-[#D8D7C3]/65">
+              Related services
+            </h2>
+            <div className="grid gap-3">
+              {intentPages.map((page) => (
+                <Link
+                  key={page.slug}
+                  to="/i/$slug"
+                  params={{ slug: page.slug }}
+                  className="group flex items-center justify-between border-b border-[#D8D7C3]/15 py-3 font-display text-xl font-black uppercase transition-colors hover:text-white"
+                >
+                  {page.title}
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    ↗
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
     </PageShell>
   )

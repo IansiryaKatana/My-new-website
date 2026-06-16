@@ -20,6 +20,11 @@ export type MarketingPageView = {
   bodyHtml: string
   sections: Record<string, unknown>
   meta: Record<string, unknown>
+  intentPage: boolean
+  targetKeyword: string
+  targetLocation: string
+  targetService: string
+  internalLinks: Array<{ label: string; href: string; note?: string }>
 }
 
 export type CmsSnapshot = {

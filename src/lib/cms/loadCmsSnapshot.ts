@@ -102,3 +102,21 @@ export async function loadProjectBySlug(
 
   return null
 }
+
+export async function loadMarketingPageBySlug(
+  supabase: SupabaseClient,
+  slug: string,
+) {
+  const { data, error } = await supabase
+    .from('marketing_pages')
+    .select('*')
+    .eq('slug', slug)
+    .eq('published', true)
+    .maybeSingle()
+
+  if (!error && data) {
+    return mapMarketingPage(data)
+  }
+
+  return null
+}

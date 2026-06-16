@@ -198,6 +198,26 @@ export function mapSkillGroups(
 }
 
 export function mapMarketingPage(row: Tables<'marketing_pages'>): MarketingPageView {
+  const internalLinks = Array.isArray(row.internal_links)
+    ? row.internal_links
+        .filter(
+          (
+            link,
+          ): link is { label: string; href: string; note?: string } =>
+            typeof link === 'object' &&
+            link !== null &&
+            'label' in link &&
+            'href' in link &&
+            typeof (link as { label: unknown }).label === 'string' &&
+            typeof (link as { href: unknown }).href === 'string',
+        )
+        .map((link) => ({
+          label: link.label,
+          href: link.href,
+          ...(link.note ? { note: link.note } : {}),
+        }))
+    : []
+
   return {
     slug: row.slug,
     title: row.title,
@@ -212,6 +232,11 @@ export function mapMarketingPage(row: Tables<'marketing_pages'>): MarketingPageV
       typeof row.meta === 'object' && row.meta !== null
         ? (row.meta as Record<string, unknown>)
         : {},
+    intentPage: row.intent_page ?? false,
+    targetKeyword: row.target_keyword ?? '',
+    targetLocation: row.target_location ?? '',
+    targetService: row.target_service ?? '',
+    internalLinks,
   }
 }
 

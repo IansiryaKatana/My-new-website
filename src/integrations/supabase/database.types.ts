@@ -104,6 +104,11 @@ export type TablesMap = {
     body_html: string
     sections: Json
     meta: Json
+    intent_page: boolean
+    target_keyword: string
+    target_location: string
+    target_service: string
+    internal_links: Json
     published: boolean
     sort_order: number
     updated_at: string

@@ -1,4 +1,4 @@
-﻿import { createFileRoute } from '@tanstack/react-router'
+﻿import { Link, createFileRoute } from '@tanstack/react-router'
 
 import { HeroSection } from '../components/Hero/HeroSection'
 import { SiteFooter } from '../components/layout/SiteFooter'
@@ -8,7 +8,7 @@ import { ExperiencePreview } from '../components/sections/ExperiencePreview'
 import { LiveDemosSection } from '../components/sections/LiveDemosSection'
 import { ProjectsPreview } from '../components/sections/ProjectsPreview'
 import { SkillsSection } from '../components/sections/SkillsSection'
-import { useSiteConfig } from '../contexts/CmsContext'
+import { useCms, useSiteConfig } from '../contexts/CmsContext'
 import { getMarketingSection, useMarketingPage } from '../lib/cms/useMarketingPage'
 import { createPageMeta, personJsonLd, websiteJsonLd } from '../lib/seo'
 import { InquiryOrLink } from '../components/inquiry/InquiryTrigger'
@@ -34,6 +34,7 @@ type ContactCtaSection = {
 }
 
 function HomePage() {
+  const { snapshot } = useCms()
   const siteConfig = useSiteConfig()
   const homePage = useMarketingPage('home')
   const contactCta = getMarketingSection<ContactCtaSection>(homePage, 'contactCta', {
@@ -42,6 +43,9 @@ function HomePage() {
     ctaLabel: 'Contact Ian',
     ctaTo: '/contact',
   })
+  const intentPages = Object.values(snapshot.marketingPages)
+    .filter((page) => page.intentPage)
+    .slice(0, 6)
 
   return (
     <>
@@ -53,6 +57,33 @@ function HomePage() {
         <ExperiencePreview />
         <SkillsSection />
         <AboutPreview />
+        {intentPages.length > 0 ? (
+          <section className="bg-[#10140D] px-6 py-16 text-[#D8D7C3] sm:px-10 lg:px-16">
+            <div className="mx-auto grid max-w-6xl gap-4 border-t border-[#D8D7C3]/10 pt-8 md:grid-cols-2">
+              <h2 className="font-display text-sm uppercase tracking-[0.2em] text-[#D8D7C3]/65">
+                Dubai corporate use cases
+              </h2>
+              <div className="grid gap-3">
+                {intentPages.map((page) => (
+                  <Link
+                    key={page.slug}
+                    to="/i/$slug"
+                    params={{ slug: page.slug }}
+                    className="group flex items-center justify-between border-b border-[#D8D7C3]/15 py-3 font-display text-xl font-black uppercase transition-colors hover:text-white"
+                  >
+                    {page.title}
+                    <span
+                      aria-hidden="true"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      ↗
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
 
         <section
           id="contact"

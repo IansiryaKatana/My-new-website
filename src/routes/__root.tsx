@@ -15,6 +15,7 @@ import type { ReactNode } from 'react'
 import stylesUrl from '../styles.css?url'
 
 import { AdminAuthProvider } from '../contexts/AdminAuthContext'
+import { GoogleAnalyticsPageviews } from '../components/analytics/GoogleAnalytics'
 import { InquiryProvider } from '../contexts/InquiryContext'
 import { CmsProvider } from '../contexts/CmsContext'
 import { InquiryDialog } from '../components/inquiry/InquiryDialog'
@@ -197,6 +198,7 @@ function RootComponent() {
               <Outlet />
 
             </PageTransition>
+            <GoogleAnalyticsPageviews />
 
             <InquiryDialog />
 
@@ -223,6 +225,21 @@ function RootDocument({ children }: { children: ReactNode }) {
       <head>
 
         <HeadContent />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DHFJ0GMM6N"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = gtag;
+              gtag('js', new Date());
+              gtag('config', 'G-DHFJ0GMM6N', { send_page_view: false });
+            `,
+          }}
+        />
 
       </head>
 

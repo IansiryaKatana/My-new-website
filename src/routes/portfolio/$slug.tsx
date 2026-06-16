@@ -4,7 +4,7 @@ import { JsonLd } from '../../components/seo/JsonLd'
 import { PageShell } from '../../components/layout/PageShell'
 import { InquiryTrigger } from '../../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../../components/ui/button'
-import { useProjects, useSiteConfig } from '../../contexts/CmsContext'
+import { useCms, useProjects, useSiteConfig } from '../../contexts/CmsContext'
 import { fetchProjectBySlug } from '../../lib/cms/fetchProject'
 import { BEHANCE_COVER_ASPECT_CLASS } from '../../lib/media'
 import { projectCaseStudyPath, resolveProjectHref } from '../../lib/projectLinks'
@@ -89,10 +89,25 @@ function ProjectReferenceLink({
 
 function PortfolioDetailPage() {
   const project = Route.useLoaderData()
+  const { snapshot } = useCms()
   const projects = useProjects()
   const siteConfig = useSiteConfig()
   const referenceLink = resolveProjectHref(project.href)
   const gallery = project.thumbnailUrls ?? []
+  const projectTerms = new Set(
+    [...project.stack, ...project.tags, project.title, project.role]
+      .join(' ')
+      .toLowerCase()
+      .split(/\s+/)
+      .filter(Boolean),
+  )
+  const relatedIntentPages = Object.values(snapshot.marketingPages)
+    .filter((page) => page.intentPage)
+    .filter((page) => {
+      const intentText = `${page.title} ${page.description} ${page.targetKeyword} ${page.targetService}`.toLowerCase()
+      return [...projectTerms].some((term) => intentText.includes(term))
+    })
+    .slice(0, 3)
 
   return (
     <PageShell
@@ -281,6 +296,31 @@ function PortfolioDetailPage() {
               ))}
           </div>
         </div>
+        {relatedIntentPages.length > 0 ? (
+          <div className="grid gap-4 border-t border-[#D8D7C3]/10 pt-8 md:grid-cols-2">
+            <h2 className="font-display text-sm uppercase tracking-[0.2em] text-[#D8D7C3]/65">
+              Related use cases
+            </h2>
+            <div className="grid gap-3">
+              {relatedIntentPages.map((item) => (
+                <Link
+                  key={item.slug}
+                  to="/i/$slug"
+                  params={{ slug: item.slug }}
+                  className="group flex items-center justify-between border-b border-[#D8D7C3]/15 py-3 font-display text-xl font-black uppercase transition-colors hover:text-white"
+                >
+                  {item.title}
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    ↗
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
     </PageShell>
   )

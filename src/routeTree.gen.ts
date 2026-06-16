@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as LiveDemosRouteImport } from './routes/live-demos'
 import { Route as FaviconDoticoRouteImport } from './routes/favicon[.]ico'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -23,6 +24,7 @@ import { Route as ExperienceIndexRouteImport } from './routes/experience/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects/$slug'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio/$slug'
+import { Route as ISlugRouteImport } from './routes/i/$slug'
 import { Route as ExperienceSlugRouteImport } from './routes/experience/$slug'
 import { Route as AdminUsersRouteImport } from './routes/admin/users'
 import { Route as AdminSubmissionsRouteImport } from './routes/admin/submissions'
@@ -40,6 +42,11 @@ import { Route as DemosSlugSplatRouteImport } from './routes/demos/$slug/$'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LiveDemosRoute = LiveDemosRouteImport.update({
@@ -105,6 +112,11 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
 const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   id: '/portfolio/$slug',
   path: '/portfolio/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ISlugRoute = ISlugRouteImport.update({
+  id: '/i/$slug',
+  path: '/i/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceSlugRoute = ExperienceSlugRouteImport.update({
@@ -181,6 +193,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/favicon.ico': typeof FaviconDoticoRoute
   '/live-demos': typeof LiveDemosRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -193,6 +206,7 @@ export interface FileRoutesByFullPath {
   '/admin/submissions': typeof AdminSubmissionsRoute
   '/admin/users': typeof AdminUsersRoute
   '/experience/$slug': typeof ExperienceSlugRoute
+  '/i/$slug': typeof ISlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
@@ -209,6 +223,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/favicon.ico': typeof FaviconDoticoRoute
   '/live-demos': typeof LiveDemosRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -221,6 +236,7 @@ export interface FileRoutesByTo {
   '/admin/submissions': typeof AdminSubmissionsRoute
   '/admin/users': typeof AdminUsersRoute
   '/experience/$slug': typeof ExperienceSlugRoute
+  '/i/$slug': typeof ISlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin': typeof AdminIndexRoute
@@ -239,6 +255,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/favicon.ico': typeof FaviconDoticoRoute
   '/live-demos': typeof LiveDemosRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/admin/experience': typeof AdminExperienceRoute
   '/admin/hero': typeof AdminHeroRoute
@@ -251,6 +268,7 @@ export interface FileRoutesById {
   '/admin/submissions': typeof AdminSubmissionsRoute
   '/admin/users': typeof AdminUsersRoute
   '/experience/$slug': typeof ExperienceSlugRoute
+  '/i/$slug': typeof ISlugRoute
   '/portfolio/$slug': typeof PortfolioSlugRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/admin/': typeof AdminIndexRoute
@@ -270,6 +288,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/favicon.ico'
     | '/live-demos'
+    | '/robots.txt'
     | '/sitemap.xml'
     | '/admin/experience'
     | '/admin/hero'
@@ -282,6 +301,7 @@ export interface FileRouteTypes {
     | '/admin/submissions'
     | '/admin/users'
     | '/experience/$slug'
+    | '/i/$slug'
     | '/portfolio/$slug'
     | '/projects/$slug'
     | '/admin/'
@@ -298,6 +318,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/favicon.ico'
     | '/live-demos'
+    | '/robots.txt'
     | '/sitemap.xml'
     | '/admin/experience'
     | '/admin/hero'
@@ -310,6 +331,7 @@ export interface FileRouteTypes {
     | '/admin/submissions'
     | '/admin/users'
     | '/experience/$slug'
+    | '/i/$slug'
     | '/portfolio/$slug'
     | '/projects/$slug'
     | '/admin'
@@ -327,6 +349,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/favicon.ico'
     | '/live-demos'
+    | '/robots.txt'
     | '/sitemap.xml'
     | '/admin/experience'
     | '/admin/hero'
@@ -339,6 +362,7 @@ export interface FileRouteTypes {
     | '/admin/submissions'
     | '/admin/users'
     | '/experience/$slug'
+    | '/i/$slug'
     | '/portfolio/$slug'
     | '/projects/$slug'
     | '/admin/'
@@ -357,8 +381,10 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FaviconDoticoRoute: typeof FaviconDoticoRoute
   LiveDemosRoute: typeof LiveDemosRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ExperienceSlugRoute: typeof ExperienceSlugRoute
+  ISlugRoute: typeof ISlugRoute
   PortfolioSlugRoute: typeof PortfolioSlugRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ExperienceIndexRoute: typeof ExperienceIndexRoute
@@ -375,6 +401,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/live-demos': {
@@ -466,6 +499,13 @@ declare module '@tanstack/react-router' {
       path: '/portfolio/$slug'
       fullPath: '/portfolio/$slug'
       preLoaderRoute: typeof PortfolioSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/i/$slug': {
+      id: '/i/$slug'
+      path: '/i/$slug'
+      fullPath: '/i/$slug'
+      preLoaderRoute: typeof ISlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/experience/$slug': {
@@ -602,8 +642,10 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FaviconDoticoRoute: FaviconDoticoRoute,
   LiveDemosRoute: LiveDemosRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ExperienceSlugRoute: ExperienceSlugRoute,
+  ISlugRoute: ISlugRoute,
   PortfolioSlugRoute: PortfolioSlugRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ExperienceIndexRoute: ExperienceIndexRoute,
