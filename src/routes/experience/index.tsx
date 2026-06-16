@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 
 import { JsonLd } from '../../components/seo/JsonLd'
+import { CvDownloadButton } from '../../components/cv/CvDownloadButton'
 import { InquiryOrLink } from '../../components/inquiry/InquiryTrigger'
 import { PageShell } from '../../components/layout/PageShell'
 import { useExperience } from '../../contexts/CmsContext'
@@ -34,6 +35,7 @@ function ExperiencePage() {
         page?.description ??
         'A timeline of product engineering across agencies, studios, and product-led teams.'
       }
+      headerAction={<CvDownloadButton variant="accent" />}
       backTo="/"
     >
       <JsonLd
@@ -79,7 +81,7 @@ function ExperiencePage() {
                 <Link
                   to="/experience/$slug"
                   params={{ slug: item.slug }}
-                  className="mt-6 inline-flex font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
+                  className="mt-6 inline-flex font-display text-sm font-black uppercase text-[#E98A15] transition-colors hover:text-[#F5B04D]"
                 >
                   View full role details
                 </Link>
@@ -90,7 +92,7 @@ function ExperiencePage() {
 
         <InquiryOrLink
           to={footerCta.to}
-          className="mt-4 inline-flex w-fit font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
+          className="mt-8 inline-flex w-fit font-display text-sm font-black uppercase underline underline-offset-4 transition-colors hover:text-white"
           inquiry={{ source: 'experience' }}
         >
           {footerCta.label}

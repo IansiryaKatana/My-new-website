@@ -176,7 +176,7 @@ export function ContactForm({
       {submitError ? <p className={`text-sm text-[#8B2E2E] ${fontCopy}`}>{submitError}</p> : null}
 
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <Button type="submit" variant="dark" disabled={saving}>
+        <Button type="submit" variant="accent" disabled={saving}>
           {saving ? 'Sending…' : 'Send inquiry'}
         </Button>
         {submitted ? (

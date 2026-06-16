@@ -1,6 +1,7 @@
 ﻿import * as Dialog from '@radix-ui/react-dialog'
 import { Link } from '@tanstack/react-router'
 import { X } from 'lucide-react'
+import { useCallback, useState, type UIEvent } from 'react'
 
 import { useHeroContent, useSiteConfig } from '../../contexts/CmsContext'
 import { isInquiryHref } from '../../lib/inquiry/types'
@@ -15,6 +16,17 @@ export function HeroNavigation() {
   const heroContent = useHeroContent()
   const siteConfig = useSiteConfig()
   const { openInquiry } = useInquiry()
+  const [menuScrollProgress, setMenuScrollProgress] = useState(0)
+
+  const handleMenuScroll = useCallback((event: UIEvent<HTMLDivElement>) => {
+    const node = event.currentTarget
+    const maxScroll = node.scrollHeight - node.clientHeight
+    if (maxScroll <= 0) {
+      setMenuScrollProgress(0)
+      return
+    }
+    setMenuScrollProgress((node.scrollTop / maxScroll) * 100)
+  }, [])
 
   return (
     <header className="hero-nav absolute left-0 right-0 top-0 z-20 grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-6 py-5 text-[#D8D7C3] sm:px-8 sm:py-6">
@@ -70,8 +82,14 @@ export function HeroNavigation() {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-40 bg-[#10140D]/70 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out" />
-          <Dialog.Content className="fixed inset-0 z-50 flex flex-col bg-[#34392E] p-6 text-[#D8D7C3] data-[state=open]:animate-in data-[state=closed]:animate-out sm:p-8">
-            <div className="flex items-center justify-between">
+          <Dialog.Content className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-[#34392E] text-[#D8D7C3] data-[state=open]:animate-in data-[state=closed]:animate-out">
+            <div aria-hidden className="h-1 w-full bg-[#D8D7C3]/15">
+              <div
+                className="h-full bg-[#E98A15] transition-[width] duration-150"
+                style={{ width: `${menuScrollProgress}%` }}
+              />
+            </div>
+            <div className="flex shrink-0 items-center justify-between p-6 sm:p-8">
               <Dialog.Title className="font-display text-xl font-black uppercase">
                 {heroContent.name}
               </Dialog.Title>
@@ -86,30 +104,17 @@ export function HeroNavigation() {
               </Dialog.Close>
             </div>
 
-            <Dialog.Description className="mt-10 max-w-md font-display text-sm font-bold uppercase leading-tight tracking-[0.12em] text-[#D8D7C3]/80">
-              Navigate the portfolio identity page or jump straight into a
-              project inquiry.
-            </Dialog.Description>
+            <div
+              className="scrollbar-hidden min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 pb-6 sm:px-8 sm:pb-8"
+              onScroll={handleMenuScroll}
+            >
+              <Dialog.Description className="max-w-md font-display text-sm font-bold uppercase leading-tight tracking-[0.12em] text-[#D8D7C3]/80">
+                Navigate the portfolio identity page or jump straight into a
+                project inquiry.
+              </Dialog.Description>
 
-            <nav className="mt-12 grid gap-3">
-              {heroContent.navigation.map((item) =>
-                isInquiryHref(item.href) ? (
-                  <Dialog.Close asChild key={item.href}>
-                    <button
-                      type="button"
-                      className="group flex w-full items-center justify-between border-b border-[#D8D7C3]/35 py-4 text-left font-display text-5xl font-black uppercase leading-[0.85] tracking-[-0.04em] transition-colors hover:text-white sm:text-7xl"
-                      onClick={() => openInquiry({ source: 'hero-menu' })}
-                    >
-                      {item.label}
-                      <span
-                        aria-hidden="true"
-                        className="text-2xl transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1"
-                      >
-                        ↗
-                      </span>
-                    </button>
-                  </Dialog.Close>
-                ) : (
+              <nav className="mt-12 grid gap-3">
+                {heroContent.navigation.map((item) => (
                   <Dialog.Close asChild key={item.href}>
                     <Link
                       to={item.href}
@@ -124,13 +129,17 @@ export function HeroNavigation() {
                       </span>
                     </Link>
                   </Dialog.Close>
-                ),
-              )}
-            </nav>
+                ))}
+              </nav>
+            </div>
 
-            <div className="mt-auto flex flex-col gap-4 pt-10 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex shrink-0 flex-col gap-4 border-t border-[#D8D7C3]/15 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
               <Dialog.Close asChild>
-                <Button type="button" variant="light">
+                <Button
+                  type="button"
+                  variant="light"
+                  className="border-[#C62828] bg-[#C62828] text-[#D8D7C3] hover:border-[#A61E1E] hover:bg-[#A61E1E] hover:text-[#F5F0E8]"
+                >
                   Close menu
                 </Button>
               </Dialog.Close>

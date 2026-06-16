@@ -3,6 +3,7 @@
 import { useCms } from '../contexts/CmsContext'
 import { getSupabase } from '../integrations/supabase/client'
 import type { Tables } from '../integrations/supabase/database.types'
+import { slugifyTitle } from '../lib/slugify'
 import {
   adminBtn,
   adminBtnDanger,
@@ -59,6 +60,7 @@ export function AdminProjects() {
   const [step, setStep] = useState<1 | 2>(1)
   const [saveErr, setSaveErr] = useState<string | null>(null)
   const [deleteId, setDeleteId] = useState<string | null>(null)
+  const [slugTouched, setSlugTouched] = useState(false)
   const pagination = useAdminTablePagination(rows)
 
   async function refresh() {
@@ -75,6 +77,7 @@ export function AdminProjects() {
 
   function openCreate() {
     setDraft(emptyRow())
+    setSlugTouched(false)
     setStep(1)
     setSaveErr(null)
     setModalOpen(true)
@@ -82,9 +85,16 @@ export function AdminProjects() {
 
   function openEdit(row: Row) {
     setDraft({ ...row })
+    setSlugTouched(true)
     setStep(1)
     setSaveErr(null)
     setModalOpen(true)
+  }
+
+  function updateTitle(title: string) {
+    if (!draft) return
+    const nextSlug = slugTouched ? draft.slug : slugifyTitle(title)
+    setDraft({ ...draft, title, slug: nextSlug })
   }
 
   async function save() {
@@ -218,12 +228,21 @@ export function AdminProjects() {
             <>
               <label className="grid gap-2">
                 <span className={adminLabel}>Title</span>
-                <input className={adminInput} value={draft.title} onChange={(e) => setDraft({ ...draft, title: e.target.value })} />
+                <input className={adminInput} value={draft.title} onChange={(e) => updateTitle(e.target.value)} />
               </label>
               <label className="grid gap-2">
                 <span className={adminLabel}>Slug</span>
-                <input className={adminInput} value={draft.slug} onChange={(e) => setDraft({ ...draft, slug: e.target.value })} />
-                <span className="text-xs opacity-60">Public URL: /portfolio/{draft.slug || 'your-slug'}</span>
+                <input
+                  className={adminInput}
+                  value={draft.slug}
+                  onChange={(e) => {
+                    setSlugTouched(true)
+                    setDraft({ ...draft, slug: e.target.value })
+                  }}
+                />
+                <span className="text-xs opacity-60">
+                  Auto-generated from title. Public URL: /portfolio/{draft.slug || 'your-slug'}
+                </span>
               </label>
               <label className="grid gap-2">
                 <span className={adminLabel}>Summary</span>

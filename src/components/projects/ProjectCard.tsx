@@ -1,5 +1,6 @@
 ﻿import { Link } from '@tanstack/react-router'
 import type { Project } from '../../data/projects'
+import { BEHANCE_COVER_ASPECT_CLASS } from '../../lib/media'
 import { resolveProjectHref } from '../../lib/projectLinks'
 import { textCopySm } from '../../lib/typography'
 
@@ -30,11 +31,11 @@ export function ProjectCard({ project, invert = false, showImage = true }: Proje
       className={`group flex h-full flex-col overflow-hidden border transition-colors duration-300 ${surface}`}
     >
       {preview ? (
-        <Link to="/portfolio/$slug" params={{ slug: project.slug }} className="block overflow-hidden">
+        <Link to="/portfolio/$slug" params={{ slug: project.slug }} className="block overflow-hidden bg-[#10140D]">
           <img
             src={preview}
             alt=""
-            className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className={`${BEHANCE_COVER_ASPECT_CLASS} w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]`}
             loading="lazy"
           />
         </Link>

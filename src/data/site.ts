@@ -40,4 +40,6 @@
     { label: 'Stack', href: '/#stack' },
     { label: 'Contact', href: '/#contact' },
   ],
+  cvUrl: '' as string | undefined,
+  cvFileName: '' as string | undefined,
 }

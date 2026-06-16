@@ -131,10 +131,10 @@ function CertificationsPage() {
         )}
 
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-          <Link to="/about" className={buttonVariants({ variant: 'dark' })}>
+          <Link to="/about" className={buttonVariants({ variant: 'accent' })}>
             About me
           </Link>
-          <InquiryTrigger variant="darkMuted" inquiry={{ source: 'certifications' }}>
+          <InquiryTrigger variant="forest" inquiry={{ source: 'certifications' }}>
             Start a project
           </InquiryTrigger>
         </div>

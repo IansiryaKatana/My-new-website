@@ -6,6 +6,7 @@ import { InquiryTrigger } from '../../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../../components/ui/button'
 import { useProjects, useSiteConfig } from '../../contexts/CmsContext'
 import { fetchProjectBySlug } from '../../lib/cms/fetchProject'
+import { BEHANCE_COVER_ASPECT_CLASS } from '../../lib/media'
 import { projectCaseStudyPath, resolveProjectHref } from '../../lib/projectLinks'
 import { fontCopy, textCopyLg } from '../../lib/typography'
 import { breadcrumbJsonLd, createPageMeta } from '../../lib/seo'
@@ -129,35 +130,25 @@ function PortfolioDetailPage() {
 
       <div className="mx-auto grid max-w-6xl gap-10">
         {project.coverImageUrl ? (
-          <figure className="overflow-hidden border border-[#D8D7C3]/15">
+          <figure className="overflow-hidden border border-[#D8D7C3]/15 bg-[#10140D]">
             <img
               src={project.coverImageUrl}
               alt={`${project.title} cover`}
-              className="aspect-[16/9] w-full object-cover"
+              className={`${BEHANCE_COVER_ASPECT_CLASS} w-full object-contain`}
               loading="eager"
             />
           </figure>
         ) : null}
 
-        <div className="flex flex-wrap items-center gap-4">
-          <div className="flex flex-wrap gap-3">
-            {project.stack.map((tech) => (
-              <span
-                key={tech}
-                className="rounded-full border border-[#D8D7C3]/25 px-4 py-2 font-display text-xs font-black uppercase tracking-[0.12em]"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-          {referenceLink ? (
-            <ProjectReferenceLink
-              href={referenceLink.href}
-              isExternal={referenceLink.isExternal}
-              kind={referenceLink.kind}
-              className={buttonVariants({ variant: 'light' })}
-            />
-          ) : null}
+        <div className="flex flex-wrap gap-3">
+          {project.stack.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full border border-[#D8D7C3]/25 px-4 py-2 font-display text-xs font-black uppercase tracking-[0.12em]"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -171,12 +162,12 @@ function PortfolioDetailPage() {
                   {gallery.map((url) => (
                     <figure
                       key={url}
-                      className="overflow-hidden border border-[#D8D7C3]/15"
+                      className="overflow-hidden border border-[#D8D7C3]/15 bg-[#10140D]"
                     >
                       <img
                         src={url}
                         alt=""
-                        className="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                        className={`${BEHANCE_COVER_ASPECT_CLASS} w-full object-contain transition-transform duration-500 hover:scale-[1.02]`}
                         loading="lazy"
                       />
                     </figure>
@@ -202,29 +193,29 @@ function PortfolioDetailPage() {
             ) : null}
           </div>
 
-          <aside className="grid gap-4 self-start border border-[#D8D7C3]/15 p-6">
+          <aside className="grid gap-4 self-start border border-[#11140F]/15 bg-[#D8D7C3] p-6 text-[#11140F]">
             <div>
-              <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#D8D7C3]/60">
+              <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#11140F]/60">
                 Role
               </p>
               <p className="mt-2 font-display text-xl font-black uppercase">{project.role}</p>
             </div>
             <div>
-              <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#D8D7C3]/60">
+              <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#11140F]/60">
                 Year
               </p>
               <p className="mt-2 font-display text-xl font-black uppercase">{project.year}</p>
             </div>
             {project.tags.length > 0 ? (
               <div>
-                <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#D8D7C3]/60">
+                <p className="font-display text-xs font-black uppercase tracking-[0.18em] text-[#11140F]/60">
                   Tags
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-[#D8D7C3]/25 px-3 py-1 font-display text-[0.65rem] font-black uppercase tracking-[0.12em]"
+                      className="rounded-full border border-[#11140F]/25 px-3 py-1 font-display text-[0.65rem] font-black uppercase tracking-[0.12em]"
                     >
                       {tag}
                     </span>
@@ -233,12 +224,12 @@ function PortfolioDetailPage() {
               </div>
             ) : null}
             {referenceLink ? (
-              <div className="border-t border-[#D8D7C3]/10 pt-4">
+              <div className="border-t border-[#11140F]/10 pt-4">
                 <ProjectReferenceLink
                   href={referenceLink.href}
                   isExternal={referenceLink.isExternal}
                   kind={referenceLink.kind}
-                  className={`${buttonVariants({ variant: 'outline' })} w-full justify-center`}
+                  className={`${buttonVariants({ variant: 'forest' })} w-full justify-center`}
                 />
               </div>
             ) : null}

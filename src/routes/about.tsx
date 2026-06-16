@@ -3,6 +3,7 @@
 import { JsonLd } from '../components/seo/JsonLd'
 import { AboutCredentials } from '../components/about/AboutCredentials'
 import { PageShell } from '../components/layout/PageShell'
+import { CvDownloadButton } from '../components/cv/CvDownloadButton'
 import { InquiryOrLink } from '../components/inquiry/InquiryTrigger'
 import { buttonVariants } from '../components/ui/button'
 import { useSiteConfig } from '../contexts/CmsContext'
@@ -130,7 +131,7 @@ function AboutPage() {
                 </ul>
               </div>
 
-              <div className="flex flex-col gap-4 sm:flex-row">
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <Link
                   to={sections.primaryCta.to}
                   className={buttonVariants({ variant: 'accent' })}
@@ -144,6 +145,7 @@ function AboutPage() {
                 >
                   {sections.secondaryCta.label}
                 </InquiryOrLink>
+                <CvDownloadButton variant="lightMuted" />
               </div>
             </div>
           </div>

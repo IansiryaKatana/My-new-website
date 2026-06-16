@@ -80,6 +80,14 @@ export function mapSiteSettings(
       fallback.navigation,
     ),
     homeSections: profile.homeSections ?? fallback.homeSections,
+    cvUrl:
+      typeof profile.cvUrl === 'string' && profile.cvUrl.trim()
+        ? profile.cvUrl.trim()
+        : fallback.cvUrl,
+    cvFileName:
+      typeof profile.cvFileName === 'string' && profile.cvFileName.trim()
+        ? profile.cvFileName.trim()
+        : fallback.cvFileName,
   } as SiteConfig
 }
 

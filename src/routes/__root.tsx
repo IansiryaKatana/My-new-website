@@ -18,6 +18,7 @@ import { AdminAuthProvider } from '../contexts/AdminAuthContext'
 import { InquiryProvider } from '../contexts/InquiryContext'
 import { CmsProvider } from '../contexts/CmsContext'
 import { InquiryDialog } from '../components/inquiry/InquiryDialog'
+import { PageTransition } from '../components/layout/PageTransition'
 import { siteConfig } from '../data/site'
 
 import { fontCopy } from '../lib/typography'
@@ -191,7 +192,11 @@ function RootComponent() {
 
           <InquiryProvider>
 
-            <Outlet />
+            <PageTransition>
+
+              <Outlet />
+
+            </PageTransition>
 
             <InquiryDialog />
 

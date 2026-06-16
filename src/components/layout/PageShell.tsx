@@ -12,6 +12,7 @@ type PageShellProps = {
   eyebrow: string
   title: string
   description?: string
+  headerAction?: ReactNode
   backTo?: string
   backLabel?: string
   theme?: PageThemeName
@@ -22,6 +23,7 @@ export function PageShell({
   eyebrow,
   title,
   description,
+  headerAction,
   backTo = '/',
   backLabel = 'Back home',
   theme = 'dark',
@@ -76,6 +78,7 @@ export function PageShell({
               {description}
             </p>
           ) : null}
+          {headerAction ? <div className="mt-8">{headerAction}</div> : null}
         </div>
       </section>
 
