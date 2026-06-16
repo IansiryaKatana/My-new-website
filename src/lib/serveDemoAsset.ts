@@ -2,6 +2,7 @@ import { createReadStream, existsSync, readFileSync } from 'node:fs'
 import { join, normalize } from 'node:path'
 
 import { getDemoBySlug } from './demoLinks'
+import { getProjectRoot } from './projectRoot'
 
 const MIME_TYPES: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',
@@ -19,7 +20,7 @@ const MIME_TYPES: Record<string, string> = {
 }
 
 export function getDemosDistRoot() {
-  return join(process.cwd(), 'demos-dist')
+  return join(getProjectRoot(), 'demos-dist')
 }
 
 export function resolveDemoAssetPath(slug: string, assetPath: string) {
