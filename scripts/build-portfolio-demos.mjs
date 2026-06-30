@@ -23,9 +23,9 @@ if (onlySlug && targets.length === 0) {
   process.exit(1)
 }
 
-function findManifestFile(demoDir, slug) {
+function findManifestFile(demoDir, buildRootRel) {
   const candidates = [
-    join(demoDir, '.hosted-build', slug, 'server', 'assets'),
+    join(demoDir, buildRootRel, 'server', 'assets'),
     join(demoDir, 'dist', 'server', 'assets'),
   ]
 
@@ -38,19 +38,39 @@ function findManifestFile(demoDir, slug) {
   return null
 }
 
-function resolveClientDir(demoDir, slug) {
-  const hostedClient = join(demoDir, '.hosted-build', slug, 'client')
+function resolveClientDir(demoDir, buildRootRel) {
+  const hostedClient = join(demoDir, buildRootRel, 'client')
   if (existsSync(hostedClient)) return hostedClient
   return join(demoDir, 'dist', 'client')
 }
 
-function writeDemoIndexHtmlFallback(targetDir, demoDir, slug) {
+function pruneOldHostedBuilds(demoDir, slug, keepBuildRootRel) {
+  const hostedRoot = join(demoDir, '.hosted-build')
+  if (!existsSync(hostedRoot)) return
+
+  const keepPath = resolve(join(demoDir, keepBuildRootRel))
+  for (const entry of readdirSync(hostedRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue
+    if (entry.name !== slug && !entry.name.startsWith(`${slug}-`)) continue
+
+    const candidate = resolve(join(hostedRoot, entry.name))
+    if (candidate === keepPath) continue
+
+    try {
+      removePathRobust(candidate, entry.name)
+    } catch {
+      // Best-effort; locked folders are left for manual cleanup.
+    }
+  }
+}
+
+function writeDemoIndexHtmlFallback(targetDir, demoDir, buildRootRel) {
   const prerenderedIndex = join(targetDir, 'index.html')
   if (existsSync(prerenderedIndex)) {
     return
   }
 
-  const manifestPath = findManifestFile(demoDir, slug)
+  const manifestPath = findManifestFile(demoDir, buildRootRel)
   if (!manifestPath) {
     console.warn(`No prerendered index.html or TanStack manifest for ${targetDir}`)
     return
@@ -112,6 +132,7 @@ for (const demo of targets) {
   }
 
   const demoBase = demoPublicBase(demo.slug)
+  const buildRootRel = `.hosted-build/${demo.slug}-${Date.now()}`
   console.log(`\nBuilding ${demo.slug} → ${demoBase}`)
 
   if (!existsSync(join(demoDir, 'node_modules'))) {
@@ -135,6 +156,7 @@ for (const demo of targets) {
         ...process.env,
         DEMO_BASE_PATH: demoBase,
         DEMO_PRERENDER: 'true',
+        DEMO_BUILD_ROOT: buildRootRel,
       },
       stdio: 'inherit',
     })
@@ -144,7 +166,7 @@ for (const demo of targets) {
     continue
   }
 
-  const clientDir = resolveClientDir(demoDir, demo.slug)
+  const clientDir = resolveClientDir(demoDir, buildRootRel)
   if (!existsSync(clientDir)) {
     console.warn(`Skipping copy for ${demo.slug}: dist/client not found`)
     failed.push({ slug: demo.slug, reason: 'dist/client not found' })
@@ -161,7 +183,8 @@ for (const demo of targets) {
       copyFileSync(sourceIndex, targetIndex)
     }
 
-    writeDemoIndexHtmlFallback(targetDir, demoDir, demo.slug)
+    writeDemoIndexHtmlFallback(targetDir, demoDir, buildRootRel)
+    pruneOldHostedBuilds(demoDir, demo.slug, buildRootRel)
     console.log(`Published ${demo.slug} to demos-dist/${demo.slug}/`)
     succeeded.push(demo.slug)
   } catch (error) {

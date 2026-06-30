@@ -14,7 +14,7 @@ export function getHostedDemoSlug() {
 }
 
 export function getHostedDemoBuildRoot() {
-  return `.hosted-build/${getHostedDemoSlug()}`
+  return process.env.DEMO_BUILD_ROOT ?? `.hosted-build/${getHostedDemoSlug()}`
 }
 
 /** Alternate build output when dist/ is locked by a running dev server. */
@@ -22,23 +22,25 @@ export function getHostedDemoDefineExtras(): Record<string, unknown> {
   if (!isHostedDemoBuild()) return {}
 
   const buildRoot = getHostedDemoBuildRoot()
+  // Fresh per-build output (DEMO_BUILD_ROOT) can empty safely; reused paths must not (Windows EPERM).
+  const emptyOutDir = Boolean(process.env.DEMO_BUILD_ROOT)
 
   return {
     build: {
-      emptyOutDir: true,
+      emptyOutDir,
       outDir: buildRoot,
     },
     environments: {
       client: {
         build: {
           outDir: `${buildRoot}/client`,
-          emptyOutDir: true,
+          emptyOutDir,
         },
       },
       ssr: {
         build: {
           outDir: `${buildRoot}/server`,
-          emptyOutDir: true,
+          emptyOutDir,
         },
       },
     },
